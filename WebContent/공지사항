@@ -1,0 +1,15 @@
+-테이블 생성 
+ERD/create_table.sql 사용
+
+-오라클 접속정보 :
+id: maxim0316
+password: tiger0316
+
+-톰캣서버 설정:
+HTTP/1.1포트: 8109
+
+-요청사항은  request 폴더 활용
+
+-유저관련 jsp는 User폴더에
+-게시판관련 jsp는 Board폴더에
+
