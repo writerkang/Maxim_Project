@@ -1,6 +1,11 @@
 package beans;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 import common.PostQuery;
 
@@ -53,5 +58,116 @@ public class PostDAO extends DefaultDAO {
 			
 			return cnt;
 		} // end deleteByUid()
+				
+		// ResultSet --> DTO 배열로 리턴
+		public PostDTO [] createArray(ResultSet rs) throws SQLException {
+			PostDTO [] arr = null;  // DTO 배열
+			
+			ArrayList<PostDTO> list = new ArrayList<PostDTO>();
+			
+			while(rs.next()) {
+				int post_uid = rs.getInt("post_uid");
+				String post_subject = rs.getString("post_subject");
+				String post_content = rs.getString("post_content");
+				int post_viewcnt = rs.getInt("post_viewcnt");
+				int board_uid = rs.getInt("board_uid");
+				int category_uid = rs.getInt("category_uid");
+				int user_uid = rs.getInt("user_uid");					
+				Date d = rs.getDate("post_regdate");
+				Time t = rs.getTime("post_regdate");
+				
+				String post_regdate = "";
+				if(d != null){
+					post_regdate = new SimpleDateFormat("yyyy-MM-dd").format(d) + " "
+							+ new SimpleDateFormat("hh:mm:ss").format(t);
+				}
+				
+				PostDTO dto = new PostDTO(post_uid, post_subject, post_content, 
+						post_regdate, post_viewcnt,
+						board_uid, user_uid, category_uid);
+				dto.setPost_regdate(post_regdate);
+				list.add(dto);
+				
+			} // end while
+			
+			int size = list.size();
+			
+			if(size == 0) return null;
+			
+			arr = new PostDTO[size];
+			list.toArray(arr);  // List -> 배열		
+			return arr;
+		}
+		
+		// tb_post의 모든 값 가져오기
+		public PostDTO [] select() throws SQLException {
+			PostDTO [] arr = null;
+			
+			try {
+				pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT);
+				rs = pstmt.executeQuery();
+				arr = createArray(rs);
+			} finally {
+				close();
+			}		
+			
+			return arr;
+		} // end select()
+		
+		// 특정 post_uid 의 글 내용 읽기, 조회수 증가
+		// viewCnt 도 1 증가 해야 하고, 읽어와야 한다 --> 트랜잭션 처리	
+		public PostDTO [] readByUid(int post_uid) throws SQLException{
+			int cnt = 0;
+			PostDTO [] arr = null;
+			
+			try {
+				//Auto-commit 비활성화
+				conn.setAutoCommit(false);
+				
+				//조회수 먼저 올리고
+				pstmt = conn.prepareStatement(PostQuery.SQL_POST_INC_VIEWCNT);
+				pstmt.setInt(1, post_uid);
+				cnt = pstmt.executeUpdate();
+				
+				pstmt.close();
+				
+				//게시글 보여주기 위해 모든 요소 가져오기
+				pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT_BY_UID);
+				pstmt.setInt(1, post_uid);
+				rs = pstmt.executeQuery();
+				
+				arr = createArray(rs);
+				conn.commit();
+				
+			} catch(SQLException e) {
+				conn.rollback();
+				throw e;
+			} finally {
+				close();
+			}
+			
+			return arr;
+			
+		} //end readByUid()
+		
+		// 특정 post_uid 의 게시글 모든 요소 가져오기, 조회수 증가없음
+		public PostDTO[] selectByUid(int post_uid) throws SQLException{
+			PostDTO [] arr = null;
+			
+			try {
+				pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT_BY_UID);
+				pstmt.setInt(1, post_uid);
+				rs = pstmt.executeQuery();
+				arr = createArray(rs);
+			} finally {
+				close();
+			}
+			
+			return arr;
+		}
+		
+		// 게시글 수정 기능 
+		//TODO
+		
 
-} //end DefaultDAO
+} //end PostDAO

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.board.PostDeleteCommand;
+import command.board.PostListCommand;
 import command.board.PostWriteCommand;
 import common.Command;
 
@@ -50,6 +51,12 @@ public class PostController extends HttpServlet {
 				// 컨트롤러는 커맨드에 따라, 로직을 수행하고
 				// 결과를 내보낼 view 를 결정한다
 				switch(com) {
+				
+				case "/freeBoardList.po":
+					command = new PostListCommand();
+					command.execute(request, response);
+					viewPage = "freeBoardList.jsp";
+					break;
 				
 				case "/freePostWrite.po":
 					viewPage = "freePostWrite.jsp";
