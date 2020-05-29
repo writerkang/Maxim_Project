@@ -1,12 +1,17 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.board.PostDeleteCommand;
+import command.board.PostListCommand;
+import command.board.PostWriteCommand;
 import common.Command;
 
 
@@ -46,44 +51,35 @@ public class PostController extends HttpServlet {
 				// 컨트롤러는 커맨드에 따라, 로직을 수행하고
 				// 결과를 내보낼 view 를 결정한다
 				switch(com) {
-				case "/list.do":
-					command = new ListCommand();
+				
+				case "/freeBoardList.po":
+					command = new PostListCommand();
 					command.execute(request, response);
-					viewPage = "list.jsp";
-					break;
-				case "/write.do":
-					viewPage = "write.jsp";
-					break;
-					
-				case "/writeOk.do":
-					command = new WriteCommand();
-					command.execute(request, response);
-					viewPage = "writeOk.jsp";
+					viewPage = "freeBoardList.jsp";
 					break;
 				
-				case "/view.do":
-					command = new ViewCommand();
+				case "/tipBoardList.po":
+					command = new PostListCommand();
 					command.execute(request, response);
-					viewPage = "view.jsp";
+					viewPage = "tipBoardList.jsp";
+					break;
+				
+				case "/freePostWrite.po":
+					viewPage = "freePostWrite.jsp";
 					break;
 					
-				case "/update.do":
-					command = new SelectCommand();
+				case "/freePostWriteOk.po":
+					command = new PostWriteCommand();
 					command.execute(request, response);
-					viewPage = "update.jsp";
+					viewPage = "freePostWriteOk.jsp";
 					break;
 					
-				case "/updateOk.do":
-					command = new UpdateCommand();
+				case "/freePostDeleteOk.po":
+					command = new PostDeleteCommand();
 					command.execute(request, response);
-					viewPage = "updateOk.jsp";
-					break;
+					viewPage = "freePostDeleteOk.jsp";
+					break;				
 					
-				case "/deleteOk.do":
-					command = new DeleteCommand();
-					command.execute(request, response);
-					viewPage = "deleteOk.jsp";
-					break;
 					
 				} // end switch
 				
