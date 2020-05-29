@@ -67,7 +67,6 @@ CREATE TABLE tb_post
     post_regdate    DATE            DEFAULT SYSDATE NOT NULL, 
     post_viewcnt    NUMBER          DEFAULT 0 NOT NULL, 
     board_uid       NUMBER          NOT NULL, 
-    post_star       NUMBER          DEFAULT 0 NOT NULL, 
     user_uid        NUMBER          NOT NULL, 
     category_uid    NUMBER          NOT NULL
 );
