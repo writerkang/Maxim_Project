@@ -28,6 +28,9 @@ CREATE SEQUENCE star_seq;
 CREATE SEQUENCE board_seq;
 
 
+--외래키 제약 설정 필요!
+--TODO
+
 --테이블 생성
 CREATE TABLE tb_user
 (

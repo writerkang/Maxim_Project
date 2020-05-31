@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.board.PostDeleteCommand;
 import command.board.PostListCommand;
+import command.board.PostUpdateCommand;
+import command.board.PostViewCommand;
 import command.board.PostWriteCommand;
 import common.Command;
 
@@ -63,9 +65,25 @@ public class PostController extends HttpServlet {
 					command.execute(request, response);
 					viewPage = "tipBoardList.jsp";
 					break;
+					
+				case "/freePostView.po":
+					command = new PostViewCommand();
+					command.execute(request, response);
+					viewPage = "freePostView.jsp";
+					break;
 				
+				case "/tipPostView.po":
+					command = new PostViewCommand();
+					command.execute(request, response);
+					viewPage = "tipPostView.jsp";
+					break;
+					
 				case "/freePostWrite.po":
 					viewPage = "freePostWrite.jsp";
+					break;
+					
+				case "/tipPostWrite.po":
+					viewPage = "tipPostWrite.jsp";
 					break;
 					
 				case "/freePostWriteOk.po":
@@ -74,10 +92,42 @@ public class PostController extends HttpServlet {
 					viewPage = "freePostWriteOk.jsp";
 					break;
 					
+				case "/tipPostWriteOk.po":
+					command = new PostWriteCommand();
+					command.execute(request, response);
+					viewPage = "tipPostWriteOk.jsp";
+					break;
+					
+				case "/freePostUpdate.po":
+					viewPage = "freePostUpdate.jsp";
+					break;
+					
+				case "/tipPostUpdate.po":
+					viewPage = "tipPostUpdate.jsp";
+					break;
+					
+				case "/freePostUpdateOk.po":
+					command = new PostUpdateCommand();
+					command.execute(request, response);
+					viewPage = "freePostUpdateOk.jsp";
+					break;
+					
+				case "/tipPostUpdateOk.po":
+					command = new PostUpdateCommand();
+					command.execute(request, response);
+					viewPage = "tipPostUpdateOk.jsp";
+					break;
+					
 				case "/freePostDeleteOk.po":
 					command = new PostDeleteCommand();
 					command.execute(request, response);
 					viewPage = "freePostDeleteOk.jsp";
+					break;				
+					
+				case "/tipPostDeleteOk.po":
+					command = new PostDeleteCommand();
+					command.execute(request, response);
+					viewPage = "tipPostDeleteOk.jsp";
 					break;				
 					
 					

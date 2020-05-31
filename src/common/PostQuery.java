@@ -16,9 +16,9 @@ public class PostQuery {
 			"SELECT * FROM tb_post WHERE post_uid = ?";
 	
 	public static final String SQL_POST_SELECT =
-			"SELECT * FROM test_write ORDER BY wr_uid DESC";
+			"SELECT * FROM tb_post ORDER BY post_uid DESC";
 	
-	public static final String SQL_WRITE_UPDATE = 
-			"UPDATE test_write SET wr_subject = ?, wr_content = ? WHERE wr_uid = ?";
+	public static final String SQL_POST_UPDATE = 
+			"UPDATE tb_post SET post_subject = ?, post_content = ? WHERE post_uid = ?";
 
 }

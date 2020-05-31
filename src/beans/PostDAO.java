@@ -167,7 +167,23 @@ public class PostDAO extends DefaultDAO {
 		}
 		
 		// 게시글 수정 기능 
-		//TODO
+		public int update(int post_uid, String post_subject, String post_content) throws SQLException{
+			int cnt = 0;
+			
+			try {
+				pstmt = conn.prepareStatement(PostQuery.SQL_POST_UPDATE);
+				pstmt.setString(1, post_subject);
+				pstmt.setString(2, post_content);
+				pstmt.setInt(3, post_uid);
+				
+				cnt = pstmt.executeUpdate();
+				
+			} finally {
+				close();
+			}
+			
+			return cnt;
+		} //end update()
 		
 
 } //end PostDAO
