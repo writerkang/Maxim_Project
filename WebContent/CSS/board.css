@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+*
+{font-family: 'Suisse Regular', sans-serif;}
+
 #tag{
     width: 85%;
     height: 100px;

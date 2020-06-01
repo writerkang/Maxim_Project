@@ -60,74 +60,74 @@ public class PostController extends HttpServlet {
 					viewPage = "freeBoardList.jsp";
 					break;
 				
-				case "/tipBoardList.po":
+				case "/Board/tipBoardList.po":
 					command = new PostListCommand();
 					command.execute(request, response);
-					viewPage = "/Board/tipBoardList.jsp";
+					viewPage = "tipBoardList.jsp";
 					break;
 					
-				case "/freePostView.po":
+				case "/Board/freePostView.po":
 					command = new PostViewCommand();
 					command.execute(request, response);
-					viewPage = "/Board/freePostView.jsp";
+					viewPage = "freePostView.jsp";
 					break;
 				
-				case "/tipPostView.po":
+				case "/Board/tipPostView.po":
 					command = new PostViewCommand();
 					command.execute(request, response);
-					viewPage = "/Board/tipPostView.jsp";
+					viewPage = "tipPostView.jsp";
 					break;
 					
-				case "/freePostWrite.po":
-					viewPage = "/Board/freePostWrite.jsp";
+				case "/Board/freePostWrite.po":
+					viewPage = "freePostWrite.jsp";
 					break;
 					
-				case "/tipPostWrite.po":
-					viewPage = "/Board/tipPostWrite.jsp";
+				case "/Board/tipPostWrite.po":
+					viewPage = "tipPostWrite.jsp";
 					break;
 					
-				case "/freePostWriteOk.po":
+				case "/Board/freePostWriteOk.po":
 					command = new PostWriteCommand();
 					command.execute(request, response);
-					viewPage = "/Board/freePostWriteOk.jsp";
+					viewPage = "freePostWriteOk.jsp";
 					break;
 					
-				case "/tipPostWriteOk.po":
+				case "/Board/tipPostWriteOk.po":
 					command = new PostWriteCommand();
 					command.execute(request, response);
-					viewPage = "/Board/tipPostWriteOk.jsp";
+					viewPage = "tipPostWriteOk.jsp";
 					break;
 					
-				case "/freePostUpdate.po":
-					viewPage = "/Board/freePostUpdate.jsp";
+				case "/Board/freePostUpdate.po":
+					viewPage = "freePostUpdate.jsp";
 					break;
 					
-				case "/tipPostUpdate.po":
-					viewPage = "/Board/tipPostUpdate.jsp";
+				case "/Board/tipPostUpdate.po":
+					viewPage = "tipPostUpdate.jsp";
 					break;
 					
-				case "/freePostUpdateOk.po":
+				case "/Board/freePostUpdateOk.po":
 					command = new PostUpdateCommand();
 					command.execute(request, response);
-					viewPage = "/Board/freePostUpdateOk.jsp";
+					viewPage = "freePostUpdateOk.jsp";
 					break;
 					
-				case "/tipPostUpdateOk.po":
+				case "/Board/tipPostUpdateOk.po":
 					command = new PostUpdateCommand();
 					command.execute(request, response);
-					viewPage = "/Board/tipPostUpdateOk.jsp";
+					viewPage = "tipPostUpdateOk.jsp";
 					break;
 					
-				case "/freePostDeleteOk.po":
+				case "/Board/freePostDeleteOk.po":
 					command = new PostDeleteCommand();
 					command.execute(request, response);
-					viewPage = "/Board/freePostDeleteOk.jsp";
+					viewPage = "freePostDeleteOk.jsp";
 					break;				
 					
-				case "/tipPostDeleteOk.po":
+				case "/Board/tipPostDeleteOk.po":
 					command = new PostDeleteCommand();
 					command.execute(request, response);
-					viewPage = "/Board/tipPostDeleteOk.jsp";
+					viewPage = "tipPostDeleteOk.jsp";
 					break;				
 					
 					
