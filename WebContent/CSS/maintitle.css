@@ -3,10 +3,11 @@
     margin: 0;
     padding: 0;
 }
+
+@media screen and (max-width: 480px){
 article{
-    
     background: #0a2a43; 
-     min-height: 2000px;
+     min-height: 1500px;
 }
 section{
     position: relative;
@@ -64,3 +65,4 @@ section:after{
     font-family: 'Noto Sans KR', sans-serif;
     color: #DEDEDE;
 }
+} /*end @media screen and(max-width:480px) */ 
