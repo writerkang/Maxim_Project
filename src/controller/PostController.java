@@ -54,10 +54,10 @@ public class PostController extends HttpServlet {
 				// 결과를 내보낼 view 를 결정한다
 				switch(com) {
 				
-				case "/freeBoardList.po":
+				case "/Board/freeBoardList.po":
 					command = new PostListCommand();
 					command.execute(request, response);
-					viewPage = "/Board/freeBoardList.jsp";
+					viewPage = "freeBoardList.jsp";
 					break;
 				
 				case "/tipBoardList.po":
