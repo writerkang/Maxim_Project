@@ -1,0 +1,138 @@
+@charset "UTF-8";
+body{
+    box-sizing: border-box;
+    font-family: 'Suisse Regular', sans-serif;
+}
+p{
+    padding: 0px;
+    margin: 0px;
+}
+
+@media screen and (min-width: 480px) {
+    /* 전체 모달 영역 */
+    .modal {
+        width: 500px;
+        height: auto;
+        border: 1px solid black;
+        margin: 250px auto;
+    }
+
+
+
+    /* 이메일 찾기 title 부분 */
+    .title{
+       border: 1px solid black;
+       background-color: #333333;
+       color: #fff;
+       height: 90px;
+    }
+    p{
+        /* border: 1px solid white; */
+        font-size: 28px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+
+
+
+
+    /* 컨테이너  */
+    input{
+        display: inline-block;
+    }
+    
+    /* form 덩어리 */
+    .container01{
+        /* border: 1px solid black; */
+        text-align: center;
+    }
+    
+    .container02{
+        /* border: 1px solid black; */
+       
+        margin: auto;
+        margin-top: 30px;
+        /* margin-bottom: 18px; */
+        padding: 8px;
+    }
+
+    /* 라벨  */
+    .name01, .phone02{
+        font-size: 22px;
+        color: #333333;
+    }
+
+    /* input 크기,, width, 테두리색, margin-bottom */
+    input[type=text], input[type=number]{
+        font-size: 25px;
+        width: 240px;
+        border-color: #DEDEDE;
+        border-style: solid;
+        /* margin-bottom: 12px; */
+        border-radius: 3px;
+    }
+    
+    /* 이름 text 랑 input 사이 */
+    input[type=text]{
+        margin-left: 80px;
+    }
+    
+    input[type=number]{
+        margin-top: 12px;
+    }
+    label.phone02{
+        margin-right: 37px;
+    }
+
+    /* ※ text  */
+    span.warning{
+        display: inline-block;
+        text-align: right;
+
+        position: relative;
+        left: 85px;
+        font-size: 13px;
+    }
+
+
+
+
+
+
+
+    /* 버튼 영역 */
+    .btn01{
+        /* border: 1px solid black ; */
+        text-align: center;
+        padding: 15px;
+        margin: 10px 0px 40px 0px;
+    }
+    
+    #beforeBtn, #findBtn{
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        border-radius: 10px;
+       cursor: pointer;
+       border-style: solid;
+       border-color: #B3B3B3;
+    }
+
+    /* 이전화면 버튼 */
+    #beforeBtn{
+        margin-right: 3px;
+        border-color: #DEDEDE;
+        color:  #B3B3B3;
+    }
+    
+    #beforeBtn:hover{
+        border-color: #808080;
+        color: #686464;
+    }
+    
+   #findBtn:hover{
+       border-color: #4d4949;
+       color: #333333;
+   }
+}
