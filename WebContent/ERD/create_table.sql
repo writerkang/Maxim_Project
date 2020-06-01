@@ -10,6 +10,7 @@ DROP TABLE tb_star CASCADE CONSTRAINT purge;
 DROP TABLE tb_board CASCADE CONSTRAINT purge;
 DROP TABLE tb_site CASCADE CONSTRAINT purge;
 
+DROP SEQUENCE user_seq;
 
 
 --생성된 테이블 확인
@@ -28,6 +29,7 @@ CREATE SEQUENCE star_seq;
 CREATE SEQUENCE board_seq;
 
 
+
 --외래키 제약 설정 필요!
 --TODO
 
@@ -40,14 +42,17 @@ CREATE TABLE tb_user
     user_name       VARCHAR2(30)    UNIQUE NOT NULL, 
     user_regdate    DATE            DEFAULT SYSDATE NOT NULL, 
     user_phone      VARCHAR2(20)    UNIQUE NOT NULL, 
+    user_emailHash 	VARCHAR2(70) 	NOT NULL UNIQUE,
+    user_emailChecked VARCHAR2(1) 	NOT NULL,
+    user_nickName 	VARCHAR2(5)		NOT NULL,
     user_isvalid    CHAR(1)         DEFAULT 'F' NOT NULL, 
     user_auth       CHAR(1)         DEFAULT 'G' NOT NULL, 
     user_point      NUMBER          DEFAULT 10 NOT NULL, 
     user_sns        VARCHAR2(20)    , 
     user_snsid      VARCHAR2(20)    , 
-    user_email2     VARCHAR2(30)    
+    user_email2     VARCHAR2(30)  	  
     );
-    
+SELECT * FROM TB_USER;
 
 
 CREATE TABLE tb_category

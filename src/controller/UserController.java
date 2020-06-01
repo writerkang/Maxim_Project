@@ -46,42 +46,42 @@ public class UserController extends HttpServlet {
 		// 결과를 내보낼 view 를 결정한다
 		switch(com) {
 		case "/list.uo":
-			command = new ListCommand();
-			command.execute(request, response);
-			viewPage = "list.jsp";
+//			command = new ListCommand();
+//			command.execute(request, response);
+//			viewPage = "list.jsp";
 			break;
 		case "/write.uo":
 			viewPage = "write.jsp";
 			break;
 			
 		case "/writeOk.uo":
-			command = new WriteCommand();
-			command.execute(request, response);
-			viewPage = "writeOk.jsp";
+//			command = new WriteCommand();
+//			command.execute(request, response);
+//			viewPage = "writeOk.jsp";
 			break;
 		
 		case "/view.uo":
-			command = new ViewCommand();
-			command.execute(request, response);
-			viewPage = "view.jsp";
+//			command = new ViewCommand();
+//			command.execute(request, response);
+//			viewPage = "view.jsp";
 			break;
 			
 		case "/update.uo":
-			command = new SelectCommand();
-			command.execute(request, response);
-			viewPage = "update.jsp";
+//			command = new SelectCommand();
+//			command.execute(request, response);
+//			viewPage = "update.jsp";
 			break;
 			
 		case "/updateOk.uo":
-			command = new UpdateCommand();
-			command.execute(request, response);
-			viewPage = "updateOk.jsp";
+//			command = new UpdateCommand();
+//			command.execute(request, response);
+//			viewPage = "updateOk.jsp";
 			break;
 			
 		case "/deleteOk.uo":
-			command = new DeleteCommand();
-			command.execute(request, response);
-			viewPage = "deleteOk.jsp";
+//			command = new DeleteCommand();
+//			command.execute(request, response);
+//			viewPage = "deleteOk.jsp";
 			break;
 			
 		} // end switch
