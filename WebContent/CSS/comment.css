@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+*
+{font-family: 'Suisse Regular', sans-serif;}
+
 #content{
     width: 62%;
     padding: 20px 40px 20px 10px;

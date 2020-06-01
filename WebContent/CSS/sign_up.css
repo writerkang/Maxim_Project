@@ -1,5 +1,8 @@
 @charset "utf-8";
 
+*
+{font-family: 'Suisse Regular', sans-serif;}
+
 #main{
     background-color: #FFD966;
     width: 85%;
@@ -24,20 +27,6 @@
     border-radius: 10px;
 }
 
-#email_site{
-    margin: 10px 0px;
-    width: 98%;
-    font-size: 40px;
-    border-radius: 10px;
-    border: none;
-    padding: 5px 5px 10px 5px;
-    color: #B3B3B3;
-}
-
-select option{
-    font-size: 10px;
-    width: 50%;
-}
 
 select {
     font-family: inherit;
@@ -46,18 +35,32 @@ select {
     -moz-appearance: none;
     appearance: none;
     background-color: white;
-    }
-    
-select::-ms-expand {
-     display: none;
- }
+}
 
- #submit_btn{
-     background-color: #333333;
-     color: white;
-     width: 98%;
-     font-size: 30px;
-     border-radius: 10px;
-     margin: 10px 0px;
-     padding: 10px;
- }
+select::-ms-expand {
+    display: none;
+}
+
+#submit_btn{
+    background-color: #333333;
+    color: white;
+    width: 98%;
+    font-size: 30px;
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 10px;
+}
+
+#email_site{
+    margin: 10px 0px;
+    width: 98%;
+    font-size: 40px;
+    border-radius: 15px;
+    border: none;
+    padding: 5px 5px 10px 5px;
+    color: #B3B3B3;
+}
+
+.email{
+    font-size: 20px;
+}
