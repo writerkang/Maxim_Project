@@ -1,0 +1,304 @@
+html[lang='ko'] {
+    font-family: 'Suisse Regular', sans-serif;
+}
+
+body {
+    height: auto;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 480px) {
+    header {
+        border: 1px solid black;
+        text-align: center;
+        padding: 40px;
+    }
+    p {
+        margin: 0px;
+    }
+
+    div.section_01{
+        background-color:#FFD966 ;
+    }
+
+    /* 사이트 로고 */
+    .logo {
+        padding: 40px;
+        height: auto;
+    }
+    
+    #logoImg {
+        border: 1px solid black;
+        display: inline-block;
+        padding: 20px;
+    }
+    
+    
+    /* 텍스트 자리 */
+    div.txt {
+        /* border: 1px solid black; */
+        min-width: 480px;
+        /* border: 1px solid black; */
+        text-align: center;
+    }
+    
+
+    /* 안녕하세요 "시스아웃"입니다.  감싸는 div */
+    div.hello { 
+        width: 50%;
+        font-size: 45px;
+        padding-top: 20px;
+        padding-left: 30px;
+        color: #333333;
+    }
+
+    /* "시스아웃입니다" 텍스트 */
+    p.txt_01{
+        /* text-align: left; */
+    }
+    p.txt_02{  
+        padding-top: 10px;
+    }
+    
+    /* 회원서비스이용 ~   텍스트 */
+    p.txt_03{
+        color: #808080;
+        padding: 20px 0px 10px 30px;
+        font-size: 25px;
+    }
+    
+
+
+
+    /* 로그인 form */
+    form{
+        /* border: 1px solid black; */
+    }
+    
+    input{
+        display: block;
+    }
+
+        input[type=email],
+        input[type=password] {
+            background-color: #FFD966;
+            border: none; /* 테두리 없애주기 */
+            border-bottom: 1px solid #808080;
+            font-size: 37px;
+            margin: auto;
+            padding: 15px;
+            padding-top: 25px;
+        }
+
+        input[type=email] {
+            margin-top: 35px;
+        }
+
+        input[type=password]{
+            margin-top: 28px;
+        }
+        input:focus {
+            outline: none;
+            background-color: #FFD966;
+        }
+
+        input:focus::-webkit-input-placeholder {
+            color: transparent;
+        }
+        input:-webkit-autofill {
+            transition: #FFD966 10000s ease-in-out 3s;
+            -webkit-transition: #FFD966 9999s ease-out;
+            -webkit-box-shadow: 0 0 0px 1000px #FFD966 inset !important;
+            -webkit-text-fill-color: #333 !important;
+        }
+
+
+        /* button_로그인하기 */
+        /* Button 은 margin 이 먹히지 않는다.
+        그러므로 div 에 감싸서 text-align: center; 적용하여 -> 가운데 정렬된 것처럼 보이게 한다.  */
+        div.btn_submit{
+            text-align: center;
+        }
+        
+        #btn_login {
+            width: 70%;
+            border-radius: 4px;
+            border-style: solid;
+            font-size: 30px;
+            color: #fff;
+            background-color: #333333;
+            border-color: #333333;
+            margin-top: 40px;  /* 비밀번호 밑으로  마진주어 떨어뜨리기 */
+            padding: 15px;
+        }
+        #btn_login:hover{
+            cursor: pointer;
+            background-color: #696969;
+            border-color: #696969;
+        }
+
+
+
+        
+        div.check_save{  /* 체크박스 위치 지정 */
+            margin: 40px 0px 20px 0px;
+            padding-left: 105px;
+        }
+
+        /* 이메일 저장  checkbox  디자인 변경 */
+        /* 
+        체크박스 custom 디자인 순서 
+        HTML을 사용하여 기본 체크박스 만들기 CSS를 사용하여 기본 체크박스 없애기 CSS를 사용하여 디자인한 체크박스 만들기
+        */
+        .check_save {
+            position: relative;
+        }
+
+        /* 기본 체크박스 없애기 */
+        .check_save input[type="checkbox"] {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0
+        }
+
+
+        /* 새로운 디자인의 체크박스 만들기 */
+        .check_save input[type="checkbox"]+label:before {
+            content: ' ';
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            background: #B3B3B3;
+            border-radius: 3px;
+        }
+
+        .check_save input[type="checkbox"]:checked+label:before {
+            content: '\2713';
+            font-size: 25px;
+            font-weight: bold;
+            color: #FFD966;
+            background: #B3B3B3;
+        }
+        /* checkbox 디자인 변경 끝  */
+        
+
+
+        /* 이메일 저장  텍스트 */
+        a.saveEmail {
+            margin-left: 13px;
+            font-size: 22px;
+        }
+    
+
+
+
+        /* 이메일,비번찾기 */
+    #find_login{
+        text-align: right;
+        font-size: 22px;
+        margin-right: 60px;
+    }
+
+    .find{
+        display: inline-block;
+        padding: 20px 10px;
+        text-decoration: none;
+        color: black;
+       margin-bottom: 30px;
+    }
+    
+    .find:hover{
+        text-decoration: underline;
+        color: #918a8a;
+    }
+  
+    
+
+    div.section_02{
+        background-color: #333333;
+    }
+        
+        
+    p.yet{
+        text-align: center;
+        color: #fff;
+        font-size: 28px;
+        padding: 40px 0px;
+    }
+
+    div#btnJoin{
+        text-align: center;
+    }
+    
+    button.btn_join{
+        width: 70%;
+        background-color: #808080;
+        color: #333333;
+        font-size: 30px;
+        padding: 15px;
+        border-radius: 4px;
+        border-style: solid;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 30px 0px 70px 0px;
+    }
+        
+    .btn_join:hover{
+        color: #808080;
+        background-color: #333333;
+    }
+
+
+
+    /* 로그인 성공 팝업모달창 */
+    
+.modal{
+    width: 100%; /* 윈도우 전체 차지 */
+    height: 100%; /* 윈도우 전체 차지 */
+    position: fixed;
+    background-color: rgb(0, 0, 0, 0.4); /* 0.4 는 투명도 */
+    left: 0;
+    top: 0;
+    z-index: 1; 
+    overflow: auto; /* 필요한 경우 스크롤바 생기기 */
+
+    display: none;  /* 기본적으로 팝업 안보이기*/
+}
+
+.modal-content{
+    width: 80%  ; /* 전체영역의 80% 차지 */
+    background-color: #fefefe;
+    margin: 15% auto; /* 화면기준으로 위(top)에서 15%, auto는 좌우 균일(중앙정렬)  */  /* % 값은 상(위) 만 적용됨! */
+    padding: 20px;
+    border: 1px solid #888;
+
+}
+.close{
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    float: right;
+}
+
+.close:hover, .close:focus{
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+    
+    
+    
+    footer {
+        border: 1px solid black;
+        text-align: center;
+        padding: 40px;
+    }
+}
