@@ -44,7 +44,7 @@ CREATE TABLE tb_user
     user_phone      VARCHAR2(20)    UNIQUE NOT NULL, 
     user_emailHash 	VARCHAR2(70) 	NOT NULL UNIQUE,
     user_emailChecked VARCHAR2(1) 	NOT NULL,
-    user_nickName 	VARCHAR2(5)		NOT NULL,
+    user_nickName 	VARCHAR2(20)	NOT NULL UNIQUE,
     user_isvalid    CHAR(1)         DEFAULT 'F' NOT NULL, 
     user_auth       CHAR(1)         DEFAULT 'G' NOT NULL, 
     user_point      NUMBER          DEFAULT 10 NOT NULL, 
@@ -53,6 +53,9 @@ CREATE TABLE tb_user
     user_email2     VARCHAR2(30)  	  
     );
 SELECT * FROM TB_USER;
+
+
+
 
 
 CREATE TABLE tb_category

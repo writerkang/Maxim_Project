@@ -9,16 +9,19 @@ public class UserDTO {
 	String user_phone;  // 휴대전화
 	String user_emailHash; // 이메일 인증 해시값
 	String user_emailChecked; // 이메일 체크여부 
-	char user_isvalid;  // 
+	String user_nickName; // 닉네임
+	char user_isvalid;  
 	char user_auth; 
 	int user_point; 
 	String user_sns; 
 	String user_snsid; 
 	String user_email2;
-	
+	public UserDTO() {
+		super();
+	}
 	public UserDTO(int user_uid, String user_email, String user_pw, String user_name, String user_regdate,
-			String user_phone, String user_emailHash, String user_emailChecked, char user_isvalid, char user_auth,
-			int user_point, String user_sns, String user_snsid, String user_email2) {
+			String user_phone, String user_emailHash, String user_emailChecked, String user_nickName, char user_isvalid,
+			char user_auth, int user_point, String user_sns, String user_snsid, String user_email2) {
 		super();
 		this.user_uid = user_uid;
 		this.user_email = user_email;
@@ -28,15 +31,13 @@ public class UserDTO {
 		this.user_phone = user_phone;
 		this.user_emailHash = user_emailHash;
 		this.user_emailChecked = user_emailChecked;
+		this.user_nickName = user_nickName;
 		this.user_isvalid = user_isvalid;
 		this.user_auth = user_auth;
 		this.user_point = user_point;
 		this.user_sns = user_sns;
 		this.user_snsid = user_snsid;
 		this.user_email2 = user_email2;
-	}
-	public UserDTO() {
-		super();
 	}
 	public int getUser_uid() {
 		return user_uid;
@@ -86,6 +87,12 @@ public class UserDTO {
 	public void setUser_emailChecked(String user_emailChecked) {
 		this.user_emailChecked = user_emailChecked;
 	}
+	public String getUser_nickName() {
+		return user_nickName;
+	}
+	public void setUser_nickName(String user_nickName) {
+		this.user_nickName = user_nickName;
+	}
 	public char getUser_isvalid() {
 		return user_isvalid;
 	}
@@ -122,7 +129,6 @@ public class UserDTO {
 	public void setUser_email2(String user_email2) {
 		this.user_email2 = user_email2;
 	}
-	
 	
 	
 	
