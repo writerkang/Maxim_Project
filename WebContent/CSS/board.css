@@ -1,0 +1,179 @@
+@charset "UTF-8";
+
+#tag{
+    width: 85%;
+    height: 100px;
+    margin: 0px auto;
+    
+}
+
+.tags{
+    background-color: #e6e6e6;;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: 0;
+    margin-left: 15px;
+    font-size: 17px;
+}
+
+#tag2, #tag3, #tag4{
+    color: gray;
+    border-bottom: 2px solid gray;
+}
+
+#tag .tags:hover{
+    color: black;
+    border-bottom: 2px solid black;
+
+}
+
+#tag .tags:active{
+    color: black;
+    border-bottom: black;
+    
+    
+}
+
+#pen{
+    margin-left: 20px;
+    width: 20px;
+    height: 20px;
+    color: red;
+
+}
+
+#pen:hover{
+    color: tomato;
+}
+
+#pen:active{
+    color: orange;
+}
+
+#search{
+    
+    display: inline-block;
+    width: 35%;
+    height: 100px;
+    margin: 0;
+}
+
+
+  /* 드롭다운 */
+.dropbtn {
+    width: 100%;
+    background-color: gray;
+    color: black;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 10px;
+  }
+  
+
+  .dropdown {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+  }
+  
+
+  .dropdown-content {
+    display: none;
+  
+
+    min-width: 70%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+
+  .dropdown-content button {
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    outline: 0;
+    border: none;
+    text-align: left;
+    border-radius: 10px;
+    font-size: 10px;
+  }
+  
+
+  .dropdown-content button:hover {
+      background-color: #CACACA;
+      border: none;
+    }
+  
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 30;
+  }
+  
+  
+  .dropdown:hover .dropbtn {
+    background-color: #A6A6A6;
+  }
+
+  #ser_cont{
+      display: inline-block;
+      width: 50%;
+      font-size: 10px;
+  }
+
+  #content{
+      display: inline-block;
+      width: 100%;
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 8px 16px;
+      font-size: 10px;
+  }
+
+  #search_sele{
+    width: 100%;
+    background-color: rgb(155, 154, 154);
+    color: black;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 10px;
+  }
+
+  .text{
+    border-top: 2px solid yellow;
+    width: 85%;
+    margin: 0 auto;
+    background-color: white;
+    
+  }
+
+  #text_title{
+    font-weight: bolder;
+    font-size: 20px;
+
+  }
+
+  #nick_name{
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  #text_date{
+    float: right;
+    text-align: right;
+    font-size: 12px;
+    font-weight: bold;
+  }

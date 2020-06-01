@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+#content{
+    background-color: #DEDEDE;
+    width: 84%;
+    margin: 30px auto;
+    padding: 20px 10px;
+    
+}
+
+#notice_title{
+    display: inline;
+    font-size: 20px;
+}
+
+#notice_date{
+    float: right;
+    font-size: 13px;
+}
+
+#notice_content{
+    padding: 30px 10px;
+}
+
+#back_btn{
+    background-color: #333333;
+    color: white;
+    float: right;
+    margin-right: 8%;
+    font-size: 16px;
+    border-radius: 7px;
+    margin-bottom: 30px;
+}
