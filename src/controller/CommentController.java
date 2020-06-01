@@ -62,33 +62,33 @@ public class CommentController extends HttpServlet {
 				case "/commentList.co":
 					command = new CommentListCommand();
 					command.execute(request, response);
-					viewPage = "commentList.jsp";
+					viewPage = "/Comment/commentList.jsp";
 					break;		
 					
 				case "/commentWrite.co":
-					viewPage = "commentWrite.jsp";
+					viewPage = "/Comment/commentWrite.jsp";
 					break;
 					
 				case "/commentWriteOk.co":
 					command = new CommentWriteCommand();
 					command.execute(request, response);
-					viewPage = "commentWriteOk.jsp";
+					viewPage = "/Comment/commentWriteOk.jsp";
 					break;
 					
 				case "/commentUpdate.co":
-					viewPage = "commentUpdate.jsp";
+					viewPage = "/Comment/commentUpdate.jsp";
 					break;
 				
 				case "/commentUpdateOk.co":
 					command = new CommentUpdateCommand();
 					command.execute(request, response);
-					viewPage = "commentUpdateOk.jsp";
+					viewPage = "/Comment/commentUpdateOk.jsp";
 					break;
 					
 				case "/commentDeleteOk.co":
 					command = new CommentDeleteCommand();
 					command.execute(request, response);
-					viewPage = "commentDeleteOk.jsp";
+					viewPage = "/Comment/commentDeleteOk.jsp";
 					break;				
 					
 				} // end switch
