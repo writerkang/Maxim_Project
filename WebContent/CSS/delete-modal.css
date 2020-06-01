@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    overflow: auto;
+}
+
+.close
+{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+.close:hover, .close:focus {
+    color: #f00;
+    cursor: pointer;
+}
+
+.delete-modal-content
+{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    padding: 20px 16px;
+    border: 1px solid #CFCFCF;
+    width: 80%;
+    max-width: 500px;
+    background-color: #fff;
+}
+
+.delete-modal-header {
+    position: relative;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.delete-modal-buttons
+{
+    padding-top: 20px;
+    text-align: center;
+}
+
+.delete-modal-buttons:after
+{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.delete-modal-buttons > button
+{
+    background-color: #333333;
+    color: #fff;
+}

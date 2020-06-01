@@ -1,24 +1,43 @@
-@charset "utf-8";
+@charset "UTF-8";
 
 *
 {font-family: 'Suisse Regular', sans-serif;}
 
-#top_box, #post{
-    width: 85%;
-    margin: 10px auto;
-    padding: 5px 1px;
-    
+.header 
+{
+    border-bottom: 2px solid #808080;
+    font-size: 24px;
+    margin: 0 5% 40px 5%;
+    padding: 20px 0;
 }
 
- a {
-     text-decoration: none;
-     color: black;
- }
+a 
+{
+    color: #000;
+    text-decoration: none;
+}
 
- a:hover{
-     color: #808080;
- }
+a:visited
+{color: #000;}
 
- a:active{
-     background-color: #DEDEDE;
- }
+table 
+{
+    margin: 0 auto;
+    width: 90%;
+}
+
+table, th, td 
+{
+	border-top: 1px solid #DEDEDE;
+	border-bottom: 1px solid #DEDEDE;
+	border-collapse: collapse;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+th 
+{
+    border-top: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    background: #DEDEDE;
+}
