@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+/*웹 페이지 로딩 시 로딩 이미지 띄우기*/
+/* .loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background: #fff;
+    이 값으로 레이어 위치 조정
+    z-index: 1000;
+} 
+*/
+
+/*전체 폰트 + 색상 팔레트*/
+/* html {font-size: 0.625em}  */
+html[lang='ko'] {
+  font-family: 'Suisse Regular', sans-serif;
+}
+body{
+    margin: 0;
+}
+
+/*header 로그인/회원가입*/
+/*hover 시 커서 모양 손모양으로 변경*/
+#login, #mypage, #hamberger i{
+    cursor: pointer;
+}
+#hidden{
+    color: white;
+}
+.loginmypage-list a {
+    font-size: 1.1rem;
+}
+#hamberger i{
+margin-left: 2rem;
+}
+a{
+    text-decoration: none;
+}
+ 
+.loginmypage ul {
+    display: flex;
+    list-style: none;
+    padding-left: 0 ;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+}
+.loginmypage-list li {
+    padding: 2px;
+}
+
+/*각 화면의 title*/
+.title {
+    text-align: center;
+    font-size : 3rem;
+    font-family: 'Anton', sans-serif;
+}
