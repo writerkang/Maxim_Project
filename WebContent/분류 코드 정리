@@ -1,0 +1,19 @@
+게시판 종류(tb_board)
+1. 공지게시판
+2. 자유게시판
+3. 팁게시판
+4. 질문게시판
+
+
+
+게시글 카테고리(tb_category)
+1. FrontEnd
+2. BackEnd
+3. Java
+4. Android
+5. JavaScript
+6. HTML5
+7. CSS
+8. 잡담
+9. 기타
+10. 

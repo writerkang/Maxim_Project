@@ -85,7 +85,6 @@ public class PostDAO extends DefaultDAO {
 				PostDTO dto = new PostDTO(post_uid, post_subject, post_content, 
 						post_regdate, post_viewcnt,
 						board_uid, user_uid, category_uid);
-				dto.setPost_regdate(post_regdate);
 				list.add(dto);
 				
 			} // end while
