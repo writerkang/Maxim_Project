@@ -9,6 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.user.JoinCommand;
+import command.user.LoginCommand;
+import command.user.LogoutCommand;
+import command.user.UserDeleteCommand;
+import command.user.UserEmailCheckCommand;
+import command.user.UserEmailRegisterCommand;
+import command.user.UserEmailSendCommand;
 import common.Command;
 
 @WebServlet("*.uo") // "~~.uo"로 오는 요청은 모두 여기서 처리 
@@ -45,43 +52,60 @@ public class UserController extends HttpServlet {
 		// 컨트롤러는 커맨드에 따라, 로직을 수행하고
 		// 결과를 내보낼 view 를 결정한다
 		switch(com) {
-		case "/list.uo":
-//			command = new ListCommand();
-//			command.execute(request, response);
-//			viewPage = "list.jsp";
+		case "/login.uo":
+			viewPage = "login.jsp";
 			break;
-		case "/write.uo":
-			viewPage = "write.jsp";
+		case "/loginOk.uo":
+			command = new LoginCommand();
+			command.execute(request, response);
+			viewPage = "loginOk.jsp";
 			break;
-			
-		case "/writeOk.uo":
-//			command = new WriteCommand();
-//			command.execute(request, response);
-//			viewPage = "writeOk.jsp";
+		case "/logout.uo":
+			command = new LogoutCommand();
+			command.execute(request, response);
+			viewPage = "logout.jsp";
 			break;
 		
-		case "/view.uo":
-//			command = new ViewCommand();
-//			command.execute(request, response);
-//			viewPage = "view.jsp";
+		case "/userEmailRegister.uo":
+			command = new UserEmailRegisterCommand();
+			command.execute(request, response);
+			viewPage = "userEmailRegister.jsp";
 			break;
 			
-		case "/update.uo":
-//			command = new SelectCommand();
-//			command.execute(request, response);
-//			viewPage = "update.jsp";
+		case "/userEmailSend.uo":
+			command = new UserEmailSendCommand();
+			command.execute(request, response);
+			viewPage = "userEmailSend.jsp";
 			break;
 			
-		case "/updateOk.uo":
-//			command = new UpdateCommand();
-//			command.execute(request, response);
-//			viewPage = "updateOk.jsp";
+		case "/userEmailCheck.uo":
+			command = new UserEmailCheckCommand();
+			command.execute(request, response);
+			viewPage = "userEmailCheck.jsp";
 			break;
-			
-		case "/deleteOk.uo":
-//			command = new DeleteCommand();
-//			command.execute(request, response);
-//			viewPage = "deleteOk.jsp";
+		case "/joinForm.uo":
+			command.execute(request, response);
+			viewPage = "joinForm.jsp";
+			break;
+		case "/joinFormOk.uo":
+			command = new JoinCommand();
+			command.execute(request, response);
+			viewPage = "joinFormOk.jsp";
+			break;
+		case "/userDeleteOk.uo":
+			command = new UserDeleteCommand();
+			command.execute(request, response);
+			viewPage = "userDeleteOk.jsp";
+			break;
+		case "/findEmail.uo":
+//			command = new FindEmailCommand();
+			command.execute(request, response);
+			viewPage = "findEmail.jsp";
+			break;
+		case "/findPw.uo":
+//			command = new FindPwCommand();
+			command.execute(request, response);
+			viewPage = "findPw.jsp";
 			break;
 			
 		} // end switch

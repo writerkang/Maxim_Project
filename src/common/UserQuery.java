@@ -5,21 +5,30 @@ public class UserQuery {
 	public static final String SQL_USER_SELECT = 
 			"SELECT * FROM tb_user ORDER BY user_uid DESC"; 
 	
-	
 	/* Insert */
-	// 회원가입 회원 정보 삽입 
-	public static final String SQL_USER_INSERT = "INSERT INTO tb_user " +
-			"(user_uid, user_email, user_pw, user_phone, user_nickName) " +
-			"VALUES(user_seq.nextval, ?, ?, ?, ?)";	
+//	public static final String SQL_USER_INSERT = "INSERT INTO tb_user " +
+//			"(user_uid, user_email, user_nickName, user_phone, user_pw) " +
+//			"VALUES(user_seq.nextval, ?, ?, ?, ?)";	
 		
+	// 이메일 인증 버튼 누르기 전 이메일 입력(인증여부 초기값 '0' 세팅)
+	public static final String SQL_USER_EMAIL_INSERT = "INSERT INTO tb_user " +
+			"(user_uid, user_email, user_emailHash, user_emailChecked) " + "VALUES(user_seq.nextval, ?, ?, '0')";	
+	
+	
+	
+	
+	// 인증 된 이메일로 넘어온 uid 에 -> 회원정보 insert 하기
+	public static final String SQL_USER_INFO_INSERT = "INSERT INTO tb_user " +
+			"(user_nickName, user_phone, user_pw) " +
+			"VALUES(?, ?, ?) " + "WHERE user_email = ?";	
+
 	// 이메일 인증 체크여부
-	public static final String SQL_EMAIL_CHECK = 
+	public static final String SQL_GET_EMAIL_CHECK = 
 			"SELECT user_emailChecked FROM tb_user WHERE user_email = ?";
 	
 	// 이메일 체크값이 0(false)인 경우 -> 체크값을 1(true)로 변경
 	public static final String SQL_SET_EMAIL_CHECK = 
 			"UPDATE tb_user SET user_emailChecked = '1' WHERE user_email = ?";
-	
 	
 	/* Select */
 	// 로그인 
@@ -39,15 +48,12 @@ public class UserQuery {
 	public static final String SQL_USER_PHONE = 
 			"SELECT user_phone FROM tb_user WHERE user_email = ?";
 	
-	
-	
 	// 특정 회원 uid 로부터 정보 가져오기
 	public static final String SQL_USER_SELECT_BY_UID =  
 			"SELECT * FROM tb_user WHERE user_uid = ?";
 
-	// 회원 탈퇴 
+	// 회원 탈퇴 (특정 uid 로부터? or 해당 이메일로부터?)
 	public static final String SQL_USER_DELETE_BY_UID = 
 			"DELETE FROM tb_user WHERE user_uid = ?";
-
 
 }
