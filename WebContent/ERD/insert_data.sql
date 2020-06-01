@@ -38,3 +38,5 @@ VALUES (post_seq.nextval, '자바스크립트 끝내기', '자바스크립트는
 ;
 
 SELECT * FROM TB_POST;
+
+SELECT * FROM TB_COMMENT;
