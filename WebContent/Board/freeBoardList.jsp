@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="../CSS/board.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-    <script src="https://use.fontawesome.com/afbd8941a0.js"></script>
+
 </head>
 
 <script src="../JS/board.js" type="text/javascript"></script>
@@ -35,20 +35,20 @@
 		
 		<c:otherwise>
 		<c:forEach var="dto" items="${list }">
-		    <div class="text">
-		        <span id="text_uid">${dto.post_uid }</span>
-		        <br><br>
-		        <span><i class="fas fa-user-edit fa-5x"></i></span>
-		        <span style="display: inline-block;">
-			        <div id="text_title"><a href="freePostView.po?post_uid=${dto.post_uid }">${dto.post_subject }</a></div><br>
-			        <div id="nick_name">${dto.user_name }</div>
-			    </span><br><br>
-		        <span style="font-size: 12px; font-weight: bold;">댓글수 &nbsp;&nbsp;&nbsp;조회수 ${dto.post_viewcnt }</span>
-		        <span id="text_date">${dto.post_regdate }</span>
-		    </div><br>
-		  </c:forEach>
-		  </c:otherwise>
-    </c:choose>
+		<table class="text">
+			<tr>
+				<td id="text_uid" style="font-size:10px; float: left;">32</td>
+				<td id="text_title"><a href="freePostView.po?post_uid=${dto.post_uid }">${dto.post_subject }</a></td>
+		   	</tr>
+		   	<tr>
+		       	<td id="nick_name">${dto.user_name }</td>
+		       	<td style="font-size: 12px; font-weight: bold;">댓글수 &nbsp;&nbsp;&nbsp;조회수 ${dto.post_viewcnt }</span>
+		       	<td id="text_date">${dto.post_regdate }</td>
+		    </tr>
+		</table>
+	  	</c:forEach>
+	  	</c:otherwise>
+	</c:choose>
     
    	<br>
 
