@@ -1,7 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%-- JSTL 버젼으로 바뀌니, import 번잡함도 사라진다. JAVA 변수 선언도 사라진다. --%>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write</title>
+
+    <link rel="stylesheet" href="../CSS/update.css"/>
+    <link rel="stylesheet" href="../CSS/cancel-modal.css"/>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="../JS/cancel-modal.js" type="text/javascript"></script>
 
 <c:choose>
 	<c:when test="${empty list || fn:length(list) == 0 }">
@@ -48,12 +64,12 @@
 </script>
 
 <body>
-    <form name="frm" action="freePostUdateOk.po" method="post" onsubmit="return chkSubmit()">
+    <form name="frm" action="freePostUpdateOk.po?post_uid=${list[0].post_uid }" method="post" onsubmit="return chkSubmit()">
     <div class="wrap bg-Lgray">
     
         <!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
         <input type="hidden" name="board_uid" value="2">
-        <input type="hidden" name="user_uid" value="1">
+        <input type="hidden" name="user_uid" value="${list[0].user_uid }">
         <!---------------------------------->
         
         <div class="panel-writer"><span>작성자 닉네임</span></div>
@@ -68,15 +84,15 @@
             <div>
                 <select name="category_uid">
                     <option value="">카테고리 유형을 선택해 주세요</option>
-                    <option value="1">FrontEnd</option>
-                    <option value="2">BackEnd</option>
-                    <option value="3">Java</option>
-                    <option value="4">Android</option>
-                    <option value="5">JavaScript</option>
-                    <option value="6">HTML5</option>
-                    <option value="7">CSS</option>
-                    <option value="8">잡담</option>
-                    <option value="9">기타</option>
+                    <option value="1" <c:if test="${list[0].category_uid == 1}">selected</c:if>>FrontEnd</option>
+                    <option value="2" <c:if test="${list[0].category_uid == 2}">selected</c:if>>BackEnd</option>
+                    <option value="3" <c:if test="${list[0].category_uid == 3}">selected</c:if>>Java</option>
+                    <option value="4" <c:if test="${list[0].category_uid == 4}">selected</c:if>>Android</option>
+                    <option value="5" <c:if test="${list[0].category_uid == 5}">selected</c:if>>JavaScript</option>
+                    <option value="6" <c:if test="${list[0].category_uid == 6}">selected</c:if>>HTML5</option>
+                    <option value="7" <c:if test="${list[0].category_uid == 7}">selected</c:if>>CSS</option>
+                    <option value="8" <c:if test="${list[0].category_uid == 8}">selected</c:if>>잡담</option>
+                    <option value="9" <c:if test="${list[0].category_uid == 9}">selected</c:if>>기타</option>
                 </select>
             </div>
         </div>
@@ -88,7 +104,7 @@
                 <span class="text-red">*</span> <label for="post_subject">제목</label>
             </div>
             <div>
-                <input type="text" name="post_subject" placeholder="제목을 입력해 주세요."/>${list[0].post_subject }
+                <input type="text" name="post_subject" placeholder="제목을 입력해 주세요." value="${list[0].post_subject }">
             </div>
         </div>
         <!---------------------------------->
@@ -99,7 +115,7 @@
                 <span class="text-red">*</span> <label for="post_content">글 내용</label>
             </div>
             <div>
-                <textarea name="post_content" placeholder="내용을 입력해 주세요."></textarea>${list[0].post_content }
+                <textarea name="post_content" placeholder="내용을 입력해 주세요.">${list[0].post_content }</textarea>
             </div>
         </div>
         <!---------------------------------->
