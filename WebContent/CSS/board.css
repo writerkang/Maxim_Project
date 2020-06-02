@@ -161,6 +161,7 @@
     margin: 0 auto;
     background-color: white;
     
+    
   }
 
   #text_title{
@@ -175,8 +176,8 @@
   }
 
   #text_date{
-    float: right;
     text-align: right;
     font-size: 12px;
     font-weight: bold;
   }
+
