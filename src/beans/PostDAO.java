@@ -17,7 +17,7 @@ public class PostDAO extends DefaultDAO {
 			String post_content = dto.getPost_content();
 			int board_uid = dto.getBoard_uid();
 			int category_uid = dto.getCategory_uid();
-			int user_uid = dto.getUser_uid();			
+			int user_uid = dto.getUser_uid();
 			
 			
 			int cnt = this.insert(post_subject, post_content, board_uid, category_uid, user_uid);
@@ -73,6 +73,7 @@ public class PostDAO extends DefaultDAO {
 				int board_uid = rs.getInt("board_uid");
 				int category_uid = rs.getInt("category_uid");
 				int user_uid = rs.getInt("user_uid");					
+				String user_name = rs.getString("user_name");					
 				Date d = rs.getDate("post_regdate");
 				Time t = rs.getTime("post_regdate");
 				
@@ -85,6 +86,8 @@ public class PostDAO extends DefaultDAO {
 				PostDTO dto = new PostDTO(post_uid, post_subject, post_content, 
 						post_regdate, post_viewcnt,
 						board_uid, user_uid, category_uid);
+				
+				dto.setUser_name(user_name);
 				list.add(dto);
 				
 			} // end while

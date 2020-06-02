@@ -10,6 +10,7 @@ public class PostDTO {
 	int board_uid; 
 	int user_uid; 
 	int category_uid;
+	String user_name;
 	
 	public PostDTO(int post_uid, String post_subject, String post_content, String post_regdate, int post_viewcnt,
 			int board_uid, int user_uid, int category_uid) {
@@ -90,6 +91,14 @@ public class PostDTO {
 
 	public void setCategory_uid(int category_uid) {
 		this.category_uid = category_uid;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 	
 	
