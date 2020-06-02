@@ -41,7 +41,7 @@
 		        <span><i class="fas fa-user-edit fa-5x"></i></span>
 		        <span style="display: inline-block;">
 			        <div id="text_title"><a href="freePostView.po?post_uid=${dto.post_uid }">${dto.post_subject }</a></div><br>
-			        <div id="nick_name">닉네임</div>
+			        <div id="nick_name">${dto.user_name }</div>
 			    </span><br><br>
 		        <span style="font-size: 12px; font-weight: bold;">댓글수 &nbsp;&nbsp;&nbsp;조회수 ${dto.post_viewcnt }</span>
 		        <span id="text_date">${dto.post_regdate }</span>

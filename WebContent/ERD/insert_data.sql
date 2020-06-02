@@ -40,4 +40,7 @@ VALUES (post_seq.nextval, '자바스크립트 끝내기', '자바스크립트는
 
 SELECT * FROM TB_POST;
 
+
+--tb_comment 값 입력 예시
+INSERT INTO TB_COMMENT VALUES (comment_seq.nextval, 'hihi', SYSDATE, 1, 1);
 SELECT * FROM TB_COMMENT;
