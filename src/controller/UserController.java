@@ -52,57 +52,57 @@ public class UserController extends HttpServlet {
 		// 컨트롤러는 커맨드에 따라, 로직을 수행하고
 		// 결과를 내보낼 view 를 결정한다
 		switch(com) {
-		case "/login.uo":
+		case "/User/login.uo":
 			viewPage = "login.jsp";
 			break;
-		case "/loginOk.uo":
+		case "/User/loginOk.uo":
 			command = new LoginCommand();
 			command.execute(request, response);
 			viewPage = "loginOk.jsp";
 			break;
-		case "/logout.uo":
+		case "/User/logout.uo":
 			command = new LogoutCommand();
 			command.execute(request, response);
 			viewPage = "logout.jsp";
 			break;
 		
-		case "/userEmailRegister.uo":
-			command = new UserEmailRegisterCommand();
-			command.execute(request, response);
+		case "/User/userEmailRegister.uo":
+//			command = new UserEmailRegisterCommand();
+//			command.execute(request, response);
 			viewPage = "userEmailRegister.jsp";
 			break;
 			
-		case "/userEmailSend.uo":
+		case "/User/userEmailSend.uo":
 			command = new UserEmailSendCommand();
 			command.execute(request, response);
 			viewPage = "userEmailSend.jsp";
 			break;
 			
-		case "/userEmailCheck.uo":
+		case "/User/userEmailCheck.uo":
 			command = new UserEmailCheckCommand();
 			command.execute(request, response);
 			viewPage = "userEmailCheck.jsp";
 			break;
-		case "/joinForm.uo":
+		case "/User/joinForm.uo":
 			command.execute(request, response);
 			viewPage = "joinForm.jsp";
 			break;
-		case "/joinFormOk.uo":
+		case "/User/joinFormOk.uo":
 			command = new JoinCommand();
 			command.execute(request, response);
 			viewPage = "joinFormOk.jsp";
 			break;
-		case "/userDeleteOk.uo":
+		case "/User/userDeleteOk.uo":
 			command = new UserDeleteCommand();
 			command.execute(request, response);
 			viewPage = "userDeleteOk.jsp";
 			break;
-		case "/findEmail.uo":
+		case "/User/findEmail.uo":
 //			command = new FindEmailCommand();
 			command.execute(request, response);
 			viewPage = "findEmail.jsp";
 			break;
-		case "/findPw.uo":
+		case "/User/findPw.uo":
 //			command = new FindPwCommand();
 			command.execute(request, response);
 			viewPage = "findPw.jsp";

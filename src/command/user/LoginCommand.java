@@ -24,13 +24,13 @@ public class LoginCommand implements Command {
 			
 			try {
 				cnt = dao.Login(user_email, user_pw);
+				request.setAttribute("loginOk", cnt);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
 			
 		} // end if
 			
-		request.setAttribute("login", cnt);
 	}
 	
 

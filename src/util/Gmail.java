@@ -8,7 +8,7 @@ public class Gmail extends Authenticator{
 
     protected PasswordAuthentication getPasswordAuthentication() {
 
-        return new PasswordAuthentication("leeyji375","tlzk15070622!");
+        return new PasswordAuthentication("leeyji375","");
     }
 
 }
