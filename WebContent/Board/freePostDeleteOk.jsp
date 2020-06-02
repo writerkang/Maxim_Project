@@ -1,13 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-</body>
-</html>
+<c:choose>
+	<c:when test="${empty result}">
+		<script>
+			alert('삭제 실패');
+			history.back(); // 삭제 실패 시 직전 페이지로 이동
+		</script>
+	</c:when>
+	<c:otherwise>
+		<script>
+			alert('삭제 성공');
+			location.href = "freeBoardList.po"; // 삭제 후에는 list 페이지로 이동
+		</script>
+	</c:otherwise>
+</c:choose>

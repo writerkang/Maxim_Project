@@ -68,6 +68,7 @@ public class CommentDAO extends DefaultDAO {
 				int user_uid = rs.getInt("user_uid");					
 				Date d = rs.getDate("comment_regdate");
 				Time t = rs.getTime("comment_regdate");
+				String user_name = rs.getString("user_name");
 				
 				String comment_regdate = "";
 				if(d != null){
@@ -77,6 +78,8 @@ public class CommentDAO extends DefaultDAO {
 				
 				CommentDTO dto = new CommentDTO(comment_uid, comment_content, 
 						comment_regdate, post_uid, user_uid);
+				
+				dto.setUser_name(user_name);
 				list.add(dto);
 				
 			} // end while
