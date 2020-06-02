@@ -6,6 +6,7 @@ public class CommentDTO {
 	String comment_regdate; 
 	int post_uid; 
 	int user_uid;
+	String user_name;
 	
 	public CommentDTO(int comment_uid, String comment_content, String comment_regdate, int post_uid, int user_uid) {
 		super();
@@ -58,6 +59,14 @@ public class CommentDTO {
 
 	public void setUser_uid(int user_uid) {
 		this.user_uid = user_uid;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	} 
 	
 	

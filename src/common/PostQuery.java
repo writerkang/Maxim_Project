@@ -27,6 +27,6 @@ public class PostQuery {
 			+ "WHERE tp.USER_UID = tu.USER_UID ORDER BY tp.post_uid DESC";
 	
 	public static final String SQL_POST_UPDATE = 
-			"UPDATE tb_post SET post_subject = ?, post_content = ? WHERE post_uid = ?";
+			"UPDATE tb_post SET post_subject = ?, post_content = ?, category_uid = ? WHERE post_uid = ?";
 
 }
