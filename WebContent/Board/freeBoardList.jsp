@@ -42,7 +42,7 @@
 		   	</tr>
 		   	<tr>
 		       	<td id="nick_name">${dto.user_name }</td>
-		       	<td style="font-size: 12px; font-weight: bold;">댓글수 &nbsp;&nbsp;&nbsp;조회수 ${dto.post_viewcnt }</span>
+		       	<td style="font-size: 12px; font-weight: bold;">댓글수 &nbsp;&nbsp;&nbsp;조회수 ${dto.post_viewcnt }
 		       	<td id="text_date">${dto.post_regdate }</td>
 		    </tr>
 		</table>

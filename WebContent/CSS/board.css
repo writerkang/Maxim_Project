@@ -166,7 +166,7 @@
 
   #text_title{
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 13px;
 
   }
 
@@ -177,7 +177,18 @@
 
   #text_date{
     text-align: right;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
   }
 
+a{
+	text-decoration: none;
+}
+
+a:hover {
+	opacity: 0.5;
+}
+
+a:active {
+	opacity: 0.2;
+}
