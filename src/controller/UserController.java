@@ -109,7 +109,7 @@ public class UserController extends HttpServlet {
 			break;
 		case "/User/index.uo":
 //			command = new FindPwCommand();
-			command.execute(request, response);
+//			command.execute(request, response);
 			viewPage = "index.jsp";
 			break;
 			
