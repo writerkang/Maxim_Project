@@ -30,23 +30,22 @@
 
 <script src="../JS/toggle-menu.js" type="text/javascript"></script>
 <script src="../JS/delete-modal.js" type="text/javascript"></script>
-
-<script>
-$(document).ready(function(){
-
-	var i;
-	var table="<tr><th>작성자</th><th>글내용</th><th>작성일</th></tr>";
-	for (i = 0; i < commentList.length; i++) { 
-		table += "<tr>";
-		table += "<td>" + ${commentList[i].user_name} + "</td>";
-		table += "<td>" + ${commentList[i].comment_content} + "</td>";
-		table += "<td>" + ${commentList[i].comment_regdate} + "</td>";
-	} // end for
-	
-	$("#commentList").html(table);
-});
-</script>
 	    
+<script>
+    function chkSubmit() {  // 폼 검증
+        frm = document.forms["frm"];
+        
+        var comment_content = frm["comment_content"].value.trim();
+        
+        if(comment_content == "" || comment_content.trim().length() == 0) {
+            alert("내용을 입력해 주세요!");
+            frm["comment_content"].focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+
 <body>
     <div class="wrap bg-Lgray">
     	<!-- 작성자의 사진, 이름, 게시물의 작성일, 추천수, 댓글수, 조회수가 표시되는 영역입니다. -->
@@ -107,19 +106,58 @@ $(document).ready(function(){
         <div class="content">${list[0].post_content }</div>
         <!---------------------------------->
     </div>
-
+	
 	<!-- 추천하기 버튼이 위치한  영역입니다. -->
     <div class="panel-recommend">
         <button class="btn-recommend" type="button">추천하기 <i class="far fa-thumbs-up"></i></button>
+        <button type="button" onclick="location.href='freeBoardList.po'">목록으로</button>
     </div>
     <!---------------------------------->
-        
+     
     <hr>
     
-    <!-- 추가된 부분 -->
-    <table id="commentList"></table>
-    <!--  -->
-    
+    <!-- 댓글 작성 폼 입니다. -->
+    <form name="frm" action="../Comment/commentWriteOk.co" method="post" onsubmit="return chkSubmit()">
+		<div class="wrap bg-Lgray">
+	   
+	    <!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
+	    <input type="hidden" name="post_uid" value="${list[0].post_uid }">
+	    <input type="hidden" name="user_uid" value="1">
+	    <!---------------------------------->
+	    
+	   	<textarea name="comment_content" placeholder="내용을 입력해 주세요."></textarea>
+	   	<button type="submit">작성</button>
+	    </div>
+	    
+	   
+    </form>
+    <!---------------------------------->
+
+	<c:choose>
+		<c:when test="${empty commentList || fn:length(commentList) == 0}">
+		</c:when>
+
+		<c:otherwise>
+			<table>
+				<tr>
+					<th>작성자</th>
+					<th>글내용</th>
+					<th>작성일</th>
+				</tr>
+
+				<c:forEach var="dto" items="${commentList }">
+					<tr>
+						<td>${dto.user_name}</td>
+						<td>${dto.comment_content}</td>
+						<td>${dto.comment_regdate}</td>
+					</tr>
+
+				</c:forEach>
+
+			</table>
+		</c:otherwise>
+	</c:choose>
+
 </body>
 </html>
 
