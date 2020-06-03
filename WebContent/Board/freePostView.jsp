@@ -33,36 +33,18 @@
 
 <script>
 $(document).ready(function(){
-	getList();
-});
 
-function getList(){
-	var url = ""
-	 
-	url = "list.ajax?post_uid=${list[0].post_uid}";
-	$.ajax({
-		url :  url,
-		type : "POST",
-		cache : false,
-		success : function(data, status){
-			if(status == "success") 
-				parseJSON(data);
-		}
-	});
-}
-
-function parseJSON(jsonObj){
-	var data = jsonObj.data;
 	var i;
 	var table="<tr><th>작성자</th><th>글내용</th><th>작성일</th></tr>";
-	for (i = 0; i < data.length; i++) { 
+	for (i = 0; i < commentList.length; i++) { 
 		table += "<tr>";
-		table += "<td>" + data[i].user_name + "</td>";
-		table += "<td>" + data[i].comment_content + "</td>";
-		table += "<td>" + data[i].comment_regdate + "</td>";
+		table += "<td>" + ${commentList[i].user_name} + "</td>";
+		table += "<td>" + ${commentList[i].comment_content} + "</td>";
+		table += "<td>" + ${commentList[i].comment_regdate} + "</td>";
 	} // end for
+	
 	$("#commentList").html(table);
-}	
+});
 </script>
 	    
 <body>
