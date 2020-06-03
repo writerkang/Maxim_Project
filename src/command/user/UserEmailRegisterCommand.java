@@ -20,7 +20,7 @@ public class UserEmailRegisterCommand implements Command {
 		// request 에서 매개변수 받아오기 
 		String user_email = request.getParameter("user_email");
 		
-		// SHA256.getSHA256(user_email)
+		
 		
 		if(user_email != null && user_email.trim().length() > 0) {
 			
