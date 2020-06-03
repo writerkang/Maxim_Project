@@ -1,0 +1,134 @@
+@charset
+
+.notice-rank{
+    display: flex;
+}
+
+
+
+.index_rankcontainer{
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans Narrow', sans-serif;
+    /* position: absolute; */
+}
+.index_rankcontainer a,
+.index_rankcontainer.title,
+.index_rankcontainer.rank {
+    font-weight: normal;
+} 
+/*card design*/
+.index_rankcontainer .card:nth-of-type(1),
+.index_rankcontainer .card:nth-of-type(1) .title .rank {
+    background: linear-gradient(-45deg, #F223DA, #6EABF4);
+}
+.index_rankcontainer .card:nth-of-type(2),
+.index_rankcontainer .card:nth-of-type(2) .title .rank {
+    background: linear-gradient(-45deg, #FEE478, #F938CF);
+}
+.index_rankcontainer .card:nth-of-type(3),
+.index_rankcontainer .card:nth-of-type(3) .title .rank {
+    background: linear-gradient(-45deg, #4a9beb, #9954FB);
+}
+.index_rankcontainer .card:nth-of-type(4),
+.index_rankcontainer .card:nth-of-type(4) .title .rank {
+    background: linear-gradient(-45deg, #6EABF4,  #F223DA);
+}
+.index_rankcontainer .card:nth-of-type(5),
+.index_rankcontainer .card:nth-of-type(5) .title .rank {
+    background: linear-gradient(-45deg, #F938CF, rgb(203, 254, 120));
+}
+.index_rankcontainer .card:nth-of-type(6),
+.index_rankcontainer .card:nth-of-type(6) .title .rank {
+    background: linear-gradient(-45deg, #4a9beb, #9954FB);
+}
+.index_rankcontainer a:hover{
+    text-decoration: none;
+    color: white;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+
+
+
+/*반응형 480px 이하 -mobile*/
+@media screen and (max-width : 840px){
+.index_rankcontainer{
+
+}
+.card{
+    /* position: flex; */
+    width: 100px;
+    height: 10px;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+    overflow: hidden;
+    align-content: center;
+}
+.title {
+    margin: 0 2px 2px 7px;
+    font-size: 0.8rem;
+}
+
+.rank{
+    font-size: 0.8rem;
+    padding: 0 7px 2px 8px ;
+}
+
+.card i {
+    width: 4px;
+    margin: 0 2px 2px 3px;
+}
+.index_rankcontainer a{
+    text-decoration: none;
+    color: black;
+    width: 60px;
+    height: 20px;
+    margin: 10px auto 0;
+    font-size: 3px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: 0.3s;
+    /* line-height: 14px; */
+    transform: translate(-50%);
+}
+
+}
+
+.notice-rank{ 
+    display: flex;
+    width: 100%px;
+    height: 400px;
+    background: red;
+    justify-content: space-between;
+}
+.index-noticecontainer{
+    background: blue;
+    margin: 10px;
+}
+.notice-1{
+    display: flex;
+}
+.noticebtn{
+    border-radius: 15px;
+    border:1px solid whitesmoke;
+    height: 3rem;
+    text-align: center;
+}
+.index_rankcontainer{
+    margin: 10px;
+    background: blueviolet;
+}
+.notice-text, .notice-rank, .notice-redgate {
+    margin: 15px;
+}
+
+.nbtn{
+    font-size: 2rem;
+}
+

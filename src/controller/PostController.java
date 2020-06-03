@@ -60,6 +60,12 @@ public class PostController extends HttpServlet {
 					command.execute(request, response);
 					viewPage = "freeBoardList.jsp";
 					break;
+					
+				case "/index.po":
+					command = new PostListCommand();
+					command.execute(request, response);
+					viewPage = "index.jsp";
+					break;
 				
 				case "/Board/tipBoardList.po":
 					command = new PostListCommand();
