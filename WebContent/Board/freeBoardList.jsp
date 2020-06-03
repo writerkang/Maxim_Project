@@ -4,6 +4,109 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%-- JSTL 버젼으로 바뀌니, import 번잡함도 사라진다. JAVA 변수 선언도 사라진다. --%>
 
+
+
+
+
+
+
+
+
+<%@ page import = "java.sql.*"%> <%-- JDBC 관련 import --%>    
+<%@ page import = "java.text.SimpleDateFormat" %>
+<%
+	int curPage = 1;   // 현재 페이지 (디폴트 1 page)
+	
+	// 현재 몇 페이지인지 parameter 받아오기 + 검증
+	String pageParam = request.getParameter("page");
+	if(pageParam != null && !pageParam.trim().equals("")){
+		try{ 
+			// 1이상의 자연수 이어야 한다
+			int p = Integer.parseInt(pageParam);
+			if(p > 0) curPage = p;
+		} catch(NumberFormatException e){
+			// page parameter 오류는 별도의 exception 처리 안함 
+		}
+	} // end if
+%>
+
+<%!
+	// JDBC 관련 기본 객체변수
+	Connection conn = null;
+	Statement stmt = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;   // SELECT 결과, executeQuery() 
+	int cnt = 0;   // DML 결과, executeUpdate()
+	
+	// Connection 에 필요한 값 세팅
+	final String DRIVER = "oracle.jdbc.driver.OracleDriver";  // JDBC 드라이버 클래스
+	final String URL = "jdbc:oracle:thin:@localhost:1521:XE";  // DB 접속 URL
+	final String USERID = "maxim0316";  // DB 접속 계정 정보
+	final String USERPW = "tiger0316";
+%>
+
+<%!
+	// 쿼리문 준비
+	//final String SQL_WRITE_SELECT = 
+	//	"SELECT * FROM test_write ORDER BY wr_uid DESC";
+
+	// 페이징
+	// 글 목록 전체 개수 가져오기
+	final String SQL_WRITE_COUNT_ALL = "SELECT count(*) FROM tb_post";
+	
+	// fromRow 부터 pageRows 만큼 SELECT
+	// (몇번째) 부터 (몇개) 만큼
+	final String SQL_WRITE_SELECT_FROM_ROW =  "SELECT * FROM " + 
+			"(SELECT ROWNUM AS RNUM, T.* FROM (SELECT * FROM tb_post ORDER BY user_uid DESC) T) " + 
+			"WHERE RNUM >= ? AND RNUM < ?";
+	
+	// 페이징 관련 세팅 값들
+	int writePages = 5;   // 한 [페이징] 에 몇개의 '페이지' 를 표현할 것인가?
+	int pageRows = 3;    // 한 '페이지' 에 몇개의 글을 리스트업 할 것인가?
+	int totalPage = 8;	 // 총 몇 '페이지' 분량인가?
+%>
+<%
+	try{
+		Class.forName(DRIVER);
+		
+		conn = DriverManager.getConnection(URL, USERID, USERPW);
+		
+		
+		// 트랜잭션 실행
+		pstmt = conn.prepareStatement(SQL_WRITE_COUNT_ALL);
+		rs = pstmt.executeQuery();
+		
+		if(rs.next())
+			cnt = rs.getInt(1);   // count(*), 전체 글의 개수
+			
+		rs.close();
+		pstmt.close();
+		
+		totalPage = (int)Math.ceil(cnt / (double)pageRows); // 총 몇페이지 분량
+		
+		int fromRow = (curPage - 1) * pageRows + 1;  // 몇번째 row 부터?
+				
+		pstmt = conn.prepareStatement(SQL_WRITE_SELECT_FROM_ROW);
+		pstmt.setInt(1, fromRow);  
+		pstmt.setInt(2, fromRow + pageRows);
+		rs = pstmt.executeQuery();
+		
+		//out.println("쿼리 성공<br>");
+%>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,7 +116,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="../CSS/board.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-
+	<script src="https://kit.fontawesome.com/bb29575d31.js"></script>
+	
 </head>
 
 <script src="../JS/board.js" type="text/javascript"></script>
@@ -31,14 +135,13 @@
 	<c:choose>
 		
 		<c:when test="${empty list || fn:length(list) == 0}">
-		dsfdsdssdf
 		</c:when>
 		
 		<c:otherwise>
 		<c:forEach var="dto" items="${list }">
 		<table class="text">
 			<tr>
-				<td id="text_uid" style="font-size:10px; float: left;">32</td>
+				<td id="text_uid" style="font-size:10px; float: left;">${dto.user_uid }</td>
 				<td id="text_title"><a href="freePostView.po?post_uid=${dto.post_uid }">${dto.post_subject }</a></td>
 		   	</tr>
 		   	<tr>
@@ -65,6 +168,41 @@
             <input type="text" name="ser_content" id="content" placeholder="내용을 입력해주세요">
         </form>
     </div>
+    
+    
+    
+    
+    
+    <%	
+	} catch(Exception e){
+		e.printStackTrace();
+		// 예외 처리
+	} finally {
+		// 리소스 해제
+		try {
+			if(rs != null) rs.close();
+			if(stmt != null) stmt.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+%>
+<%-- 위 트랜잭션이 마무리 되면 페이지 보여주기 --%>
+
+<%-- 페이징 --%>
+<jsp:include page="pagination.jsp"> 
+	<jsp:param value="<%= writePages %>" name="writePages"/>
+	<jsp:param value="<%= totalPage %>" name="totalPage"/>
+	<jsp:param value="<%= curPage %>" name="curPage"/>
+</jsp:include>
+    
+    
+    
+    
+    
+    
 </body>
 
 </html>
