@@ -82,16 +82,7 @@
     .landing {
       flex-direction: column;
     }
-    #mypage {
-      position: fixed;
-      background: #FFD996;
-      height: 100vh;
-      width: 100%;
-      flex-direction: column;
-      clip-path: circle(10px at 90% -10%);
-      transition: all 1s ease-out;
-      pointer-events: none;
-    }
+
     .nav-links li {
       opacity: 0;
     }
