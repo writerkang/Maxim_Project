@@ -37,7 +37,7 @@
 		<c:forEach var="dto" items="${list }">
 		<table class="text">
 			<tr>
-				<td id="text_uid" style="font-size:10px; float: left;">32</td>
+				<td id="text_uid" style="font-size:10px; float: left;">${dto.post_uid }</td>
 				<td id="text_title"><a href="freePostView.po?post_uid=${dto.post_uid }">${dto.post_subject }</a></td>
 		   	</tr>
 		   	<tr>
