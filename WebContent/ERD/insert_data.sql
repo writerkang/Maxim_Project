@@ -1,36 +1,13 @@
 --시퀀스를 안쓰는게 나은 테이블도 있음!
 
---tb_email 값 입력 예시
-
-INSERT INTO TB_EMAIL (USER_UID, USER_EMAIL, USER_EMAILHASH, USER_EMAILCHECKED)
-VALUES (user_seq.nextval, 'dkdkdk@naver.com', '#djdjdjkdkjf', '1')
-;
-INSERT INTO TB_EMAIL (USER_UID, USER_EMAIL, USER_EMAILHASH, USER_EMAILCHECKED)
-VALUES (user_seq.nextval, 'dkddasfk@naver.com', '#rewrjdjkdkjf', '1')
-;
-
 --tb_user 값 입력 예시
 
 INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_EMAILHASH , USER_EMAILCHECKED , USER_NICKNAME, USER_ISVALID , USER_AUTH , USER_POINT , USER_SNS , USER_SNSID , USER_EMAIL2 )
-VALUES (user_seq.nextval, 'aaa@nasver.com', 'abcd', '사자d호랑이', sysdate, '0101545678', '#123456889789789', '0', '메', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
+VALUES (user_seq.nextval, 'aaa@nasver.com', 'abcd', '사자d호랑이', sysdate, '0101545678', '#123456889789789', '0', '메롱', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
 ;
 INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_EMAILHASH , USER_EMAILCHECKED , USER_NICKNAME, USER_ISVALID , USER_AUTH , USER_POINT , USER_SNS , USER_SNSID , USER_EMAIL2 )
-VALUES (user_seq.nextval, 'bbb@daum.com', 'tjfj', '이', sysdate, '01016165828', '#12456872589', '0', '곰', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
+VALUES (user_seq.nextval, 'bbb@daum.com', 'tjfj', '이예지', sysdate, '01016165828', '#12456872589', '0', '곰돌이', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
 ;
-<<<<<<< HEAD
-=======
-INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_EMAILHASH , USER_EMAILCHECKED , USER_NICKNAME, USER_ISVALID , USER_AUTH , USER_POINT , USER_SNS , USER_SNSID , USER_EMAIL2 )
-VALUES (user_seq.nextval, 'ccc@naver.com', 'ewrew', '임상빈', sysdate, '01026265959', '#1225631489789789', '0', '루', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
-;
-INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_EMAILHASH , USER_EMAILCHECKED , USER_NICKNAME, USER_ISVALID , USER_AUTH , USER_POINT , USER_SNS , USER_SNSID , USER_EMAIL2 )
-VALUES (user_seq.nextval, 'ddd@naver.com', 'uiy', '한수빈', sysdate, '01045457878', '#1234965843789', '0', '산', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
-;
-INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_EMAILHASH , USER_EMAILCHECKED , USER_NICKNAME, USER_ISVALID , USER_AUTH , USER_POINT , USER_SNS , USER_SNSID , USER_EMAIL2 )
-VALUES (user_seq.nextval, 'eee@gmail.com', 'cxz12', '홍성용', sysdate, '0108989636', '#116572356889789789', '0', '이', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
-;
---DELETE FROM TB_USER WHERE USER_UID = '4';
-
->>>>>>> branch 'master' of https://github.com/writerkang/Maxim_Project.git
 SELECT * FROM tb_USER;
 
 --tb_category 값 입력 예시

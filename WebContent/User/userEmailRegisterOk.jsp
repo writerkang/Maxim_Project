@@ -14,7 +14,7 @@
  	<c:otherwise>
 		<script>
 			alert("이미 가입된 이메일입니다.");
-			location.href="index.uo";
+			location.href="userEmailRegister.jsp";
 		</script>
 	</c:otherwise>
 </c:choose>
