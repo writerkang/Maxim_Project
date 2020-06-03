@@ -31,6 +31,40 @@
 <script src="../JS/toggle-menu.js" type="text/javascript"></script>
 <script src="../JS/delete-modal.js" type="text/javascript"></script>
 
+<script>
+$(document).ready(function(){
+	getList();
+});
+
+function getList(){
+	var url = ""
+	 
+	url = "list.ajax?post_uid=${list[0].post_uid}";
+	$.ajax({
+		url :  url,
+		type : "POST",
+		cache : false,
+		success : function(data, status){
+			if(status == "success") 
+				parseJSON(data);
+		}
+	});
+}
+
+function parseJSON(jsonObj){
+	var data = jsonObj.data;
+	var i;
+	var table="<tr><th>작성자</th><th>글내용</th><th>작성일</th></tr>";
+	for (i = 0; i < data.length; i++) { 
+		table += "<tr>";
+		table += "<td>" + data[i].user_name + "</td>";
+		table += "<td>" + data[i].comment_content + "</td>";
+		table += "<td>" + data[i].comment_regdate + "</td>";
+	} // end for
+	$("#commentList").html(table);
+}	
+</script>
+	    
 <body>
     <div class="wrap bg-Lgray">
     	<!-- 작성자의 사진, 이름, 게시물의 작성일, 추천수, 댓글수, 조회수가 표시되는 영역입니다. -->
@@ -99,6 +133,10 @@
     <!---------------------------------->
         
     <hr>
+    
+    <!-- 추가된 부분 -->
+    <table id="commentList"></table>
+    <!--  -->
     
 </body>
 </html>
