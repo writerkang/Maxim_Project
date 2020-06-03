@@ -31,6 +31,7 @@
 	<c:choose>
 		
 		<c:when test="${empty list || fn:length(list) == 0}">
+		dsfdsdssdf
 		</c:when>
 		
 		<c:otherwise>

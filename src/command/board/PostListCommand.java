@@ -22,7 +22,7 @@ public class PostListCommand implements Command {
 			
 			// "list"란 name으로  request에 arr값 전달
 			// 즉 request에 담아서 컨트롤러에 전달되는 셈
-			request.setAttribute("commentList", arr);
+			request.setAttribute("list", arr);
 			
 			
 		} catch(SQLException e) {
