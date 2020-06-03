@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+*
+{font-family: 'Suisse Regular', sans-serif;}
+
+.header 
+{
+    border-bottom: 2px solid #808080;
+    font-size: 24px;
+    margin: 0 5%;
+    padding: 20px 0;
+}
+
+table 
+{
+    margin: 0 auto;
+    width: 90%;
+}
+
+table, th, td 
+{
+	border-top: 1px solid #DEDEDE;
+	border-bottom: 1px solid #DEDEDE;
+	border-collapse: collapse;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+th 
+{
+    border-top: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    background: #DEDEDE;
+}
