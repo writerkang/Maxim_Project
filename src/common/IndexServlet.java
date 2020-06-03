@@ -17,7 +17,7 @@ import beans.PostDTO;
 /**
  * Servlet implementation class IndexServlet
  */
-@WebServlet({ "/index.*", "/" })
+@WebServlet({ "/index.do" })
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
