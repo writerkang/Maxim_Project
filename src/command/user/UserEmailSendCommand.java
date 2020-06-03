@@ -22,6 +22,7 @@ public class UserEmailSendCommand implements Command {
 				
 				user_emailchecked = dao.GetUserEmailChecked(user_email);
 				
+				request.setAttribute("user_email", user_email);
 				request.setAttribute("sendEmail", user_emailchecked);
 				
 			}catch(Exception e)	{

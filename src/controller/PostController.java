@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.board.CommentListCommand;
 import command.board.PostDeleteCommand;
 import command.board.PostListCommand;
 import command.board.PostSelectCommand;
@@ -57,7 +58,7 @@ public class PostController extends HttpServlet {
 				
 				case "/Board/freeBoardList.po":
 					command = new PostListCommand();
-					command.execute(request, response);
+					command.execute(request, response);					
 					viewPage = "freeBoardList.jsp";
 					break;
 					
@@ -75,6 +76,8 @@ public class PostController extends HttpServlet {
 					
 				case "/Board/freePostView.po":
 					command = new PostViewCommand();
+					command.execute(request, response);
+					command = new CommentListCommand();
 					command.execute(request, response);
 					viewPage = "freePostView.jsp";
 					break;

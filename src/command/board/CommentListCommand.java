@@ -22,9 +22,9 @@ public class CommentListCommand implements Command {
 		try {
 			arr = dao.selectByUid(post_uid);
 			
-			// "list"란 name으로  request에 arr값 전달
+			// "commentList"란 name으로  request에 arr값 전달
 			// 즉 request에 담아서 컨트롤러에 전달되는 셈
-			request.setAttribute("list", arr);
+			request.setAttribute("commentList", arr);
 			
 			
 		} catch(SQLException e) {

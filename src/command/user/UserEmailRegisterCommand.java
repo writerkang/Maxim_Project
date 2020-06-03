@@ -1,6 +1,7 @@
 package command.user;
 
-import java.sql.SQLException;
+
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,10 +19,8 @@ public class UserEmailRegisterCommand implements Command {
 		UserDAO dao = new UserDAO();
 		
 		// request 에서 매개변수 받아오기 
-		String user_email = request.getParameter("user_email");
-		
-		
-		
+		String user_email = request.getParameter("user_email"); 
+	
 		if(user_email != null && user_email.trim().length() > 0) {
 			
 			try {
@@ -31,8 +30,8 @@ public class UserEmailRegisterCommand implements Command {
 			}
 			
 		} // end if
+		request.setAttribute("userEmailRegisterOk", cnt);
 		
-		request.setAttribute("insertEmail", cnt);
 	}
 	
 	// 성공적으로 request 되면  Emailsend.jsp로 이동 
