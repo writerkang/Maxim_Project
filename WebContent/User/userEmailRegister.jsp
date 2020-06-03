@@ -27,17 +27,17 @@
         <h3>회원가입을 위해 이메일 인증이 필요합니다. </h3>
         <br><hr>
         <h1 style="text-align: left; font-weight: normal;">이메일</h1>
-        <form action="#" style="text-align: left;">
-            <input type="text" name="email_id" id="email_id">
-            <span style="font-size: 40px;">@</span>
-            <input type="text" name="email_adress" id="email_adress">
-            <select name="email_site" id="email_site">
-                <option value="" class="email">직접입력</option>
-                <option value="naver.com" class="email">naver.com</option>
-                <option value="gmail.com" class="email">gmail.com</option>
-                <option value="daum.net" class="email">daum.net</option>
+        <form action="userEmailRegisterOk.uo" style="text-align: left;">
+            <input type="text" name="user_email" id="user_email">
+<!--             <a style="font-size: 40px;" name="user_email">&#64;</a> -->
+<!--             <input type="text" name="user_email" id="email_adress"> -->
+<!--             <select name="email_site" id="email_site"> -->
+<!--                 <option value="" class="email">직접입력</option> -->
+<!--                 <option value="naver.com" class="email">&#64;naver.com</option> -->
+<!--                 <option value="gmail.com" class="email">&#64;gmail.com</option> -->
+<!--                 <option value="daum.net" class="email">&#64;daum.net</option> -->
 
-            </select>
+<!--             </select> -->
             <input type="submit" id="submit_btn" value="이메일 인증하기">
         </form>
     </div>

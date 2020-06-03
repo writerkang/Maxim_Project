@@ -65,19 +65,19 @@ public class UserController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "logout.jsp";
 			break;
-		
 		case "/User/userEmailRegister.uo":
-//			command = new UserEmailRegisterCommand();
-//			command.execute(request, response);
 			viewPage = "userEmailRegister.jsp";
 			break;
-			
+		case "/User/userEmailRegisterOk.uo":
+			command = new UserEmailRegisterCommand();
+			command.execute(request, response);
+			viewPage = "userEmailRegisterOk.jsp";
+			break;
 		case "/User/userEmailSend.uo":
 			command = new UserEmailSendCommand();
 			command.execute(request, response);
 			viewPage = "userEmailSend.jsp";
 			break;
-			
 		case "/User/userEmailCheck.uo":
 			command = new UserEmailCheckCommand();
 			command.execute(request, response);
@@ -106,6 +106,11 @@ public class UserController extends HttpServlet {
 //			command = new FindPwCommand();
 			command.execute(request, response);
 			viewPage = "findPw.jsp";
+			break;
+		case "/User/index.uo":
+//			command = new FindPwCommand();
+			command.execute(request, response);
+			viewPage = "index.jsp";
 			break;
 			
 		} // end switch

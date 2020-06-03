@@ -1,4 +1,5 @@
 --테이블 삭제
+DROP TABLE tb_email CASCADE CONSTRAINT purge;
 DROP TABLE tb_user CASCADE CONSTRAINT purge;
 DROP TABLE tb_category CASCADE CONSTRAINT purge;
 DROP TABLE tb_attach CASCADE CONSTRAINT purge;
@@ -29,11 +30,19 @@ CREATE SEQUENCE star_seq;
 CREATE SEQUENCE board_seq;
 
 
-
 --외래키 제약 설정 필요!
 --TODO
 
 --테이블 생성
+-- 1. 이메일 인증 
+CREATE TABLE tb_email
+(
+	user_email 			VARCHAR2(50) NOT NULL UNIQUE,
+	user_emailHash 		VARCHAR2(70) NOT NULL UNIQUE,
+	user_emailChecked  	VARCHAR2(1)  NOT NULL
+ );
+SELECT * FROM tb_email;
+
 CREATE TABLE tb_user
 (
     user_uid        NUMBER          PRIMARY KEY, 
@@ -42,9 +51,6 @@ CREATE TABLE tb_user
     user_name       VARCHAR2(30)    UNIQUE NOT NULL, 
     user_regdate    DATE            DEFAULT SYSDATE NOT NULL, 
     user_phone      VARCHAR2(20)    UNIQUE NOT NULL, 
-    user_emailHash 	VARCHAR2(70) 	NOT NULL UNIQUE,
-    user_emailChecked VARCHAR2(1) 	NOT NULL,
-    user_nickName 	VARCHAR2(20)	NOT NULL UNIQUE,
     user_isvalid    CHAR(1)         DEFAULT 'F' NOT NULL, 
     user_auth       CHAR(1)         DEFAULT 'G' NOT NULL, 
     user_point      NUMBER          DEFAULT 10 NOT NULL, 
@@ -53,9 +59,6 @@ CREATE TABLE tb_user
     user_email2     VARCHAR2(30)  	  
     );
 SELECT * FROM TB_USER;
-
-
-
 
 
 CREATE TABLE tb_category

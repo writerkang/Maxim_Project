@@ -25,8 +25,17 @@ public class UserDAO extends DefaultDAO {
 		return -1; // 이메일이 존재하지 않음
 	}
 
+	// DTO 활용
+	public int insertEmail(UserDTO dto) throws SQLException {
+		String user_email = dto.getUser_email();
+		String user_emailHash = dto.getUser_emailHash();
+	
+		int cnt = this.insertEmail(user_email, user_emailHash);
+		return cnt;
+	}
+	
 	// 회원가입 이메일 insert
-	public int insertEmail(String user_email, String user_emailHash) {
+	public int insertEmail(String user_email, String user_emailHash) throws SQLException{
 		try {
 			pstmt = conn.prepareStatement(UserQuery.SQL_USER_EMAIL_INSERT);
 			pstmt.setString(1, user_email);
@@ -40,6 +49,10 @@ public class UserDAO extends DefaultDAO {
 		return -1; // 회원가입 실패
 	}
 
+	
+	
+	
+	
 	// 회원정보 insert 
 	public int insertInfo(String user_email, String user_nickName, String user_phone, String user_pw) throws SQLException {
 
@@ -49,7 +62,7 @@ public class UserDAO extends DefaultDAO {
 			pstmt.setString(1, user_nickName);
 			pstmt.setString(2, user_phone);
 			pstmt.setString(3, user_pw);
-			pstmt.setString(4, user_email);
+//			pstmt.setString(4, user_email);
 
 			cnt = pstmt.executeUpdate(); // insert 성공하면 1
 
@@ -62,7 +75,7 @@ public class UserDAO extends DefaultDAO {
 	} // end insert
 
 	// 이메일 가져오기
-	public String GetUserEmail() {
+	public String GetUserEmail() throws SQLException{
 		try {
 			pstmt = conn.prepareStatement(UserQuery.SQL_USER_EMAIL);
 			rs = pstmt.executeQuery();
@@ -76,7 +89,7 @@ public class UserDAO extends DefaultDAO {
 	}
 
 	// 이메일 체크값 가져오기 
-	public String GetUserEmailChecked(String user_email) {
+	public String GetUserEmailChecked(String user_email) throws SQLException{
 		try {
 			pstmt = conn.prepareStatement(UserQuery.SQL_GET_EMAIL_CHECK);
 			pstmt.setString(1, user_email);
@@ -95,7 +108,7 @@ public class UserDAO extends DefaultDAO {
 	}
 	
 	// 이메일체크값 '1' 로 변경 
-	public String SetUserEmailChecked(String user_email) {
+	public String SetUserEmailChecked(String user_email) throws SQLException{
 
 		try {
 
