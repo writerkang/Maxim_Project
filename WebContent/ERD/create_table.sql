@@ -12,6 +12,7 @@ DROP TABLE tb_board CASCADE CONSTRAINT purge;
 DROP TABLE tb_site CASCADE CONSTRAINT purge;
 
 DROP SEQUENCE user_seq;
+DROP SEQUENCE post_seq;
 
 
 --생성된 테이블 확인

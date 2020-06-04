@@ -61,7 +61,7 @@
 		   	</tr>
 		   	<tr>
 		       	<td id="nick_name">${dto.user_name }</td>
-		       	<td style="font-size: 12px; font-weight: bold;">댓글수 &nbsp;&nbsp;&nbsp;조회수 ${dto.post_viewcnt }
+		       	<td style="font-size: 12px; font-weight: bold;">조회수 ${dto.post_viewcnt }
 		       	<td id="text_date">${dto.post_regdate }</td>
 		    </tr>
 		</table>
@@ -89,7 +89,7 @@
 <%-- 페이징 --%>
 <jsp:include page="pagination.jsp"> 
 	<jsp:param value="5" name="writePages"/>
-	<jsp:param value="20" name="totalPage"/>
+	<jsp:param value="${totalPage }" name="totalPage"/>
 	<jsp:param value="<%= curPage %>" name="curPage"/>
 </jsp:include>
     
