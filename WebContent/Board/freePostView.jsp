@@ -3,16 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%-- JSTL 버젼으로 바뀌니, import 번잡함도 사라진다. JAVA 변수 선언도 사라진다. --%>
-    
-<c:choose>
-	<c:when test="${empty list || fn:length(list) == 0 }">
-		<script>
-			alert("해당 게시물이 존재하지 않습니다!");
-			history.back();
-		</script>
-	</c:when>
-	<c:otherwise>
-	
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -44,6 +35,16 @@
         }
         return true;
     }
+</script>
+
+<script>
+	function chkCommentDelete(comment_uid){
+		// 삭제 여부 확인하고 진행
+		var r = confirm("댓글을 삭제 하시겠습니까?")
+		if(r){
+			location.href = '../Comment/commentDeleteOk.co?comment_uid=' + comment_uid;
+		}
+	}
 </script>
 
 <body>
@@ -109,8 +110,8 @@
 	
 	<!-- 추천하기 버튼이 위치한  영역입니다. -->
     <div class="panel-recommend">
-        <button class="btn-recommend" type="button">추천하기 <i class="far fa-thumbs-up"></i></button>
         <button type="button" onclick="location.href='freeBoardList.po'">목록으로</button>
+        <button class="btn-recommend" type="button">추천하기 <i class="far fa-thumbs-up"></i></button>
     </div>
     <!---------------------------------->
      
@@ -118,7 +119,7 @@
     
     <!-- 댓글 작성 폼 입니다. -->
     <form name="frm" action="../Comment/commentWriteOk.co" method="post" onsubmit="return chkSubmit()">
-		<div class="wrap bg-Lgray">
+		<div class="wrap panel-comment-write">
 	   
 	    <!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
 	    <input type="hidden" name="post_uid" value="${list[0].post_uid }">
@@ -126,40 +127,34 @@
 	    <!---------------------------------->
 	    
 	   	<textarea name="comment_content" placeholder="내용을 입력해 주세요."></textarea>
-	   	<button type="submit">작성</button>
+	   	<button class="btn-comment-write" type="submit">작성</button>
 	    </div>
 	    
 	   
     </form>
     <!---------------------------------->
 
+    <span class="comment-list">댓글 목록</span>
+
 	<c:choose>
 		<c:when test="${empty commentList || fn:length(commentList) == 0}">
 		</c:when>
 
 		<c:otherwise>
-			<table>
-				<tr>
-					<th>작성자</th>
-					<th>글내용</th>
-					<th>작성일</th>
-				</tr>
-
 				<c:forEach var="dto" items="${commentList }">
-					<tr>
-						<td>${dto.user_name}</td>
-						<td>${dto.comment_content}</td>
-						<td>${dto.comment_regdate}</td>
-					</tr>
-
+                    <div class="comment-box">
+                        <div>
+                            <span class="user-name">${dto.user_name} </span>
+                            <span class="comment-date">(${dto.comment_regdate})</span>
+                            <span id="delete-comment" onclick="chkCommentDelete(${dto.comment_uid})">삭제</span>
+                        </div>
+                        <div>
+                            <span class="comment-content">${dto.comment_content}</span>
+                        </div>
+                    </div>
 				</c:forEach>
-
-			</table>
 		</c:otherwise>
 	</c:choose>
 
 </body>
 </html>
-
-	</c:otherwise>
-</c:choose>

@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-</body>
-</html>
+<c:choose>
+	<c:when test="${empty result}">
+		<script>
+			alert('삭제 실패');
+			history.back();
+		</script>
+	</c:when>
+	<c:otherwise>
+		<script>
+			location.href = document.referrer; 
+		</script>
+	</c:otherwise>
+</c:choose>
