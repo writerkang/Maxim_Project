@@ -171,14 +171,14 @@
 		viewcnt = rs.getInt("post_viewcnt");
 		D = rs.getString("post_regdate");
 		
-		rs2.close();
-		pstmt2.close();
+		if(rs2 != null) rs2.close();
+		if(pstmt2 != null) pstmt2.close();
 		pstmt2 = conn.prepareStatement(SQL_WRITE_SELECT_NAME);
 		pstmt2.setInt(1, uid);  
 		rs2 = pstmt2.executeQuery();
-		
+		if(rs2.next()){
 		name = rs2.getString("user_name");
-		
+		}
 		
 		
 
@@ -190,6 +190,7 @@
 		<c:set var="subject" value="<%=new String(subject) %>"/>
 		<c:set var="D" value="<%=new String(D) %>"/>
 		<c:set var="name" value="<%=new String(name) %>"/>
+		<c:out value="${name }"/>
 		
 		<table class="text">
 		
@@ -234,9 +235,9 @@
 		// 리소스 해제
 		try {
 			if(rs != null) rs.close();
-			if(rs2 != null) rs2.close();
 			if(stmt != null) stmt.close();
 			if(pstmt != null) pstmt.close();
+			if(rs2 != null) rs2.close();
 			if(pstmt2 != null) pstmt2.close();
 			if(conn != null) conn.close();
 		} catch(Exception e){
