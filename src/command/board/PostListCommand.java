@@ -18,7 +18,8 @@ public class PostListCommand implements Command {
 		PostDTO [] arr = null;
 		
 		try {
-			arr = dao.select();
+//			arr = dao.select();
+			arr = dao.selectWithOption();
 			
 			// "list"란 name으로  request에 arr값 전달
 			// 즉 request에 담아서 컨트롤러에 전달되는 셈

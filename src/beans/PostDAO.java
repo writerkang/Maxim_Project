@@ -89,8 +89,7 @@ public class PostDAO extends DefaultDAO {
 						post_regdate, post_viewcnt,
 						board_uid, user_uid, category_uid);
 				
-				dto.setUser_name(user_name);
-//				dto.setComment_uids(comment_uids);
+				dto.setUser_name(user_name);	
 				list.add(dto);
 				
 			} // end while
@@ -104,6 +103,51 @@ public class PostDAO extends DefaultDAO {
 			return arr;
 		}
 		
+		// ResultSet --> DTO 배열로 리턴(추천수, 댓글 개수등 추가)
+				public PostDTO [] createArray2(ResultSet rs) throws SQLException {
+					PostDTO [] arr = null;  // DTO 배열
+					
+					ArrayList<PostDTO> list = new ArrayList<PostDTO>();
+					
+					while(rs.next()) {
+						int post_uid = rs.getInt("post_uid");
+						String post_subject = rs.getString("post_subject");
+						String post_content = rs.getString("post_content");
+						int post_viewcnt = rs.getInt("post_viewcnt");
+						int board_uid = rs.getInt("board_uid");
+						int category_uid = rs.getInt("category_uid");
+						int user_uid = rs.getInt("user_uid");					
+						String user_name = rs.getString("user_name");
+						int comments_count = rs.getInt("comments_count");
+						
+						Date d = rs.getDate("post_regdate");
+						Time t = rs.getTime("post_regdate");
+						
+						String post_regdate = "";
+						if(d != null){
+							post_regdate = new SimpleDateFormat("yyyy-MM-dd").format(d) + " "
+									+ new SimpleDateFormat("hh:mm:ss").format(t);
+						}
+						
+						PostDTO dto = new PostDTO(post_uid, post_subject, post_content, 
+								post_regdate, post_viewcnt,
+								board_uid, user_uid, category_uid);
+						
+						dto.setUser_name(user_name);	
+						dto.setComments_count(comments_count);	
+						list.add(dto);
+						
+					} // end while
+					
+					int size = list.size();
+					
+					if(size == 0) return null;
+					
+					arr = new PostDTO[size];
+					list.toArray(arr);  // List -> 배열		
+					return arr;
+				}
+		
 		// tb_post의 모든 값 가져오기
 		public PostDTO [] select() throws SQLException {
 			PostDTO [] arr = null;
@@ -112,6 +156,21 @@ public class PostDAO extends DefaultDAO {
 				pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT);
 				rs = pstmt.executeQuery();
 				arr = createArray(rs);
+			} finally {
+				close();
+			}		
+			
+			return arr;
+		} // end select()
+		
+		// tb_post의 모든 값 가져오기 with Option
+		public PostDTO [] selectWithOption() throws SQLException {
+			PostDTO [] arr = null;
+			
+			try {
+				pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT_WITH_OPTION);
+				rs = pstmt.executeQuery();
+				arr = createArray2(rs);
 			} finally {
 				close();
 			}		
