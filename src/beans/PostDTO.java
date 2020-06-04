@@ -11,7 +11,7 @@ public class PostDTO {
 	int user_uid; 
 	int category_uid;
 	String user_name;
-	int comment_uids;
+//	int comment_uids;
 	
 	public PostDTO(int post_uid, String post_subject, String post_content, String post_regdate, int post_viewcnt,
 			int board_uid, int user_uid, int category_uid) {
@@ -101,15 +101,6 @@ public class PostDTO {
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
-
-	public int getComment_uids() {
-		return comment_uids;
-	}
-
-	public void setComment_uids(int comment_uids) {
-		this.comment_uids = comment_uids;
-	}
-	
 	
 	
 	
