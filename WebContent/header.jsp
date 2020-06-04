@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+      
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="CSS/header.css" />
+  <title>Bubble Effect</title>
+</head>
+
+<body>
+  <nav>
+
+    <div class="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+
+    <div class="logotext">  
+      <h4>SYSOUT</h4>
+    </div>
+
+    <ul class="login-links">
+      <li><a onclick="location.href='User/mypage.uo'" id="mypage">MyPage</a></li>
+      <div class="sline"></div>
+      <li><a onclick="location.href='User/login.uo'" id="login" id="login">LogIn</a></li>
+    </ul>
+    
+    <ul class="nav-links">
+      <li><a onclick="location.href='#.po'">SITELINK</a></li>
+      <li><a onclick="location.href='Board/freeBoardList.po'">FREEBOARD</a></li>
+      <li><a onclick="location.href='Board/tipBoardList.po'">TIPBOARD</a></li>
+      <li><a onclick="location.href='User/userRank.uo'">RANK</a></li>
+      <li><a onclick="location.href='Board/noticeBoardList.po'">NOTICE</a></li>
+    </ul>
+    
+  </nav>
+
+  <script src="JS/header.js"></script>
+
+</body>
+
+</html>
