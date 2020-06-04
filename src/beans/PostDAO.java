@@ -73,7 +73,9 @@ public class PostDAO extends DefaultDAO {
 				int board_uid = rs.getInt("board_uid");
 				int category_uid = rs.getInt("category_uid");
 				int user_uid = rs.getInt("user_uid");					
-				String user_name = rs.getString("user_name");					
+				String user_name = rs.getString("user_name");
+				int comment_uids = rs.getInt("comment_uids");
+				
 				Date d = rs.getDate("post_regdate");
 				Time t = rs.getTime("post_regdate");
 				
@@ -88,6 +90,7 @@ public class PostDAO extends DefaultDAO {
 						board_uid, user_uid, category_uid);
 				
 				dto.setUser_name(user_name);
+				dto.setComment_uids(comment_uids);
 				list.add(dto);
 				
 			} // end while

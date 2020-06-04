@@ -25,6 +25,7 @@ public class PostQuery {
 //			"SELECT * FROM tb_post ORDER BY post_uid DESC";
 			"SELECT tp.*, tu.USER_NAME FROM TB_POST tp , TB_USER tu "
 			+ "WHERE tp.USER_UID = tu.USER_UID ORDER BY tp.post_uid DESC";
+	//TODO 댓글 개수 가져오기
 	
 	public static final String SQL_POST_UPDATE = 
 			"UPDATE tb_post SET post_subject = ?, post_content = ?, category_uid = ? WHERE post_uid = ?";
