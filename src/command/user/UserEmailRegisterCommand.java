@@ -30,6 +30,7 @@ public class UserEmailRegisterCommand implements Command {
 			}
 			
 		} // end if
+		request.setAttribute("user_email", user_email);
 		request.setAttribute("userEmailRegisterOk", cnt);
 		
 	}

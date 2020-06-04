@@ -42,6 +42,9 @@ CREATE TABLE tb_email
 	user_emailChecked  	VARCHAR2(1)  NOT NULL
  );
 SELECT * FROM tb_email;
+DELETE FROM tb_email;
+
+
 
 CREATE TABLE tb_user
 (

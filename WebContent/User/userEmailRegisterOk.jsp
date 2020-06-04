@@ -5,16 +5,16 @@
 	
 <c:choose>
 	<c:when test="${userEmailRegisterOk == 1 }">  <!-- request 에 담겨온 result 를 의미(request.getAttribute("result") -->
-		<c:out value="${sessionScope.user_email }"/>
-		<script>
-			location.href="userEmailSend.uo";
-		</script>
+		
+<c:redirect url="/User/userEmailSend.uo" context="/Maxim_Project">
+	<c:param name="user_email" value="${param.user_email }"/>
+</c:redirect>
 	</c:when>
 	
  	<c:otherwise>
 		<script>
-			alert("이미 가입된 이메일입니다.");
-			location.href="userEmailRegister.jsp";
+			alert("인증이 완료된 이메일입니다.");
+			location.href="login.uo";
 		</script>
 	</c:otherwise>
 </c:choose>
