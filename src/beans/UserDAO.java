@@ -49,20 +49,16 @@ public class UserDAO extends DefaultDAO {
 		return -1; // 회원가입 실패
 	}
 
-	
-	
-	
-	
 	// 회원정보 insert 
-	public int insertInfo(String user_email, String user_nickName, String user_phone, String user_pw) throws SQLException {
+	public int insertInfo(String user_email, String user_name, String user_phone, String user_pw) throws SQLException {
 
 		int cnt = 0;
 		try {
 			pstmt = conn.prepareStatement(UserQuery.SQL_USER_INFO_INSERT);
-			pstmt.setString(1, user_nickName);
-			pstmt.setString(2, user_phone);
-			pstmt.setString(3, user_pw);
-//			pstmt.setString(4, user_email);
+			pstmt.setString(1, user_email);
+			pstmt.setString(2, user_name);
+			pstmt.setString(3, user_phone);
+			pstmt.setString(4, user_pw);
 
 			cnt = pstmt.executeUpdate(); // insert 성공하면 1
 

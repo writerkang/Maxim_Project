@@ -1,2 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+	
+<c:choose>
+	<c:when test="${joinOk == 1 }">
+		<script>
+			alert("반갑습니다! 시스아웃 회원이 되신 걸 축하드립니다.");
+			location.href="../index.uo";
+		</script>
+	</c:when>
+ 	<c:otherwise>
+		<script>
+			alert("회원가입 실패하셨습니다. 이전화면으로 돌아갑니다.");
+			history.back();
+		</script>
+	</c:otherwise>
+</c:choose>
+
+    

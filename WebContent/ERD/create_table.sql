@@ -63,6 +63,9 @@ CREATE TABLE tb_user
     user_email2     VARCHAR2(30)  	  
     );
 SELECT * FROM TB_USER;
+DELETE FROM TB_USER;
+
+
 SELECT * FROM tb_post;
 
 
