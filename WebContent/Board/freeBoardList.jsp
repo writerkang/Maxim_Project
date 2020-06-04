@@ -1,3 +1,4 @@
+<%@page import="org.ietf.jgss.Oid"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -49,7 +50,6 @@
 	// 쿼리문 준비
 	//final String SQL_WRITE_SELECT = 
 	//	"SELECT * FROM test_write ORDER BY wr_uid DESC";
-
 	// 페이징
 	// 글 목록 전체 개수 가져오기
 	final String SQL_WRITE_COUNT_ALL = "SELECT count(*) FROM tb_post";
@@ -61,9 +61,9 @@
 			"WHERE RNUM >= ? AND RNUM < ?";
 	
 	// 페이징 관련 세팅 값들
-	int writePages = 5;   // 한 [페이징] 에 몇개의 '페이지' 를 표현할 것인가?
+	int writePages = 10;   // 한 [페이징] 에 몇개의 '페이지' 를 표현할 것인가?
 	int pageRows = 3;    // 한 '페이지' 에 몇개의 글을 리스트업 할 것인가?
-	int totalPage = 8;	 // 총 몇 '페이지' 분량인가?
+	int totalPage = 0;	 // 총 몇 '페이지' 분량인가?
 %>
 <%
 	try{
@@ -131,6 +131,13 @@
         <!-- 아래에 글쓰기 링크 -->
         <a href="freePostWrite.po"><i class="fas fa-pen fa-2x" id="pen"></i></a>
     </div>
+    
+    
+
+		<c:set var="totalPage"  value="<%=new Integer(totalPage)%>"/>
+		<c:set var="writePages"  value="<%=new Integer(writePages)%>"/>
+		<c:set var="pageRows"  value="<%=new Integer(pageRows)%>"/>
+		
 
 	<c:choose>
 		
@@ -138,8 +145,9 @@
 		</c:when>
 		
 		<c:otherwise>
-		<c:forEach var="dto" items="${list }">
+		<c:forEach var="dto" items="${list }" begin="0" end="${writePages-1 }">
 		<table class="text">
+		
 			<tr>
 				<td id="text_uid" style="font-size:10px; float: left;">${dto.user_uid }</td>
 				<td id="text_title"><a href="freePostView.po?post_uid=${dto.post_uid }">${dto.post_subject }</a></td>
