@@ -34,10 +34,10 @@ SELECT * FROM TB_BOARD;
 
 --tb_post 값 입력 예시
 INSERT INTO TB_POST (POST_UID , POST_SUBJECT , POST_CONTENT , POST_REGDATE , POST_VIEWCNT , BOARD_UID ,  USER_UID , CATEGORY_UID )
-VALUES (post_seq.nextval, 'MVC 패턴 강좌', 'MVC 패턴은 좋고 편하고~~~~~~~', sysdate, 0, 1, 1, 2)
+VALUES (post_seq.nextval, 'ab;labfb', sysdate, 0, 1, 1, 2)
 ;
 INSERT INTO TB_POST (POST_UID , POST_SUBJECT , POST_CONTENT , POST_REGDATE , POST_VIEWCNT , BOARD_UID ,  USER_UID , CATEGORY_UID )
-VALUES (post_seq.nextval, '자바스크립트 끝내기~~~~~~~~~~~~~~~~~~', '자바스크립트는 좋고 편하고~~~~~~~', sysdate, 0, 2, 1, 1)
+VALUES (post_seq.nextval, '자바스크립트 끝내기~~~~~~~~~~~~~~~~~~', '자바스크립트는 좋고 편하고~~~~~~~', sysdate, 0, 2, 3, 1)
 ;
 
 SELECT * FROM TB_POST;
