@@ -3,11 +3,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPage</title>
 </head>
 <body>
+    <header>
 
+    </header>
+    <article>
+        <form action="mypageUpdateOk.jsp" method="post" enctype="multipart/form-data">
+        	사진: <input type="file" name="file"><br>
+        	<input type="submit" value="upload">
+        </form>
+    </article>
+    <footer>
+
+    </footer>
 </body>
 </html>
