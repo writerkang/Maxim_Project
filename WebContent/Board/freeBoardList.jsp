@@ -36,7 +36,9 @@
 	Connection conn = null;
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
+	PreparedStatement pstmt2 = null;
 	ResultSet rs = null;   // SELECT 결과, executeQuery() 
+	ResultSet rs2 = null;
 	int cnt = 0;   // DML 결과, executeUpdate()
 	
 	// Connection 에 필요한 값 세팅
@@ -60,6 +62,10 @@
 			"(SELECT ROWNUM AS RNUM, T.* FROM (SELECT * FROM tb_post ORDER BY post_uid DESC) T) " + 
 			"WHERE RNUM >= ? AND RNUM < ?";
 	
+	final String SQL_WRITE_SELECT_NAME =  "SELECT user_name FROM " +
+			"TB_USER WHERE USER_UID = ?";
+
+
 	// 페이징 관련 세팅 값들
 	int writePages = 5;   // 한 [페이징] 에 몇개의 '페이지' 를 표현할 것인가?
 	int pageRows = 5;    // 한 '페이지' 에 몇개의 글을 리스트업 할 것인가?
@@ -80,7 +86,7 @@
 			cnt = rs.getInt(1);   // count(*), 전체 글의 개수
 			
 		rs.close();
-		pstmt.close();
+		pstmt.close();	
 		
 		totalPage = (int)Math.ceil(cnt / (double)pageRows); // 총 몇페이지 분량
 		
@@ -99,6 +105,7 @@
 			String subject = "";
 			String name = "";
 			int viewcnt = 0;
+			String D = "";
 			
 %>	
 
@@ -162,7 +169,16 @@
 		uid = rs.getInt("post_uid");
 		subject = rs.getString("post_subject");
 		viewcnt = rs.getInt("post_viewcnt");
-		name = rs.getString("post_content");
+		D = rs.getString("post_regdate");
+		
+		rs2.close();
+		pstmt2.close();
+		pstmt2 = conn.prepareStatement(SQL_WRITE_SELECT_NAME);
+		pstmt2.setInt(1, uid);  
+		rs2 = pstmt2.executeQuery();
+		
+		name = rs2.getString("user_name");
+		
 		
 		
 
@@ -172,6 +188,8 @@
 		<c:set var="uid"  value="<%=new Integer(uid)%>"/>
 		<c:set var="viewcnt" value="<%=new Integer(viewcnt) %>"/>
 		<c:set var="subject" value="<%=new String(subject) %>"/>
+		<c:set var="D" value="<%=new String(D) %>"/>
+		<c:set var="name" value="<%=new String(name) %>"/>
 		
 		<table class="text">
 		
@@ -180,9 +198,9 @@
 				<td id="text_title"><a href="freePostView.po?post_uid=${uid }">${subject }</a></td>
 		   	</tr>
 		   	<tr>
-		       	<td id="nick_name">${dto.user_name }</td>
+		       	<td id="nick_name">${name }</td>
 		       	<td style="font-size: 12px; font-weight: bold;">댓글수 &nbsp;&nbsp;&nbsp;조회수 ${viewcnt }
-		       	<td id="text_date">${dto.post_regdate }</td>
+		       	<td id="text_date">${D }</td>
 		    </tr>
 		</table>
 	  	</c:forEach>
@@ -216,8 +234,10 @@
 		// 리소스 해제
 		try {
 			if(rs != null) rs.close();
+			if(rs2 != null) rs2.close();
 			if(stmt != null) stmt.close();
 			if(pstmt != null) pstmt.close();
+			if(pstmt2 != null) pstmt2.close();
 			if(conn != null) conn.close();
 		} catch(Exception e){
 			e.printStackTrace();
