@@ -59,7 +59,8 @@
 	// fromRow 부터 pageRows 만큼 SELECT
 	// (몇번째) 부터 (몇개) 만큼
 	final String SQL_WRITE_SELECT_FROM_ROW =  "SELECT * FROM " + 
-			"(SELECT ROWNUM AS RNUM, T.* FROM (SELECT * FROM tb_post ORDER BY post_uid DESC) T) " + 
+			"(SELECT ROWNUM AS RNUM, T.* FROM (SELECT * FROM tb_post ORDER BY post_uid DESC) T) " +
+			"natural join tb_user " +
 			"WHERE RNUM >= ? AND RNUM < ?";
 	
 	final String SQL_WRITE_SELECT_NAME =  "SELECT user_name FROM " +
@@ -68,7 +69,7 @@
 
 	// 페이징 관련 세팅 값들
 	int writePages = 5;   // 한 [페이징] 에 몇개의 '페이지' 를 표현할 것인가?
-	int pageRows = 5;    // 한 '페이지' 에 몇개의 글을 리스트업 할 것인가?
+	int pageRows = 6;    // 한 '페이지' 에 몇개의 글을 리스트업 할 것인가?
 	int totalPage = 0;	 // 총 몇 '페이지' 분량인가?
 %>
 <%
@@ -170,15 +171,8 @@
 		subject = rs.getString("post_subject");
 		viewcnt = rs.getInt("post_viewcnt");
 		D = rs.getString("post_regdate");
-		
-		rs2.close();
-		pstmt2.close();
-		pstmt2 = conn.prepareStatement(SQL_WRITE_SELECT_NAME);
-		pstmt2.setInt(1, uid);  
-		rs2 = pstmt2.executeQuery();
-		
-		name = rs2.getString("user_name");
-		
+		name = rs.getString("user_name");
+	
 		
 		
 
@@ -234,9 +228,9 @@
 		// 리소스 해제
 		try {
 			if(rs != null) rs.close();
-			if(rs2 != null) rs2.close();
 			if(stmt != null) stmt.close();
 			if(pstmt != null) pstmt.close();
+			if(rs2 != null) rs2.close();
 			if(pstmt2 != null) pstmt2.close();
 			if(conn != null) conn.close();
 		} catch(Exception e){
