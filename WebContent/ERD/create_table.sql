@@ -130,7 +130,7 @@ CREATE TABLE tb_attach
     post_uid             NUMBER           , 
     mypage_uid           NUMBER            
 );
-
+SELECT * FROM TB_ATTACH;
 CREATE TABLE tb_site
 (
     site_uid        NUMBER           PRIMARY KEY, 
