@@ -12,9 +12,9 @@
 
     </header>
     <article>
-        <form action="mypageUpdateOk.jsp" method="post" enctype="multipart/form-data">
+        <form action="mypageUpdate.jsp" method="post" enctype="multipart/form-data">
         	사진: <input type="file" name="file"><br>
-        	<input type="submit" value="upload">
+        	<input type="submit" value="전송">
         </form>
     </article>
     <footer>

@@ -27,4 +27,12 @@ public class D {
 		public static final String SQL_WRITE_SELECT_BY_UID = //글 읽어오기
 					"SELECT * FROM test_write WHERE wr_uid = ?";
 
+		
+		// mypage upload - 첨부파일 관련 쿼리
+		public static final String SQL_FILE_UPLOAD = // 파일 업로드
+				"INSERT INTO tb_attach"
+				+ "(attach_oriname, attach_servername, mypage_uid) "
+				+ "VALUES"
+				+ "(tb_attach_seq.nextval,?, ?)"
+				;
 }
