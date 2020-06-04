@@ -26,6 +26,17 @@ public class PostQuery {
 			"SELECT tp.*, tu.USER_NAME FROM TB_POST tp , TB_USER tu "
 			+ "WHERE tp.USER_UID = tu.USER_UID ORDER BY tp.post_uid DESC";
 	
+	
+	//모든 게시글 읽어오기
+	//Join 사용하여 user_name도 가져온다
+	public static final String SQL_POST_SELECT_WITH_OPTION =
+			"SELECT tp.*, tu.USER_NAME, tc.comments_count " + 
+			"FROM TB_POST tp JOIN TB_USER tu " + 
+			"ON tp.USER_UID = tu.USER_UID " + 
+			"LEFT OUTER JOIN (SELECT tp.POST_UID , COUNT(*) AS comments_count FROM TB_POST tp LEFT OUTER JOIN TB_COMMENT tc ON tp.POST_UID = tc.POST_UID GROUP BY tp.POST_UID) tc " + 
+			"ON tp.POST_UID = tc.POST_UID " + 
+			"ORDER BY tp.POST_UID DESC "
+			;
 	public static final String SQL_POST_UPDATE = 
 			"UPDATE tb_post SET post_subject = ?, post_content = ?, category_uid = ? WHERE post_uid = ?";
 

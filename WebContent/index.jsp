@@ -24,10 +24,6 @@
       <div class="line"></div>
     </div>
     <ul class="nav-links">
-      <ul class="login-links">
-        <li><a onclick="location.href='User/mypage.uo'" id="mypage">MyPage</a></li>
-        <li><a onclick="location.href='User/login.uo'" id="login" id="login">LogIn</a></li>
-      </ul>
       <li><a onclick="location.href='#.po'">SiteCommand</a></li>
       <li><a onclick="location.href='Board/freeBoardList.po'">FreeBoard</a></li>
       <li><a onclick="location.href='Board/tipBoardList.po'">tipBoard</a></li>
