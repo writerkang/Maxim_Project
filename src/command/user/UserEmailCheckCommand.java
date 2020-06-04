@@ -16,7 +16,7 @@ public class UserEmailCheckCommand implements Command {
 		
 		UserDAO dao = new UserDAO();
 		
-		String code = request.getParameter("code");
+		String code = request.getParameter("code");  // a 태그 href 속성을 통해 전달된 파라메타.
 		String user_email = null;
 		
 		try {

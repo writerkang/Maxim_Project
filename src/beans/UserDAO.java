@@ -96,7 +96,7 @@ public class UserDAO extends DefaultDAO {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 
-				// 컬럼값 리턴 -> "1"
+				// 컬럼값 리턴 -> "0"
 				return rs.getString("user_emailchecked"); // 이메일 등록 여부 반환
 			}
 
@@ -104,7 +104,7 @@ public class UserDAO extends DefaultDAO {
 			e.printStackTrace();
 		}
 
-		return "0"; // DB 오류(해당 이메일에 대한 체크여부 Update 안 됨)
+		return "1"; // 이미 인증여부 완료?..
 	}
 	
 	// 이메일체크값 '1' 로 변경 
