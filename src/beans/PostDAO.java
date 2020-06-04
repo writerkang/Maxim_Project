@@ -178,6 +178,23 @@ public class PostDAO extends DefaultDAO {
 			return arr;
 		} // end select()
 		
+		// tb_post의 모든 값 가져오기 with Option
+				public PostDTO [] selectWithOption(int page) throws SQLException {
+					PostDTO [] arr = null;
+					
+					try {
+						pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT_WITH_OPTION2);
+						pstmt.setInt(1, page);
+						pstmt.setInt(2, page);
+						rs = pstmt.executeQuery();
+						arr = createArray2(rs);
+					} finally {
+						close();
+					}		
+					
+					return arr;
+				} // end select()
+		
 		// 특정 post_uid 의 글 내용 읽기, 조회수 증가
 		// viewCnt 도 1 증가 해야 하고, 읽어와야 한다 --> 트랜잭션 처리	
 		public PostDTO [] readByUid(int post_uid) throws SQLException{
@@ -229,6 +246,18 @@ public class PostDAO extends DefaultDAO {
 			
 			return arr;
 		}
+		public int getTotalPost() throws SQLException{
+			int totalPost = 0;
+			try {
+				pstmt = conn.prepareStatement(PostQuery.SQL_POST_TOTALPOST);
+				rs = pstmt.executeQuery();
+				totalPost = rs.getInt(1);
+			} finally {
+				close();
+			}
+			
+			return totalPost;
+		}
 		
 		// 게시글 수정 기능 
 		public int update(int post_uid, String post_subject, int category_uid, String post_content) throws SQLException{
@@ -249,6 +278,8 @@ public class PostDAO extends DefaultDAO {
 			
 			return cnt;
 		} //end update()
+		
+		
 		
 
 } //end PostDAO

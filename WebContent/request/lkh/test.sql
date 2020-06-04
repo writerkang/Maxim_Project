@@ -20,7 +20,7 @@ SELECT tp.POST_UID, COUNT(tc.POST_UID) AS comments_count FROM TB_POST tp LEFT OU
 SELECT tp.*, tu.USER_NAME FROM TB_POST tp , TB_USER tu WHERE tp.USER_UID = tu.USER_UID AND tp.POST_UID = 3;
 
 
---페이징 구현
+페이징 구현
 SELECT * FROM 
 (
 SELECT ROWNUM AS rnum, tp.*
@@ -28,3 +28,24 @@ FROM (SELECT * FROM TB_POST ORDER BY POST_UID DESC ) tp
 )
 WHERE rnum >= 6 AND RNUM < 6 + 5
 ;
+
+
+--페이징 구현
+SELECT * FROM 
+(
+SELECT rownum AS rnum, tb_page.*
+FROM (
+SELECT tp.*, tu.USER_NAME, tc.comments_count
+FROM TB_POST tp JOIN TB_USER tu
+ON tp.USER_UID = tu.USER_UID 
+LEFT OUTER JOIN (SELECT tp.POST_UID, COUNT(tc.POST_UID) AS comments_count FROM TB_POST tp LEFT OUTER JOIN TB_COMMENT tc ON tp.POST_UID = tc.POST_UID GROUP BY tp.POST_UID) tc
+ON tp.POST_UID = tc.POST_UID 
+ORDER BY tp.POST_UID DESC 
+) tb_page
+)
+WHERE rnum >= 1 AND RNUM < 1 + 5
+;
+
+SELECT count(POST_UID ) FROM TB_POST;
+
+SELECT count(POST_UID) AS count_post FROM TB_POST;
