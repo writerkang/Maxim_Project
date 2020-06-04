@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.PageContext;
 
 import beans.UserDAO;
 import common.Command;
@@ -20,13 +21,17 @@ public class UserEmailCheckCommand implements Command {
 		String user_email = null;
 		
 		try {
+			
 			user_email = dao.GetUserEmail();  // 이메일 주소가 담김 
+			
 			if (user_email != null && user_email.trim().length() > 0) {
 
-//				boolean rightCode = (new SHA256().getSHA256(user_email).equals(code));
-//				String setChk = dao.SetUserEmailChecked(user_email);
+				String rightCode = "";  // 1 이 나오겠지?
+				
 				request.setAttribute("checkEmail", user_email);
 				request.setAttribute("code", code);
+				request.setAttribute("rightCode", rightCode);
+//				PageContext.setAttribute("rightCode", rightCode);
 			} // end if
 		} catch (SQLException e) {
 			e.printStackTrace();

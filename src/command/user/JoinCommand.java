@@ -18,7 +18,7 @@ public class JoinCommand implements Command {
 
 		// request에서 매개변수 받아오기
 		String user_email = request.getParameter("user_email");
-		String user_nickName = request.getParameter("user_nickName");
+		String user_nickName = request.getParameter("user_name");
 		String user_phone = request.getParameter("user_phone");
 		String user_pw = request.getParameter("user_pw");
 		
