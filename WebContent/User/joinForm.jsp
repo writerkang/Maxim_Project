@@ -16,21 +16,32 @@
 </head>
 <body>
     <h1 style="text-align: center;">회원정보입력</h1>
-        <form id="frm" action="joinFormOk.uo" onsubmit="return chkSubmit();">
+    
+        <form id="frm" action="joinFormOk.uo" method="post" onsubmit="return chkSubmit();">
     <div style="background-color: #FFD966; width: 85%; margin: 10px auto; padding: 30px 0px; margin-bottom: 0px;" >
         <div style="text-align: center;">
             <i class="fas fa-user-edit fa-5x"></i>
         </div>
-            <span style="display: inline-block; width: 110px; text-align: right;">아이디(이메일)</span> <input type="email" class="form" name="user_email"><%=request.getParameter("user_email") %><br><br>
-            <span style="display: inline-block; width: 110px; text-align: right;">*닉네임</span> <input type="text" class="form" name="user_name">
+            <span style="display: inline-block; width: 110px; text-align: right;">아이디(이메일)</span> 
+            <input type="email" class="form" name="user_email" value="<%=request.getParameter("user_email") %>"><br><br>
+            
+            <span style="display: inline-block; width: 110px; text-align: right;">*닉네임</span> 
+            <input type="text" class="form" name="user_name">
             <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ 한글, 숫자 5자이내</span><br>
-            <span style="display: inline-block; width: 110px; text-align: right;">*휴대폰</span> <input type="number" class="form" name="user_phone">
+            
+            <span style="display: inline-block; width: 110px; text-align: right;">*휴대폰</span> 
+            <input type="number" class="form" name="user_phone">
             <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ '-' 없이 입력해주세요.</span><br>
-            <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호</span> <input type="password" class="form" name="user_pw">
+            
+            <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호</span> 
+            <input type="password" class="form" name="user_pw">
             <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ 숫자, 문자 조합하여 10자~16자 이상 입력</span><br>
-            <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호 확인</span> <input type="password" class="form" name="user_PwChk"><br><br>
-
+            
+            <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호 확인</span> 
+            <input type="password" class="form" name="user_PwChk"><br><br>
     </div>
+    
+    
     <div style="background-color: #333333; color: white; width: 85%; margin: 0px auto; padding-top: 15px;">
         <h2 style="margin: 0px; text-align: center;">서비스 이용약관</h2>
         

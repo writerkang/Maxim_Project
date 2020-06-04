@@ -18,24 +18,25 @@ public class JoinCommand implements Command {
 
 		// request에서 매개변수 받아오기
 		String user_email = request.getParameter("user_email");
-		String user_nickName = request.getParameter("user_name");
+		String user_name = request.getParameter("user_name");
 		String user_phone = request.getParameter("user_phone");
 		String user_pw = request.getParameter("user_pw");
+		String user_PwChk = request.getParameter("user_PwChk");
 		
-		if(user_email != null && user_nickName != null && user_phone != null &&
-				user_pw != null && user_email.trim().length() > 0 && user_nickName.trim().length() > 0 &&
-				user_phone.trim().length() > 0 && user_pw.trim().length() > 0) {
+		
+		if(user_email != null && user_name != null && user_phone != null &&
+				user_pw != null && user_PwChk != null && user_email.trim().length() > 0 && user_name.trim().length() > 0 &&
+				user_phone.trim().length() > 0 && user_pw.trim().length() > 0 && user_PwChk.trim().length() > 0) {
 			
 			try {
-				cnt = dao.insertInfo(user_email, user_nickName, user_phone, user_pw);
+				cnt = dao.insertInfo(user_email, user_name, user_phone, user_pw);
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}
 			
 		} // end if
 			
-		request.setAttribute("insertInfo", cnt);
-		
+		request.setAttribute("joinOk", cnt);
 	}
 
 }

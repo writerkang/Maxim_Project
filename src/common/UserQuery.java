@@ -21,14 +21,14 @@ public class UserQuery {
 				"UPDATE tb_email SET user_emailChecked = '1' WHERE user_email = ?";
 		
 		
-		
-		
-		// 인증 된 이메일 -> 회원정보 insert 하기
+		// 인증 된 이메일 -> 회원정보 tb_user 테이블에 insert 하기
 		public static final String SQL_USER_INFO_INSERT = "INSERT INTO tb_user " +
 				"(user_uid, user_email, user_name, user_phone, user_pw) " +
-				"VALUES(user_seq.nextval, ?, ?, ?, ?) " + "WHERE user_email = ?";	
+				"VALUES(user_seq.nextval, ?, ?, ?, ?)";	
 		
 		
+		// 이메일 테이블 삭제 
+		public static final String SQL_DELETE_USEREMAIL = "DELETE FROM tb_email";		
 		
 		
 		
