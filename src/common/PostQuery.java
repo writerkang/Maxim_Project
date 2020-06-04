@@ -61,6 +61,6 @@ public class PostQuery {
 			"UPDATE tb_post SET post_subject = ?, post_content = ?, category_uid = ? WHERE post_uid = ?";
 
 	public static final String SQL_POST_TOTALPOST =
-			"SELECT count(POST_UID) FROM TB_POST";
+			"SELECT count(POST_UID) as totals FROM TB_POST";
 }
 
