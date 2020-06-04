@@ -57,12 +57,12 @@
 	// fromRow 부터 pageRows 만큼 SELECT
 	// (몇번째) 부터 (몇개) 만큼
 	final String SQL_WRITE_SELECT_FROM_ROW =  "SELECT * FROM " + 
-			"(SELECT ROWNUM AS RNUM, T.* FROM (SELECT * FROM tb_post ORDER BY user_uid DESC) T) " + 
+			"(SELECT ROWNUM AS RNUM, T.* FROM (SELECT * FROM tb_post ORDER BY post_uid DESC) T) " + 
 			"WHERE RNUM >= ? AND RNUM < ?";
 	
 	// 페이징 관련 세팅 값들
-	int writePages = 10;   // 한 [페이징] 에 몇개의 '페이지' 를 표현할 것인가?
-	int pageRows = 3;    // 한 '페이지' 에 몇개의 글을 리스트업 할 것인가?
+	int writePages = 5;   // 한 [페이징] 에 몇개의 '페이지' 를 표현할 것인가?
+	int pageRows = 5;    // 한 '페이지' 에 몇개의 글을 리스트업 할 것인가?
 	int totalPage = 0;	 // 총 몇 '페이지' 분량인가?
 %>
 <%
@@ -92,6 +92,14 @@
 		rs = pstmt.executeQuery();
 		
 		//out.println("쿼리 성공<br>");
+		
+			int rnum = 0;
+			
+			int uid = 0;
+			String subject = "";
+			String name = "";
+			int viewcnt = 0;
+			
 %>	
 
 
@@ -134,10 +142,13 @@
     
     
 
+		
+    
+
 		<c:set var="totalPage"  value="<%=new Integer(totalPage)%>"/>
 		<c:set var="writePages"  value="<%=new Integer(writePages)%>"/>
 		<c:set var="pageRows"  value="<%=new Integer(pageRows)%>"/>
-		
+	
 
 	<c:choose>
 		
@@ -146,15 +157,31 @@
 		
 		<c:otherwise>
 		<c:forEach var="dto" items="${list }" begin="0" end="${writePages-1 }">
+	<%
+		rs.next();
+		uid = rs.getInt("post_uid");
+		subject = rs.getString("post_subject");
+		viewcnt = rs.getInt("post_viewcnt");
+		name = rs.getString("post_content");
+		
+		
+
+		
+	%>
+
+		<c:set var="uid"  value="<%=new Integer(uid)%>"/>
+		<c:set var="viewcnt" value="<%=new Integer(viewcnt) %>"/>
+		<c:set var="subject" value="<%=new String(subject) %>"/>
+		
 		<table class="text">
 		
 			<tr>
-				<td id="text_uid" style="font-size:10px; float: left;">${dto.user_uid }</td>
-				<td id="text_title"><a href="freePostView.po?post_uid=${dto.post_uid }">${dto.post_subject }</a></td>
+				<td id="text_uid" style="font-size:10px; float: left;">${uid }</td>
+				<td id="text_title"><a href="freePostView.po?post_uid=${uid }">${subject }</a></td>
 		   	</tr>
 		   	<tr>
 		       	<td id="nick_name">${dto.user_name }</td>
-		       	<td style="font-size: 12px; font-weight: bold;">댓글수 &nbsp;&nbsp;&nbsp;조회수 ${dto.post_viewcnt }
+		       	<td style="font-size: 12px; font-weight: bold;">댓글수 &nbsp;&nbsp;&nbsp;조회수 ${viewcnt }
 		       	<td id="text_date">${dto.post_regdate }</td>
 		    </tr>
 		</table>
@@ -163,7 +190,7 @@
 	</c:choose>
     
    	<br>
-
+	
     <span id="search">
         <select name="serach" id="search_sele">
             <option value="글내용">글내용</option>
