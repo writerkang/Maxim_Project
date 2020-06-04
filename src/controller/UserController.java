@@ -84,7 +84,6 @@ public class UserController extends HttpServlet {
 			viewPage = "userEmailCheck.jsp";
 			break;
 		case "/User/joinForm.uo":
-			command.execute(request, response);
 			viewPage = "joinForm.jsp";
 			break;
 		case "/User/joinFormOk.uo":
