@@ -162,11 +162,7 @@
 		uid = rs.getInt("post_uid");
 		subject = rs.getString("post_subject");
 		viewcnt = rs.getInt("post_viewcnt");
-		name = rs.getString("post_content");
-		
-		
-
-		
+		name = rs.getString("post_content");		
 	%>
 
 		<c:set var="uid"  value="<%=new Integer(uid)%>"/>
@@ -177,7 +173,7 @@
 		
 			<tr>
 				<td id="text_uid" style="font-size:10px; float: left;">${uid }</td>
-				<td id="text_title"><a href="freePostView.po?post_uid=${uid }">${subject }</a></td>
+				<td id="text_title"><a href="freePostView.po?post_uid=${uid }">${subject } ${dto.comments_count}</a></td>
 		   	</tr>
 		   	<tr>
 		       	<td id="nick_name">${dto.user_name }</td>

@@ -11,7 +11,7 @@ public class PostDTO {
 	int user_uid; 
 	int category_uid;
 	String user_name;
-	int comments_count;
+	int comments_count =0;
 	
 	public PostDTO(int post_uid, String post_subject, String post_content, String post_regdate, int post_viewcnt,
 			int board_uid, int user_uid, int category_uid) {
