@@ -9,7 +9,10 @@ public class LogoutCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO
+		
+		// 세션 해제 
+		
+		
 	}
 
 }
