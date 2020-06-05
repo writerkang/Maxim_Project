@@ -14,7 +14,7 @@
 	<header></header>
 	<div class="headline">
 		<h2>HeadLine</h2>
-		<h5>something blablabla</h5>
+		<h5>content something blablabla</h5>
 	</div>
 	<div class="user-info">
 		<h2>userName</h2>
@@ -23,6 +23,7 @@
 	</div>
 	
     <article>
+    
 	   	<c:forEach var="element" items="${file }">
 	   		<c:if test="${element.image == true }">
 	   			<div style="width:100px; height: 100px"
@@ -31,7 +32,7 @@
 	   		</c:if>	
 	   	</c:forEach>
    	
-   		<button onclick="location.href=update.uo">수정하기</button>
+   		<button onclick="location.href='mypageUpdate.uo'">수정하기</button>
    	     
     </article>
     
