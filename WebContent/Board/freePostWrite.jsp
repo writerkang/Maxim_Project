@@ -12,6 +12,7 @@
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../ckeditor/ckeditor.js"></script>
 
 <script src="../JS/cancel-modal.js" type="text/javascript"></script>
 
@@ -94,7 +95,10 @@
                 <span class="text-red">*</span> <label for="post_content">글 내용</label>
             </div>
             <div>
-                <textarea name="post_content" placeholder="내용을 입력해 주세요."></textarea>
+                <textarea name="post_content" id="editor1" placeholder="내용을 입력해 주세요."></textarea>
+                <script>
+                	CKEDITOR.replace('editor1');
+                </script>
             </div>
         </div>
         <!---------------------------------->

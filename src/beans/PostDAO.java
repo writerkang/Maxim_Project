@@ -179,17 +179,36 @@ public class PostDAO extends DefaultDAO {
 		} // end select()
 		
 		// tb_post의 모든 값 가져오기 with Option, 페이징 처리
-				public PostDTO [] selectWithOption(int page) throws SQLException {
+				public PostDTO [] selectWithOption(int page, int writePages) throws SQLException {
 					PostDTO [] arr = null;
 					
 					try {
 						pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT_WITH_OPTION2);
 						pstmt.setInt(1, page);
 						pstmt.setInt(2, page);
+						pstmt.setInt(3, writePages);
 						rs = pstmt.executeQuery();
 						arr = createArray2(rs);
 					} finally {
-//						close();
+						close();
+					}		
+					
+					return arr;
+				} // end select()
+				
+				// tb_post의 모든 값 가져오기 / 검색결과 보여주기
+				public PostDTO [] selectWithOption(int page, String keyword) throws SQLException {
+					PostDTO [] arr = null;
+					
+					try {
+						pstmt = conn.prepareStatement(PostQuery.SQL_POST_FIND_BY_SUBJECT);
+						pstmt.setString(1, keyword);
+						pstmt.setInt(2, page);
+						pstmt.setInt(3, page);
+						rs = pstmt.executeQuery();
+						arr = createArray2(rs);
+					} finally {
+						close();
 					}		
 					
 					return arr;
