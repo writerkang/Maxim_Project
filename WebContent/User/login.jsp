@@ -24,7 +24,12 @@ html[lang='ko'] {
   font-family: 'Suisse Regular', sans-serif;
 }
      -->
+     
 	<header>Header 영역입니다</header>
+	
+<% %>	
+	
+	
 	<div class="section_01">
 		<!-- 사이트 로고 들어갈 자리 -->
 		<div class="logo">
