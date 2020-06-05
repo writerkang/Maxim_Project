@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.board.CommentListCommand;
 import command.board.PostDeleteCommand;
+import command.board.PostFindCommand;
 import command.board.PostListCommand;
 import command.board.PostSelectCommand;
 import command.board.PostUpdateCommand;
@@ -100,6 +101,12 @@ public class PostController extends HttpServlet {
 					command = new PostWriteCommand();
 					command.execute(request, response);
 					viewPage = "freePostWriteOk.jsp";
+					break;
+					
+				case "/Board/freePostFind.po":
+					command = new PostFindCommand();
+					command.execute(request, response);
+					viewPage = "freePostFindResult.jsp";
 					break;
 					
 				case "/Board/tipPostWriteOk.po":
