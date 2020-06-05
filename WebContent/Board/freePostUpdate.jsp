@@ -49,12 +49,12 @@
             frm["category_uid"].focus();
             return false;
         }
-        if(post_subject == "" || post_subject.trim().length() == 0) {
+        if(post_subject == "") {
             alert("제목을 입력해 주세요!");
             frm["post_subject"].focus();
             return false;
         }
-        if(post_content == "" || post_content.trim().length() == 0) {
+        if(post_content == "") {
             alert("내용을 입력해 주세요!");
             frm["post_content"].focus();
             return false;
@@ -131,22 +131,6 @@
     </div>
     </form>
 
-	<!-- 취소 버튼 클릭시 나타나는 모달창입니다. -->
-    <div id="cancel-modal" class="modal">
-        <div class="cancel-modal-content">
-            <div class="cancel-modal-header">
-                <div><span>정말 취소 하시겠습니까?</span></div>
-                <div><span class="text-red">(임시저장은 되지 않습니다)</span></div>
-            </div>
-            <span class="close">&times;</span>
-
-            <div class="cancel-modal-buttons">    
-                <button type="button" class="back left-pull">뒤로가기</button>
-                <button type="button" class="ok right-pull" onclick="history.back()">확인</button>
-            </div>
-        </div>
-    </div>
-    <!---------------------------------->
 </body>
 </html>
 
