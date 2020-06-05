@@ -16,6 +16,7 @@
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../ckeditor/ckeditor.js"></script>
 
 <script src="../JS/cancel-modal.js" type="text/javascript"></script>
 
@@ -115,7 +116,10 @@
                 <span class="text-red">*</span> <label for="post_content">글 내용</label>
             </div>
             <div>
-                <textarea name="post_content" placeholder="내용을 입력해 주세요.">${list[0].post_content }</textarea>
+                <textarea name="post_content" id="editor1" placeholder="내용을 입력해 주세요.">${list[0].post_content }</textarea>
+                <script>
+                	CKEDITOR.replace('editor1');
+                </script>
             </div>
         </div>
         <!---------------------------------->
@@ -130,6 +134,23 @@
         </div>
     </div>
     </form>
+    
+   	<!-- 취소 버튼 클릭시 나타나는 모달창입니다. -->
+    <div id="cancel-modal" class="modal">
+        <div class="cancel-modal-content">
+            <div class="cancel-modal-header">
+                <div><span>정말 취소 하시겠습니까?</span></div>
+                <div><span class="text-red">(임시저장은 되지 않습니다)</span></div>
+            </div>
+            <span class="close">&times;</span>
+
+            <div class="cancel-modal-buttons">    
+                <button type="button" class="back left-pull">뒤로가기</button>
+                <button type="button" class="ok right-pull" onclick="history.back()">확인</button>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------->
 
 </body>
 </html>
