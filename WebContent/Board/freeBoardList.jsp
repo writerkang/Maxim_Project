@@ -90,8 +90,8 @@
 
 <%-- 페이징 --%>
 <jsp:include page="pagination.jsp"> 
-	<jsp:param value="5" name="writePages"/>
-	<jsp:param value="5" name="totalPage"/>
+	<jsp:param value="${writePages }" name="writePages"/>
+	<jsp:param value="${totalPage }" name="totalPage"/>
 	<jsp:param value="<%= curPage %>" name="curPage"/>
 </jsp:include>
     
