@@ -64,8 +64,8 @@ public class UserController extends HttpServlet {
 			viewPage = "loginOk.jsp";
 			break;
 		case "/User/logout.uo":
-			command = new LogoutCommand();
-			command.execute(request, response);
+//			command = new LogoutCommand();
+//			command.execute(request, response);
 			viewPage = "logout.jsp";
 			break;
 		case "/User/userEmailRegister.uo":
