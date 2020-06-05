@@ -35,4 +35,19 @@ public class D {
 				+ "VALUES"
 				+ "(tb_attach_seq.nextval,?, ?)"
 				;
+		
+		public static final String SQL_MAPAGE_WRITE_UPDATE =
+				"UPDATE tb_mypage SET mypage_subject = ? , mypage_content = ? WHERE mypage_uid = ?";
+				
+				
 }
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
