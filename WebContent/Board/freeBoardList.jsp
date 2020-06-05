@@ -71,25 +71,27 @@
     
    	<br>
 	
-    <span id="search">
-        <select name="serach" id="search_sele">
-            <option value="글내용">글내용</option>
-            <option value="글제목">글제목</option>
-            <option value="작성자">작성자</option>
-        </select>
-    </span>
-    <div id="ser_cont">
-        <form action="#" >
-            <input type="text" name="ser_content" id="content" placeholder="내용을 입력해주세요">
-        </form>
-    </div>
+    <form method="get" name="frm" action="./freeBoardList.po" >
+	    <span id="search">
+	        <select name="serach" id="search_sele">
+	            <option value="1">글내용</option>
+	            <option value="2">글제목</option>
+	            <option value="3">작성자</option>
+	        </select>
+	    </span>
+	    <div id="ser_cont">
+	            <input type="text" name="ser_content" id="content" placeholder="내용을 입력해주세요">
+	        
+	    </div>
+    </form>
+
     
 <%-- 위 트랜잭션이 마무리 되면 페이지 보여주기 --%>
 
 <%-- 페이징 --%>
 <jsp:include page="pagination.jsp"> 
 	<jsp:param value="5" name="writePages"/>
-	<jsp:param value="${totalPage }" name="totalPage"/>
+	<jsp:param value="5" name="totalPage"/>
 	<jsp:param value="<%= curPage %>" name="curPage"/>
 </jsp:include>
     
