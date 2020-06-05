@@ -30,7 +30,7 @@
         
         var comment_content = frm["comment_content"].value.trim();
         
-        if(comment_content == "" || comment_content.trim().length() == 0) {
+        if(comment_content == "") {
             alert("내용을 입력해 주세요!");
             frm["comment_content"].focus();
             return false;
@@ -40,17 +40,14 @@
 </script>
 
 <script>
-	$(document).ready(function() {
-		$(".btn-cmt-update").click(function(){
-			$(this).css("background-color", "red");
-			var $modal = $("#cmt-update-modal");
-			var $frm = $("#cmt-update-frm");
-			var $text = $("#cmt-content");
-	
-			$frm.attr("action", "../Comment/commentUpdateOk.co?comment_uid=" + comment_uid)
-			$modal.css("display", "block");
-		});
-	});
+	function openCommentUpdate(comment_uid){
+		var $modal = $("#cmt-update-modal");
+		var $frm = $("#cmt-update-frm");
+		var $text = $("#cmt-content");
+		
+		$frm.attr("action", "../Comment/commentUpdateOk.co?comment_uid=" + comment_uid)
+		$modal.css("display", "block");
+	}
 </script>
 
 <script>
@@ -163,7 +160,7 @@
 	                            <span class="cmt-date">(${dto.comment_regdate})</span>
                             </div>
                             <div class="panel_cmt_buttons">
-                            	<span class="btn-cmt-update" ${dto.comment_uid})">수정</span>
+                            	<span class="btn-cmt-update" onclick="openCommentUpdate(${dto.comment_uid})">수정</span>
                             	<span class="btn-cmt-delete" onclick="chkCommentDelete(${dto.comment_uid})">삭제</span>
                             </div>
                         </div>
