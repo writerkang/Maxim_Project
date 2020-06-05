@@ -1,8 +1,8 @@
 $(document).ready(function() {
     var $cancel = $(".btn-cancel")[0];
     var $modal = $("#cancel-modal");
-    var $back = $(".back")[0];
-    var $close = $(".close")[0];
+    var $back = $("#cancel-modal .back")[0];
+    var $close = $("#cancel-modal .close")[0];
     
     $cancel.onclick = function() {
         $modal.css("display", "block");
@@ -11,6 +11,7 @@ $(document).ready(function() {
     $back.onclick = function() {
         $modal.css("display", "none");
     };
+    
     $close.onclick = function() {
         $modal.css("display", "none");
     };

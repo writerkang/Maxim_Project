@@ -2,11 +2,11 @@
 
 --tb_user 값 입력 예시
 
-INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_EMAILHASH , USER_EMAILCHECKED , USER_NICKNAME, USER_ISVALID , USER_AUTH , USER_POINT , USER_SNS , USER_SNSID , USER_EMAIL2 )
-VALUES (user_seq.nextval, 'aaa@nasver.com', 'abcd', '사자d호랑이', sysdate, '0101545678', '#123456889789789', '0', '메롱', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
+INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_ISVALID , USER_AUTH , USER_POINT , USER_SNS , USER_SNSID , USER_EMAIL2 )
+VALUES (user_seq.nextval, 'aaa@nasver.com', 'abcd', '사자d호랑이', sysdate, '0101545678', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
 ;
-INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_EMAILHASH , USER_EMAILCHECKED , USER_NICKNAME, USER_ISVALID , USER_AUTH , USER_POINT , USER_SNS , USER_SNSID , USER_EMAIL2 )
-VALUES (user_seq.nextval, 'bbb@daum.com', 'tjfj', '이예지', sysdate, '01016165828', '#12456872589', '0', '곰돌이', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
+INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_ISVALID , USER_AUTH , USER_POINT , USER_SNS , USER_SNSID , USER_EMAIL2 )
+VALUES (user_seq.nextval, 'bbb@daum.com', 'tjfj', '이예지', sysdate, '01016165828', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
 ;
 SELECT * FROM tb_USER;
 

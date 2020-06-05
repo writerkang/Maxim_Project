@@ -159,6 +159,7 @@ button:hover
     overflow:hidden;
     height:auto;
     min-height: 300px;
+    word-break:break-all;
 }
 
 .panel-recommend
@@ -217,8 +218,35 @@ textarea[name="comment_content"]
     color: #fff;
 }
 
-#delete-comment
-{float: right;}
+.comment-box
+{
+    margin: 10px auto;
+    padding: 10px;
+    width: 90%;
+    height: 300px;
+    border-top: 1px solid #808080;
+    background-color: #fff;
+    font-size: 14px;
+    overflow:hidden;
+    height:auto;
+    min-height: 100px;
+    word-break:break-all;
+}
 
-#delete-comment:hover
+.cmt-header
+{
+	position: relative;	
+}
+
+.cmt-writer-name
+{font-weight: bold;}
+
+.comment-box > div > div.panel_cmt_buttons
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.btn-cmt-update:hover, .btn-cmt-delete:hover
 {cursor: pointer;}

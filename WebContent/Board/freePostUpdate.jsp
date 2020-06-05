@@ -16,6 +16,7 @@
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../ckeditor/ckeditor.js"></script>
 
 <script src="../JS/cancel-modal.js" type="text/javascript"></script>
 
@@ -49,12 +50,12 @@
             frm["category_uid"].focus();
             return false;
         }
-        if(post_subject == "" || post_subject.trim().length() == 0) {
+        if(post_subject == "") {
             alert("제목을 입력해 주세요!");
             frm["post_subject"].focus();
             return false;
         }
-        if(post_content == "" || post_content.trim().length() == 0) {
+        if(post_content == "") {
             alert("내용을 입력해 주세요!");
             frm["post_content"].focus();
             return false;
@@ -115,7 +116,10 @@
                 <span class="text-red">*</span> <label for="post_content">글 내용</label>
             </div>
             <div>
-                <textarea name="post_content" placeholder="내용을 입력해 주세요.">${list[0].post_content }</textarea>
+                <textarea name="post_content" id="editor1" placeholder="내용을 입력해 주세요.">${list[0].post_content }</textarea>
+                <script>
+                	CKEDITOR.replace('editor1');
+                </script>
             </div>
         </div>
         <!---------------------------------->
@@ -130,8 +134,8 @@
         </div>
     </div>
     </form>
-
-	<!-- 취소 버튼 클릭시 나타나는 모달창입니다. -->
+    
+   	<!-- 취소 버튼 클릭시 나타나는 모달창입니다. -->
     <div id="cancel-modal" class="modal">
         <div class="cancel-modal-content">
             <div class="cancel-modal-header">
@@ -147,6 +151,7 @@
         </div>
     </div>
     <!---------------------------------->
+
 </body>
 </html>
 

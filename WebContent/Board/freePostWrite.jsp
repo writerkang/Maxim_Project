@@ -12,6 +12,7 @@
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../ckeditor/ckeditor.js"></script>
 
 <script src="../JS/cancel-modal.js" type="text/javascript"></script>
 
@@ -21,18 +22,19 @@
         
         var category_uid = frm["category_uid"].value.trim();
         var post_subject = frm["post_subject"].value.trim();
+        var post_content = frm["post_content"].value.trim();
         
         if(category_uid == "") {
             alert("카테고리 유형을 선택해 주세요!");
             frm["category_uid"].focus();
             return false;
         }
-        if(post_subject == "" || post_subject.trim().length() == 0) {
+        if(post_subject == "") {
             alert("제목을 입력해 주세요!");
             frm["post_subject"].focus();
             return false;
         }
-        if(post_content == "" || post_content.trim().length() == 0) {
+        if(post_content == "") {
             alert("내용을 입력해 주세요!");
             frm["post_content"].focus();
             return false;
@@ -93,7 +95,10 @@
                 <span class="text-red">*</span> <label for="post_content">글 내용</label>
             </div>
             <div>
-                <textarea name="post_content" placeholder="내용을 입력해 주세요."></textarea>
+                <textarea name="post_content" id="editor1" placeholder="내용을 입력해 주세요."></textarea>
+                <script>
+                	CKEDITOR.replace('editor1');
+                </script>
             </div>
         </div>
         <!---------------------------------->

@@ -25,10 +25,13 @@ public class PostListCommand implements Command {
 		PostDAO dao = new PostDAO(); //DAO 객체 생성
 		PostDTO [] arr = null;
 		int totalPage = 1;
+		int writePages = 5;
 		
 		try {
 //			arr = dao.select();
 			arr = dao.selectWithOption(page*5 + - 4);
+			dao = new PostDAO();
+			
 			totalPage = dao.getTotalPages();
 			
 			if(totalPage % 5 == 0) {
@@ -42,6 +45,7 @@ public class PostListCommand implements Command {
 			// 즉 request에 담아서 컨트롤러에 전달되는 셈
 			request.setAttribute("list", arr);
 			request.setAttribute("totalPage", totalPage);
+			request.setAttribute("writePages", writePages);
 			
 			
 		} catch(SQLException e) {

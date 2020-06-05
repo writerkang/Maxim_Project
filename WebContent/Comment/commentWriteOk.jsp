@@ -11,7 +11,7 @@
 	</c:when>
 	<c:otherwise>
 		<script>
-			location.href = "../Board/freePostView.po?post_uid=${param.post_uid}"; // 등록 후에는 list 페이지로 이동
+			location.href = document.referrer;
 		</script>
 	</c:otherwise>
 </c:choose>

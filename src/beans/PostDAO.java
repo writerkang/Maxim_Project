@@ -189,7 +189,25 @@ public class PostDAO extends DefaultDAO {
 						rs = pstmt.executeQuery();
 						arr = createArray2(rs);
 					} finally {
-//						close();
+						close();
+					}		
+					
+					return arr;
+				} // end select()
+				
+				// tb_post의 모든 값 가져오기 / 검색결과 보여주기
+				public PostDTO [] selectWithOption(int page, String keyword) throws SQLException {
+					PostDTO [] arr = null;
+					
+					try {
+						pstmt = conn.prepareStatement(PostQuery.SQL_POST_FIND);
+						pstmt.setString(1, keyword);
+						pstmt.setInt(2, page);
+						pstmt.setInt(3, page);
+						rs = pstmt.executeQuery();
+						arr = createArray2(rs);
+					} finally {
+						close();
 					}		
 					
 					return arr;

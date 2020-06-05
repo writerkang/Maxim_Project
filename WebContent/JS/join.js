@@ -26,6 +26,13 @@ function chkSubmit() {
     	return false;
     }
     
+    if (frm['user_PwChk'].value.trim() != frm['user_pw'].value.trim()) {
+    	alert("비밀번호를 동일하게 입력해주세요.");
+    	
+    	frm['user_PwChk'].focus()
+    	return false;
+    }
+    
     if (frm["service_ck"].checked == false) {
     	alert("서비스 이용약관에 동의하세요.")
     	return false;
