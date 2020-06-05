@@ -29,7 +29,7 @@ public class PostFindCommand implements Command {
 		
 		try {
 //			arr = dao.select();
-			arr = dao.selectWithOption(page*5 + - 4, "%이강%");
+			arr = dao.selectWithOption(page*5 + - 4, "%이승%");
 			dao = new PostDAO();
 			
 			totalPage = dao.getTotalPages();

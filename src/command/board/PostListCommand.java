@@ -25,20 +25,20 @@ public class PostListCommand implements Command {
 		PostDAO dao = new PostDAO(); //DAO 객체 생성
 		PostDTO [] arr = null;
 		int totalPage = 1;
-		int writePages = 5;
+		int writePages = 7;
 		
 		try {
 //			arr = dao.select();
-			arr = dao.selectWithOption(page*5 + - 4);
+			arr = dao.selectWithOption(writePages*(page - 1) + 1, writePages);
 			dao = new PostDAO();
 			
 			totalPage = dao.getTotalPages();
 			
-			if(totalPage % 5 == 0) {
-				totalPage = totalPage / 5;
+			if(totalPage % writePages == 0) {
+				totalPage = totalPage / writePages;
 				
 			} else {
-				totalPage = totalPage / 5 + 1;
+				totalPage = totalPage / writePages + 1;
 			}
 			
 			// "list"란 name으로  request에 arr값 전달
