@@ -23,15 +23,15 @@
 	</div>
 	
     <article>
-    
-	   	<c:forEach var="element" items="${file }">
+<%-- 이미지인 경우 보여주기    
+ 	   	<c:forEach var="element" items="${file }">
 	   		<c:if test="${element.image == true }">
 	   			<div style="width:100px">
 	   			<img style="width:100%; height: auto"
 	   				src="upload/${element.file }"/>
 	   			</div>
 	   		</c:if>	
-	   	</c:forEach>
+	   	</c:forEach> --%>
    	
    		<button onclick="location.href='mypageUpdate.uo'">수정하기</button>
    	     

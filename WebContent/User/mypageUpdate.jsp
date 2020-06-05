@@ -45,9 +45,9 @@
 		<input type="text" name="mypage_subject" value=""/>
 	
 		content:
-		<input type="text" name="mypage_subject" value=""/>
+		<textarea name="content"></textarea>
 	</form>
-
+<input type="submit" value="수정">
 
 </body>
 </html>

@@ -10,7 +10,7 @@
 	session: <%= session.getAttribute("arr")%>
 	 --%>
 	 
-<%-- 	${sessionScope.userDto[0].user_uid } --%>
+	${sessionScope.userDto[0].user_uid }
 	
 	<%
 		UserDTO [] arr = (UserDTO[])request.getAttribute("arr");
@@ -26,8 +26,7 @@
 	</c:when>
 	
 	<c:when test="${loginOk == 1 }">  <!-- request 에 담겨온 result 를 의미(request.getAttribute("result") -->
-		<% HttpSession session1 = request.getSession(true);
-			session1.setAttribute("userDto", arr);%>
+		
 		<script>
 			alert("로그인 성공!");
 			location.href="../index.html";

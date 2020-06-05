@@ -32,11 +32,11 @@
       <div class="sline"></div>
       
       <c:choose>
-      	<!-- 로그인 전-->
+      	
 		<c:when test="${sessionScope.userDto[0].user_email == null }">
       		<li><a onclick="location.href='User/login.uo'" id="login" id="login">LogIn</a></li>
 		</c:when>
-		<!-- 로그인 후 -->
+		
 		<c:otherwise>
 			<li><a onclick="location.href='User/logout.uo'" id="logout" id="logout">LogOut</a></li>
 		</c:otherwise>
