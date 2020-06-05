@@ -50,4 +50,40 @@ SELECT * FROM TB_COMMENT;
 SELECT USER_NAME FROM 
 (SELECT ROWNUM AS RNUM, T.* FROM (SELECT * FROM TB_USER ORDER BY USER_UID DESC) T); 
 
+SELECT tp.*, tu.USER_NAME FROM TB_POST tp , TB_USER tu 
+WHERE tp.USER_UID = tu.USER_UID AND tp.POST_SUBJECT LIKE '%자바%' ORDER BY tp.post_uid DESC
 
+SELECT * FROM tb_page;
+
+
+
+SELECT * FROM 
+(
+SELECT rownum AS rnum, tb_page.* 
+FROM ( 
+SELECT tp.*, tu.USER_NAME, tc.comments_count 
+FROM TB_POST tp JOIN TB_USER tu 
+ON tp.USER_UID = tu.USER_UID 
+LEFT OUTER JOIN (SELECT tp.POST_UID, COUNT(tc.POST_UID) AS comments_count FROM TB_POST tp LEFT OUTER JOIN TB_COMMENT tc ON tp.POST_UID = tc.POST_UID GROUP BY tp.POST_UID) tc 
+ON tp.POST_UID = tc.POST_UID
+WHERE tu.USER_NAME LIKE '%홍%'
+ORDER BY tp.POST_UID DESC 
+) tb_page 
+) 
+WHERE rnum >= 1 AND RNUM < 1 + 5;
+
+
+SELECT * FROM 
+			(
+			SELECT rownum AS rnum, tb_page.* 
+			FROM ( 
+			SELECT tp.*, tu.USER_NAME, tc.comments_count 
+			FROM TB_POST tp JOIN TB_USER tu 
+			ON tp.USER_UID = tu.USER_UID 
+			LEFT OUTER JOIN (SELECT tp.POST_UID, COUNT(tc.POST_UID) AS comments_count FROM TB_POST tp LEFT OUTER JOIN TB_COMMENT tc ON tp.POST_UID = tc.POST_UID GROUP BY tp.POST_UID) tc 
+			ON tp.POST_UID = tc.POST_UID
+			WHERE tp.POST_CONTENT LIKE '%aa%'
+			ORDER BY tp.POST_UID DESC 
+			) tb_page 
+			) 
+			WHERE rnum >= 1 AND RNUM < 1 + 5

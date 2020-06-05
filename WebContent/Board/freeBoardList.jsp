@@ -74,9 +74,9 @@
     <form method="get" name="frm" action="./freeBoardList.po" >
 	    <span id="search">
 	        <select name="serach" id="search_sele">
-	            <option value="1">글내용</option>
-	            <option value="2">글제목</option>
-	            <option value="3">작성자</option>
+	            <option value="tp.POST_CONTENT">글내용</option>
+	            <option value="TP.POST_SUBJECT">글제목</option>
+	            <option value="tu.USER_NAME">작성자</option>
 	        </select>
 	    </span>
 	    <div id="ser_cont">
