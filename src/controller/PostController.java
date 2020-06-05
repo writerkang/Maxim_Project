@@ -151,6 +151,11 @@ public class PostController extends HttpServlet {
 					viewPage = "noticeBoardList.jsp";
 					break;				
 
+				case "/Board/mypage.po":
+					command = new PostListCommand();
+					command.execute(request, response);
+					viewPage = "mypage.jsp";
+					break;				
 					
 					
 				} // end switch

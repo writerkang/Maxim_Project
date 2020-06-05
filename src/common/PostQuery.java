@@ -79,6 +79,22 @@ public class PostQuery {
 			") " + 
 			"WHERE rnum >= ? AND RNUM < ? + 5"
 			;
+	
+	public static final String SQL_POST_MYPOST =
+			"SELECT POST_SUBJECT , POST_CONTENT FROM " +
+			"( " +
+			"SELECT rownum AS rnum, tb_page.* " +
+			"FROM ( " +
+			"SELECT tp.*, tu.USER_NAME, tc.comments_count " +
+			"FROM TB_POST tp JOIN TB_USER tu " +
+			"ON tp.USER_UID = tu.USER_UID " + 
+			"LEFT OUTER JOIN (SELECT tp.POST_UID, COUNT(tc.POST_UID) AS comments_count FROM TB_POST tp LEFT OUTER JOIN TB_COMMENT tc ON tp.POST_UID = tc.POST_UID GROUP BY tp.POST_UID) tc " +
+			"ON tp.POST_UID = tc.POST_UID " +
+			"WHERE tp.USER_UID LIKE ? " +
+			"ORDER BY tp.POST_UID DESC " + 
+			") tb_page " +
+			") "
+			;
 
 	
 	
