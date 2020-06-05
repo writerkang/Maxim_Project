@@ -48,22 +48,6 @@
 		<input type="text" name="mypage_subject" value=""/>
 	</form>
 
-	<%
-		String directory = application.getRealPath("../Maxim_Project/upload/");
-		int maxSize = 1024 * 1024 * 100;
-		String encoding = "UTF-8";
-		
-		MultipartRequest multi
-		= new MultipartRequest(request, directory, maxSize, encoding,
-				new DefaultFileRenamePolicy());
-		
-		// 사용자가 업로드한 file 은 "file" 이란 이름으로 넘어온다. / mypage.jsp 의 input에서 지정
-		String oriName = multi.getOriginalFileName("file");
-		String serverName = multi.getFilesystemName("file");
-		
-		new AttachDAO().fileUpload(oriName, serverName);
-		out.write("파일명: " + oriName + "<br>");
-		out.write("실제파일명: " + serverName + "<br>");
-	%>
+
 </body>
 </html>

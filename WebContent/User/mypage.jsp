@@ -26,8 +26,9 @@
     
 	   	<c:forEach var="element" items="${file }">
 	   		<c:if test="${element.image == true }">
-	   			<div style="width:100px; height: 100px"
-	   				src="upload/${element.file }">
+	   			<div style="width:100px">
+	   			<img style="width:100%; height: auto"
+	   				src="upload/${element.file }"/>
 	   			</div>
 	   		</c:if>	
 	   	</c:forEach>
