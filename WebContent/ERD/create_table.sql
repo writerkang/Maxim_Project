@@ -12,6 +12,7 @@ DROP TABLE tb_board CASCADE CONSTRAINT purge;
 DROP TABLE tb_site CASCADE CONSTRAINT purge;
 
 DROP SEQUENCE user_seq;
+DROP SEQUENCE post_seq;
 
 
 --생성된 테이블 확인
@@ -129,7 +130,7 @@ CREATE TABLE tb_attach
     post_uid             NUMBER           , 
     mypage_uid           NUMBER            
 );
-
+SELECT * FROM TB_ATTACH;
 CREATE TABLE tb_site
 (
     site_uid        NUMBER           PRIMARY KEY, 
