@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="../CSS/view.css"/>
     <link rel="stylesheet" href="../CSS/delete-modal.css"/>
+    <link rel="stylesheet" href="../CSS/cmt-update-modal.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 </head>
 
@@ -21,6 +22,7 @@
 
 <script src="../JS/toggle-menu.js" type="text/javascript"></script>
 <script src="../JS/delete-modal.js" type="text/javascript"></script>
+<script src="../JS/cmt-update-modal.js" type="text/javascript"></script>
 	    
 <script>
     function chkSubmit() {  // 폼 검증
@@ -35,6 +37,17 @@
         }
         return true;
     }
+</script>
+
+<script>
+	function openCommentUpdate(comment_uid){
+		var $modal = $("#cmt-update-modal");
+		var $frm = $("#cmt-update-frm");
+		var $text = $("#cmt-content");
+		
+		$frm.attr("action", "../Comment/commentUpdateOk.co?comment_uid=" + comment_uid)
+		$modal.css("display", "block");
+	}
 </script>
 
 <script>
@@ -129,8 +142,6 @@
 	   	<textarea name="comment_content" placeholder="내용을 입력해 주세요."></textarea>
 	   	<button class="btn-comment-write" type="submit">작성</button>
 	    </div>
-	    
-	   
     </form>
     <!---------------------------------->
 
@@ -143,18 +154,42 @@
 		<c:otherwise>
 				<c:forEach var="dto" items="${commentList }">
                     <div class="comment-box">
-                        <div>
-                            <span class="user-name">${dto.user_name} </span>
-                            <span class="comment-date">(${dto.comment_regdate})</span>
-                            <span id="delete-comment" onclick="chkCommentDelete(${dto.comment_uid})">삭제</span>
+                        <div class="cmt-header">
+                        	<div class="panel_cmt_info">
+	                            <span class="cmt-writer-name">${dto.user_name} </span>
+	                            <span class="cmt-date">(${dto.comment_regdate})</span>
+                            </div>
+                            <div class="panel_cmt_buttons">
+                            	<span class="btn-cmt-update" onclick="openCommentUpdate(${dto.comment_uid})">수정</span>
+                            	<span class="btn-cmt-delete" onclick="chkCommentDelete(${dto.comment_uid})">삭제</span>
+                            </div>
                         </div>
                         <div>
-                            <span class="comment-content">${dto.comment_content}</span>
+                            <span class="cmt-content">${dto.comment_content}</span>
                         </div>
                     </div>
 				</c:forEach>
 		</c:otherwise>
 	</c:choose>
+	
+
+	<!-- 댓글수정 버튼 클릭시 나타나는 모달창입니다. -->
+	<form name="frm" id="cmt-update-frm" action="" method="post" onsubmit="return chkSubmit()">
+    <div id="cmt-update-modal" class="modal">
+        <div class="cmt-update-modal-content">
+            <div class="cmt-update-modal-header">
+                <div><span>댓글 수정</span></div>
+            </div>
+            <span class="close">&times;</span>
+			<textarea name="comment_content" id="cmt-content"></textarea>
+            <div class="cmt-update-modal-buttons">    
+                <button type="button" class="back left-pull">뒤로가기</button>
+                <button type="submit" class="ok right-pull">수정</button>
+            </div>
+        </div>
+    </div>
+    </form>
+    <!---------------------------------->
 
 </body>
 </html>

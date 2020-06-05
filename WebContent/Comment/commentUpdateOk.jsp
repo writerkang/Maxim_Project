@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-</body>
-</html>
+<c:choose>
+	<c:when test="${result == 0 }">
+		<script>
+			alert("등록 실패");
+			history.back(); // 등록 실패 시 직전 페이지로 이동
+		</script>
+	</c:when>
+	<c:otherwise>
+		<script>
+			location.href = document.referrer;
+		</script>
+	</c:otherwise>
+</c:choose>
