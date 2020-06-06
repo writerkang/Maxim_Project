@@ -25,13 +25,9 @@ public class UserEmailCheckCommand implements Command {
 			user_email = dao.GetUserEmail();  // 이메일 주소가 담김 
 			
 			if (user_email != null && user_email.trim().length() > 0) {
-
-				String rightCode = "";  // 1 이 나오겠지?
 				
 				request.setAttribute("checkEmail", user_email);
 				request.setAttribute("code", code);
-				request.setAttribute("rightCode", rightCode);
-//				PageContext.setAttribute("rightCode", rightCode);
 			} // end if
 		} catch (SQLException e) {
 			e.printStackTrace();

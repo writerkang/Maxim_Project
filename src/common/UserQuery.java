@@ -39,9 +39,9 @@ public class UserQuery {
 		public static final String SQL_USER_PW = 
 				"SELECT user_pw FROM tb_user WHERE user_email = ?";
 		
-		// 특정 uid 를 가진 회원의 이름 가져오기 
+		// 특정 email 을 가진 회원의 이름 가져오기 
 		public static final String SQL_USER_NAME = 
-				"SELECT user_name FROM tb_user WHERE user_uid = ?";
+				"SELECT user_name FROM tb_user WHERE user_email = ?";
 
 		// 해당 이메일을 가진 회원의 휴대전화번호 가져오기 
 		public static final String SQL_USER_PHONE = 
@@ -55,6 +55,16 @@ public class UserQuery {
 		// 해당 이메일 가진 회원의 uid 값 뽑기
 		public static final String SQL_FIND_UID = 
 				"SELECT user_uid FROM tb_user WHERE user_email = ?";
+		
+		// tb_user 테이블에서 회원 전체 name 가져오기 
+		public static final String SQL_SELECT_USER_NAME = 
+				"SELECT user_name FROM tb_user";
+		
+		// tb_user 테이블에서 email 가져오기 (tb_email 테이블의 email 과 중복체크 위해)
+		public static final String SQL_SELECT_USER_EMAIL = 
+				"SELECT user_email FROM tb_user";
+		
+		
 		
 		
 		// 회원 탈퇴 (특정 uid 로부터? or 해당 이메일로부터?)
