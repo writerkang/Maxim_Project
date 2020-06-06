@@ -23,7 +23,7 @@ public class JoinCommand implements Command {
 		String user_pw = request.getParameter("user_pw");
 		String user_PwChk = request.getParameter("user_PwChk");
 		
-		int user_uid = 0;
+	
 		
 		if(user_email != null && user_name != null && user_phone != null &&
 				user_pw != null && user_PwChk != null && user_email.trim().length() > 0 && user_name.trim().length() > 0 &&

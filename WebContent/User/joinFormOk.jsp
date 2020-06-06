@@ -7,13 +7,13 @@
 <c:choose>
 	<c:when test="${joinOk == 1 }">
 		<script>
-			alert("반갑습니다! 시스아웃 회원이 되신 걸 축하드립니다.로그인해주세요!");
+			alert("반갑습니다! 시스아웃 회원이 되신 걸 축하드립니다. 로그인해주세요!");
 			location.href="login.uo";
 			</script>
 	</c:when>
  	<c:otherwise>
 		<script>
-			alert("회원가입 실패하셨습니다. 이전화면으로 돌아갑니다.");
+			alert("가입된 이메일입니다.");
 			history.back();
 		</script>
 	</c:otherwise>

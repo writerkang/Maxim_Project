@@ -104,6 +104,9 @@ public class UserDAO extends DefaultDAO {
 		return "0"; // 이메일 등록 설정 실패
 	}
 	
+
+	
+	
 	// 회원가입폼 insert 
 		public int insertInfo(String user_email, String user_name, String user_phone, String user_pw) throws SQLException {
 
@@ -124,9 +127,52 @@ public class UserDAO extends DefaultDAO {
 			}
 			return cnt;
 		} // end insert
-
-		// 로그아웃 처리
-		// TODO
+		
+		
+		// user_name(닉네임) 중복체크 
+		public int nameCheck(String user_name) throws SQLException {
+			
+			try {
+				pstmt = conn.prepareStatement(UserQuery.SQL_SELECT_USER_NAME);
+				rs = pstmt.executeQuery();  // 쿼리 수행
+				
+				while(rs.next()) {
+					if(rs.getString("user_name").equals(user_name)) { // DB 에 있는 user_name 들과 가입할 때 입력한 user_name 을 비교
+						return 1; // 같은 이름 존재 (이미존재하는 닉네임입니다)
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			
+			return 0; // 같은 이름 존재 하지 않음(사용 가능한 닉네임입니다)
+		} // end insert
+		
+		// tb_user 테이블에 있는 user_email 중복체크 
+		public int emailCheck(String user_email) throws SQLException {
+			
+			try {
+				pstmt = conn.prepareStatement(UserQuery.SQL_SELECT_USER_EMAIL);
+				rs = pstmt.executeQuery();  // 쿼리 수행
+				
+				while(rs.next()) {
+					if(rs.getString("user_email").equals(user_email)) { // tb_email 에 있는 user_email 들과 가입할 때 입력한 user_email 을 비교
+						return 0; // 해당 이메일이 이미 tb_user 테이블에 존재. (tb_email 테이블에서는 삭제된 상태)
+									// 해당 이메일이 이미 존재합니다. 
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			
+			return 1; // 같은 이메일 존재 하지 않음(사용 가능한 이매일입니다)
+		} // end insert
+		
+		
 		
 		
 		// ResultSet --> DTO 배열로 리턴

@@ -9,28 +9,64 @@
 		email 값이 null 인 경우에만 -> 로그인 시키도록-->
 	session: <%= session.getAttribute("arr")%>
 	 --%>
-	 
-	${sessionScope.userDto[0].user_uid }
-	
-	<%
-		UserDTO [] arr = (UserDTO[])request.getAttribute("arr");
-	%>
-	
-<c:choose>
 
- 	<c:when test="${loginOk == 0 || loginOk == -1 }">
+<%-- 	${sessionScope.userDto[0].user_uid } --%>
+
+
+<c:choose>
+	<c:when test="${loginOk == 1 }">
 		<script>
-			alert("이메일이 존재하지 않거나 비밀번호가 틀립니다.");
+			alert("${userDto[0].user_name}님 안녕하세요!");
+			location.href = "../header.jsp";
+		</script>
+	</c:when>
+	<c:when test="${loginOk == 0 }">
+		<script>
+			alert("비밀번호가 틀립니다.");
 			history.back();
 		</script>
 	</c:when>
-	
-	<c:when test="${loginOk == 1 }">  <!-- request 에 담겨온 result 를 의미(request.getAttribute("result") -->
-		
+
+	<c:otherwise>
 		<script>
-			alert("로그인 성공!");
-			location.href="../index.html";
+			alert("이메일이 존재하지 않습니다.");
+			history.back();
 		</script>
-	</c:when>
-	
+	</c:otherwise>
 </c:choose>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,15 +8,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import command.user.JoinCommand;
 import command.user.LoginCommand;
-import command.user.LogoutCommand;
 import command.user.UserDeleteCommand;
 import command.user.UserEmailCheckCommand;
 import command.user.UserEmailRegisterCommand;
 import command.user.UserEmailSendCommand;
+import command.user.NameChkCommand;
 import common.Command;
 
 @WebServlet("*.uo") // "~~.uo"로 오는 요청은 모두 여기서 처리 
@@ -64,8 +63,6 @@ public class UserController extends HttpServlet {
 			viewPage = "loginOk.jsp";
 			break;
 		case "/User/logout.uo":
-//			command = new LogoutCommand();
-//			command.execute(request, response);
 			viewPage = "logout.jsp";
 			break;
 		case "/User/userEmailRegister.uo":
@@ -112,7 +109,10 @@ public class UserController extends HttpServlet {
 		case "/index.uo":
 			viewPage = "index.jsp";
 			break;
-			
+		case "/User/nameChk.uo":
+			command = new NameChkCommand();
+			command.execute(request, response);
+			viewPage = "nameChk.jsp";
 		} // end switch
 		
 		// request 를 위에서 결정된 view 에 forward 해줌.
