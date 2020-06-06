@@ -27,7 +27,6 @@ html[lang='ko'] {
      
 	<header>Header 영역입니다</header>
 	
-<% %>	
 	
 	
 	<div class="section_01">

@@ -8,11 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import command.user.JoinCommand;
 import command.user.LoginCommand;
-import command.user.LogoutCommand;
 import command.user.UserDeleteCommand;
 import command.user.UserEmailCheckCommand;
 import command.user.UserEmailRegisterCommand;
@@ -64,8 +62,6 @@ public class UserController extends HttpServlet {
 			viewPage = "loginOk.jsp";
 			break;
 		case "/User/logout.uo":
-//			command = new LogoutCommand();
-//			command.execute(request, response);
 			viewPage = "logout.jsp";
 			break;
 		case "/User/userEmailRegister.uo":
