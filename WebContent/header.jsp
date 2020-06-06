@@ -30,7 +30,18 @@
     <ul class="login-links">
       <li><a onclick="location.href='User/mypage.uo'" id="mypage">MyPage</a></li>
       <div class="sline"></div>
-      <li><a onclick="location.href='User/login.uo'" id="login" id="login">LogIn</a></li>
+      
+      <c:choose>
+      	
+		<c:when test="${sessionScope.userDto[0].user_email == null }">
+      		<li><a onclick="location.href='User/login.uo'" id="login" id="login">LogIn</a></li>
+		</c:when>
+		
+		<c:otherwise>
+			<li><a onclick="location.href='User/logout.uo'" id="logout" id="logout">LogOut</a></li>
+		</c:otherwise>
+      </c:choose>
+      
     </ul>
     
     <ul class="nav-links">

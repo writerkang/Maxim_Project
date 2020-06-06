@@ -18,6 +18,7 @@ public class LoginCommand implements Command {
 		
 		// 세션생성 
 		HttpSession session = request.getSession(true);
+//		session.invalidate();
 		
 		// request에서 매개변수 받아오기
 		String user_email = request.getParameter("user_email");
@@ -40,6 +41,7 @@ public class LoginCommand implements Command {
 				
 				
 				request.setAttribute("loginOk", cnt);
+//				request.setAttribute("arr", arr);
 				session.setAttribute("userDto", arr); // 그 정보를 session 에 저장하고 보내줌.
 				
 			} catch(Exception e) {
