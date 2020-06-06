@@ -181,12 +181,6 @@ button:hover
 .btn-recommend:hover
 {cursor: pointer;}
 
-.comment-list
-{
-    font-size: 24px;
-    font-weight: bold;
-}
-
 .panel-comment-write
 {
     padding: 20px 0;
@@ -241,12 +235,15 @@ textarea[name="comment_content"]
 .cmt-writer-name
 {font-weight: bold;}
 
-.comment-box > div > div.panel_cmt_buttons
+div.panel_cmt_buttons
 {
 	position: absolute;
 	top: 0;
 	right: 0;
 }
+
+.btn-cmt-update, .btn-cmt-delete
+{padding: 0px 2px;}
 
 .btn-cmt-update:hover, .btn-cmt-delete:hover
 {cursor: pointer;}

@@ -23,7 +23,54 @@
 <script src="../JS/toggle-menu.js" type="text/javascript"></script>
 <script src="../JS/delete-modal.js" type="text/javascript"></script>
 <script src="../JS/cmt-update-modal.js" type="text/javascript"></script>
-	    
+
+<!-- 댓글 리스트 보여주기 -->
+<script>
+	$(document).ready(function(){
+		getList();
+	});
+	
+	function getList(){
+		var url = ""
+		 
+		url = "commentList.ajax?post_uid=${list[0].post_uid}";
+		$.ajax({
+			url :  url,
+			type : "POST",
+			cache : false,
+			success : function(data, status){
+				if(status == "success") 
+					parseJSON(data);
+			}
+		});
+	}
+	
+	function parseJSON(jsonObj){
+		var data = jsonObj.data;
+		var i;
+		var str="";
+		for (i = 0; i < data.length; i++) { 			
+			str += "<div class='comment-box'>";
+			str += "<div class='cmt-header'>";
+			str += "<div class='panel_cmt_info'>";
+			str += "<span class='cmt-writer-name'>" + data[i].user_name + " </span>";
+			str += "<span class='cmt-date'>(" + data[i].comment_regdate + ")</span>";
+			str += "</div>";
+			str += "<div class='panel_cmt_buttons'>";
+			str += "<span class='btn-cmt-update' onclick='openCommentUpdate(" + data[i].comment_uid + ")'>수정</span>";
+			str += "<span class='btn-cmt-delete' onclick='chkCommentDelete(" + data[i].comment_uid + ")'>삭제</span>";
+			str += "</div>";
+			str += "</div>";
+			str += "<span class='cmt-content'>" + data[i].comment_content + "</span>";
+			str += "</div>";
+			str += "</div>";
+		} // end for
+		$(".comment-list").html(str);
+	}	
+</script>
+<!---------------------------------->
+
+<!-- 댓글 작성, 수정  유효성 검증 -->
 <script>
     function chkSubmit() {  // 폼 검증
         frm = document.forms["frm"];
@@ -38,6 +85,7 @@
         return true;
     }
 </script>
+<!---------------------------------->
 
 <script>
 	function openCommentUpdate(comment_uid){
@@ -131,7 +179,7 @@
     <hr>
     
     <!-- 댓글 작성 폼 입니다. -->
-    <form name="frm" action="../Comment/commentWriteOk.co" method="post" onsubmit="return chkSubmit()">
+    <form name="frm" action="commentWrite.ajax" method="post" onsubmit="return chkSubmit()">
 		<div class="wrap panel-comment-write">
 	   
 	    <!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
@@ -145,33 +193,7 @@
     </form>
     <!---------------------------------->
 
-    <span class="comment-list">댓글 목록</span>
-
-	<c:choose>
-		<c:when test="${empty commentList || fn:length(commentList) == 0}">
-		</c:when>
-
-		<c:otherwise>
-				<c:forEach var="dto" items="${commentList }">
-                    <div class="comment-box">
-                        <div class="cmt-header">
-                        	<div class="panel_cmt_info">
-	                            <span class="cmt-writer-name">${dto.user_name} </span>
-	                            <span class="cmt-date">(${dto.comment_regdate})</span>
-                            </div>
-                            <div class="panel_cmt_buttons">
-                            	<span class="btn-cmt-update" onclick="openCommentUpdate(${dto.comment_uid})">수정</span>
-                            	<span class="btn-cmt-delete" onclick="chkCommentDelete(${dto.comment_uid})">삭제</span>
-                            </div>
-                        </div>
-                        <div>
-                            <span class="cmt-content">${dto.comment_content}</span>
-                        </div>
-                    </div>
-				</c:forEach>
-		</c:otherwise>
-	</c:choose>
-	
+	<div class="comment-list"></div>
 
 	<!-- 댓글수정 버튼 클릭시 나타나는 모달창입니다. -->
 	<form name="frm" id="cmt-update-frm" action="" method="post" onsubmit="return chkSubmit()">

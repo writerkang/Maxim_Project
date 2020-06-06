@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import beans.CommentDTO;
 import common.Command;
 
-public class AjaxListCommand implements Command {
+public class AjaxCommentListCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
@@ -19,7 +19,7 @@ public class AjaxListCommand implements Command {
 	}
 	
 	private void responseJSON(HttpServletRequest request, HttpServletResponse response) {
-		CommentDTO[] dtoArr = (CommentDTO[])request.getAttribute("list");
+		CommentDTO[] dtoArr = (CommentDTO[])request.getAttribute("commentList");
 		
 		JSONObject jsonOutput = new JSONObject();   // 최종 결과는 object
 		
@@ -31,7 +31,7 @@ public class AjaxListCommand implements Command {
 			jsonOutput.put("count", count);
 			
 			// 글 목록
-			JSONArray dataArr =new JSONArray();  // array
+			JSONArray dataArr = new JSONArray();  // array
 			
 			for(int i = 0; i < count; i++) {
 				JSONObject dataObj = new JSONObject();

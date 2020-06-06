@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import command.board.AjaxListCommand;
+import command.board.AjaxCommentListCommand;
 import command.board.CommentListCommand;
+import command.board.CommentWriteCommand;
 import common.Command;
 
 @WebServlet("*.ajax")
@@ -50,14 +51,16 @@ public class AjaxController extends HttpServlet {
 		// 컨트롤러는 커맨드에 따라, 로직을 수행하고
 		// 결과를 내보낼 view 를 결정한다
 		switch(com) {
-		case "/Board/list.ajax":  // 글 목록 AJAX 요청
-			System.out.println("AjaxController 동작~~");
-			// 댓글 목록 읽기
-			new CommentListCommand().execute(request, response);
-			// 읽어온 데이터를 다음 커맨드에 넘겨줌. (request 에 담겨 있다)
-			new AjaxListCommand().execute(request, response);
+		case "/Board/commentList.ajax":  // 댓글 목록 보여주기
+			new CommentListCommand().execute(request, response); // 댓글 목록 읽기
+			new AjaxCommentListCommand().execute(request, response); // 읽어온 데이터를 다음 커맨드에 넘겨줌. (request 에 담겨 있다)
 			break;
 			
+		case "/Board/commentWrite.ajax": // 댓글 작성
+			new CommentWriteCommand().execute(request, response); // 댓글 쓰기
+			new CommentListCommand().execute(request, response); // 댓글 목록 읽기
+			new AjaxCommentListCommand().execute(request, response); // 읽어온 데이터를 다음 커맨드에 넘겨줌. (request 에 담겨 있다)
+			break;
 		} // end switch
 	}
 
