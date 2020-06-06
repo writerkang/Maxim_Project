@@ -33,7 +33,7 @@ public class LoginCommand implements Command {
 				
 				dao = new UserDAO();
 				arr = dao.select(user_uid);
-			
+
 				if(cnt == 1) {
 					// 로그인 성공 -> 세션 생성 및 저장
 					HttpSession session = request.getSession(true);
@@ -42,7 +42,6 @@ public class LoginCommand implements Command {
 					// 로그인 실패
 					// 일단 무시...
 				}
-				
 			} catch(Exception e) {
 				e.printStackTrace();
 			}

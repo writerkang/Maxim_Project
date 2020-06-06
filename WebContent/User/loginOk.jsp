@@ -9,7 +9,7 @@
 		email 값이 null 인 경우에만 -> 로그인 시키도록-->
 	session: <%= session.getAttribute("arr")%>
 	 --%>
-	 
+
 <%-- 	${sessionScope.userDto[0].user_uid } --%>
 
 
@@ -26,6 +26,7 @@
 			history.back();
 		</script>
 	</c:when>
+
 	<c:otherwise>
 		<script>
 			alert("이메일이 존재하지 않습니다.");

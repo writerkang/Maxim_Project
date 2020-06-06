@@ -34,7 +34,7 @@
       	<!-- 로그인 전 (세션에 user_email 이 없으면 로그인 해야함.-->
 		<!-- 로그인 후 (세션저장됨)-->
       <c:choose>
-		<c:when test="${userDto[0].user_email == null }">
+		<c:when test="${sessionScope.userDto[0].user_email == null }">
       		<li><a onclick="location.href='User/login.uo'" id="login" id="login">LogIn</a></li>
 		</c:when>
 		<c:when test="${userDto[0].user_email != null }">
