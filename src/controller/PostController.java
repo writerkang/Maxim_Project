@@ -59,6 +59,7 @@ public class PostController extends HttpServlet {
 				
 				case "/Board/freeBoardList.po":
 					command = new PostListCommand();
+					request.setAttribute("board_uid", 2); //자유게시판 uid 세팅
 					command.execute(request, response);					
 					viewPage = "freeBoardList.jsp";
 					break;

@@ -178,15 +178,16 @@ public class PostDAO extends DefaultDAO {
 			return arr;
 		} // end select()
 		
-		// tb_post의 모든 값 가져오기 with Option, 페이징 처리
-				public PostDTO [] selectWithOption(int page, int writePages) throws SQLException {
+		// 특정 게시판의 모든 게시글 가져오기 with Option, 페이징 처리
+				public PostDTO [] selectWithOption(int boardUid, int page, int writePages) throws SQLException {
 					PostDTO [] arr = null;
 					
 					try {
-						pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT_WITH_OPTION2);
-						pstmt.setInt(1, page);
+						pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT_BY_BOARDUID);
+						pstmt.setInt(1, boardUid);
 						pstmt.setInt(2, page);
-						pstmt.setInt(3, writePages);
+						pstmt.setInt(3, page);
+						pstmt.setInt(4, writePages);
 						rs = pstmt.executeQuery();
 						arr = createArray2(rs);
 					} finally {

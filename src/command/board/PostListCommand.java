@@ -26,11 +26,15 @@ public class PostListCommand implements Command {
 		PostDTO [] arr = null;
 		int totalPage = 1;
 		int writePages = 7;
+		int boardUid = 1; //기본: 공지
 		
 		try {
-//			arr = dao.select();
-			arr = dao.selectWithOption(writePages*(page - 1) + 1, writePages);
+			boardUid = (int)(request.getAttribute("board_uid")); //게시판 uid 가져오기
+			
+			
+			arr = dao.selectWithOption(boardUid, writePages*(page - 1) + 1, writePages);
 			dao = new PostDAO();
+			
 			
 			totalPage = dao.getTotalPages();
 			
@@ -52,7 +56,7 @@ public class PostListCommand implements Command {
 			// 만약  connection pool 사용한다면
 			// NamingException도 처리해야 함
 			e.printStackTrace();
-		}
+		} 
 		
 	}
 
