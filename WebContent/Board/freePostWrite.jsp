@@ -97,7 +97,10 @@
             <div>
                 <textarea name="post_content" id="editor1" placeholder="내용을 입력해 주세요."></textarea>
                 <script>
-                	CKEDITOR.replace('editor1');
+	            	CKEDITOR.replace('editor1', {
+	            		allowedContent: true, // HTML 태그 자동삭제 방지 설정
+	            		filebrowserUploadUrl: 'fileUpload.po'
+	            	});
                 </script>
             </div>
         </div>
