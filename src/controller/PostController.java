@@ -72,6 +72,7 @@ public class PostController extends HttpServlet {
 				
 				case "/Board/tipBoardList.po":
 					command = new PostListCommand();
+					request.setAttribute("board_uid", 3); //팁게시판 uid 세팅
 					command.execute(request, response);
 					viewPage = "tipBoardList.jsp";
 					break;
@@ -155,6 +156,7 @@ public class PostController extends HttpServlet {
 					
 				case "/Board/noticeBoardList.po":
 					command = new PostListCommand();
+					request.setAttribute("board_uid", 1); //공지게시판 uid 세팅
 					command.execute(request, response);
 					viewPage = "noticeBoardList.jsp";
 					break;				
