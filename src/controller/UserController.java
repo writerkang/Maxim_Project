@@ -15,6 +15,7 @@ import command.user.UserDeleteCommand;
 import command.user.UserEmailCheckCommand;
 import command.user.UserEmailRegisterCommand;
 import command.user.UserEmailSendCommand;
+import command.user.NameChkCommand;
 import common.Command;
 
 @WebServlet("*.uo") // "~~.uo"로 오는 요청은 모두 여기서 처리 
@@ -108,7 +109,10 @@ public class UserController extends HttpServlet {
 		case "/index.uo":
 			viewPage = "index.jsp";
 			break;
-			
+		case "/User/nameChk.uo":
+			command = new NameChkCommand();
+			command.execute(request, response);
+			viewPage = "nameChk.jsp";
 		} // end switch
 		
 		// request 를 위에서 결정된 view 에 forward 해줌.
