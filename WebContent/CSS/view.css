@@ -198,7 +198,7 @@ textarea[name="comment_content"]
     resize: none;
 }
 
-.btn-comment-write
+.btn-write-cmt
 {
     clear: both;
     width: 20%;
@@ -242,8 +242,8 @@ div.panel_cmt_buttons
 	right: 0;
 }
 
-.btn-cmt-update, .btn-cmt-delete
+.link-cmt-update, .link-cmt-delete
 {padding: 0px 2px;}
 
-.btn-cmt-update:hover, .btn-cmt-delete:hover
+.link-cmt-update:hover, .link-cmt-delete:hover
 {cursor: pointer;}

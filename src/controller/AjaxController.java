@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.board.AjaxCommentListCommand;
+import command.board.CommentDeleteCommand;
 import command.board.CommentListCommand;
 import command.board.CommentWriteCommand;
 import common.Command;
@@ -52,15 +53,20 @@ public class AjaxController extends HttpServlet {
 		// 결과를 내보낼 view 를 결정한다
 		switch(com) {
 		case "/Board/commentList.ajax":  // 댓글 목록 보여주기
-			new CommentListCommand().execute(request, response); // 댓글 목록 읽기
-			new AjaxCommentListCommand().execute(request, response); // 읽어온 데이터를 다음 커맨드에 넘겨줌. (request 에 담겨 있다)
+			new CommentListCommand().execute(request, response);
+			new AjaxCommentListCommand().execute(request, response);
 			break;
 			
 		case "/Board/commentWrite.ajax": // 댓글 작성
-			new CommentWriteCommand().execute(request, response); // 댓글 쓰기
-			new CommentListCommand().execute(request, response); // 댓글 목록 읽기
-			new AjaxCommentListCommand().execute(request, response); // 읽어온 데이터를 다음 커맨드에 넘겨줌. (request 에 담겨 있다)
+			new CommentWriteCommand().execute(request, response);
+			new CommentListCommand().execute(request, response);
+			new AjaxCommentListCommand().execute(request, response);
 			break;
+			
+		case "/Board/commentDelete.ajax": // 댓글 삭제
+			new CommentDeleteCommand().execute(request, response);
+			new CommentListCommand().execute(request, response);
+			new AjaxCommentListCommand().execute(request, response);
 		} // end switch
 	}
 

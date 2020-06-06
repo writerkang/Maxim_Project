@@ -24,19 +24,19 @@
 <script src="../JS/delete-modal.js" type="text/javascript"></script>
 <script src="../JS/cmt-update-modal.js" type="text/javascript"></script>
 
-<!-- 댓글 리스트 보여주기 -->
 <script>
-	$(document).ready(function(){
-		getList();
-	});
+$(document).ready(function(){
+	var postUid = ${list[0].post_uid};
 	
+	getList();
+	
+	// 댓글 목록을 보여주는 함수
 	function getList(){
-		var url = ""
-		 
-		url = "commentList.ajax?post_uid=${list[0].post_uid}";
+		var url = "commentList.ajax?post_uid=" + postUid;
+		
 		$.ajax({
 			url :  url,
-			type : "POST",
+			type : "post",
 			cache : false,
 			success : function(data, status){
 				if(status == "success") 
@@ -49,63 +49,75 @@
 		var data = jsonObj.data;
 		var i;
 		var str="";
-		for (i = 0; i < data.length; i++) { 			
-			str += "<div class='comment-box'>";
-			str += "<div class='cmt-header'>";
-			str += "<div class='panel_cmt_info'>";
-			str += "<span class='cmt-writer-name'>" + data[i].user_name + " </span>";
-			str += "<span class='cmt-date'>(" + data[i].comment_regdate + ")</span>";
-			str += "</div>";
-			str += "<div class='panel_cmt_buttons'>";
-			str += "<span class='btn-cmt-update' onclick='openCommentUpdate(" + data[i].comment_uid + ")'>수정</span>";
-			str += "<span class='btn-cmt-delete' onclick='chkCommentDelete(" + data[i].comment_uid + ")'>삭제</span>";
-			str += "</div>";
-			str += "</div>";
-			str += "<span class='cmt-content'>" + data[i].comment_content + "</span>";
-			str += "</div>";
-			str += "</div>";
-		} // end for
-		$(".comment-list").html(str);
-	}	
-</script>
-<!---------------------------------->
-
-<!-- 댓글 작성, 수정  유효성 검증 -->
-<script>
-    function chkSubmit() {  // 폼 검증
-        frm = document.forms["frm"];
-        
-        var comment_content = frm["comment_content"].value.trim();
-        
-        if(comment_content == "") {
-            alert("내용을 입력해 주세요!");
-            frm["comment_content"].focus();
-            return false;
-        }
-        return true;
-    }
-</script>
-<!---------------------------------->
-
-<script>
-	function openCommentUpdate(comment_uid){
-		var $modal = $("#cmt-update-modal");
-		var $frm = $("#cmt-update-frm");
-		var $text = $("#cmt-content");
 		
-		$frm.attr("action", "../Comment/commentUpdateOk.co?comment_uid=" + comment_uid)
-		$modal.css("display", "block");
-	}
-</script>
-
-<script>
-	function chkCommentDelete(comment_uid){
-		// 삭제 여부 확인하고 진행
-		var r = confirm("댓글을 삭제 하시겠습니까?")
-		if(r){
-			location.href = '../Comment/commentDeleteOk.co?comment_uid=' + comment_uid;
+		if(data != null){
+			for (i = 0; i < data.length; i++){ 			
+				str += "<div class='comment-box'>";
+				str += "<div class='cmt-header'>";
+				str += "<div class='panel_cmt_info'>";
+				str += "<span class='cmt-writer-name'>" + data[i].user_name + " </span>";
+				str += "<span class='cmt-date'>(" + data[i].comment_regdate + ")</span>";
+				str += "</div>";
+				str += "<div class='panel_cmt_buttons'>";
+				str += "<span class='link-cmt-update' onclick='openUpdateComment(" + data[i].comment_uid + ")'>수정</span>";
+				str += "<a class='link-cmt-delete' href='commentDelete.ajax?comment_uid=" + data[i].comment_uid + "'>삭제</span>";
+				str += "</div>";
+				str += "</div>";
+				str += "<span class='cmt-content'>" + data[i].comment_content + "</span>";
+				str += "</div>";
+				str += "</div>";
+			} // end for
 		}
+		$(".comment-list").html(str);
 	}
+	//------------------------------
+	
+	// 댓글 작성 시 새로운 댓글 데이터를 반영하여 댓글 목록 보여주는 함수
+	$(".frm-write-cmt button[type=submit]").click(writeComment);
+
+	function writeComment(e){
+		e.preventDefault();
+		
+		var queryString = $(".frm-write-cmt").serialize();
+		console.log("query : " + queryString);
+		
+		var url = $(".frm-write-cmt").attr("action");
+		console.log("url : " + url);
+		
+		$.ajax({
+				type : "post",
+				url : url,
+				data : queryString,
+				dataType: "json",
+				success : writeSuccess
+		});
+	}
+
+	function writeSuccess(){
+		getList();
+		$("textarea[name='comment_content']").empty();
+	}
+	//------------------------------
+	
+	// 댓글 삭제 시 삭제된 데이터를 반영하여 댓글 목록 보여주는 함수
+	$(document).on('click', '.link-cmt-delete', deleteComment);
+	
+	function deleteComment(e){
+		e.preventDefault();
+		
+		var url = $(this).attr("href");
+		console.log("url : " + url);
+		
+		$.ajax({
+			type : "post",
+			url : url,
+			data : {post_uid : postUid},
+			dataType : "json",
+			success : getList
+		});
+	}
+	//------------------------------
+});
 </script>
 
 <body>
@@ -179,7 +191,7 @@
     <hr>
     
     <!-- 댓글 작성 폼 입니다. -->
-    <form name="frm" action="commentWrite.ajax" method="post" onsubmit="return chkSubmit()">
+    <form name="frm" class="frm-write-cmt" action="commentWrite.ajax" method="post" onsubmit="return chkSubmit()">
 		<div class="wrap panel-comment-write">
 	   
 	    <!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
@@ -188,7 +200,7 @@
 	    <!---------------------------------->
 	    
 	   	<textarea name="comment_content" placeholder="내용을 입력해 주세요."></textarea>
-	   	<button class="btn-comment-write" type="submit">작성</button>
+	   	<button class="btn-write-cmt" type="submit">작성</button>
 	    </div>
     </form>
     <!---------------------------------->
