@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="../CSS/view.css"/>
     <link rel="stylesheet" href="../CSS/delete-modal.css"/>
-    <link rel="stylesheet" href="../CSS/cmt-update-modal.css"/>
+    <link rel="stylesheet" href="../CSS/modal-updateComment.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 </head>
 
@@ -22,7 +22,7 @@
 
 <script src="../JS/toggle-menu.js" type="text/javascript"></script>
 <script src="../JS/delete-modal.js" type="text/javascript"></script>
-<script src="../JS/cmt-update-modal.js" type="text/javascript"></script>
+<script src="../JS/modal-updateComment.js" type="text/javascript"></script>
 
 <script>
 $(document).ready(function(){
@@ -59,7 +59,7 @@ $(document).ready(function(){
 				str += "<span class='cmt-date'>(" + data[i].comment_regdate + ")</span>";
 				str += "</div>";
 				str += "<div class='panel_cmt_buttons'>";
-				str += "<span class='link-cmt-update' onclick='openUpdateComment(" + data[i].comment_uid + ")'>수정</span>";
+				str += "<span class='link-cmt-update' onclick='openUpdateComment(" + data[i].comment_uid + ", " + data[i].comment_content + ")'>수정</span>";
 				str += "<a class='link-cmt-delete' href='commentDelete.ajax?comment_uid=" + data[i].comment_uid + "'>삭제</span>";
 				str += "</div>";
 				str += "</div>";
@@ -135,7 +135,7 @@ $(document).ready(function(){
                 <div>
                     <i class="far fa-thumbs-up"></i><span>추천수</span>
                     <i class="fas fa-comment"></i><span>댓글수</span>
-                    <i class="far fa-eye"></i><span>${list[0].post_viewcnt }</span>
+                    <i class="far fa-eye"></i><span>${list[0].post_viewcnt}</span>
                 </div>
             </div>
         </div>
@@ -145,14 +145,14 @@ $(document).ready(function(){
 
 		<!-- 게시물 제목, 토글메뉴(수정하기, 삭제하기), 스크랩 버튼이 위치한 영역입니다. -->
         <div class="panel-subject">
-            <span class="subject">${list[0].post_subject }</span>
+            <span class="subject">${list[0].post_subject}</span>
             <div class="btn-scrap right-pull">
                 <i class="far fa-star fa-2x"></i> 
             </div>
             <div id="btn-toggle-menu" class="right-pull">
                 <i class="fas fa-ellipsis-v fa-2x"></i>
                 <div id="toggle-menu-content">
-                    <div class="btn-modify"><a href="freePostUpdate.po?post_uid=${list[0].post_uid }">수정하기</a></div>
+                    <div class="btn-modify"><a href="freePostUpdate.po?post_uid=${list[0].post_uid}">수정하기</a></div>
                     <div class="btn-delete"><a href="#">삭제하기</a></div>
                 </div>
             </div>
@@ -170,14 +170,14 @@ $(document).ready(function(){
     
                 <div class="delete-modal-buttons">    
                     <button type="button" class="back left-pull">뒤로가기</button>
-                    <button type="button" class="ok right-pull" onclick="location.href='freePostDeleteOk.po?post_uid=${list[0].post_uid }'">확인</button>
+                    <button type="button" class="ok right-pull" onclick="location.href='freePostDeleteOk.po?post_uid=${list[0].post_uid}'">확인</button>
                 </div>
             </div>
         </div>
         <!---------------------------------->
 
 		<!-- 게시물 내용이 표시되는 영역입니다. -->
-        <div class="content">${list[0].post_content }</div>
+        <div class="content">${list[0].post_content}</div>
         <!---------------------------------->
     </div>
 	
@@ -195,7 +195,7 @@ $(document).ready(function(){
 		<div class="wrap panel-comment-write">
 	   
 	    <!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
-	    <input type="hidden" name="post_uid" value="${list[0].post_uid }">
+	    <input type="hidden" name="post_uid" value="${list[0].post_uid}">
 	    <input type="hidden" name="user_uid" value="1">
 	    <!---------------------------------->
 	    
@@ -208,8 +208,8 @@ $(document).ready(function(){
 	<div class="comment-list"></div>
 
 	<!-- 댓글수정 버튼 클릭시 나타나는 모달창입니다. -->
-	<form name="frm" id="cmt-update-frm" action="" method="post" onsubmit="return chkSubmit()">
-    <div id="cmt-update-modal" class="modal">
+	<form name="frm" id="frm-update-cmt" action="" method="post" onsubmit="return chkSubmit()">
+    <div id="modal-update-cmt" class="modal">
         <div class="cmt-update-modal-content">
             <div class="cmt-update-modal-header">
                 <div><span>댓글 수정</span></div>
