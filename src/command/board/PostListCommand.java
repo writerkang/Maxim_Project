@@ -24,8 +24,8 @@ public class PostListCommand implements Command {
 		
 		PostDAO dao = new PostDAO(); //DAO 객체 생성
 		PostDTO [] arr = null;
-		int totalPage = 1;
-		int writePages = 7;
+		int totalPage = 1; // 초기값 총 1페이지
+		int writePages = 7; //한 페이지에 7개의 글
 		int boardUid = 1; //기본: 공지
 		
 		try {

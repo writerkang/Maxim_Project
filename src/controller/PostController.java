@@ -107,6 +107,7 @@ public class PostController extends HttpServlet {
 					
 				case "/Board/freePostFind.po":
 					command = new PostFindCommand();
+					request.setAttribute("board_uid", 2); //자유게시판 uid 세팅
 					command.execute(request, response);
 					viewPage = "freePostFindResult.jsp";
 					break;
