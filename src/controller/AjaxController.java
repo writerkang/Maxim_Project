@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import command.board.AjaxCommentListCommand;
 import command.board.CommentDeleteCommand;
 import command.board.CommentListCommand;
+import command.board.CommentUpdateCommand;
 import command.board.CommentWriteCommand;
 import common.Command;
 
@@ -35,10 +36,6 @@ public class AjaxController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		// 컨트롤러는 다음 두개를 선택해야 한다.
-		String viewPage = null;   // 어떠한 뷰? --> 페이지
-		Command command = null;   // 어떠한 커맨드? --> 어떠한 로직 수행.
-		
 		// URL로부터 URI, ContextPath, Command 분리 
 		String uri = request.getRequestURI();
 		String conPath = request.getContextPath();
@@ -59,6 +56,12 @@ public class AjaxController extends HttpServlet {
 			
 		case "/Board/commentWrite.ajax": // 댓글 작성
 			new CommentWriteCommand().execute(request, response);
+			new CommentListCommand().execute(request, response);
+			new AjaxCommentListCommand().execute(request, response);
+			break;
+			
+		case "/Board/commentUpdate.ajax": // 댓글 수정
+			new CommentUpdateCommand().execute(request, response);
 			new CommentListCommand().execute(request, response);
 			new AjaxCommentListCommand().execute(request, response);
 			break;

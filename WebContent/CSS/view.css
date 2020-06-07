@@ -215,8 +215,7 @@ textarea[name="comment_content"]
 .comment-box
 {
     margin: 10px auto;
-    padding: 10px;
-    width: 90%;
+    padding: 5px;
     height: 300px;
     border-top: 1px solid #808080;
     background-color: #fff;

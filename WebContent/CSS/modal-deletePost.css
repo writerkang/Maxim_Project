@@ -30,7 +30,7 @@
     cursor: pointer;
 }
 
-.delete-modal-content
+.modal-delete-pst-container
 {
     position: fixed;
     top: 40%;
@@ -44,26 +44,26 @@
     background-color: #fff;
 }
 
-.delete-modal-header {
+.modal-delete-pst-header {
     position: relative;
     padding: 20px 0;
     text-align: center;
 }
 
-.delete-modal-buttons
+.modal-delete-pst-buttons
 {
     padding-top: 20px;
     text-align: center;
 }
 
-.delete-modal-buttons:after
+.modal-delete-pst-buttons:after
 {
     content: "";
     display: block;
     clear: both;
 }
 
-.delete-modal-buttons > button
+.modal-delete-pst-buttons > button
 {
     background-color: #333333;
     color: #fff;

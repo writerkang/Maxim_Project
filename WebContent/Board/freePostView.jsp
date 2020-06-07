@@ -13,7 +13,7 @@
     <title>View</title>
 
     <link rel="stylesheet" href="../CSS/view.css"/>
-    <link rel="stylesheet" href="../CSS/delete-modal.css"/>
+    <link rel="stylesheet" href="../CSS/modal-deletePost.css"/>
     <link rel="stylesheet" href="../CSS/modal-updateComment.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 </head>
@@ -21,109 +21,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script src="../JS/toggle-menu.js" type="text/javascript"></script>
-<script src="../JS/delete-modal.js" type="text/javascript"></script>
+<script src="../JS/modal-deletePost.js" type="text/javascript"></script>
 <script src="../JS/modal-updateComment.js" type="text/javascript"></script>
 
-<script>
-$(document).ready(function(){
-	var postUid = ${list[0].post_uid};
-	
-	getList();
-	
-	// 댓글 목록을 보여주는 함수
-	function getList(){
-		var url = "commentList.ajax?post_uid=" + postUid;
-		
-		$.ajax({
-			url :  url,
-			type : "post",
-			cache : false,
-			success : function(data, status){
-				if(status == "success") 
-					parseJSON(data);
-			}
-		});
-	}
-	
-	function parseJSON(jsonObj){
-		var data = jsonObj.data;
-		var i;
-		var str="";
-		
-		if(data != null){
-			for (i = 0; i < data.length; i++){ 			
-				str += "<div class='comment-box'>";
-				str += "<div class='cmt-header'>";
-				str += "<div class='panel_cmt_info'>";
-				str += "<span class='cmt-writer-name'>" + data[i].user_name + " </span>";
-				str += "<span class='cmt-date'>(" + data[i].comment_regdate + ")</span>";
-				str += "</div>";
-				str += "<div class='panel_cmt_buttons'>";
-				str += "<span class='link-cmt-update' onclick='openUpdateComment(" + data[i].comment_uid + ", " + data[i].comment_content + ")'>수정</span>";
-				str += "<a class='link-cmt-delete' href='commentDelete.ajax?comment_uid=" + data[i].comment_uid + "'>삭제</span>";
-				str += "</div>";
-				str += "</div>";
-				str += "<span class='cmt-content'>" + data[i].comment_content + "</span>";
-				str += "</div>";
-				str += "</div>";
-			} // end for
-		}
-		$(".comment-list").html(str);
-	}
-	//------------------------------
-	
-	// 댓글 작성 시 새로운 댓글 데이터를 반영하여 댓글 목록 보여주는 함수
-	$(".frm-write-cmt button[type=submit]").click(writeComment);
-
-	function writeComment(e){
-		e.preventDefault();
-		
-		var queryString = $(".frm-write-cmt").serialize();
-		console.log("query : " + queryString);
-		
-		var url = $(".frm-write-cmt").attr("action");
-		console.log("url : " + url);
-		
-		$.ajax({
-				type : "post",
-				url : url,
-				data : queryString,
-				dataType: "json",
-				success : writeSuccess
-		});
-	}
-
-	function writeSuccess(){
-		getList();
-		$("textarea[name='comment_content']").empty();
-	}
-	//------------------------------
-	
-	// 댓글 삭제 시 삭제된 데이터를 반영하여 댓글 목록 보여주는 함수
-	$(document).on('click', '.link-cmt-delete', deleteComment);
-	
-	function deleteComment(e){
-		e.preventDefault();
-		
-		var url = $(this).attr("href");
-		console.log("url : " + url);
-		
-		$.ajax({
-			type : "post",
-			url : url,
-			data : {post_uid : postUid},
-			dataType : "json",
-			success : getList
-		});
-	}
-	//------------------------------
-});
-</script>
+<script src="../JS/commentCRUD.js" type="text/javascript"></script>
 
 <body>
     <div class="wrap bg-Lgray">
     	<!-- 작성자의 사진, 이름, 게시물의 작성일, 추천수, 댓글수, 조회수가 표시되는 영역입니다. -->
         <div class="panel-post-info">
+        
+        	<!-- 보이지 않지만 post_uid 값을 외부 js에서 끌어다 쓸 때 사용됩니다.-->
+        	<span id="post_uid" style="display: none">${list[0].post_uid }</span>
+        	<!--  -->
+        	
             <div class="panel-p left-pull"> 
                 <a class="writer-img" href="#"><img src="../user.png"></a>
                 <div class="panel-c">
@@ -160,15 +71,15 @@ $(document).ready(function(){
         <!---------------------------------->
 
 		<!-- 삭제하기 버튼 클릭시 나타나는 모달창입니다. -->
-        <div id="delete-modal" class="modal">
-            <div class="delete-modal-content">
-                <div class="delete-modal-header">
+        <div id="modal-delete-pst" class="modal">
+            <div class="modal-delete-pst-container">
+                <div class="modal-delete-pst-header">
                     <div><span>정말 삭제 하시겠습니까?</span></div>
                     <div><span class="text-red">(삭제 시 복구 할 수 없습니다)</span></div>
                 </div>
                 <span class="close">&times;</span>
     
-                <div class="delete-modal-buttons">    
+                <div class="modal-delete-pst-buttons">    
                     <button type="button" class="back left-pull">뒤로가기</button>
                     <button type="button" class="ok right-pull" onclick="location.href='freePostDeleteOk.po?post_uid=${list[0].post_uid}'">확인</button>
                 </div>
@@ -191,13 +102,13 @@ $(document).ready(function(){
     <hr>
     
     <!-- 댓글 작성 폼 입니다. -->
-    <form name="frm" class="frm-write-cmt" action="commentWrite.ajax" method="post" onsubmit="return chkSubmit()">
+    <form name="frm" id="frm-write-cmt" action="commentWrite.ajax" method="post" onsubmit="return chkSubmit()">
 		<div class="wrap panel-comment-write">
 	   
 	    <!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
 	    <input type="hidden" name="post_uid" value="${list[0].post_uid}">
 	    <input type="hidden" name="user_uid" value="1">
-	    <!---------------------------------->
+	    <!--  -->
 	    
 	   	<textarea name="comment_content" placeholder="내용을 입력해 주세요."></textarea>
 	   	<button class="btn-write-cmt" type="submit">작성</button>
@@ -207,21 +118,27 @@ $(document).ready(function(){
 
 	<div class="comment-list"></div>
 
-	<!-- 댓글수정 버튼 클릭시 나타나는 모달창입니다. -->
-	<form name="frm" id="frm-update-cmt" action="" method="post" onsubmit="return chkSubmit()">
-    <div id="modal-update-cmt" class="modal">
-        <div class="cmt-update-modal-content">
-            <div class="cmt-update-modal-header">
-                <div><span>댓글 수정</span></div>
-            </div>
-            <span class="close">&times;</span>
-			<textarea name="comment_content" id="cmt-content"></textarea>
-            <div class="cmt-update-modal-buttons">    
-                <button type="button" class="back left-pull">뒤로가기</button>
-                <button type="submit" class="ok right-pull">수정</button>
-            </div>
-        </div>
-    </div>
+	<!-- 댓글 수정 버튼 클릭시 나타나는 모달창입니다. -->
+	<form name="frm" id="frm-update-cmt" action="commentUpdate.ajax" method="post">
+	
+		<!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
+		<input type="hidden" name="post_uid" id="modal-update-cmt-post-uid" value="${list[0].post_uid}">
+		<input type="hidden" name="comment_uid" id="modal-update-cmt-uid" value="">
+		<!--  -->
+		
+	    <div id="modal-update-cmt" class="modal">
+	        <div class="modal-update-cmt-container">
+	            <div class="modal-update-cmt-header">
+	                <div><span>댓글 수정</span></div>
+	            </div>
+	            <span class="close">&times;</span>
+				<textarea name="comment_content" id="modal-update-cmt-content"></textarea>
+	            <div class="modal-update-cmt-buttons">    
+	                <button type="button" class="back left-pull">뒤로가기</button>
+	                <button type="submit" class="ok right-pull">수정</button>
+	            </div>
+	        </div>
+	    </div>
     </form>
     <!---------------------------------->
 

@@ -36,7 +36,7 @@
     cursor: pointer;
 }
 
-.cmt-update-modal-content
+.modal-update-cmt-container
 {
     position: fixed;
     left: 50%;
@@ -50,32 +50,32 @@
     background-color: #fff;
 }
 
-.cmt-update-modal-header {
+.modal-update-cmt-header {
     position: relative;
     padding: 20px 0;
     text-align: center;
 }
 
-.cmt-update-modal-buttons
+.modal-update-cmt-buttons
 {
     padding-top: 20px;
     text-align: center;
 }
 
-.cmt-update-modal-buttons:after
+.modal-update-cmt-buttons:after
 {
     content: "";
     display: block;
     clear: both;
 }
 
-.cmt-update-modal-buttons > button
+.modal-update-cmt-buttons > button
 {
     background-color: #333333;
     color: #fff;
 }
 
-#cmt-update-modal textarea
+#modal-update-cmt-content
 {
 	display: inline-block;
 	border: 1px solid #B3B3B3;
