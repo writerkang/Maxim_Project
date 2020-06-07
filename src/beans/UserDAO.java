@@ -152,7 +152,7 @@ public class UserDAO extends DefaultDAO {
 		
 		// tb_user 테이블에 있는 user_email 중복체크 
 		public int emailCheck(String user_email) throws SQLException {
-			
+		
 			try {
 				pstmt = conn.prepareStatement(UserQuery.SQL_SELECT_USER_EMAIL);
 				rs = pstmt.executeQuery();  // 쿼리 수행
@@ -168,8 +168,8 @@ public class UserDAO extends DefaultDAO {
 			} finally {
 				close();
 			}
-			
-			return 1; // 같은 이메일 존재 하지 않음(사용 가능한 이매일입니다)
+	
+			return 1;
 		} // end insert
 		
 		

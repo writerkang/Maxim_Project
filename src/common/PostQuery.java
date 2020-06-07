@@ -77,7 +77,7 @@ public class PostQuery {
 					"ON tp.USER_UID = tu.USER_UID " + 
 					"LEFT OUTER JOIN (SELECT tp.POST_UID, COUNT(tc.POST_UID) AS comments_count FROM TB_POST tp LEFT OUTER JOIN TB_COMMENT tc ON tp.POST_UID = tc.POST_UID GROUP BY tp.POST_UID) tc " + 
 					"ON tp.POST_UID = tc.POST_UID " + 
-					"WHERE tp.post_subject LIKE ? " +
+					"WHERE tp.board_uid = ? AND tp.post_subject LIKE ? " +
 					"ORDER BY tp.POST_UID DESC " + 
 					") tb_page " + 
 					") " + 
@@ -94,7 +94,7 @@ public class PostQuery {
 					"ON tp.USER_UID = tu.USER_UID " + 
 					"LEFT OUTER JOIN (SELECT tp.POST_UID, COUNT(tc.POST_UID) AS comments_count FROM TB_POST tp LEFT OUTER JOIN TB_COMMENT tc ON tp.POST_UID = tc.POST_UID GROUP BY tp.POST_UID) tc " + 
 					"ON tp.POST_UID = tc.POST_UID " + 
-					"WHERE tu.user_name LIKE ? " +
+					"WHERE tp.board_uid = ? AND tu.user_name LIKE ? " +
 					"ORDER BY tp.POST_UID DESC " + 
 					") tb_page " + 
 					") " + 
@@ -111,7 +111,7 @@ public class PostQuery {
 					"ON tp.USER_UID = tu.USER_UID " + 
 					"LEFT OUTER JOIN (SELECT tp.POST_UID, COUNT(tc.POST_UID) AS comments_count FROM TB_POST tp LEFT OUTER JOIN TB_COMMENT tc ON tp.POST_UID = tc.POST_UID GROUP BY tp.POST_UID) tc " + 
 					"ON tp.POST_UID = tc.POST_UID " + 
-					"WHERE tp.post_content LIKE ? " +
+					"WHERE tp.board_uid = ? AND tp.post_content LIKE ? " +
 					"ORDER BY tp.POST_UID DESC " + 
 					") tb_page " + 
 					") " + 
