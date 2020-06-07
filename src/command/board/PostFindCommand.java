@@ -1,5 +1,6 @@
 package command.board;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,12 @@ public class PostFindCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		int page = 1; //default
 		
 		try {
@@ -26,10 +32,15 @@ public class PostFindCommand implements Command {
 		PostDTO [] arr = null;
 		int totalPage = 1;
 		int writePages = 5;
+		int boardUid = 1; //기본: 공지
+		String keyword = ""; //검색어
+		int serOption = 1; //검색옵션, 1제목, 2내용, 3작성자
 		
 		try {
-//			arr = dao.select();
-			arr = dao.selectWithOption(page*5 + - 4, "%이승%");
+			boardUid = (int)(request.getAttribute("board_uid")); //게시판 uid 가져오기
+			keyword = "%" + (String)request.getParameter("ser_content") + "%";
+			serOption = Integer.parseInt((request.getParameter("search")));
+			arr = dao.findPostByOption(page*5 + - 4, keyword, serOption, boardUid);
 			dao = new PostDAO();
 			
 			totalPage = dao.getTotalPages();

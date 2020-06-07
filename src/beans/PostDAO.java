@@ -198,14 +198,28 @@ public class PostDAO extends DefaultDAO {
 				} // end select()
 				
 				// tb_post의 모든 값 가져오기 / 검색결과 보여주기
-				public PostDTO [] selectWithOption(int page, String keyword) throws SQLException {
+				public PostDTO [] findPostByOption(int page, String keyword, int searchOption, int boardUid) throws SQLException {
 					PostDTO [] arr = null;
+					String sqlQuery = "";
+					
+					switch(searchOption) {
+					case 1:
+						sqlQuery = PostQuery.SQL_POST_FIND_BY_SUBJECT;
+						break;
+					case 2:
+						sqlQuery = PostQuery.SQL_POST_FIND_BY_CONTENT;
+						break;
+					case 3:
+						sqlQuery = PostQuery.SQL_POST_FIND_BY_USERNAME;
+						break;
+					}
 					
 					try {
-						pstmt = conn.prepareStatement(PostQuery.SQL_POST_FIND_BY_SUBJECT);
-						pstmt.setString(1, keyword);
-						pstmt.setInt(2, page);
+						pstmt = conn.prepareStatement(sqlQuery);
+						pstmt.setInt(1, boardUid);
+						pstmt.setString(2, keyword);
 						pstmt.setInt(3, page);
+						pstmt.setInt(4, page);
 						rs = pstmt.executeQuery();
 						arr = createArray2(rs);
 					} finally {
