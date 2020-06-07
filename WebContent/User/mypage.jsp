@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyPage</title>
+    <title>${list[0].useruid }님의 MyPage</title>
 </head>
 <body>
 	<header></header>
@@ -17,7 +17,7 @@
 		<h5>content something blablabla</h5>
 	</div>
 	<div class="user-info">
-		<h2>userName</h2>
+		<input placeholder="userName"/>
 		<br>
 		<h5>userNickName</h5>
 	</div>
