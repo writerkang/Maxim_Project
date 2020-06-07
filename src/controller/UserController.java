@@ -112,7 +112,7 @@ public class UserController extends HttpServlet {
 		case "/User/nameChk.uo":
 			command = new NameChkCommand();
 			command.execute(request, response);
-			viewPage = "nameChk.jsp";
+			viewPage = "joinForm.jsp";
 		} // end switch
 		
 		// request 를 위에서 결정된 view 에 forward 해줌.

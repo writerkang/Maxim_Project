@@ -46,69 +46,59 @@ function chkSubmit() {
 }
 
 
-/*
- * 
+
+ 
  
 // name  중복체크 
 // 아이디 유효성 검사(1 = 중복 / 0 != 중복)
 var idJ = /^[a-z0-9]{5,10}$/;
 $("#user_name").blur(function() {
-	// id = "user_name" / name = "user_name"
 	var user_name = $('#user_name').val();
 	$.ajax({
-		url : "nameChk.uo",
-		type : 'POST',
-		data : user_name,
-		success : function(data) {
+		url : "nameChk.uo",  // request 할 url 
+		type : "post",   	// request 방식
+		dataType : "json",
+		data :  {user_name : user_name},// request 에 전송할 데이터 (사용자가 입력한 name)
+		success : function(data) { // 요청 성공했을 떄의 콜백함수 
+			console.log("data : " + data);							
 			console.log("1 = 중복o / 0 = 중복x : " + data);							
-			
+						
 			if (data == 1) {
-					// 1 : 아이디가 중복되는 문구
-					$("#user_name").text("사용중인 닉네임입니다 :(");
-					$("#user_name").css("color", "red");
-					$("#sub_btn").attr("disabled", true);
-				} else {
-					
-					if(idJ.test(user_name)){
-						// 0 : 아이디 길이 / 문자열 검사
-						$("#user_name").text("");
-						$("#sub_btn").attr("disabled", false);
-			
-					} else if(user_id == ""){
-						
-						$('#user_name').text('아이디를 입력해주세요 :)');
-						$('#user_name').css('color', 'red');
-						$("#sub_btn").attr("disabled", true);				
-						
-					} else {
-						
-						$('#user_name').text("아이디는 소문자와 숫자 5~10자리만 가능합니다 :)");
-						$('#user_name').css('color', 'red');
-						$("#sub_btn").attr("disabled", true);
-					}
-					
-				}
-			}, error : function() {
-					console.log("실패");
+				// 1 : 닉네임이 중복되는 문구
+				$("#id_check").text("사용중인 닉네임입니다 :(");
+				$("#id_check").css("color", "red");
+				$("#sub_btn").attr("disabled", true);
+			} else if(data == 0){
+//
+//				if (idJ.test(user_name)) {
+//					// 0 : 아이디 길이 / 문자열 검사
+//					$("#id_check").text("");
+//					$("#sub_btn").attr("disabled", false);	
+//
+//				} else if (user_name == "") {
+//
+//					$('#id_check').text('아이디를 입력해주세요 :)');
+//					$('#id_check').css('color', 'red');
+//					$("#sub_btn").attr("disabled", true);
+//
+//				} else {
+//
+//					 $('#id_check').text("아이디는 소문자와 숫자 5~10자리만 가능합니다 :)");
+//					 $('#id_check').css('color', 'red');
+//					 $("#sub_btn").attr("disabled", true);
+//				}
+				
+				// 2 : 사용가능 닉네임
+				$("#id_check").text("사용가능한 닉네임입니다 :)");
+				$("#id_check").css("color", "green");
+				$("#sub_btn").attr("disabled", false);
 			}
-		});
+		},
+		error : function() {
+			console.log("실패");
+		}
 	});
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 

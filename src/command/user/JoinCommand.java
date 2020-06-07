@@ -14,6 +14,7 @@ public class JoinCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		int cnt = 0;
+		int cntChk = 0;
 		UserDAO dao = new UserDAO();
 
 		// request에서 매개변수 받아오기
@@ -30,14 +31,20 @@ public class JoinCommand implements Command {
 				user_phone.trim().length() > 0 && user_pw.trim().length() > 0 && user_PwChk.trim().length() > 0) {
 			
 			try {
-				cnt = dao.insertInfo(user_email, user_name, user_phone, user_pw);
+				cntChk = dao.emailCheck(user_email);
+				if(cntChk == 1) {
+					dao = new UserDAO();
+					cnt = dao.insertInfo(user_email, user_name, user_phone, user_pw);
+					request.setAttribute("joinOk", cnt);
+				}else {
+					return;
+				}
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}
 			
 		} // end if
 			
-		request.setAttribute("joinOk", cnt);
 	}
 
 }

@@ -11,7 +11,7 @@
     <script src="https://use.fontawesome.com/afbd8941a0.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link href="../CSS/joinForm.css" rel="stylesheet" type="text/css">
-    <script src="../JS/join.js" type="text/javascript"></script>
+
     <title>회원정보입력</title>
 </head>
 <body>
@@ -62,5 +62,6 @@
             <input type="submit" name="sub_btn" id="sub_btn" value="회원가입 하기">
     </div>
         </form>
+            <script src="../JS/join.js" type="text/javascript"></script>
 </body>
 </html>
