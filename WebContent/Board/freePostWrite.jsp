@@ -23,7 +23,7 @@
         var category_uid = frm["category_uid"].value.trim();
         var post_subject = frm["post_subject"].value.trim();
         var post_content = frm["post_content"].value.trim();
-        
+               
         if(category_uid == "") {
             alert("카테고리 유형을 선택해 주세요!");
             frm["category_uid"].focus();

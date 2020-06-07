@@ -30,6 +30,7 @@
         
         var comment_content = frm["comment_content"].value.trim();
         
+        
         if(comment_content == "") {
             alert("내용을 입력해 주세요!");
             frm["comment_content"].focus();

@@ -10,6 +10,8 @@ VALUES (user_seq.nextval, 'bbb@daum.com', 'tjfj', '이예지', sysdate, '0101616
 ;
 SELECT * FROM tb_USER;
 
+SELECT * FROM TB_POST tp ;
+
 --tb_category 값 입력 예시
 INSERT INTO TB_CATEGORY (CATEGORY_UID , CATEGORY_NAME )
 VALUES (1, 'FrontEnd')
@@ -65,7 +67,15 @@ INSERT INTO TB_POST (POST_UID , POST_SUBJECT , POST_CONTENT , POST_REGDATE , POS
 VALUES (post_seq.nextval, 'ab;labfb', sysdate, 0, 1, 1, 2)
 ;
 INSERT INTO TB_POST (POST_UID , POST_SUBJECT , POST_CONTENT , POST_REGDATE , POST_VIEWCNT , BOARD_UID ,  USER_UID , CATEGORY_UID )
-VALUES (post_seq.nextval, '자바스크립트 끝내기~~~~~~~~~~~~~~~~~~', '자바스크립트는 좋고 편하고~~~~~~~', sysdate, 0, 2, 3, 1)
+VALUES (post_seq.nextval, '자바스크립트 끝내기~~~~~~~~~~~~~~~~~~', '자바스크립트는 좋고 편하고~~~~~~~', sysdate, 0, 2, 1, 1)
+;
+INSERT INTO TB_POST (POST_SUBJECT , POST_CONTENT , POST_REGDATE , POST_VIEWCNT , BOARD_UID ,  USER_UID , CATEGORY_UID )
+VALUES ('자바스크립트 끝내기~~~~~~~~~~~~~~~~~~', '자바스크립트는 좋고 편하고~~~~~~~', sysdate, 0, 2, 1, 1)
+;
+
+--자료 대량 삽입
+INSERT INTO TB_POST (POST_SUBJECT , POST_CONTENT , POST_REGDATE , POST_VIEWCNT , BOARD_UID ,  USER_UID , CATEGORY_UID )
+SELECT POST_SUBJECT , POST_CONTENT , POST_REGDATE , POST_VIEWCNT , BOARD_UID , USER_UID , CATEGORY_UID FROM tb_post
 ;
 
 SELECT * FROM TB_POST;
