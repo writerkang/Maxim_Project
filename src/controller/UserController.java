@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.user.JoinCommand;
 import command.user.LoginCommand;
+import command.user.MypageCommand;
 import command.user.UserDeleteCommand;
 import command.user.UserEmailCheckCommand;
 import command.user.UserEmailRegisterCommand;
@@ -113,6 +114,22 @@ public class UserController extends HttpServlet {
 			command = new NameChkCommand();
 			command.execute(request, response);
 			viewPage = "nameChk.jsp";
+			
+			
+		//mypage 관련 case들
+		case "/User/mypage.uo":
+			command = new MypageCommand();
+			command.execute(request, response);
+			viewPage = "mypage.jsp";
+//		case "/User/mypageUpdate.uo":
+//			command = new ViewCommand();
+//			command.execute(request, response);
+//			viewPage = "mypageUpdate.jsp";
+//		case "/User/mypageUpdateOk.uo":
+//			command = new ViewCommand();
+//			command.execute(request, response);
+//			viewPage = "mypageUpdateOk.jsp";	
+			
 		} // end switch
 		
 		// request 를 위에서 결정된 view 에 forward 해줌.
@@ -121,6 +138,7 @@ public class UserController extends HttpServlet {
 			dispatcher.forward(request, response);
 		}	
 
+		
 	
 	} // end actionUo
 	
