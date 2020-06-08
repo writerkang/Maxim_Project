@@ -12,6 +12,7 @@
     
     <title>View</title>
 
+	<link rel="stylesheet" href="../CSS/header.css" />
     <link rel="stylesheet" href="../CSS/view.css"/>
     <link rel="stylesheet" href="../CSS/modal-deletePost.css"/>
     <link rel="stylesheet" href="../CSS/modal-updateComment.css"/>
@@ -26,6 +27,8 @@
 <script src="../JS/commentCRUD.js" type="text/javascript"></script>
 
 <body>
+	<jsp:include page="../header.jsp" />
+
     <div class="wrap bg-Lgray">
     	<!-- 작성자의 사진, 이름, 게시물의 작성일, 추천수, 댓글수, 조회수가 표시되는 영역입니다. -->
         <div class="panel-post-info">
