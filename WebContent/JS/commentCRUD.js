@@ -53,20 +53,36 @@ $(document).ready(function(){
 	function writeComment(e){
 		e.preventDefault();
 		
-		var queryString = $("#frm-write-cmt").serialize();
-		console.log("query : " + queryString);
-		
-		var url = $("#frm-write-cmt").attr("action");
-		console.log("url : " + url);
-		
-		$.ajax({
-				type : "post",
-				url : url,
-				data : queryString,
-				dataType: "json",
-				success : writeSuccess
-		});
+		if(chkSubmit()){
+			var queryString = $("#frm-write-cmt").serialize();
+			console.log("query : " + queryString);
+			
+			var url = $("#frm-write-cmt").attr("action");
+			console.log("url : " + url);
+			
+			$.ajax({
+					type : "post",
+					url : url,
+					data : queryString,
+					dataType: "json",
+					success : writeSuccess
+			});
+		};
 	}
+	
+	// 댓글 작성 폼 검증
+    function chkSubmit() {  
+        frm = document.forms["frm"];
+        
+        var comment_content = frm["comment_content"].value.trim();
+        
+        if(comment_content == "") {
+            alert("내용을 입력해 주세요!");
+            frm["comment_content"].focus();
+            return false;
+        }
+        return true;
+    }
 
 	function writeSuccess(){
 		getList();
@@ -124,16 +140,21 @@ $(document).ready(function(){
 	function deleteComment(e){
 		e.preventDefault();
 		
-		var url = $(this).attr("href");
-		console.log("url : " + url);
+		// 삭제 여부 확인하고 진행
+		var r = confirm("댓글을 삭제 하시겠습니까?")
 		
-		$.ajax({
-			type : "post",
-			url : url,
-			data : {post_uid : postUid},
-			dataType : "json",
-			success : getList
-		});
+		if(r){
+			var url = $(this).attr("href");
+			console.log("url : " + url);
+			
+			$.ajax({
+				type : "post",
+				url : url,
+				data : {post_uid : postUid},
+				dataType : "json",
+				success : getList
+			});
+		}
 	}
 	//------------------------------
 });
