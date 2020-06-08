@@ -51,18 +51,18 @@ function chkSubmit() {
  
 // name  중복체크 
 // 아이디 유효성 검사(1 = 중복 / 0 != 중복)
-var idJ = /^[a-z0-9]{5,10}$/;
+//var idJ = /^[a-z0-9]{5,10}$/;
 $("#user_name").blur(function() {
 	var user_name = $('#user_name').val();
 	$.ajax({
 		url : "nameChk.uo",  // request 할 url 
 		type : "post",   	// request 방식
+		cache : false,
 		dataType : "json",
-		data :  {user_name : user_name},// request 에 전송할 데이터 (사용자가 입력한 name)
+		data :  {			user_name : user_name},// request 에 전송할 데이터 (사용자가 입력한 name)
 		success : function(data) { // 요청 성공했을 떄의 콜백함수 
 			console.log("data : " + data);							
-			console.log("1 = 중복o / 0 = 중복x : " + data);							
-						
+			console.log("1 = 중복o / 0 = 중복x : " + data);	
 			if (data == 1) {
 				// 1 : 닉네임이 중복되는 문구
 				$("#id_check").text("사용중인 닉네임입니다 :(");
@@ -87,7 +87,7 @@ $("#user_name").blur(function() {
 //					 $('#id_check').css('color', 'red');
 //					 $("#sub_btn").attr("disabled", true);
 //				}
-				
+
 				// 2 : 사용가능 닉네임
 				$("#id_check").text("사용가능한 닉네임입니다 :)");
 				$("#id_check").css("color", "green");

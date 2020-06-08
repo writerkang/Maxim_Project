@@ -113,15 +113,15 @@ public class UserController extends HttpServlet {
 		case "/User/nameChk.uo":
 			command = new NameChkCommand();
 			command.execute(request, response);
-			viewPage = "joinForm.jsp";
+//			viewPage = "joinForm.jsp"; --> 이렇게 하면 data 를 못 받아오는 구나...
+			break;
 
-			
-			
+		// request 를 위에서 결정된 view 에 forward 해줌.
 		//mypage 관련 case들
-		case "/User/mypage.uo":
-			command = new MypageCommand();
-			command.execute(request, response);
-			viewPage = "mypage.jsp";
+//		case "/User/mypage.uo":
+//			command = new MypageCommand();
+//			command.execute(request, response);
+//			viewPage = "mypage.jsp";
 //		case "/User/mypageUpdate.uo":
 //			command = new ViewCommand();
 //			command.execute(request, response);

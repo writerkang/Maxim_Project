@@ -22,24 +22,27 @@
         <div style="text-align: center;">
             <i class="fas fa-user-edit fa-5x"></i>
         </div> 
-            <span style="display: inline-block; width: 110px; text-align: right;">아이디(이메일)</span> 
+            <span style="dis=play: inline-block; width: 110px; text-align: right;">아이디(이메일)</span> 
             <input type="email" class="form" name="user_email" value="${param.user_email }" ><br><br>
             
             <span style="display: inline-block; width: 110px; text-align: right;">*닉네임</span> 
-            <input type="text" class="form" name="user_name" id="user_name" required>
+            <input type="text" class="form" name="user_name" id="user_name" required/>
             <div class="check_font" id="id_check"></div> <%-- 경고문 들어갈 div --%>
-            <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ 한글, 숫자 5자이내</span><br>
+            <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ 한글,영문,숫자 4~10자리 사용할 수 있습니다.</span><br>
             
             <span style="display: inline-block; width: 110px; text-align: right;">*휴대폰</span> 
             <input type="number" class="form" name="user_phone" id="user_phone" required>
+            <div class="check_font" id="phone_check"></div>
             <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ '-' 없이 입력해주세요.</span><br>
             
             <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호</span> 
             <input type="password" class="form" name="user_pw" id="user_pw" required>
+            <div class="check_font" id="pw_check"></div>
             <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ 숫자, 문자 조합하여 10자~16자 이상 입력</span><br>
             
             <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호 확인</span> 
             <input type="password" class="form" name="user_PwChk"><br><br>
+            <div class="check_font" id="pw2_check"></div>
     </div>
     
     
