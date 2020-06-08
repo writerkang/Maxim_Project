@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .alert{
+            width: 20%;
+            margin: 30px auto;
+            text-align: center;
+        }
+        .top{
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+        }
+        .content{
+            text-align: center;
+            padding: 30px 10px;
+        }
+        button{
+            border-radius: 5px;
+            background-color: #DEDEDE;
+            border: 1px solid #b3b3b3;
+            padding: 4px 6px;
+        }
+        a{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="alert">
+        <div class="top">비밀번호 찾기</div>
+        <div class="content">해당 이메일로 임시비밀번호가 발급되었습니다!</div>
+        <!--아래 링크에 로그인창 링크 넣으면 됨-->
+        <button type="button" onclick="location.href='#' ">로그인하러 가기</button>
+    </div>
+<hr>
+    <div class="alert">
+        <div class="top">가입정보 확인하기</div>
+        <div class="content">회원님이 가입한 이메일입니다!</div>
+        <!--아래에 이메일 넣으면 됨-->
+        <div id="email">koys0818@naver.com</div>
+    </div>
+<hr>
+    <div class="alert">
+        <div class="top">가입정보 확인하기</div>
+        <div class="content">가입한 이메일이 존재하지 않습니다.</div>
+        <div><a href="/Maxim_Project/WebContent/User/joinForm.jsp">회원가입</a>하러 가기!</div>
+    </div>
+
+</body>
+</html>
