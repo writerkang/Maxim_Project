@@ -109,3 +109,5 @@ ON tb_post FOR EACH ROW
 BEGIN 
 	SELECT post.seq.nextval INTO :NEW.post_uid FROM dual;
 END;
+
+DROP TRIGGER tb_page_insert;

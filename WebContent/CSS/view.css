@@ -181,12 +181,6 @@ button:hover
 .btn-recommend:hover
 {cursor: pointer;}
 
-.comment-list
-{
-    font-size: 24px;
-    font-weight: bold;
-}
-
 .panel-comment-write
 {
     padding: 20px 0;
@@ -204,7 +198,7 @@ textarea[name="comment_content"]
     resize: none;
 }
 
-.btn-comment-write
+.btn-write-cmt
 {
     clear: both;
     width: 20%;
@@ -221,8 +215,7 @@ textarea[name="comment_content"]
 .comment-box
 {
     margin: 10px auto;
-    padding: 10px;
-    width: 90%;
+    padding: 5px;
     height: 300px;
     border-top: 1px solid #808080;
     background-color: #fff;
@@ -241,12 +234,15 @@ textarea[name="comment_content"]
 .cmt-writer-name
 {font-weight: bold;}
 
-.comment-box > div > div.panel_cmt_buttons
+div.panel_cmt_buttons
 {
 	position: absolute;
 	top: 0;
 	right: 0;
 }
 
-.btn-cmt-update:hover, .btn-cmt-delete:hover
+.link-cmt-update, .link-cmt-delete
+{padding: 0px 2px;}
+
+.link-cmt-update:hover, .link-cmt-delete:hover
 {cursor: pointer;}
