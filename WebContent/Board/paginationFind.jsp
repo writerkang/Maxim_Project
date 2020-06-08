@@ -3,6 +3,7 @@
     ${search }
 	${ser_content }
     
+    
 <%
 	// 한페이징에 표시될 페이지수 --> writePages
 	// 총 페이지수 --> totalPage
@@ -13,7 +14,7 @@
 	// ※ 사실 위 단계에서도 파라미터 검증 필요하다
 	
 	// 위 url에 추가로 붙어야 할 것들.  (옵션)
-	String add = request.getParameter("add"); 
+	String add = request.getParameter("search"); 
 	if(add == null){ add = ""; }
 	
 	// 페이징 버튼 링크 url 주소에 넣을 문자열 준비

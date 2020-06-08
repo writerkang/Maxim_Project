@@ -81,7 +81,7 @@ public class PostQuery {
 					"ORDER BY tp.POST_UID DESC " + 
 					") tb_page " + 
 					") " + 
-					"WHERE rnum >= ? AND RNUM < ? + 5"
+					"WHERE rnum >= ? AND RNUM < ? + ?"
 					;
 			
 			public static final String SQL_POST_FIND_BY_USERNAME =
@@ -98,7 +98,7 @@ public class PostQuery {
 					"ORDER BY tp.POST_UID DESC " + 
 					") tb_page " + 
 					") " + 
-					"WHERE rnum >= ? AND RNUM < ? + 5"
+					"WHERE rnum >= ? AND RNUM < ? + ?"
 					;
 			
 			public static final String SQL_POST_FIND_BY_CONTENT =
@@ -115,7 +115,7 @@ public class PostQuery {
 					"ORDER BY tp.POST_UID DESC " + 
 					") tb_page " + 
 					") " + 
-					"WHERE rnum >= ? AND RNUM < ? + 5"
+					"WHERE rnum >= ? AND RNUM < ? + ?"
 					;
 	
 }

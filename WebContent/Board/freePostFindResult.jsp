@@ -96,6 +96,8 @@
 	<jsp:param value="${writePages }" name="writePages"/>
 	<jsp:param value="${totalPage }" name="totalPage"/>
 	<jsp:param value="<%= curPage %>" name="curPage"/>
+	<jsp:param value="${search }" name="search"/>
+	<jsp:param value="${ser_content }" name="ser_content"/>
 </jsp:include>
     
 </body>
