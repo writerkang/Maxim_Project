@@ -13,7 +13,7 @@
     <title>View</title>
 
 	<link rel="stylesheet" href="../CSS/header.css" />
-    <link rel="stylesheet" href="../CSS/view.css"/>
+    <link rel="stylesheet" href="../CSS/postView.css"/>
     <link rel="stylesheet" href="../CSS/modal-deletePost.css"/>
     <link rel="stylesheet" href="../CSS/modal-updateComment.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
@@ -26,22 +26,51 @@
 <script src="../JS/modal-updateComment.js" type="text/javascript"></script>
 <script src="../JS/commentCRUD.js" type="text/javascript"></script>
 
+<!-- 본인이 작성한 글을 볼 때와 다른 사람이 작성한 글을 볼 때 보여줄, 감출 요소을 결정합니다.	-->
+<script>
+$(document).ready(function(){
+	var userUid = $("#user_uid").text();
+	var pstWriterUid = $("#pst_writer_uid").text();
+	console.log("user_uid(로그인 유저): " + userUid);
+	console.log("pst_writer_uid(게시물 작성자): " + pstWriterUid);
+	
+	if(userUid == null || userUid == ""){
+		$("#btn-toggle-menu").css("display", "none");
+		$("#btn-scrap").css("display", "none");
+		$("#btn-recommend").css("display", "none");
+	} else if(userUid == pstWriterUid){
+		console.log("이 게시물 작성자시네요");
+		$("#btn-scrap").css("display", "none");
+		$("#btn-recommend").css("display", "none");
+	} else {
+		console.log("다른 분의 게시물을 보고계십니다");
+		$("#btn-toggle-menu").css("display", "none");
+	}
+});
+</script>
+<!---------------------------------->
+
 <body>
-	<jsp:include page="../header.jsp" />
+
+<!-- 헤더 부분 입니다. -->
+<jsp:include page="../header.jsp" />
+<script src="../JS/header.js"></script>
+<!---------------------------------->
 
     <div class="wrap bg-Lgray">
     	<!-- 작성자의 사진, 이름, 게시물의 작성일, 추천수, 댓글수, 조회수가 표시되는 영역입니다. -->
         <div class="panel-post-info">
         
-        	<!-- 보이지 않지만 post_uid 값을 외부 js에서 끌어다 쓸 때 사용됩니다.-->
+        	<!-- 보이지 않지만 user_uid(게시물 작성자), post_uid 값을 끌어다 쓸 때 사용됩니다.-->
+        	<span id="pst_writer_uid" style="display: none">${list[0].user_uid }</span>
         	<span id="post_uid" style="display: none">${list[0].post_uid }</span>
         	<!--  -->
         	
             <div class="panel-p left-pull"> 
-                <a class="writer-img" href="#"><img src="../user.png"></a>
+                <a class="pst_writer-img" href="#"><img src="../user.png"></a>
                 <div class="panel-c">
-                    <div class="writer-name"><a href="#">닉네임</a></div>
-                    <div class="write-date">${list[0].post_regdate }</div>
+                    <div class="pst_writer-name"><a href="#">닉네임</a></div>
+                    <div class="pst_write-date">${list[0].post_regdate }</div>
                 </div>
             </div>
             <div class="right-pull">
@@ -59,7 +88,7 @@
 		<!-- 게시물 제목, 토글메뉴(수정하기, 삭제하기), 스크랩 버튼이 위치한 영역입니다. -->
         <div class="panel-subject">
             <span class="subject">${list[0].post_subject}</span>
-            <div class="btn-scrap right-pull">
+            <div id="btn-scrap" class="right-pull">
                 <i class="far fa-star fa-2x"></i> 
             </div>
             <div id="btn-toggle-menu" class="right-pull">
@@ -97,7 +126,7 @@
 	<!-- 추천하기 버튼이 위치한  영역입니다. -->
     <div class="panel-recommend">
         <button type="button" onclick="location.href='freeBoardList.po'">목록으로</button>
-        <button class="btn-recommend" type="button">추천하기 <i class="far fa-thumbs-up"></i></button>
+        <button id="btn-recommend" type="button">추천하기 <i class="far fa-thumbs-up"></i></button>
     </div>
     <!---------------------------------->
      
@@ -109,7 +138,7 @@
 	   
 	    <!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
 	    <input type="hidden" name="post_uid" value="${list[0].post_uid}">
-	    <input type="hidden" name="user_uid" value="1">
+	    <input type="hidden" name="user_uid" value="${userDto[0].user_uid }">
 	    <!--  -->
 	    
 	   	<textarea name="comment_content" placeholder="내용을 입력해 주세요."></textarea>
