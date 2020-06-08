@@ -27,4 +27,41 @@ public class D {
 		public static final String SQL_WRITE_SELECT_BY_UID = //글 읽어오기
 					"SELECT * FROM test_write WHERE wr_uid = ?";
 
+		
+		// 첨부파일 관련 쿼리
+		// 특정 user의 mypage 에 첨부파일 1개 insert
+		public static final String SQL_MYPAGE_FILE_INSERT = 
+				"INSERT INTO tb_attach"
+				+ "(attach_uid, attach_oriname, attach_servername, mypage_uid) "
+				+ "VALUES"
+				+ "(tb_attach_seq.nextval, ?, ?, ?)"
+				;
+		// 특정 user mypage에 첨부파일 (attach_uid) 하나를 SELECT
+		public static final String SQL_MYPAGE_FILE_SELECT =
+				"SELECT attach_uid, attach_oriname, attach_servername FROM tb_attach "
+				+ "WHERE mypage_uid = ?"
+				;
+		// mypage 글 등록
+		public static final String SQL_MYPAGE_WRITE_INSERT = 
+				"INSERT INTO tb_mypage " +
+				"(mypage_uid, mypage_subject, mypage_content, user_uid) " +
+				"VALUES(test_write_seq.nextval, ?, ?, ?)";
+		// mypage 수정
+		public static final String SQL_MAPAGE_UPDATE =
+				"UPDATE tb_mypage " +
+				"SET mypage_subject = ? , mypage_content = ? WHERE mypage_uid = ?";
+		// 글 읽어오기	
+		public static final String SQL_MYPAGE_SELECT_BY_UID =
+				"SELECT mypage_subject, mypage_content FROM tb_mypage WHERE mypage_uid = ?";
+				
 }
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				

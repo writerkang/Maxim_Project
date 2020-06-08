@@ -172,7 +172,7 @@
   white-space  : nowrap;    /* 줄바꿈을 하지 않습니다. */
   overflow     : hidden;    /* 내용이 길면 감춤니다 */
   display      : inline-block;     /* ie6이상 현재요소를 블럭처리합니다. */
-	float: right;
+
   }
 
   #nick_name{
@@ -197,3 +197,54 @@ a:hover {
 a:active {
 	opacity: 0.2;
 }
+
+
+
+
+
+
+
+
+
+
+
+.center {
+    text-align: center;
+}
+
+ul.pagination{
+	list-style-type:none
+}
+
+ul.pagination li{
+    display: inline-block;
+}
+
+ul.pagination a {
+    color: black;
+    float: left;
+    padding: 4px 8px;
+    text-decoration: none;
+    transition: background-color .3s;
+    /* border: 1px solid #ddd; */
+    /* margin: 0 4px; */
+    margin: 0px;
+}
+
+ul.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+ul.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+
+
+
+
+
+
+
+

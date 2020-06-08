@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+.form{
+    text-decoration: underline;
+    width: 60%;
+    background-color: #FFD966;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+#service{
+    float: right;
+}
+
+#trem_content{
+    background-color: white;
+    color: black;
+    font-size: 8px;
+    overflow: scroll;
+    height: 50px;
+    overflow-x: hidden;
+    border-radius: 5px;
+    padding: 9px 7px;
+}
+
+#sub_btn{
+    background-color: #808080;
+    color: black;
+    width: 100%;
+    font-size: 20px;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+
+input{
+	border-style: none;
+}

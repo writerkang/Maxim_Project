@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.user.JoinCommand;
 import command.user.LoginCommand;
-import command.user.LogoutCommand;
+import command.user.MypageCommand;
 import command.user.UserDeleteCommand;
 import command.user.UserEmailCheckCommand;
 import command.user.UserEmailRegisterCommand;
 import command.user.UserEmailSendCommand;
+import command.user.NameChkCommand;
 import common.Command;
 
 @WebServlet("*.uo") // "~~.uo"로 오는 요청은 모두 여기서 처리 
@@ -35,6 +36,8 @@ public class UserController extends HttpServlet {
 	protected void actionUo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
+		
+		
 		// 컨트롤러는 다음 두개를 선택해야 한다.
 		String viewPage = null;   // 어떠한 뷰? --> 페이지
 		Command command = null;   // 어떠한 커맨드? --> 어떠한 로직 수행.
@@ -52,62 +55,83 @@ public class UserController extends HttpServlet {
 		// 컨트롤러는 커맨드에 따라, 로직을 수행하고
 		// 결과를 내보낼 view 를 결정한다
 		switch(com) {
-		case "/login.uo":
+		case "/User/login.uo":
 			viewPage = "login.jsp";
 			break;
-		case "/loginOk.uo":
+		case "/User/loginOk.uo":
 			command = new LoginCommand();
 			command.execute(request, response);
 			viewPage = "loginOk.jsp";
 			break;
-		case "/logout.uo":
-			command = new LogoutCommand();
-			command.execute(request, response);
+		case "/User/logout.uo":
 			viewPage = "logout.jsp";
 			break;
-		
-		case "/userEmailRegister.uo":
-			command = new UserEmailRegisterCommand();
-			command.execute(request, response);
+		case "/User/userEmailRegister.uo":
 			viewPage = "userEmailRegister.jsp";
 			break;
-			
-		case "/userEmailSend.uo":
+		case "/User/userEmailRegisterOk.uo":
+			command = new UserEmailRegisterCommand();
+			command.execute(request, response);
+			viewPage = "userEmailRegisterOk.jsp";
+			break;
+		case "/User/userEmailSend.uo":
 			command = new UserEmailSendCommand();
 			command.execute(request, response);
 			viewPage = "userEmailSend.jsp";
 			break;
-			
-		case "/userEmailCheck.uo":
+		case "/User/userEmailCheck.uo":
 			command = new UserEmailCheckCommand();
 			command.execute(request, response);
 			viewPage = "userEmailCheck.jsp";
 			break;
-		case "/joinForm.uo":
-			command.execute(request, response);
+		case "/User/joinForm.uo":
 			viewPage = "joinForm.jsp";
 			break;
-		case "/joinFormOk.uo":
+		case "/User/joinFormOk.uo":
 			command = new JoinCommand();
 			command.execute(request, response);
 			viewPage = "joinFormOk.jsp";
 			break;
-		case "/userDeleteOk.uo":
+		case "/User/userDeleteOk.uo":
 			command = new UserDeleteCommand();
 			command.execute(request, response);
 			viewPage = "userDeleteOk.jsp";
 			break;
-		case "/findEmail.uo":
+		case "/User/findEmail.uo":
 //			command = new FindEmailCommand();
 			command.execute(request, response);
 			viewPage = "findEmail.jsp";
 			break;
-		case "/findPw.uo":
+		case "/User/findPw.uo":
 //			command = new FindPwCommand();
 			command.execute(request, response);
 			viewPage = "findPw.jsp";
 			break;
+		case "/index.uo":
+			viewPage = "index.jsp";
+			break;
+		case "/User/nameChk.uo":
+			command = new NameChkCommand();
+			command.execute(request, response);
+			viewPage = "joinForm.jsp";
+
 			
+			
+		//mypage 관련 case들
+		case "/User/mypage.uo":
+			command = new MypageCommand();
+			command.execute(request, response);
+			viewPage = "mypage.jsp";
+//		case "/User/mypageUpdate.uo":
+//			command = new ViewCommand();
+//			command.execute(request, response);
+//			viewPage = "mypageUpdate.jsp";
+//		case "/User/mypageUpdateOk.uo":
+//			command = new ViewCommand();
+//			command.execute(request, response);
+//			viewPage = "mypageUpdateOk.jsp";	
+			
+
 		} // end switch
 		
 		// request 를 위에서 결정된 view 에 forward 해줌.
@@ -116,6 +140,7 @@ public class UserController extends HttpServlet {
 			dispatcher.forward(request, response);
 		}	
 
+		
 	
 	} // end actionUo
 	

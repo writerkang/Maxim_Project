@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+    height: 10vh;
+    background: #333333;
+  }
+  .sline {
+    width: 3px;
+    height: 20px;
+    background: rgb(219, 219, 219);
+    margin: 8px;
+  }
+  .logotext{
+    position: absolute;
+    top: 2.8%;
+    left: 1%;
+    display: flex;
+    z-index: 3;
+  }
+  .login-links{
+    display: flex;
+    list-style: none;
+    width: 15%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .login-links li a {
+    color: rgb(223, 223, 223);
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+  .nav-links{
+    display: flex;
+    list-style: none;
+    width: 60%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  .nav-links li a {
+    color: rgb(223, 223, 223);
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+  
+  .landing {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logotext h4 {
+    margin: 2px;
+    font-size: 1.4rem;
+    color : #FFD996;
+    letter-spacing: 10px;
+  }
+  
+  .login-links li a:hover,
+  .nav-links li a:hover {
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .line {
+      width: 30px;
+      height: 3px;
+      background: white;
+      margin: 5px;
+    }
+  
+    nav {
+      position: relative;
+    }
+  
+    .hamburger {
+      position: absolute;
+      cursor: pointer;
+      right: 5%;
+      top: 50%;
+      transform: translate(-5%, -50%);
+      z-index: 2;
+    }
+    .logotext{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .sline {
+      width: 3px;
+      height: 20px;
+      background: rgb(219, 219, 219);
+      margin: 6px;
+    }
+    .login-links{
+      display: flex;
+      position: absolute;
+      left: 8%;
+      list-style: none;
+      justify-content: space-around;
+    }
+    .login-links li a {
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+    }
+
+    .nav-links {
+      position: fixed;
+      background: #FFD996;
+      height: 100vh;
+      width: 100%;
+      flex-direction: column;
+      clip-path: circle(10px at 90% -10%);
+      -webkit-clip-path: circle(10px at 90% -10%);
+      transition: all 1s ease-out;
+      pointer-events: none;
+    }
+  
+    .nav-links.open {
+      clip-path: circle(11000px at 90% -10%);
+      -webkit-clip-path: circle(1100px at 90% -10%);
+      pointer-events: all;
+    }
+  
+    .landing {
+      flex-direction: column;
+    }
+    
+    .nav-links li {
+      opacity: 0;
+    }
+  
+    .nav-links li a {
+      font-size: 20px;
+    }
+  
+    .nav-links li:nth-child(1) {
+      transition: all 0.5s ease 0.2s;
+    }
+  
+    .nav-links li:nth-child(2) {
+      transition: all 0.5s ease 0.4s;
+    }
+  
+    .nav-links li:nth-child(3) {
+      transition: all 0.5s ease 0.6s;
+    }
+  
+    .nav-links li:nth-child(4) {
+      transition: all 0.5s ease 0.8s;
+    }
+  
+    .nav-links li:nth-child(5) {
+      transition: all 0.5s ease 1.0s;
+    }
+  
+    .nav-links li:nth-child(6) {
+      transition: all 0.5s ease 1.2s;
+    }
+  
+    .nav-links li.fade {
+      opacity: 1;
+    }
+  
+    .nav-links li a:hover {
+      color: #333333;
+      transition: all 0.5s;
+      cursor: pointer;
+    }
+    .login-links li a:hover {
+      cursor: pointer;
+    }
+  }

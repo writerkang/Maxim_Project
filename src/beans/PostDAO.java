@@ -73,7 +73,9 @@ public class PostDAO extends DefaultDAO {
 				int board_uid = rs.getInt("board_uid");
 				int category_uid = rs.getInt("category_uid");
 				int user_uid = rs.getInt("user_uid");					
-				String user_name = rs.getString("user_name");					
+				String user_name = rs.getString("user_name");
+//				int comment_uids = rs.getInt("comment_uids");
+				
 				Date d = rs.getDate("post_regdate");
 				Time t = rs.getTime("post_regdate");
 				
@@ -87,7 +89,7 @@ public class PostDAO extends DefaultDAO {
 						post_regdate, post_viewcnt,
 						board_uid, user_uid, category_uid);
 				
-				dto.setUser_name(user_name);
+				dto.setUser_name(user_name);	
 				list.add(dto);
 				
 			} // end while
@@ -100,6 +102,51 @@ public class PostDAO extends DefaultDAO {
 			list.toArray(arr);  // List -> 배열		
 			return arr;
 		}
+		
+		// ResultSet --> DTO 배열로 리턴(추천수, 댓글 개수등 추가)
+				public PostDTO [] createArray2(ResultSet rs) throws SQLException {
+					PostDTO [] arr = null;  // DTO 배열
+					
+					ArrayList<PostDTO> list = new ArrayList<PostDTO>();
+					
+					while(rs.next()) {
+						int post_uid = rs.getInt("post_uid");
+						String post_subject = rs.getString("post_subject");
+						String post_content = rs.getString("post_content");
+						int post_viewcnt = rs.getInt("post_viewcnt");
+						int board_uid = rs.getInt("board_uid");
+						int category_uid = rs.getInt("category_uid");
+						int user_uid = rs.getInt("user_uid");					
+						String user_name = rs.getString("user_name");
+						int comments_count = rs.getInt("comments_count");
+						
+						Date d = rs.getDate("post_regdate");
+						Time t = rs.getTime("post_regdate");
+						
+						String post_regdate = "";
+						if(d != null){
+							post_regdate = new SimpleDateFormat("yyyy-MM-dd").format(d) + " "
+									+ new SimpleDateFormat("hh:mm:ss").format(t);
+						}
+						
+						PostDTO dto = new PostDTO(post_uid, post_subject, post_content, 
+								post_regdate, post_viewcnt,
+								board_uid, user_uid, category_uid);
+						
+						dto.setUser_name(user_name);	
+						dto.setComments_count(comments_count);	
+						list.add(dto);
+						
+					} // end while
+					
+					int size = list.size();
+					
+					if(size == 0) return null;
+					
+					arr = new PostDTO[size];
+					list.toArray(arr);  // List -> 배열		
+					return arr;
+				}
 		
 		// tb_post의 모든 값 가져오기
 		public PostDTO [] select() throws SQLException {
@@ -115,6 +162,100 @@ public class PostDAO extends DefaultDAO {
 			
 			return arr;
 		} // end select()
+		
+		// tb_post의 모든 값 가져오기 with Option
+		public PostDTO [] selectWithOption() throws SQLException {
+			PostDTO [] arr = null;
+			
+			try {
+				pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT_WITH_OPTION);
+				rs = pstmt.executeQuery();
+				arr = createArray2(rs);
+			} finally {
+				close();
+			}		
+			
+			return arr;
+		} // end select()
+		
+		// 특정 게시판의 모든 게시글 가져오기 with Option, 페이징 처리
+				public PostDTO [] selectWithOption(int boardUid, int page, int writePages) throws SQLException {
+					PostDTO [] arr = null;
+					
+					try {
+						pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT_BY_BOARDUID);
+						pstmt.setInt(1, boardUid);
+						pstmt.setInt(2, page);
+						pstmt.setInt(3, page);
+						pstmt.setInt(4, writePages);
+						rs = pstmt.executeQuery();
+						arr = createArray2(rs);
+					} finally {
+						close();
+					}		
+					
+					return arr;
+				} // end select()
+				
+				// tb_post의 모든 값 가져오기 / 검색결과 보여주기
+				public PostDTO [] findPostByOption(int page, String keyword, int searchOption, int boardUid) throws SQLException {
+					PostDTO [] arr = null;
+					String sqlQuery = "";
+					
+					switch(searchOption) {
+					case 1:
+						sqlQuery = PostQuery.SQL_POST_FIND_BY_SUBJECT;
+						break;
+					case 2:
+						sqlQuery = PostQuery.SQL_POST_FIND_BY_CONTENT;
+						break;
+					case 3:
+						sqlQuery = PostQuery.SQL_POST_FIND_BY_USERNAME;
+						break;
+					}
+					
+					try {
+						pstmt = conn.prepareStatement(sqlQuery);
+						pstmt.setInt(1, boardUid);
+						pstmt.setString(2, keyword);
+						pstmt.setInt(3, page);
+						pstmt.setInt(4, page);
+						rs = pstmt.executeQuery();
+						arr = createArray2(rs);
+					} finally {
+						close();
+					}		
+					
+					return arr;
+				} // end select()
+				
+				
+				//페이지 수 가져오기
+				public int getTotalPages(){
+					int totalPages = 3;
+					
+					try {
+						pstmt = conn.prepareStatement(PostQuery.SQL_POST_TOTALPOST);
+						rs = pstmt.executeQuery();
+						
+						while(rs.next()) {
+							totalPages = rs.getInt("totals");
+						}
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+						System.out.println("쿼리문제");
+					} finally {
+						try {
+							close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					
+					return totalPages;
+				}
 		
 		// 특정 post_uid 의 글 내용 읽기, 조회수 증가
 		// viewCnt 도 1 증가 해야 하고, 읽어와야 한다 --> 트랜잭션 처리	
@@ -167,6 +308,7 @@ public class PostDAO extends DefaultDAO {
 			
 			return arr;
 		}
+
 		
 		// 게시글 수정 기능 
 		public int update(int post_uid, String post_subject, int category_uid, String post_content) throws SQLException{
@@ -187,6 +329,8 @@ public class PostDAO extends DefaultDAO {
 			
 			return cnt;
 		} //end update()
+		
+		
 		
 
 } //end PostDAO

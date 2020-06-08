@@ -17,8 +17,7 @@
 
 hr
 {
-    margin-top: 0;
-    margin-bottom: 20px;
+    margin: 0;
     border: 0;
     height: 2px;
     background-color: #808080;
@@ -96,6 +95,7 @@ button:hover
 
 .panel-subject
 {
+    padding-top: 10px;
     padding-bottom: 5px;
     border-bottom: 2px solid #808080;
     width: 90%;
@@ -159,6 +159,7 @@ button:hover
     overflow:hidden;
     height:auto;
     min-height: 300px;
+    word-break:break-all;
 }
 
 .panel-recommend
@@ -178,4 +179,70 @@ button:hover
 {font-size: 14px;}
 
 .btn-recommend:hover
+{cursor: pointer;}
+
+.panel-comment-write
+{
+    padding: 20px 0;
+    margin-bottom: 10px;
+}
+
+textarea[name="comment_content"]
+{
+    float: left;
+    padding: 5px;
+    width: 80%;
+    height: 70px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    resize: none;
+}
+
+.btn-write-cmt
+{
+    clear: both;
+    width: 20%;
+    height: 70px;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+.comment-box
+{
+    margin: 10px auto;
+    padding: 5px;
+    height: 300px;
+    border-top: 1px solid #808080;
+    background-color: #fff;
+    font-size: 14px;
+    overflow:hidden;
+    height:auto;
+    min-height: 100px;
+    word-break:break-all;
+}
+
+.cmt-header
+{
+	position: relative;	
+}
+
+.cmt-writer-name
+{font-weight: bold;}
+
+div.panel_cmt_buttons
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.link-cmt-update, .link-cmt-delete
+{padding: 0px 2px;}
+
+.link-cmt-update:hover, .link-cmt-delete:hover
 {cursor: pointer;}

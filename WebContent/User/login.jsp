@@ -5,16 +5,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../JS/login.js" type="text/javascript"></script>
+<link href="../CSS/login.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>시스아웃</title>
 </head>
 <body>
+	<!-- 
+노란색  : #FFD966
+진한검은색 : #333333
+진한회색 : #808080
+회색 : #B3B3B3
+연한회색 : #DEDEDE
 
-<header>
-</header>
+html[lang='ko'] {
+  font-family: 'Suisse Regular', sans-serif;
+}
+     -->
+     
+	<header>Header 영역입니다</header>
+	
+	
+	
+	<div class="section_01">
+		<!-- 사이트 로고 들어갈 자리 -->
+		<div class="logo">
+			<img src="" alt="로고" id="logoImg">
+		</div>
+
+		<!-- 텍스트 자리 -->
+		<div class="txt">
+			<div class="hello">
+				<p class="txt_01">안녕하세요.</p>
+				<p class="txt_02">"시스아웃"입니다.</p>
+			</div>
+			<p class="txt_03">회원 서비스 이용을 위해 로그인 해주세요.</p>
+		</div>
+
+
+		<!-- 로그인 Form -->
+		<form name="frm" action="loginOk.uo" method="post" onsubmit="return chkSubmit();">
+			<!-- 입력 영역(이메일, 비번) -->
+			<input type="email" name="user_email" placeholder="이메일" /> 
+			<input type="password" name="user_pw" placeholder="비밀번호" />
+
+			<!-- button 로그인하기 -->
+			<div class="btn_submit">
+				<button type="submit" id="btn_login">로그인 하기</button>
+			</div>
+
+			<!-- Checkbox 이메일저장 -->
+			<div class="check_save">
+				<input type="checkbox" name="chkSave" id="saveEmail" checked/>
+				<label for="saveEmail"><a class="saveEmail">이메일 저장</a></label>
+			</div>
+		</form>
+
+		<!-- 이메일 비번 찾기 -->
+		<div id="find_login">
+			<span><a class="find" onclick="location.href='findEmail.uo'">이메일 찾기</a></span> 
+			<span><a class="bar">|</a></span> 
+			<span><a class="find" onclick="location.href='findPw.uo'">비밀번호 찾기</a></span>
+		</div>
+	</div>
+
+	<div class="section_02">
+		<p class="yet">아직 회원이 아니신가요?</p>
+		<div id="btnJoin">
+			<button class="btn_join" onclick="location.href='userEmailRegister.uo'">회원가입 하기</button>
+		</div>
+	</div>
 
 
 
 
 
+	<footer>Footer 영역입니다</footer>
 </body>
 </html>

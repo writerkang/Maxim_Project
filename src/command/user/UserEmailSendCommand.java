@@ -20,14 +20,16 @@ public class UserEmailSendCommand implements Command {
 			
 			try {
 				
+				// '0' 을 담음.
 				user_emailchecked = dao.GetUserEmailChecked(user_email);
-				
-				request.setAttribute("sendEmail", user_emailchecked);
 				
 			}catch(Exception e)	{
 				e.printStackTrace();
 			}
 		} // end if
+		
+		request.setAttribute("user_email", user_email);
+		request.setAttribute("emailChkNum", user_emailchecked);
 		
 		
 		

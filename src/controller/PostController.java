@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.board.CommentListCommand;
+import command.board.FileUploadCommand;
 import command.board.PostDeleteCommand;
+import command.board.PostFindCommand;
 import command.board.PostListCommand;
 import command.board.PostSelectCommand;
 import command.board.PostUpdateCommand;
@@ -57,18 +60,28 @@ public class PostController extends HttpServlet {
 				
 				case "/Board/freeBoardList.po":
 					command = new PostListCommand();
-					command.execute(request, response);
+					request.setAttribute("board_uid", 2); //자유게시판 uid 세팅
+					command.execute(request, response);					
 					viewPage = "freeBoardList.jsp";
+					break;
+					
+				case "/index.po":
+					command = new PostListCommand();
+					command.execute(request, response);
+					viewPage = "index.jsp";
 					break;
 				
 				case "/Board/tipBoardList.po":
 					command = new PostListCommand();
+					request.setAttribute("board_uid", 3); //팁게시판 uid 세팅
 					command.execute(request, response);
 					viewPage = "tipBoardList.jsp";
 					break;
 					
 				case "/Board/freePostView.po":
 					command = new PostViewCommand();
+					command.execute(request, response);
+					command = new CommentListCommand();
 					command.execute(request, response);
 					viewPage = "freePostView.jsp";
 					break;
@@ -91,6 +104,13 @@ public class PostController extends HttpServlet {
 					command = new PostWriteCommand();
 					command.execute(request, response);
 					viewPage = "freePostWriteOk.jsp";
+					break;
+					
+				case "/Board/freePostFind.po":
+					command = new PostFindCommand();
+					request.setAttribute("board_uid", 2); //자유게시판 uid 세팅
+					command.execute(request, response);
+					viewPage = "freePostFindResult.jsp";
 					break;
 					
 				case "/Board/tipPostWriteOk.po":
@@ -134,7 +154,19 @@ public class PostController extends HttpServlet {
 					command.execute(request, response);
 					viewPage = "tipPostDeleteOk.jsp";
 					break;				
+				
 					
+				case "/Board/noticeBoardList.po":
+					command = new PostListCommand();
+					request.setAttribute("board_uid", 1); //공지게시판 uid 세팅
+					command.execute(request, response);
+					viewPage = "noticeBoardList.jsp";
+					break;				
+
+				// 웹 에디터용 파일 업로드 처리
+				case "/Board/fileUpload.po":
+					new FileUploadCommand().execute(request, response);
+					break;
 					
 				} // end switch
 				

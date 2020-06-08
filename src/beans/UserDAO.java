@@ -1,6 +1,11 @@
 package beans;
 
+import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import common.UserQuery;
 
@@ -25,8 +30,18 @@ public class UserDAO extends DefaultDAO {
 		return -1; // 이메일이 존재하지 않음
 	}
 
-	// 회원가입 이메일 insert
-	public int insertEmail(String user_email, String user_emailHash) {
+	// DTO 활용
+//	public int insertEmail(UserDTO dto) throws SQLException {
+//		String user_email = dto.getUser_email();
+//		String user_emailHash = dto.getUser_emailHash();
+//	
+//		int cnt = this.insertEmail(user_email, user_emailHash);
+//		return cnt;
+//	}
+	
+	
+	// 이메일 insert
+	public int insertEmail(String user_email, String user_emailHash) throws SQLException{
 		try {
 			pstmt = conn.prepareStatement(UserQuery.SQL_USER_EMAIL_INSERT);
 			pstmt.setString(1, user_email);
@@ -40,29 +55,8 @@ public class UserDAO extends DefaultDAO {
 		return -1; // 회원가입 실패
 	}
 
-	// 회원정보 insert 
-	public int insertInfo(String user_email, String user_nickName, String user_phone, String user_pw) throws SQLException {
-
-		int cnt = 0;
-		try {
-			pstmt = conn.prepareStatement(UserQuery.SQL_USER_INFO_INSERT);
-			pstmt.setString(1, user_nickName);
-			pstmt.setString(2, user_phone);
-			pstmt.setString(3, user_pw);
-			pstmt.setString(4, user_email);
-
-			cnt = pstmt.executeUpdate(); // insert 성공하면 1
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return cnt;
-	} // end insert
-
 	// 이메일 가져오기
-	public String GetUserEmail() {
+	public String GetUserEmail() throws SQLException{
 		try {
 			pstmt = conn.prepareStatement(UserQuery.SQL_USER_EMAIL);
 			rs = pstmt.executeQuery();
@@ -76,14 +70,14 @@ public class UserDAO extends DefaultDAO {
 	}
 
 	// 이메일 체크값 가져오기 
-	public String GetUserEmailChecked(String user_email) {
+	public String GetUserEmailChecked(String user_email) throws SQLException{
 		try {
 			pstmt = conn.prepareStatement(UserQuery.SQL_GET_EMAIL_CHECK);
 			pstmt.setString(1, user_email);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 
-				// 컬럼값 리턴 -> "1"
+				// 컬럼값 리턴 -> "0"
 				return rs.getString("user_emailchecked"); // 이메일 등록 여부 반환
 			}
 
@@ -91,11 +85,11 @@ public class UserDAO extends DefaultDAO {
 			e.printStackTrace();
 		}
 
-		return "0"; // DB 오류(해당 이메일에 대한 체크여부 Update 안 됨)
+		return "1"; // 이미 인증여부 완료?..
 	}
 	
 	// 이메일체크값 '1' 로 변경 
-	public String SetUserEmailChecked(String user_email) {
+	public String SetUserEmailChecked(String user_email) throws SQLException{
 
 		try {
 
@@ -109,7 +103,154 @@ public class UserDAO extends DefaultDAO {
 		}
 		return "0"; // 이메일 등록 설정 실패
 	}
+	
 
-	// 로그아웃 처리
+	
+	
+	// 회원가입폼 insert 
+		public int insertInfo(String user_email, String user_name, String user_phone, String user_pw) throws SQLException {
 
+			int cnt = 0;
+			try {
+				pstmt = conn.prepareStatement(UserQuery.SQL_USER_INFO_INSERT);
+				pstmt.setString(1, user_email);
+				pstmt.setString(2, user_name);
+				pstmt.setString(3, user_phone);
+				pstmt.setString(4, user_pw);
+
+				cnt = pstmt.executeUpdate(); // insert 성공하면 1
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return cnt;
+		} // end insert
+		
+		
+		// user_name(닉네임) 중복체크 
+		public int nameCheck(String user_name) throws SQLException {
+			
+			try {
+				pstmt = conn.prepareStatement(UserQuery.SQL_SELECT_USER_NAME);
+				rs = pstmt.executeQuery();  // 쿼리 수행
+				
+				while(rs.next()) {
+					if(rs.getString("user_name").equals(user_name)) { // DB 에 있는 user_name 들과 가입할 때 입력한 user_name 을 비교
+						return 1; // 같은 이름 존재 (이미존재하는 닉네임입니다)
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			
+			return 0; // 같은 이름 존재 하지 않음(사용 가능한 닉네임입니다)
+		} // end insert
+		
+		// tb_user 테이블에 있는 user_email 중복체크 
+		public int emailCheck(String user_email) throws SQLException {
+		
+			try {
+				pstmt = conn.prepareStatement(UserQuery.SQL_SELECT_USER_EMAIL);
+				rs = pstmt.executeQuery();  // 쿼리 수행
+				
+				while(rs.next()) {
+					if(rs.getString("user_email").equals(user_email)) { // tb_email 에 있는 user_email 들과 가입할 때 입력한 user_email 을 비교
+						return 0; // 해당 이메일이 이미 tb_user 테이블에 존재. (tb_email 테이블에서는 삭제된 상태)
+									// 해당 이메일이 이미 존재합니다. 
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+	
+			return 1;
+		} // end insert
+		
+		
+		
+		
+		// ResultSet --> DTO 배열로 리턴
+		public UserDTO[] createArray(ResultSet rs) throws SQLException {
+			UserDTO[] arr = null; // DTO 배열
+
+			ArrayList<UserDTO> list = new ArrayList<UserDTO>();
+
+			while (rs.next()) {
+				int user_uid = rs.getInt("user_uid");
+				String user_email = rs.getString("user_email");
+				String user_pw = rs.getString("user_pw");
+				String user_name = rs.getString("user_name");
+				String user_phone = rs.getString("user_phone");
+				int user_point = rs.getInt("user_point");
+				Date user_regdate = rs.getDate("user_regdate");
+				Time t = rs.getTime("user_regdate");
+
+				String regDate = "";
+				if (user_regdate != null) {
+					regDate = new SimpleDateFormat("yyyy-MM-dd").format(user_regdate) + " "
+							+ new SimpleDateFormat("hh:mm:ss").format(t);
+				}
+
+				UserDTO dto = new UserDTO(user_uid, user_email, user_pw, user_name, user_phone, user_point);
+				dto.setUser_regdate(regDate);
+				list.add(dto);
+
+			} // end while
+
+			int size = list.size();
+
+			if (size == 0)
+				return null;
+
+			arr = new UserDTO[size];
+			list.toArray(arr); // List -> 배열
+			return arr;
+		}
+
+		
+		
+		
+
+		
+		// 전체 SELECT (해당 uid 회원에 대한 모든 데이터 조회)
+		public UserDTO[] select(int user_uid) throws SQLException {
+			UserDTO[] arr = null;
+
+			try {
+				pstmt = conn.prepareStatement(UserQuery.SQL_USER_SELECT_BY_UID);
+				pstmt.setInt(1, user_uid);
+				rs = pstmt.executeQuery(); // 해당 uid 의 모든 컬럼 정보가 담김.
+				arr = createArray(rs);
+			} finally {
+				close();
+			}
+
+			return arr;
+		} // end select()
+		
+		
+		
+		// 해당 이메일로 부터 회원의 uid 값 뽑기 
+		public int findUid(String user_email) throws SQLException{
+			try {
+				pstmt = conn.prepareStatement(UserQuery.SQL_FIND_UID);
+				pstmt.setString(1, user_email);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					return rs.getInt(1); // 해당 uid 값 찍히겠지.
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+			return 0; // 0 이면 uid 못 찾았음.
+		}
+		
 }
