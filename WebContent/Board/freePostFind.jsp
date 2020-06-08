@@ -19,6 +19,10 @@
 			// page parameter 오류는 별도의 exception 처리 안함 
 		}
 	} // end if
+	
+	request.setCharacterEncoding("UTF-8");
+	String search = request.getParameter("search");
+	String ser_content = request.getParameter("ser_content");
 %>
 
 
@@ -92,12 +96,12 @@
 <%-- 위 트랜잭션이 마무리 되면 페이지 보여주기 --%>
 
 <%-- 페이징 --%>
-<jsp:include page="pagination.jsp"> 
+<jsp:include page="paginationFind.jsp"> 
 	<jsp:param value="${writePages }" name="writePages"/>
 	<jsp:param value="${totalPage }" name="totalPage"/>
 	<jsp:param value="<%= curPage %>" name="curPage"/>
-	<jsp:param value="${search }" name="search"/>
-	<jsp:param value="${ser_content }" name="ser_contnt"/>
+	<jsp:param value="<%= search %>" name="search"/>
+	<jsp:param value="<%= ser_content %>" name="ser_content"/>
 </jsp:include>
     
 </body>

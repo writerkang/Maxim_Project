@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write</title>
 
+	<link rel="stylesheet" href="../CSS/header.css" />
     <link rel="stylesheet" href="../CSS/write.css"/>
     <link rel="stylesheet" href="../CSS/cancel-modal.css"/>
 </head>
@@ -15,6 +16,19 @@
 <script src="../ckeditor/ckeditor.js"></script>
 
 <script src="../JS/cancel-modal.js" type="text/javascript"></script>
+
+<!-- 비로그인 상태로 페이지 주소를 직접 입력하여 강제로 접근시도 시 돌려보냅니다. -->
+<script>
+$(document).ready(function(){
+	var userUid = $("#user_uid").text();
+	
+	if(userUid == null || userUid == ""){
+		alert("잘못된 접근입니다!");
+		history.back();
+	}
+});
+</script>
+<!---------------------------------->
 
 <script>
     function chkSubmit() {  // 폼 검증
@@ -44,12 +58,18 @@
 </script>
 
 <body>
+
+<!-- 헤더 부분 입니다. -->
+<jsp:include page="../header.jsp" />
+<script src="../JS/header.js"></script>
+<!---------------------------------->
+
     <form name="frm" action="freePostWriteOk.po" method="post" onsubmit="return chkSubmit()">
     <div class="wrap bg-Lgray">
     
         <!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
         <input type="hidden" name="board_uid" value="2">
-        <input type="hidden" name="user_uid" value="1">
+        <input type="hidden" name="user_uid" value="${userDto[0].user_uid }">
         <!---------------------------------->
         
         <div class="panel-writer"><span>작성자 닉네임</span></div>

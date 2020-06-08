@@ -354,6 +354,24 @@ public class PostDAO extends DefaultDAO {
 		}
 
 		
+		// 특정 post_uid 의 게시글 모든 요소 가져오기, 조회수 증가없음
+		public PostDTO[] selectByUid2(int user_uid) throws SQLException{
+			PostDTO [] arr = null;
+			
+			try {
+				pstmt = conn.prepareStatement(PostQuery.SQL_POST_MYPOST);
+				pstmt.setInt(1, user_uid);
+				rs = pstmt.executeQuery();
+				arr = createArray(rs);
+			} finally {
+				close();
+			}
+			
+			return arr;
+		}
+		
+		
+		
 		// 게시글 수정 기능 
 		public int update(int post_uid, String post_subject, int category_uid, String post_content) throws SQLException{
 			int cnt = 0;

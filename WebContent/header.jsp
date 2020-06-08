@@ -15,6 +15,10 @@
 </head>
 
 <body>
+  <!-- 보이지 않지만 user_uid 값을 끌어 쓸 때 사용됩니다.-->
+  <span id="user_uid" style="display: none">${userDto[0].user_uid }</span>
+  <!--  -->
+    
   <nav>
 
     <div class="hamburger">
@@ -35,20 +39,20 @@
 		<!-- 로그인 후 (세션저장됨)-->
       <c:choose>
 		<c:when test="${sessionScope.userDto[0].user_email == null }">
-      		<li><a onclick="location.href='User/login.uo'" id="login" id="login">LogIn</a></li>
+      		<li><a onclick="location.href='${pageContext.request.contextPath}/User/login.uo'" id="login" id="login">LogIn</a></li>
 		</c:when>
 		<c:when test="${userDto[0].user_email != null }">
-      		<li><a onclick="location.href='User/logout.uo'" id="logout" id="logout">LogOut</a></li>
+      		<li><a onclick="location.href='${pageContext.request.contextPath}/User/logout.uo'" id="logout" id="logout">LogOut</a></li>
 		</c:when>
       </c:choose>
     </ul>
     
     <ul class="nav-links">
       <li><a onclick="location.href='#.po'">SITELINK</a></li>
-      <li><a onclick="location.href='Board/freeBoardList.po'">FREEBOARD</a></li>
-      <li><a onclick="location.href='Board/tipBoardList.po'">TIPBOARD</a></li>
-      <li><a onclick="location.href='User/userRank.uo'">RANK</a></li>
-      <li><a onclick="location.href='Board/noticeBoardList.po'">NOTICE</a></li>
+      <li><a onclick="location.href='${pageContext.request.contextPath}/Board/freeBoardList.po'">FREEBOARD</a></li>
+      <li><a onclick="location.href='${pageContext.request.contextPath}/Board/tipBoardList.po'">TIPBOARD</a></li>
+      <li><a onclick="location.href='${pageContext.request.contextPath}/User/userRank.uo'">RANK</a></li>
+      <li><a onclick="location.href='${pageContext.request.contextPath}/Board/noticeBoardList.po'">NOTICE</a></li>
     </ul>
     
   </nav>

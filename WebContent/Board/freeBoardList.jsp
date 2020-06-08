@@ -29,15 +29,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="../CSS/header.css" />
     <link href="../CSS/board.css" rel="stylesheet" type="text/css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+	
 	<script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 	
 </head>
 
 <script src="../JS/board.js" type="text/javascript"></script>
 
+<!-- 비로그인 상태로 글쓰기 아이콘 클릭시 글쓰기 링크로 이동하지 않고 안내메시지를 띄워줍니다. -->
+<script>
+$(document).ready(function(){
+	var userUid = $("#user_uid").text();
+	console.log(userUid);
+	
+	if(userUid == null || userUid == "") {
+		$("#pen").click(function(e){
+			e.preventDefault();
+			console.log(userUid);
+			
+			alert("로그인 후 이용 가능합니다!");
+		});
+	}
+});
+</script>
+<!---------------------------------->
+
 <body style="background-color: #e6e6e6;">
+
+<!-- 헤더 부분 입니다. -->
+<jsp:include page="../header.jsp" />
+<script src="../JS/header.js"></script>
+<!---------------------------------->
+
     <h2 style="text-align: left;">자유게시판</h2>
     <div id="tag">
         <button id="tag1" class="tags" onclick="" >최신순</button>
@@ -74,10 +102,17 @@
 	
     <form method="get" name="frm" action="./freePostFind.po?page=1" >
 	    <span id="search">
+<<<<<<< HEAD
+	        <select name="serach" id="search_sele">
+	            <option value="tp.POST_CONTENT">글내용</option>
+	            <option value="TP.POST_SUBJECT">글제목</option>
+	            <option value="tu.USER_NAME">작성자</option>
+=======
 	        <select name="search" id="search_sele">
 	            <option value="1">제목</option>
 	            <option value="2">내용</option>
 	            <option value="3">작성자</option>
+>>>>>>> branch 'master' of https://github.com/writerkang/Maxim_Project.git
 	        </select>
 	    </span>
 	    <div id="ser_cont">
