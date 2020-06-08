@@ -111,3 +111,8 @@ BEGIN
 END;
 
 DROP TRIGGER tb_page_insert;
+
+SELECT * FROM TB_POST tp, TB_USER tu 
+WHERE tp.USER_UID = tu.USER_UID 
+AND tu.USER_NAME LIKE '%사자%'
+;

@@ -44,7 +44,7 @@ public class PostFindCommand implements Command {
 			arr = dao.findPostByOption(writePages*(page - 1) + 1, writePages, keyword, serOption, boardUid);
 			dao = new PostDAO();
 			
-			totalPage = dao.getTotalPages();
+			totalPage = dao.getTotalPagesByOption(keyword, serOption);
 			
 			if(totalPage % writePages == 0) {
 				totalPage = totalPage / writePages;

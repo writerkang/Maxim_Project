@@ -257,6 +257,49 @@ public class PostDAO extends DefaultDAO {
 					
 					return totalPages;
 				}
+				
+				//페이지 수 가져오기(조건 사용)
+				public int getTotalPagesByOption(String keyword, int option){
+					int totalPages = 1; //디폴트 총 1페이지
+					String sql = "";
+					
+					switch(option){
+					case 1:
+						sql = PostQuery.SQL_TOTAL_FIND_BY_SUBJECT;
+						break;
+					case 2:
+						sql = PostQuery.SQL_TOTAL_FIND_BY_CONTENT;
+						break;
+					case 3:
+						sql = PostQuery.SQL_TOTAL_FIND_BY_USERNAME;
+						break;
+					}
+					
+					try {
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, keyword);
+						System.out.println(keyword);
+						rs = pstmt.executeQuery();
+						System.out.println(rs);
+						
+						while(rs.next()) {
+							totalPages = rs.getInt(1);
+						}
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+						System.out.println("쿼리문제");
+					} finally {
+						try {
+							close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					
+					return totalPages;
+				}
 		
 		// 특정 post_uid 의 글 내용 읽기, 조회수 증가
 		// viewCnt 도 1 증가 해야 하고, 읽어와야 한다 --> 트랜잭션 처리	

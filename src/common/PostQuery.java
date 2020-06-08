@@ -83,6 +83,22 @@ public class PostQuery {
 					") " + 
 					"WHERE rnum >= ? AND RNUM < ? + ?"
 					;
+			//제목으로 검색시 총 게시물 수
+			public static final String SQL_TOTAL_FIND_BY_SUBJECT =
+					"SELECT count(*) FROM TB_POST tp " + 
+					"WHERE tp.POST_SUBJECT LIKE ?"
+					;
+			//내용으로 검색시 총 게시물 수
+			public static final String SQL_TOTAL_FIND_BY_CONTENT =
+					"SELECT count(*) FROM TB_POST tp " + 
+							"WHERE tp.POST_CONTENT LIKE ?"
+							;
+			//사용자 이름으로 검색시 총 게시물 수
+			public static final String SQL_TOTAL_FIND_BY_USERNAME =
+					"SELECT * FROM TB_POST tp, TB_USER tu " + 
+					"WHERE tp.USER_UID = tu.USER_UID " + 
+					"AND tu.USER_NAME LIKE ?" 
+					;
 			
 			public static final String SQL_POST_FIND_BY_USERNAME =
 					"SELECT * FROM " + 
