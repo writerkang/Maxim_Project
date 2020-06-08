@@ -27,13 +27,13 @@
             
             <span style="display: inline-block; width: 110px; text-align: right;">*닉네임</span> 
             <input type="text" class="form" name="user_name" id="user_name" required/>
-            <div class="check_font" id="id_check"></div> <%-- 경고문 들어갈 div --%>
+            <div class="check_font" id="name_check"></div> <%-- 경고문 들어갈 div --%>
             <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ 한글,영문,숫자 4~10자리 사용할 수 있습니다.</span><br>
             
             <span style="display: inline-block; width: 110px; text-align: right;">*휴대폰</span> 
-            <input type="number" class="form" name="user_phone" id="user_phone" required>
+            <input type="text" class="form" name="user_phone" id="user_phone" required>
             <div class="check_font" id="phone_check"></div>
-            <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ '-' 없이 입력해주세요.</span><br>
+            <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;"></span><br>
             
             <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호</span> 
             <input type="password" class="form" name="user_pw" id="user_pw" required>
