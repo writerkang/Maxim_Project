@@ -102,17 +102,10 @@ $(document).ready(function(){
 	
     <form method="get" name="frm" action="./freePostFind.po?page=1" >
 	    <span id="search">
-<<<<<<< HEAD
-	        <select name="serach" id="search_sele">
-	            <option value="tp.POST_CONTENT">글내용</option>
-	            <option value="TP.POST_SUBJECT">글제목</option>
-	            <option value="tu.USER_NAME">작성자</option>
-=======
 	        <select name="search" id="search_sele">
 	            <option value="1">제목</option>
 	            <option value="2">내용</option>
 	            <option value="3">작성자</option>
->>>>>>> branch 'master' of https://github.com/writerkang/Maxim_Project.git
 	        </select>
 	    </span>
 	    <div id="ser_cont">
