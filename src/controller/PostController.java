@@ -110,7 +110,7 @@ public class PostController extends HttpServlet {
 					command = new PostFindCommand();
 					request.setAttribute("board_uid", 2); //자유게시판 uid 세팅
 					command.execute(request, response);
-					viewPage = "freePostFindResult.jsp";
+					viewPage = "freePostFind.jsp";
 					break;
 					
 				case "/Board/tipPostWriteOk.po":
