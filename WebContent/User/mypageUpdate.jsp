@@ -22,25 +22,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>수정하기</title>
 </head>
+<script>
+	function chkSubmit(){
+		frm = document.form['frm'];
+		var subject = frm['mypage_subject'].value.trim();
+		
+		if(mypage_subject == ""){
+			alert("'MainTitle'은 반드시 작성해야 합니다.");
+			frm['subject'].focus();
+			return false;
+		}
+		return true;
+	}
+</script>
 <body>
-	<%
-		String directory = application.getRealPath("upload");
-		int maxSize = 1024 * 1024 * 100;
-		String encoding = "UTF-8";
-		
-		MultipartRequest multi
-		= new MultipartRequest(request, directory, maxSize, encoding,
-				new DefaultFileRenamePolicy());
-		
-		// 사용자가 업로드한 file 은 "file" 이란 이름으로 넘어온다. / mypage.jsp 의 input에서 지정
-		String oriName = multi.getOriginalFileName("file");
-		String serverName = multi.getFilesystemName("file");
-		
-		new AttachDAO().fileUpload(oriName, serverName);
-		out.write("파일명: " + oriName + "<br>");
-		out.write("실제파일명: " + serverName + "<br>");
-	%>
+	<h2>수정화면-mypageUpdate</h2>
+	<form name="frm" action="mypageUpdateOk.uo" method="post"
+		onsubmit="return chkSubmit()" enctype="Multipart/form-data">
+		headline:
+		<input type="text" name="mypage_subject" value=""/>
+	
+		content:
+		<textarea name="content"></textarea>
+	</form>
+<input type="submit" value="수정">
+
 </body>
 </html>

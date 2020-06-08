@@ -30,6 +30,14 @@ CREATE SEQUENCE scrap_seq;
 CREATE SEQUENCE star_seq;
 CREATE SEQUENCE board_seq;
 
+--트리거 생성
+--따로 넣지 않아도 자동으로 post_uid가 1씩 올라간다.
+CREATE OR REPLACE TRIGGER tb_page_insert
+BEFORE INSERT 
+ON tb_post FOR EACH ROW 
+BEGIN 
+	SELECT post_seq.nextval INTO :NEW.post_uid FROM dual;
+END;
 
 --외래키 제약 설정 필요!
 --TODO
@@ -90,7 +98,14 @@ CREATE TABLE tb_post
     post_viewcnt    NUMBER          DEFAULT 0 NOT NULL, 
     board_uid       NUMBER          NOT NULL, 
     user_uid        NUMBER          NOT NULL, 
-    category_uid    NUMBER          NOT NULL
+    category_uid    NUMBER          NOT NULL,
+    --외래키설정
+  	CONSTRAINT FKP_user FOREIGN KEY(user_uid)  
+  	REFERENCES tb_user(user_uid),
+  	CONSTRAINT FKP_board FOREIGN KEY(board_uid)  
+  	REFERENCES tb_board(board_uid),
+  	CONSTRAINT FKP_category FOREIGN KEY(category_uid)  
+  	REFERENCES tb_category(category_uid)
 );
 
 CREATE TABLE tb_mypage
@@ -98,7 +113,10 @@ CREATE TABLE tb_mypage
     mypage_uid        NUMBER          PRIMARY KEY, 
     mypage_subject    VARCHAR2(60)    , 
     mypage_content    CLOB            , 
-    user_uid          NUMBER          NOT NULL
+    user_uid          NUMBER          NOT NULL,
+    --외래키설정
+    CONSTRAINT FKM_user FOREIGN KEY(user_uid)  
+  	REFERENCES tb_user(user_uid)
 );
 SELECT * FROM TB_MYPAGE ;
 
@@ -115,7 +133,12 @@ CREATE TABLE tb_comment
     comment_content    CLOB      NOT NULL, 
     comment_regdate    DATE      DEFAULT SYSDATE NOT NULL, 
     post_uid           NUMBER    NOT NULL, 
-    user_uid           NUMBER    NOT NULL 
+    user_uid           NUMBER    NOT NULL,
+    --외래키설정
+    CONSTRAINT FKC_user FOREIGN KEY(user_uid)  
+  	REFERENCES tb_user(user_uid),
+  	CONSTRAINT FKC_post FOREIGN KEY(post_uid)  
+  	REFERENCES tb_post(post_uid)
 );
 
 CREATE TABLE tb_attach

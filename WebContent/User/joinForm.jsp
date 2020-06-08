@@ -11,30 +11,31 @@
     <script src="https://use.fontawesome.com/afbd8941a0.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link href="../CSS/joinForm.css" rel="stylesheet" type="text/css">
-    <script src="../JS/join.js" type="text/javascript"></script>
+
     <title>회원정보입력</title>
 </head>
 <body>
     <h1 style="text-align: center;">회원정보입력</h1>
-    
+    <%--  <%=request.getParameter("user_email") %> --%>
         <form id="frm" action="joinFormOk.uo" method="post" onsubmit="return chkSubmit();">
     <div style="background-color: #FFD966; width: 85%; margin: 10px auto; padding: 30px 0px; margin-bottom: 0px;" >
         <div style="text-align: center;">
             <i class="fas fa-user-edit fa-5x"></i>
-        </div>
+        </div> 
             <span style="display: inline-block; width: 110px; text-align: right;">아이디(이메일)</span> 
-            <input type="email" class="form" name="user_email" value="<%=request.getParameter("user_email") %>"><br><br>
+            <input type="email" class="form" name="user_email" value="${param.user_email }" ><br><br>
             
             <span style="display: inline-block; width: 110px; text-align: right;">*닉네임</span> 
-            <input type="text" class="form" name="user_name">
+            <input type="text" class="form" name="user_name" id="user_name" required>
+            <div class="check_font" id="id_check"></div> <%-- 경고문 들어갈 div --%>
             <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ 한글, 숫자 5자이내</span><br>
             
             <span style="display: inline-block; width: 110px; text-align: right;">*휴대폰</span> 
-            <input type="number" class="form" name="user_phone">
+            <input type="number" class="form" name="user_phone" id="user_phone" required>
             <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ '-' 없이 입력해주세요.</span><br>
             
             <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호</span> 
-            <input type="password" class="form" name="user_pw">
+            <input type="password" class="form" name="user_pw" id="user_pw" required>
             <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ 숫자, 문자 조합하여 10자~16자 이상 입력</span><br>
             
             <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호 확인</span> 
@@ -61,5 +62,6 @@
             <input type="submit" name="sub_btn" id="sub_btn" value="회원가입 하기">
     </div>
         </form>
+            <script src="../JS/join.js" type="text/javascript"></script>
 </body>
 </html>

@@ -24,7 +24,11 @@ html[lang='ko'] {
   font-family: 'Suisse Regular', sans-serif;
 }
      -->
+     
 	<header>Header 영역입니다</header>
+	
+	
+	
 	<div class="section_01">
 		<!-- 사이트 로고 들어갈 자리 -->
 		<div class="logo">
@@ -51,16 +55,6 @@ html[lang='ko'] {
 			<div class="btn_submit">
 				<button type="submit" id="btn_login">로그인 하기</button>
 			</div>
-
-				<!-- 로그인 유효성 검증 성공하면  modal display: block 하기.. -->
-<!-- 				<div id="myModal_success" class="modal"> -->
-					<!-- Modal content -->
-<!-- 					<div class="modal-content"> -->
-<!-- 						<span class="close">&times;</span> -->
-<!-- 						<p>로그인 성공!</p> -->
-<!-- 						<a href="login.uo">확인</a> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
 
 			<!-- Checkbox 이메일저장 -->
 			<div class="check_save">

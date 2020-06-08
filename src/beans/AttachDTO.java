@@ -1,31 +1,30 @@
 package beans;
 
-import java.sql.Date;
 
 public class AttachDTO {
-	int attach_uid;
-	String attach_oriname;
-	String attach_servername;
-	String attach_url;
-	Date attach_regdate;
-	int attach_size;
-	int mypage_uid;
+	private int attach_uid;
+	private String attach_oriname;
+	private String attach_servername;
+	private String attach_url;
+	private boolean isImage; 
+	private int mypage_uid;
+	
 	
 	//마이페이지 사진 업로드를 위한 생성자 생성
-	public AttachDTO(int attach_uid, String attach_oriname, String attach_servername, String attach_url,
-			Date attach_regdate, int attach_size, int mypage_uid) {
+	public AttachDTO(int attach_uid, String attach_oriname, String attach_servername,
+			int mypage_uid) {
 		super();
 		this.attach_uid = attach_uid;
 		this.attach_oriname = attach_oriname;
 		this.attach_servername = attach_servername;
-		this.attach_url = attach_url;
-		this.attach_regdate = attach_regdate;
-		this.attach_size = attach_size;
+//		this.attach_url = attach_url;
+//		this.isImage = isImage;
 		this.mypage_uid = mypage_uid;
 	}
 
 	// getter and setter 생성
-	
+
+
 	public int getAttach_uid() {
 		return attach_uid;
 	}
@@ -58,21 +57,6 @@ public class AttachDTO {
 		this.attach_url = attach_url;
 	}
 
-	public Date getAttach_regdate() {
-		return attach_regdate;
-	}
-
-	public void setAttach_regdate(Date attach_regdate) {
-		this.attach_regdate = attach_regdate;
-	}
-
-	public int getAttach_size() {
-		return attach_size;
-	}
-
-	public void setAttach_size(int attach_size) {
-		this.attach_size = attach_size;
-	}
 
 	public int getMypage_uid() {
 		return mypage_uid;
@@ -82,7 +66,12 @@ public class AttachDTO {
 		this.mypage_uid = mypage_uid;
 	}
 	
-	
+	public boolean isImage() {
+		return isImage;
+	}
+	public void setImage(boolean isImage) {
+		this.isImage = isImage;
+	}
 
 	
 }

@@ -1,0 +1,248 @@
+@charset "UTF-8";
+
+*
+{font-family: 'Suisse Regular', sans-serif;}
+
+.left-pull
+{float: left;}
+
+.right-pull
+{float: right;}
+
+.bg-Lgray
+{background-color: #DEDEDE;}
+
+.text-red
+{color: red;}
+
+hr
+{
+    margin: 0;
+    border: 0;
+    height: 2px;
+    background-color: #808080;
+}
+
+a 
+{
+    color: #000;
+    text-decoration: none;
+}
+
+a:visited
+{color: #000;}
+
+button
+{
+    width: 40%;
+    height: 34px;
+    border: 1px solid #B3B3B3;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button:hover
+{cursor: pointer;}
+
+.wrap
+{padding-bottom: 10px;}
+
+.wrap * 
+{box-sizing: border-box;}
+
+.pst_writer-img
+{
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: top;
+    width: 42px;
+    height: 42px;
+    border: 1px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.pst_writer-img img
+{
+    display: block;
+    width: 100%;
+}
+
+.panel-post-info
+{padding: 10px 0;}
+
+.panel-post-info::after
+{
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.panel-post-info span
+{font-size: 14px;}
+
+.pst_writer-name
+{font-weight: bold;}
+
+.panel-p
+{display: table;}
+
+.panel-c
+{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.panel-subject
+{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #808080;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.subject
+{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#btn-scrap:hover
+{cursor: pointer;}
+
+#btn-toggle-menu
+{
+    display: block;
+    width: 36px;
+    height: 32px;
+    text-align: center;
+}
+
+#btn-toggle-menu:hover
+{cursor: pointer;}
+
+#toggle-menu-content
+{
+    display: none;
+    position: relative;
+    top: 0px;
+    right: 114px;
+    width: 150px;
+    background-color: #fff;
+}
+
+#toggle-menu-content div
+{
+    position: relative;
+    border: 1px solid #000;
+    height: 32px;
+}
+
+#toggle-menu-content div a
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content
+{
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    height: 300px;
+    background-color: #fff;
+    font-size: 14px;
+    overflow:hidden;
+    height:auto;
+    min-height: 300px;
+    word-break:break-all;
+}
+
+.panel-recommend
+{
+    padding: 10px 0;
+    text-align: center;
+}
+
+#btn-recommend
+{
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+}
+
+#btn-recommend > i
+{font-size: 14px;}
+
+#btn-recommend:hover
+{cursor: pointer;}
+
+.panel-comment-write
+{
+    padding: 20px 0;
+    margin-bottom: 10px;
+}
+
+textarea[name="comment_content"]
+{
+    float: left;
+    padding: 5px;
+    width: 80%;
+    height: 70px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    resize: none;
+}
+
+.btn-write-cmt
+{
+    clear: both;
+    width: 20%;
+    height: 70px;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+.comment-box
+{
+    margin: 10px auto;
+    padding: 5px;
+    height: 300px;
+    border-top: 1px solid #808080;
+    background-color: #fff;
+    font-size: 14px;
+    overflow:hidden;
+    height:auto;
+    min-height: 100px;
+    word-break:break-all;
+}
+
+.cmt-header
+{
+	position: relative;	
+}
+
+.cmt-writer-name
+{font-weight: bold;}
+
+div.panel_cmt_buttons
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.link-cmt-update, .link-cmt-delete
+{padding: 0px 2px;}
+
+.link-cmt-update:hover, .link-cmt-delete:hover
+{cursor: pointer;}

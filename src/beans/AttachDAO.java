@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import common.D;
 
@@ -37,11 +39,32 @@ public class AttachDAO {
 			if(conn != null) conn.close();
 		} // end close()
 
+		// ResultSet -> DTO 배열로 return
+		public AttachDTO [] createArray(ResultSet rs) throws SQLException {
+			AttachDTO [] arr = null;
+			List<AttachDTO> list = new ArrayList<AttachDTO>();
+			
+			while(rs.next()) {
+				int attach_uid = rs.getInt("attach_uid");
+				String attach_oriname = rs.getString("attach_oriname");
+				String attach_servername = rs.getString("ori_servername");
+				int mypage_uid = rs.getInt("mypage_uid");
+				
+				AttachDTO dto = new AttachDTO(attach_uid, attach_oriname, attach_servername, mypage_uid);
+				list.add(dto);
+			} // end while
+			
+			arr = new AttachDTO[list.size()];
+			list.toArray(arr);
+			return arr;
+		}  // end createArray()
+		
+		
 		public int fileUpload (String attach_oriname, String attach_servername) 
 		{
 			
 			try {
-				pstmt = conn.prepareStatement(D.SQL_FILE_UPLOAD);
+				pstmt = conn.prepareStatement(D.SQL_MYPAGE_FILE_INSERT);
 				pstmt.setString(1, attach_oriname);
 				pstmt.setString(2, attach_servername);
 				return pstmt.executeUpdate();
@@ -58,6 +81,20 @@ public class AttachDAO {
 			// 오류가 생기면 -1 을 리턴
 			return -1; 
 		} // end upload()
+		
+		// mypage 의 첨부파일 select
+		public AttachDTO [] selectFilesByMypageUid(int mypage_uid) throws SQLException{
+			AttachDTO [] arr = null;
+			try {
+				pstmt = conn.prepareStatement(D.SQL_MYPAGE_FILE_SELECT);
+				pstmt.setInt(1, mypage_uid);
+				rs = pstmt.executeQuery();
+				arr = createArray(rs);
+			} finally {
+				close();
+			}
+			return arr;
+		} // end selectFilesByMypageUid()
 }
 
 

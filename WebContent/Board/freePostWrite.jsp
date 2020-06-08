@@ -7,13 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write</title>
 
+	<link rel="stylesheet" href="../CSS/header.css" />
     <link rel="stylesheet" href="../CSS/write.css"/>
     <link rel="stylesheet" href="../CSS/cancel-modal.css"/>
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../ckeditor/ckeditor.js"></script>
 
 <script src="../JS/cancel-modal.js" type="text/javascript"></script>
+
+<!-- 비로그인 상태로 페이지 주소를 직접 입력하여 강제로 접근시도 시 돌려보냅니다. -->
+<script>
+$(document).ready(function(){
+	var userUid = $("#user_uid").text();
+	
+	if(userUid == null || userUid == ""){
+		alert("잘못된 접근입니다!");
+		history.back();
+	}
+});
+</script>
+<!---------------------------------->
 
 <script>
     function chkSubmit() {  // 폼 검증
@@ -21,18 +36,19 @@
         
         var category_uid = frm["category_uid"].value.trim();
         var post_subject = frm["post_subject"].value.trim();
-        
+        var post_content = frm["post_content"].value.trim();
+               
         if(category_uid == "") {
             alert("카테고리 유형을 선택해 주세요!");
             frm["category_uid"].focus();
             return false;
         }
-        if(post_subject == "" || post_subject.trim().length() == 0) {
+        if(post_subject == "") {
             alert("제목을 입력해 주세요!");
             frm["post_subject"].focus();
             return false;
         }
-        if(post_content == "" || post_content.trim().length() == 0) {
+        if(post_content == "") {
             alert("내용을 입력해 주세요!");
             frm["post_content"].focus();
             return false;
@@ -42,12 +58,18 @@
 </script>
 
 <body>
+
+<!-- 헤더 부분 입니다. -->
+<jsp:include page="../header.jsp" />
+<script src="../JS/header.js"></script>
+<!---------------------------------->
+
     <form name="frm" action="freePostWriteOk.po" method="post" onsubmit="return chkSubmit()">
     <div class="wrap bg-Lgray">
     
         <!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
         <input type="hidden" name="board_uid" value="2">
-        <input type="hidden" name="user_uid" value="1">
+        <input type="hidden" name="user_uid" value="${userDto[0].user_uid }">
         <!---------------------------------->
         
         <div class="panel-writer"><span>작성자 닉네임</span></div>
@@ -93,7 +115,13 @@
                 <span class="text-red">*</span> <label for="post_content">글 내용</label>
             </div>
             <div>
-                <textarea name="post_content" placeholder="내용을 입력해 주세요."></textarea>
+                <textarea name="post_content" id="editor1"></textarea>
+                <script>
+	            	CKEDITOR.replace('editor1', {
+	            		allowedContent: true, // HTML 태그 자동삭제 방지 설정
+	            		filebrowserUploadUrl: 'fileUpload.po'
+	            	});
+                </script>
             </div>
         </div>
         <!---------------------------------->

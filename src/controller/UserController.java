@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.user.JoinCommand;
 import command.user.LoginCommand;
-import command.user.LogoutCommand;
+import command.user.MypageCommand;
 import command.user.UserDeleteCommand;
 import command.user.UserEmailCheckCommand;
 import command.user.UserEmailRegisterCommand;
 import command.user.UserEmailSendCommand;
+import command.user.NameChkCommand;
 import common.Command;
 
 @WebServlet("*.uo") // "~~.uo"로 오는 요청은 모두 여기서 처리 
@@ -34,6 +35,8 @@ public class UserController extends HttpServlet {
 	
 	protected void actionUo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		
+		
 		
 		// 컨트롤러는 다음 두개를 선택해야 한다.
 		String viewPage = null;   // 어떠한 뷰? --> 페이지
@@ -61,8 +64,6 @@ public class UserController extends HttpServlet {
 			viewPage = "loginOk.jsp";
 			break;
 		case "/User/logout.uo":
-			command = new LogoutCommand();
-			command.execute(request, response);
 			viewPage = "logout.jsp";
 			break;
 		case "/User/userEmailRegister.uo":
@@ -109,7 +110,28 @@ public class UserController extends HttpServlet {
 		case "/index.uo":
 			viewPage = "index.jsp";
 			break;
+		case "/User/nameChk.uo":
+			command = new NameChkCommand();
+			command.execute(request, response);
+			viewPage = "joinForm.jsp";
+
 			
+			
+		//mypage 관련 case들
+		case "/User/mypage.uo":
+			command = new MypageCommand();
+			command.execute(request, response);
+			viewPage = "mypage.jsp";
+//		case "/User/mypageUpdate.uo":
+//			command = new ViewCommand();
+//			command.execute(request, response);
+//			viewPage = "mypageUpdate.jsp";
+//		case "/User/mypageUpdateOk.uo":
+//			command = new ViewCommand();
+//			command.execute(request, response);
+//			viewPage = "mypageUpdateOk.jsp";	
+			
+
 		} // end switch
 		
 		// request 를 위에서 결정된 view 에 forward 해줌.
@@ -118,6 +140,7 @@ public class UserController extends HttpServlet {
 			dispatcher.forward(request, response);
 		}	
 
+		
 	
 	} // end actionUo
 	

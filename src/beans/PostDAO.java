@@ -178,18 +178,53 @@ public class PostDAO extends DefaultDAO {
 			return arr;
 		} // end select()
 		
-		// tb_post의 모든 값 가져오기 with Option, 페이징 처리
-				public PostDTO [] selectWithOption(int page) throws SQLException {
+		// 특정 게시판의 모든 게시글 가져오기 with Option, 페이징 처리
+				public PostDTO [] selectWithOption(int boardUid, int page, int writePages) throws SQLException {
 					PostDTO [] arr = null;
 					
 					try {
-						pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT_WITH_OPTION2);
-						pstmt.setInt(1, page);
+						pstmt = conn.prepareStatement(PostQuery.SQL_POST_SELECT_BY_BOARDUID);
+						pstmt.setInt(1, boardUid);
 						pstmt.setInt(2, page);
+						pstmt.setInt(3, page);
+						pstmt.setInt(4, writePages);
 						rs = pstmt.executeQuery();
 						arr = createArray2(rs);
 					} finally {
-//						close();
+						close();
+					}		
+					
+					return arr;
+				} // end select()
+				
+				// tb_post의 모든 값 가져오기 / 검색결과 보여주기
+				public PostDTO [] findPostByOption(int page, int writePages, String keyword, int searchOption, int boardUid) throws SQLException {
+					PostDTO [] arr = null;
+					String sqlQuery = "";
+					
+					switch(searchOption) {
+					case 1:
+						sqlQuery = PostQuery.SQL_POST_FIND_BY_SUBJECT;
+						break;
+					case 2:
+						sqlQuery = PostQuery.SQL_POST_FIND_BY_CONTENT;
+						break;
+					case 3:
+						sqlQuery = PostQuery.SQL_POST_FIND_BY_USERNAME;
+						break;
+					}
+					
+					try {
+						pstmt = conn.prepareStatement(sqlQuery);
+						pstmt.setInt(1, boardUid);
+						pstmt.setString(2, keyword);
+						pstmt.setInt(3, page);
+						pstmt.setInt(4, page);
+						pstmt.setInt(5, writePages);
+						rs = pstmt.executeQuery();
+						arr = createArray2(rs);
+					} finally {
+						close();
 					}		
 					
 					return arr;
@@ -198,7 +233,7 @@ public class PostDAO extends DefaultDAO {
 				
 				//페이지 수 가져오기
 				public int getTotalPages(){
-					int totalPages = 3;
+					int totalPages = 1; //디폴트 총 1페이지
 					
 					try {
 						pstmt = conn.prepareStatement(PostQuery.SQL_POST_TOTALPOST);
@@ -206,6 +241,49 @@ public class PostDAO extends DefaultDAO {
 						
 						while(rs.next()) {
 							totalPages = rs.getInt("totals");
+						}
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+						System.out.println("쿼리문제");
+					} finally {
+						try {
+							close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					
+					return totalPages;
+				}
+				
+				//페이지 수 가져오기(조건 사용)
+				public int getTotalPagesByOption(String keyword, int option){
+					int totalPages = 1; //디폴트 총 1페이지
+					String sql = "";
+					
+					switch(option){
+					case 1:
+						sql = PostQuery.SQL_TOTAL_FIND_BY_SUBJECT;
+						break;
+					case 2:
+						sql = PostQuery.SQL_TOTAL_FIND_BY_CONTENT;
+						break;
+					case 3:
+						sql = PostQuery.SQL_TOTAL_FIND_BY_USERNAME;
+						break;
+					}
+					
+					try {
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, keyword);
+						System.out.println(keyword);
+						rs = pstmt.executeQuery();
+						System.out.println(rs);
+						
+						while(rs.next()) {
+							totalPages = rs.getInt(1);
 						}
 						
 					} catch (SQLException e) {

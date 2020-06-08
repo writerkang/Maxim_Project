@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    ${search }
+	${ser_content }
+    
 <%
 	// 한페이징에 표시될 페이지수 --> writePages
 	// 총 페이지수 --> totalPage
