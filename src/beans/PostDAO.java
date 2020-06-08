@@ -198,7 +198,7 @@ public class PostDAO extends DefaultDAO {
 				} // end select()
 				
 				// tb_post의 모든 값 가져오기 / 검색결과 보여주기
-				public PostDTO [] findPostByOption(int page, String keyword, int searchOption, int boardUid) throws SQLException {
+				public PostDTO [] findPostByOption(int page, int writePages, String keyword, int searchOption, int boardUid) throws SQLException {
 					PostDTO [] arr = null;
 					String sqlQuery = "";
 					
@@ -220,6 +220,7 @@ public class PostDAO extends DefaultDAO {
 						pstmt.setString(2, keyword);
 						pstmt.setInt(3, page);
 						pstmt.setInt(4, page);
+						pstmt.setInt(5, writePages);
 						rs = pstmt.executeQuery();
 						arr = createArray2(rs);
 					} finally {
@@ -232,7 +233,7 @@ public class PostDAO extends DefaultDAO {
 				
 				//페이지 수 가져오기
 				public int getTotalPages(){
-					int totalPages = 3;
+					int totalPages = 1; //디폴트 총 1페이지
 					
 					try {
 						pstmt = conn.prepareStatement(PostQuery.SQL_POST_TOTALPOST);
@@ -240,6 +241,49 @@ public class PostDAO extends DefaultDAO {
 						
 						while(rs.next()) {
 							totalPages = rs.getInt("totals");
+						}
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+						System.out.println("쿼리문제");
+					} finally {
+						try {
+							close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					
+					return totalPages;
+				}
+				
+				//페이지 수 가져오기(조건 사용)
+				public int getTotalPagesByOption(String keyword, int option){
+					int totalPages = 1; //디폴트 총 1페이지
+					String sql = "";
+					
+					switch(option){
+					case 1:
+						sql = PostQuery.SQL_TOTAL_FIND_BY_SUBJECT;
+						break;
+					case 2:
+						sql = PostQuery.SQL_TOTAL_FIND_BY_CONTENT;
+						break;
+					case 3:
+						sql = PostQuery.SQL_TOTAL_FIND_BY_USERNAME;
+						break;
+					}
+					
+					try {
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, keyword);
+						System.out.println(keyword);
+						rs = pstmt.executeQuery();
+						System.out.println(rs);
+						
+						while(rs.next()) {
+							totalPages = rs.getInt(1);
 						}
 						
 					} catch (SQLException e) {

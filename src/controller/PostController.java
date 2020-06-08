@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.board.CommentListCommand;
+import command.board.FileUploadCommand;
 import command.board.PostDeleteCommand;
 import command.board.PostFindCommand;
 import command.board.PostListCommand;
@@ -162,7 +163,10 @@ public class PostController extends HttpServlet {
 					viewPage = "noticeBoardList.jsp";
 					break;				
 
-					
+				// 웹 에디터용 파일 업로드 처리
+				case "/Board/fileUpload.po":
+					new FileUploadCommand().execute(request, response);
+					break;
 					
 				} // end switch
 				

@@ -30,6 +30,14 @@ CREATE SEQUENCE scrap_seq;
 CREATE SEQUENCE star_seq;
 CREATE SEQUENCE board_seq;
 
+--트리거 생성
+--따로 넣지 않아도 자동으로 post_uid가 1씩 올라간다.
+CREATE OR REPLACE TRIGGER tb_page_insert
+BEFORE INSERT 
+ON tb_post FOR EACH ROW 
+BEGIN 
+	SELECT post_seq.nextval INTO :NEW.post_uid FROM dual;
+END;
 
 --외래키 제약 설정 필요!
 --TODO
