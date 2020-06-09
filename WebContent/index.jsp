@@ -25,7 +25,7 @@
 				<a class="nav-link active" href="#">마이페이지</a>
 				</li> -->
 				<li>
-					<button type="button" class="btn btn-warning" onclick="location.href='User/login.po'">로그인</button>
+					<button type="button" class="btn btn-warning" onclick="location.href='User/login.uo'">로그인</button>
 				</li>
 				<!-- <li>
 					<button type="button" class="btn btn-warning">로그아웃</button>
