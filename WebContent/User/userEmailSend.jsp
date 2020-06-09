@@ -30,8 +30,11 @@
 	String to = new UserDAO().GetUserEmail();  /* 사용자 이메일 */
 	String subject = "SysOut 이메일 인증 메일입니다.";
 	String content = "다음 링크에 접속하여 이메일 확인을 진행하세요." + "<a href='" + host + "/User/userEmailCheck.uo?code="
-			+ new SHA256().getSHA256(to) + "'>이메일 인증하기</a>";
-
+			+ new SHA256().getSHA256(to) + "'>이메일 인증하기</a>"; %>
+	<script>
+		$(document).on('')
+	</script>
+<%
 	// SMTP에 접속하기 위한 정보를 기입합니다.
 	Properties p = new Properties();
 	p.put("mail.smtp.user", from);

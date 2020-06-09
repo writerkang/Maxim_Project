@@ -31,15 +31,6 @@ public class UserDAO extends DefaultDAO {
 		return -1; // 이메일이 존재하지 않음
 	}
 
-	// DTO 활용
-//	public int insertEmail(UserDTO dto) throws SQLException {
-//		String user_email = dto.getUser_email();
-//		String user_emailHash = dto.getUser_emailHash();
-//	
-//		int cnt = this.insertEmail(user_email, user_emailHash);
-//		return cnt;
-//	}
-	
 	
 	// 이메일 insert
 	public int insertEmail(String user_email, String user_emailHash) throws SQLException{
@@ -118,7 +109,6 @@ public class UserDAO extends DefaultDAO {
 				pstmt.setString(2, user_name);
 				pstmt.setString(3, user_phone);
 				pstmt.setString(4, user_pw);
-//				PasswordMaker.sha256(user_pw)
 				cnt = pstmt.executeUpdate(); // insert 성공하면 1
 
 			} catch (Exception e) {
@@ -152,33 +142,33 @@ public class UserDAO extends DefaultDAO {
 		} 
 		
 		// tb_user 테이블에 있는 user_email 중복체크 
-		public int emailCheck(String user_email) throws SQLException {
-		
-			try {
-				pstmt = conn.prepareStatement(UserQuery.SQL_SELECT_USER_EMAIL);
-				rs = pstmt.executeQuery();  // 쿼리 수행
-				
-				if(rs == null) {
-					return 0;
-				} else if(rs != null) {
-					while(rs.next()) {
-						if(rs.getString(1).equals(user_email)) { // tb_email 에 있는 user_email 들과 가입할 때 입력한 user_email 을 비교
-							return 0; // 해당 이메일이 이미 tb_user 테이블에 존재. (tb_email 테이블에서는 삭제된 상태)
-							// 해당 이메일이 이미 존재합니다. 
-						} else {
-							return 1;
-						}
-					} // end while
-				} // else if
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				close();
-			}
-	
-			return -1;
-		} // end insert
+//		public int emailCheck(String user_email) throws SQLException {
+//		
+//			try {
+//				pstmt = conn.prepareStatement(UserQuery.SQL_SELECT_USER_EMAIL);
+//				rs = pstmt.executeQuery();  // 쿼리 수행
+//				
+//				if(rs == null) {
+//					return 0;
+//				} else if(rs != null) {
+//					while(rs.next()) {
+//						if(rs.getString(1).equals(user_email)) { // tb_email 에 있는 user_email 들과 가입할 때 입력한 user_email 을 비교
+//							return 0; // 해당 이메일이 이미 tb_user 테이블에 존재. (tb_email 테이블에서는 삭제된 상태)
+//							// 해당 이메일이 이미 존재합니다. 
+//						} else {
+//							return 1;
+//						}
+//					} // end while
+//				} // else if
+//				
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			} finally {
+//				close();
+//			}
+//	
+//			return -1;
+//		} // end insert
 		
 		
 		
@@ -221,11 +211,6 @@ public class UserDAO extends DefaultDAO {
 			return arr;
 		}
 
-		
-		
-		
-
-		
 		// 전체 SELECT (해당 uid 회원에 대한 모든 데이터 조회)
 		public UserDTO[] select(int user_uid) throws SQLException {
 			UserDTO[] arr = null;
@@ -241,7 +226,6 @@ public class UserDAO extends DefaultDAO {
 
 			return arr;
 		} // end select()
-		
 		
 		
 		// 해당 이메일로 부터 회원의 uid 값 뽑기 
