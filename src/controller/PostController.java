@@ -163,16 +163,13 @@ public class PostController extends HttpServlet {
 					viewPage = "noticeBoardList.jsp";
 					break;				
 
-				case "/Board/mypage.po":
-					command = new PostListCommand();
-					command.execute(request, response);
-					viewPage = "mypage.jsp";
-					break;				
-					
+
 				// 웹 에디터용 파일 업로드 처리
 				case "/Board/fileUpload.po":
 					new FileUploadCommand().execute(request, response);
 					break;
+
+					
 				} // end switch
 				
 				// request 를 위에서 결정된 view 에 forward 해줌.
