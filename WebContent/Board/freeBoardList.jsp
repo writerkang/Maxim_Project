@@ -27,7 +27,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Board</title>
+<title>자유게시판</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -80,7 +80,7 @@
 <jsp:include page="../header.jsp" />
 <script src="../JS/header.js"></script>
 <!---------------------------------->
-
+<br>
 <div class="container">
 	<h4>자유게시판</h4>
 	<br>
