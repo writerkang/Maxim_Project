@@ -16,7 +16,7 @@
 			int p = Integer.parseInt(pageParam);
 			if(p > 0) curPage = p;
 		} catch(NumberFormatException e){
-			// page parameter 오류는 별도의 exception 처리 안함 
+			// page parameter 오류는 별도의 exception 처리 안함
 		}
 	} // end if
 %>
