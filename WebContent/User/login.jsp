@@ -37,7 +37,7 @@ html[lang='ko'] {
 
 		<!-- 텍스트 자리 -->
 		<div class="txt">
-			<div class="hello">
+			<div class="hello" style="text-align: center;">
 				<p class="txt_01">안녕하세요.</p>
 				<p class="txt_02">"시스아웃"입니다.</p>
 			</div>
