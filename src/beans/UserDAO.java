@@ -7,6 +7,7 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import common.PasswordMaker;
 import common.UserQuery;
 
 public class UserDAO extends DefaultDAO {
@@ -19,7 +20,7 @@ public class UserDAO extends DefaultDAO {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				if (rs.getString(1).equals(user_pw))
+				if (rs.getString(1).equals(PasswordMaker.sha256(user_pw)))
 					return 1; // 로그인 성공
 				else
 					return 0; // 비밀번호 틀림
@@ -116,7 +117,7 @@ public class UserDAO extends DefaultDAO {
 				pstmt.setString(1, user_email);
 				pstmt.setString(2, user_name);
 				pstmt.setString(3, user_phone);
-				pstmt.setString(4, user_pw);
+				pstmt.setString(4, PasswordMaker.sha256(user_pw));
 
 				cnt = pstmt.executeUpdate(); // insert 성공하면 1
 
