@@ -21,34 +21,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+<script src="../JS/postView.js" type="text/javascript"></script>
 <script src="../JS/toggle-menu.js" type="text/javascript"></script>
 <script src="../JS/modal-deletePost.js" type="text/javascript"></script>
 <script src="../JS/modal-updateComment.js" type="text/javascript"></script>
 <script src="../JS/commentCRUD.js" type="text/javascript"></script>
-
-<!-- 본인이 작성한 글을 볼 때와 다른 사람이 작성한 글을 볼 때 보여줄, 감출 요소을 결정합니다.	-->
-<script>
-$(document).ready(function(){
-	var userUid = $("#user_uid").text();
-	var pstWriterUid = $("#pst_writer_uid").text();
-	console.log("user_uid(로그인 유저): " + userUid);
-	console.log("pst_writer_uid(게시물 작성자): " + pstWriterUid);
-	
-	if(userUid == null || userUid == ""){
-		$("#btn-toggle-menu").css("display", "none");
-		$("#btn-scrap").css("display", "none");
-		$("#btn-recommend").css("display", "none");
-	} else if(userUid == pstWriterUid){
-		console.log("이 게시물 작성자시네요");
-		$("#btn-scrap").css("display", "none");
-		$("#btn-recommend").css("display", "none");
-	} else {
-		console.log("다른 분의 게시물을 보고계십니다");
-		$("#btn-toggle-menu").css("display", "none");
-	}
-});
-</script>
-<!---------------------------------->
 
 <body>
 
@@ -125,13 +102,13 @@ $(document).ready(function(){
 	
 	<!-- 추천하기 버튼이 위치한  영역입니다. -->
     <div class="panel-recommend">
-        <button type="button" onclick="location.href='freeBoardList.po'">목록으로</button>
+        <button type="button" onclick="location.href='freeBoardList.po?page=${page}'">목록으로</button>
         <button id="btn-recommend" type="button">추천하기 <i class="far fa-thumbs-up"></i></button>
     </div>
     <!---------------------------------->
      
     <hr>
-    
+
     <!-- 댓글 작성 폼 입니다. -->
     <form name="frm" id="frm-write-cmt" action="commentWrite.ajax" method="post" onsubmit="return chkSubmit()">
 		<div class="wrap panel-comment-write">

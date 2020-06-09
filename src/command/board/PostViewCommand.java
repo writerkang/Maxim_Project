@@ -16,13 +16,19 @@ public class PostViewCommand implements Command {
 
 		PostDAO dao = new PostDAO(); //DAO 객체 생성
 		PostDTO [] arr = null;
+
+		int page = 1; //default
 		
-		
+		try {
+			page = Integer.parseInt(request.getParameter("page"));
+			request.setAttribute("page", page);
+			
+		} catch(NumberFormatException e) {
+			
+		}
 		
 		try {
 			arr = dao.readByUid(Integer.parseInt(request.getParameter("post_uid")));
-			
-			
 			request.setAttribute("list", arr);
 			
 		} catch(SQLException e) {
