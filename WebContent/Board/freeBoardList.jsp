@@ -16,11 +16,10 @@
 			int p = Integer.parseInt(pageParam);
 			if(p > 0) curPage = p;
 		} catch(NumberFormatException e){
-			// page parameter 오류는 별도의 exception 처리 안함 
+			// page parameter 오류는 별도의 exception 처리 안함
 		}
 	} // end if
 %>
-
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -84,13 +83,13 @@ $(document).ready(function(){
 		<table class="text">
 		
 			<tr>
-				<td id="text_uid" style="font-size:10px; float: left;">${dto.post_uid }</td>
-				<td id="text_title"><a href="freePostView.po?post_uid=${dto.post_uid }">${dto.post_subject }</a></td>
+				<td id="text_uid" style="font-size:10px; float: left;">${dto.post_uid}</td>
+				<td id="text_title"><a href="freePostView.po?post_uid=${dto.post_uid}&page=<%= curPage %>">${dto.post_subject}</a></td>
 		   	</tr>
 		   	<tr>
 		       	<td id="nick_name">${dto.user_name }</td>
 		       	<td style="font-size: 12px; font-weight: bold;">댓글수 ${dto.comments_count}</td>
-		       	<td style="font-size: 12px; font-weight: bold;">조회수 ${dto.post_viewcnt }</td>
+		       	<td style="font-size: 12px; font-weight: bold;">조회수 ${dto.post_viewcnt}</td>
 		       	<td id="text_date">${dto.post_regdate }</td>
 		    </tr>
 		</table>
