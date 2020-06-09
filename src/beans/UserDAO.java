@@ -117,8 +117,8 @@ public class UserDAO extends DefaultDAO {
 				pstmt.setString(1, user_email);
 				pstmt.setString(2, user_name);
 				pstmt.setString(3, user_phone);
-				pstmt.setString(4, PasswordMaker.sha256(user_pw));
-
+				pstmt.setString(4, user_pw);
+//				PasswordMaker.sha256(user_pw)
 				cnt = pstmt.executeUpdate(); // insert 성공하면 1
 
 			} catch (Exception e) {
@@ -158,19 +158,26 @@ public class UserDAO extends DefaultDAO {
 				pstmt = conn.prepareStatement(UserQuery.SQL_SELECT_USER_EMAIL);
 				rs = pstmt.executeQuery();  // 쿼리 수행
 				
-				while(rs.next()) {
-					if(rs.getString("user_email").equals(user_email)) { // tb_email 에 있는 user_email 들과 가입할 때 입력한 user_email 을 비교
-						return 0; // 해당 이메일이 이미 tb_user 테이블에 존재. (tb_email 테이블에서는 삭제된 상태)
-									// 해당 이메일이 이미 존재합니다. 
-					}
-				}
+				if(rs == null) {
+					return 0;
+				} else if(rs != null) {
+					while(rs.next()) {
+						if(rs.getString(1).equals(user_email)) { // tb_email 에 있는 user_email 들과 가입할 때 입력한 user_email 을 비교
+							return 0; // 해당 이메일이 이미 tb_user 테이블에 존재. (tb_email 테이블에서는 삭제된 상태)
+							// 해당 이메일이 이미 존재합니다. 
+						} else {
+							return 1;
+						}
+					} // end while
+				} // else if
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
 				close();
 			}
 	
-			return 1;
+			return -1;
 		} // end insert
 		
 		
