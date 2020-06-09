@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	var userUid = $("#user_uid").text();
 	var postUid = $("#post_uid").text();
 
 	// 페이지가 로딩되면 댓글 목록을 보여줍니다.
@@ -34,8 +35,10 @@ $(document).ready(function(){
 				str += "<span class='cmt-date'>(" + data[i].comment_regdate + ")</span>";
 				str += "</div>";
 				str += "<div class='panel_cmt_buttons'>";
-				str += "<span class='link-cmt-update'>수정</span>";
-				str += "<a class='link-cmt-delete' href='commentDelete.ajax?comment_uid=" + data[i].comment_uid + "'>삭제</a>";
+				if(userUid == data[i].user_uid){
+					str += "<span class='link-cmt-update'>수정</span>";
+					str += "<a class='link-cmt-delete' href='commentDelete.ajax?comment_uid=" + data[i].comment_uid + "'>삭제</a>";
+				}
 				str += "</div>";
 				str += "</div>";
 				str += "<span class='cmt-content'>" + data[i].comment_content + "</span>";
@@ -52,6 +55,11 @@ $(document).ready(function(){
 
 	function writeComment(e){
 		e.preventDefault();
+		
+		if(userUid == null || userUid == ""){
+			alert("로그인 후 이용해주세요!");
+			return;
+		}
 		
 		if(chkSubmit()){
 			var queryString = $("#frm-write-cmt").serialize();
