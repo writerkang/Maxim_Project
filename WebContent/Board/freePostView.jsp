@@ -102,7 +102,7 @@
 	
 	<!-- 추천하기 버튼이 위치한  영역입니다. -->
     <div class="panel-recommend">
-        <button type="button" onclick="location.href='freeBoardList.po'">목록으로</button>
+        <button type="button" onclick="location.href='freeBoardList.po?page=${page}'">목록으로</button>
         <button id="btn-recommend" type="button">추천하기 <i class="far fa-thumbs-up"></i></button>
     </div>
     <!---------------------------------->
