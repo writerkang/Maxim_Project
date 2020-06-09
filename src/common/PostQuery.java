@@ -133,7 +133,6 @@ public class PostQuery {
 					") " + 
 					"WHERE rnum >= ? AND RNUM < ? + ?"
 					;
-	
 }
 
 

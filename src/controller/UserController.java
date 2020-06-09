@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.user.FindPwCommand;
 import command.user.JoinCommand;
 import command.user.LoginCommand;
-import command.user.MypageCommand;
+import command.user.NameChkCommand;
 import command.user.UserDeleteCommand;
 import command.user.UserEmailCheckCommand;
 import command.user.UserEmailRegisterCommand;
 import command.user.UserEmailSendCommand;
-import command.user.NameChkCommand;
 import common.Command;
 
 @WebServlet("*.uo") // "~~.uo"로 오는 요청은 모두 여기서 처리 
@@ -97,13 +97,8 @@ public class UserController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "userDeleteOk.jsp";
 			break;
-		case "/User/findEmail.uo":
-//			command = new FindEmailCommand();
-			command.execute(request, response);
-			viewPage = "findEmail.jsp";
-			break;
 		case "/User/findPw.uo":
-//			command = new FindPwCommand();
+			command = new FindPwCommand();
 			command.execute(request, response);
 			viewPage = "findPw.jsp";
 			break;
@@ -113,15 +108,15 @@ public class UserController extends HttpServlet {
 		case "/User/nameChk.uo":
 			command = new NameChkCommand();
 			command.execute(request, response);
-			viewPage = "joinForm.jsp";
+//			viewPage = "joinForm.jsp"; --> 이렇게 하면 data 를 못 받아오는 구나...
+			break;
 
-			
-			
+		// request 를 위에서 결정된 view 에 forward 해줌.
 		//mypage 관련 case들
-		case "/User/mypage.uo":
-			command = new MypageCommand();
-			command.execute(request, response);
-			viewPage = "mypage.jsp";
+//		case "/User/mypage.uo":
+//			command = new MypageCommand();
+//			command.execute(request, response);
+//			viewPage = "mypage.jsp";
 //		case "/User/mypageUpdate.uo":
 //			command = new ViewCommand();
 //			command.execute(request, response);

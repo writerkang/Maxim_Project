@@ -51,47 +51,55 @@ function chkSubmit() {
  
 // name  중복체크 
 // 아이디 유효성 검사(1 = 중복 / 0 != 중복)
-var idJ = /^[a-z0-9]{5,10}$/;
+//닉네임
+var nameJ = /^[가-힣0-9^ㄱ-ㅎ]{3,10}$/;
+var empJ = /\s/g;
+var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
 $("#user_name").blur(function() {
 	var user_name = $('#user_name').val();
 	$.ajax({
 		url : "nameChk.uo",  // request 할 url 
 		type : "post",   	// request 방식
+		cache : false,
 		dataType : "json",
-		data :  {user_name : user_name},// request 에 전송할 데이터 (사용자가 입력한 name)
+		data :  {			user_name : user_name},// request 에 전송할 데이터 (사용자가 입력한 name)
 		success : function(data) { // 요청 성공했을 떄의 콜백함수 
 			console.log("data : " + data);							
-			console.log("1 = 중복o / 0 = 중복x : " + data);							
-						
+			console.log("1 = 중복o / 0 = 중복x : " + data);	
 			if (data == 1) {
 				// 1 : 닉네임이 중복되는 문구
-				$("#id_check").text("사용중인 닉네임입니다 :(");
-				$("#id_check").css("color", "red");
+				$("#name_check").text("사용중인 닉네임입니다 :(");
+				$("#name_check").css("color", "red");
 				$("#sub_btn").attr("disabled", true);
-			} else if(data == 0){
-//
-//				if (idJ.test(user_name)) {
-//					// 0 : 아이디 길이 / 문자열 검사
-//					$("#id_check").text("");
-//					$("#sub_btn").attr("disabled", false);	
-//
-//				} else if (user_name == "") {
-//
-//					$('#id_check').text('아이디를 입력해주세요 :)');
-//					$('#id_check').css('color', 'red');
-//					$("#sub_btn").attr("disabled", true);
-//
-//				} else {
-//
-//					 $('#id_check').text("아이디는 소문자와 숫자 5~10자리만 가능합니다 :)");
-//					 $('#id_check').css('color', 'red');
-//					 $("#sub_btn").attr("disabled", true);
-//				}
+			} else if(data == 0){ // 중복없는 네임 중에서~
 				
-				// 2 : 사용가능 닉네임
-				$("#id_check").text("사용가능한 닉네임입니다 :)");
-				$("#id_check").css("color", "green");
-				$("#sub_btn").attr("disabled", false);
+				if(nameJ.test($("#user_name").val())){ // 정규식 통과한
+					console.log("확인: " + true);
+					$("#name_check").text('사용 가능합니다~~!');
+					$('#name_check').css('color', 'blue');
+					$("#sub_btn").attr("disabled", false);
+				
+				}else if ($("#user_name").val() == ""){
+					$('#name_check').text('닉네임을 입력해주세요 :)');
+					$('#name_check').css('color', 'green');
+					$("#sub_btn").attr("disabled", true);
+				
+				} else if(empJ.test($("#user_name").val())){
+					$('#name_check').text('공백없이 입력해주세요 :)');
+					$('#name_check').css('color', 'red');
+					$("#sub_btn").attr("disabled", true);
+				
+				} else if(regExp.test($("#user_name").val())){
+					$('#name_check').text('특수문자는 입력할 수 없습니다 :(');
+					$('#name_check').css('color', 'red');
+					$("#sub_btn").attr("disabled", true);
+				
+				} else {
+					$('#name_check').text('닉네임은 한글,숫자 포함하여 5~10자리입니다. :)');
+					$('#name_check').css('color', 'red');
+					$("#sub_btn").attr("disabled", true);
+				}
+	
 			}
 		},
 		error : function() {
@@ -101,8 +109,29 @@ $("#user_name").blur(function() {
 });
 
 
+//replaceAll(/\-/g, '')
+//휴대전화
+var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
 
-
+$('#user_phone').blur(function(){
+	
+	var user_phone = $("#user_phone").val();
+	console.log(user_phone);
+	
+	user_phone = user_phone.replace(/\-/g,"");
+	console.log(user_phone);
+	
+	if(phoneJ.test(user_phone)){
+		$("#phone_check").text('통과');
+		$('#phone_check').css('color', 'blue');
+		$("#sub_btn").attr("disabled", false);
+		
+	} else{
+		$('#phone_check').text('휴대전화를 다시 확인해주세요.');
+		$('#phone_check').css('color', 'red');
+		$("#sub_btn").attr("disabled", true);
+	}
+});
 
 
 

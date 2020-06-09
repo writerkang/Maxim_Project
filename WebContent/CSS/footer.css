@@ -1,11 +1,90 @@
-@charset 
-* {
+@charset * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.ft_link{
-    background-color: silver;
+
+footer {
+    font-size: 0.5rem;
 }
 
+.ft_link {
+    background-color: rgba(192, 190, 190, 0.534);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.ft_link ul {
+    list-style: none;
+}
+.snsicon {
+    display: flex;
+    padding: 0 25%;
+    justify-content: space-around;
+}
+.snsicon {
+    text-align: center;
+}
 
+.logo {
+    text-align: center;
+}
+
+.tel {
+    font-size: 1rem;
+}
+
+.teltime {
+    font-size: 0.4rem;
+}
+.ft_info {
+    display: flex;
+    padding: 0 25%;
+    justify-content: space-around;
+}
+.ft_info a {
+    text-decoration: none;
+    color: #333333;
+}
+.ft_addr1, .ft_addr2, .ft_addr3 {
+    display: flex;
+    justify-content: space-around;
+}
+@media screen and (max-width: 768px) {
+.ft_link ul {
+    list-style: none;
+}
+.snsicon {
+    display: flex;
+    padding: 0 25%;
+    justify-content: space-around;
+}
+.snsicon {
+    text-align: center;
+}
+
+.logo {
+    text-align: center;
+}
+
+.tel {
+    font-size: 1rem;
+}
+
+.teltime {
+    font-size: 0.4rem;
+}
+.ft_info {
+    display: flex;
+    padding: 0 25%;
+    justify-content: space-around;
+}
+.ft_info a {
+    text-decoration: none;
+    color: #333333;
+}
+.ft_addr1, .ft_addr2, .ft_addr3 {
+    display: flex;
+    justify-content: space-around;
+}
+}

@@ -148,7 +148,7 @@ public class UserDAO extends DefaultDAO {
 			}
 			
 			return 0; // 같은 이름 존재 하지 않음(사용 가능한 닉네임입니다)
-		} // end insert
+		} 
 		
 		// tb_user 테이블에 있는 user_email 중복체크 
 		public int emailCheck(String user_email) throws SQLException {
