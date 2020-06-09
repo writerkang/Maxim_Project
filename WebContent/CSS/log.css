@@ -13,11 +13,11 @@
     justify-content: center;
     min-height: 100vh;
   }
-  .yet {
+  .section_02 {
     position: absolute;
     margin-top: 300px;
   }
-  .yet h3{
+  .section_02 h3{
     margin-bottom: 10px;
   }
   .form {
@@ -35,7 +35,7 @@
   }
   
   .form:hover {
-    transform: scale(1.5);
+    transform: scale(1.3);
   }
   .form input {
     margin: 12px 20px;
@@ -83,7 +83,7 @@
       6px 6px 25px 0 rgba(0, 0, 0, 0.1);
     transition: 0.4s;
   }
-  .btn-yet {
+  .btn-join {
     border: none;
     padding: 15px;
     min-width: 150px;
@@ -97,8 +97,12 @@
   }
 
   
-  .btn-login:hover,
-  .btn-yet:hover {
+  .btn-login:hover {
     min-width: 180px;
+    cursor: pointer;
+  }
+  
+  .btn-join:hover {
+    min-width: 220px;
     cursor: pointer;
   }
