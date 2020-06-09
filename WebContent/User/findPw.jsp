@@ -37,7 +37,7 @@
         </form>
         <!-- 이전화면, 임시비밀번호발급 버튼 부분 -->
         <div class="btn01">
-            <button type="button" id="beforeBtn" onclick="location.href='이전화면'">이전화면</button>
+            <button type="button" id="beforeBtn" onclick="history.back()">이전화면</button>
             <button type="button" id="findBtn" onclick="location.href='이메일찾기'">임시비밀번호 발급</button>
         </div>
 

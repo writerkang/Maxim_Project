@@ -67,7 +67,7 @@ INSERT INTO TB_POST (POST_UID , POST_SUBJECT , POST_CONTENT , POST_REGDATE , POS
 VALUES (post_seq.nextval, 'ab;labfb', sysdate, 0, 1, 1, 2)
 ;
 INSERT INTO TB_POST (POST_UID , POST_SUBJECT , POST_CONTENT , POST_REGDATE , POST_VIEWCNT , BOARD_UID ,  USER_UID , CATEGORY_UID )
-VALUES (post_seq.nextval, '자바스크립트 끝내기~~~~~~~~~~~~~~~~~~', '자바스크립트는 좋고 편하고~~~~~~~', sysdate, 0, 2, 1, 1)
+VALUES (post_seq.nextval, '안드로이드', '자바스크립트는 좋고 편하고~~~~~~~', sysdate, 0, 2, 1, 1)
 ;
 INSERT INTO TB_POST (POST_SUBJECT , POST_CONTENT , POST_REGDATE , POST_VIEWCNT , BOARD_UID ,  USER_UID , CATEGORY_UID )
 VALUES ('자바스크립트 끝내기~~~~~~~~~~~~~~~~~~', '자바스크립트는 좋고 편하고~~~~~~~', sysdate, 0, 2, 1, 1)
