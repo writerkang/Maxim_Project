@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
   }
-  
+
   body {
     font-family: sans-serif;
     background: #ffe082;
@@ -12,7 +12,7 @@
     justify-content: center;
     min-height: 100vh;
   }
-  
+
   .form {
     height: 350px;
     width: 250px;
@@ -26,14 +26,14 @@
       10px 10px 25px 0 rgba(0, 0, 0, 0.1);
     transition: 0.4s;
   }
-  
+
   .form:hover {
     transform: scale(1.5);
   }
   .form input {
     margin: 12px 20px;
   }
-  
+
   .input {
     padding: 13px 15px;
     border: none;
@@ -46,7 +46,7 @@
       inset 6px 6px 25px 0 rgba(0, 0, 0, 0.1);
     transition: 0.4s;
   }
-  
+
   .input:focus {
     width: 180px;
   }
@@ -63,7 +63,7 @@
     box-shadow: -6px -6px 25px 0 #ffe082be,
       6px 6px 25px 0 rgba(0, 0, 0, 0.1);
   }
-  
+
   .btn {
     border: none;
     padding: 15px;
@@ -76,7 +76,7 @@
       6px 6px 25px 0 rgba(0, 0, 0, 0.1);
     transition: 0.4s;
   }
-  
+
   .btn:hover {
     min-width: 180px;
     cursor: pointer;
