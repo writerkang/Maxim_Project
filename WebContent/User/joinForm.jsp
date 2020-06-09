@@ -51,13 +51,13 @@
         
             <input type="checkbox" name="chkAll" id="chkAll"> 전체 약관동의<br><br>
             서비스 이용약관(필수)
-            <input type="checkbox" name="chk" id="chk" class="terms"><br><br>
+            <input type="checkbox" name="chk" id="service_ck" class="terms"><br><br>
             <div id="trem_content">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&nbsp;tempor incididunt ut labore et dolo.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&nbsp;tempor incididunt ut labore et dolo.ore et dol
             </div>
             <br>
             개인정보수집(필수)
-            <input type="checkbox" name="chk" id="chk" class="terms"><br><br>
+            <input type="checkbox" name="chk" id="privacy_ck" class="terms"><br><br>
             <div id="trem_content">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&nbsp;tempor incididunt ut labore et dolo.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&nbsp;tempor incididunt ut labore et dolo.ore et dol
             </div>

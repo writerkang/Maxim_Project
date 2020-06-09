@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.UserDAO;
 import common.Command;
+import common.PasswordMaker;
 
 public class JoinCommand implements Command {
 
@@ -22,23 +23,16 @@ public class JoinCommand implements Command {
 		String user_name = request.getParameter("user_name");
 		String user_phone = request.getParameter("user_phone");
 		String user_pw = request.getParameter("user_pw");
-		String user_PwChk = request.getParameter("user_PwChk");
 		
 	
 		
 		if(user_email != null && user_name != null && user_phone != null &&
-				user_pw != null && user_PwChk != null && user_email.trim().length() > 0 && user_name.trim().length() > 0 &&
-				user_phone.trim().length() > 0 && user_pw.trim().length() > 0 && user_PwChk.trim().length() > 0) {
+				user_pw != null &&  user_email.trim().length() > 0 && user_name.trim().length() > 0 &&
+				user_phone.trim().length() > 0 && user_pw.trim().length() > 0 ) {
 			
 			try {
-				cntChk = dao.emailCheck(user_email);
-				if(cntChk == 1) {
-					dao = new UserDAO();
-					cnt = dao.insertInfo(user_email, user_name, user_phone, user_pw);
-					request.setAttribute("joinOk", cnt);
-				}else {
-					return;
-				}
+				cnt = dao.insertInfo(user_email, user_name, user_phone, PasswordMaker.sha256(user_pw));
+				request.setAttribute("joinOk", cnt);
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}

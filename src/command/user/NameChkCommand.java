@@ -31,7 +31,7 @@ public class NameChkCommand implements Command {
 			}
 		} // end if
 				
-		request.setAttribute("result", cnt);
+//		request.setAttribute("result", cnt);
 
 		//타입을 json으로 바꿔줘야됨
         response.setContentType("application/json");

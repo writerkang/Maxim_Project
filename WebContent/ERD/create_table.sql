@@ -59,10 +59,10 @@ CREATE TABLE tb_user
 (
     user_uid        NUMBER          PRIMARY KEY, 
     user_email      VARCHAR2(30)    UNIQUE NOT NULL, 
-    user_pw         VARCHAR2(60)    NOT NULL, 
+    user_pw         VARCHAR2(200)   NOT NULL, 
     user_name       VARCHAR2(30)    UNIQUE NOT NULL, 
     user_regdate    DATE            DEFAULT SYSDATE NOT NULL, 
-    user_phone      VARCHAR2(20)    UNIQUE NOT NULL, 
+    user_phone      VARCHAR2(20)    NOT NULL, 
     user_isvalid    CHAR(1)         DEFAULT 'F' NOT NULL, 
     user_auth       CHAR(1)         DEFAULT 'G' NOT NULL, 
     user_point      NUMBER          DEFAULT 10 NOT NULL, 

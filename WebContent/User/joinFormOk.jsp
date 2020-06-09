@@ -11,12 +11,12 @@
 			location.href="login.uo";
 			</script>
 	</c:when>
- 	<c:otherwise>
+	<c:when test="${joinOk == 0 || joinOk == -1 }">
 		<script>
 			alert("가입된 이메일입니다.");
 			history.back();
-		</script>
-	</c:otherwise>
+			</script>
+	</c:when>
 </c:choose>
 
     
