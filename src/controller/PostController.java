@@ -163,19 +163,12 @@ public class PostController extends HttpServlet {
 					viewPage = "noticeBoardList.jsp";
 					break;				
 
-<<<<<<< HEAD
-				case "/Board/mypage.po":
-					command = new PostListCommand();
-					command.execute(request, response);
-					viewPage = "mypage.jsp";
-					break;				
-					
-=======
+
 				// 웹 에디터용 파일 업로드 처리
 				case "/Board/fileUpload.po":
 					new FileUploadCommand().execute(request, response);
 					break;
->>>>>>> branch 'master' of https://github.com/writerkang/Maxim_Project.git
+
 					
 				} // end switch
 				
