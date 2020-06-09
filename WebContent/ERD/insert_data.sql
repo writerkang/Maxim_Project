@@ -9,6 +9,7 @@ INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE 
 VALUES (user_seq.nextval, 'bbb@daum.com', 'tjfj', '이예지', sysdate, '01016165828', 'F', 'G', 10, 'facebook', 'lkh', 'ddd@dasdfum.net')
 ;
 SELECT * FROM tb_USER;
+SELECT * FROM tb_email;
 
 SELECT * FROM TB_POST tp ;
 

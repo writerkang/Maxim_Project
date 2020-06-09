@@ -1,0 +1,5 @@
+@charset "UTF-8";
+
+/*a태그 제거 */
+a:link{color: black;}
+a:visited{color: grey;}
