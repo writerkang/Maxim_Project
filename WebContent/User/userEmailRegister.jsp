@@ -19,7 +19,7 @@
         <i class="fas fa-chevron-left fa-2x"></i>
         <span style="font-size: 30px; font-weight: bold;">뒤로</span>
         </span>
-        <span style="font-size: 50px; margin: 3px 40px;" >회원가입</span>
+        <span style="font-size: 50px; margin: 3px 40px;">회원가입</span>
     </div>
     <div id="main" style="text-align: center; padding: 10px 20px;">
         <i class="fas fa-image fa-9x"></i>
@@ -27,7 +27,7 @@
         <h3>회원가입을 위해 이메일 인증이 필요합니다. </h3>
         <br><hr>
         <h1 style="text-align: left; font-weight: normal;">이메일</h1>
-        <form action="userEmailRegisterOk.uo" style="text-align: left;">
+        <form id = "bini" action="userEmailRegisterOk.uo" style="text-align: left;">
             <input type="text" name="user_email" id="user_email">
 <!--             <a style="font-size: 40px;" name="user_email">&#64;</a> -->
 <!--             <input type="text" name="user_email" id="email_adress"> -->
@@ -38,8 +38,18 @@
 <!--                 <option value="daum.net" class="email">&#64;daum.net</option> -->
 
 <!--             </select> -->
-            <input type="submit" id="submit_btn" value="이메일 인증하기">
+            <input type="submit" id="submit_btn" value="이메일 인증하기" />
         </form>
+        
     </div>
+   		 <script type="text/javascript">
+   		 	$('#submit_btn').click(function(){
+   		 		$('#bini').submit(function(){
+	   		 		$('#submit_btn').attr("disabled", true);  
+   		 			
+   		 		});
+   		 	});
+            	
+            </script>
 </body>
 </html>
