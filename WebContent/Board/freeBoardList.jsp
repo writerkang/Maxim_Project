@@ -85,11 +85,7 @@
 	<h4>자유게시판</h4>
 	<br>
 
-	<ul class="pagination justify-content-end">
-		<li class="page-item"><a class="page-link" href="#">최신순</a></li>
-		<li class="page-item"><a class="page-link" href="#">조회순</a></li>
-		<li class="page-item"><a class="page-link" href="#">추천순</a></li>
-	</ul>
+	
 	<table class="table table-hover">
 		<thead class="thead-light">
 			<tr>
