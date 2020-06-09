@@ -2,8 +2,8 @@
 
 .form{
     text-decoration: underline;
-    width: 60%;
-    background-color: #FFD966;
+    width: 40%;
+    background-color: #ffe082;
     border: none;
     border-bottom: 1px solid black;
 }
@@ -36,3 +36,4 @@
 input{
 	border-style: none;
 }
+
