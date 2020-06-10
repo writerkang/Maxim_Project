@@ -26,32 +26,23 @@ $(document).ready(function(){
 		var str="";
 		
 		if(data != null){
-			for (i = 0; i < data.length; i++){ 
+			for (i = 0; i < data.length; i++){ 			
 				str += "<div class='comment-box'>";
-				str += "<div class='cmt-header row'>";
-				
-				str += "<div class='panel_cmt_info col-12'>";
+				str += "<div class='cmt-header'>";
+				str += "<div class='panel_cmt_info'>";
 				str += "<span class='cmt-uid' style='display: none'>" + data[i].comment_uid + "</span>";
-				str += "<span class='cmt-writer-name'><a href='#'>" + data[i].user_name + "</a></span> ";
+				str += "<span class='cmt-writer-name'>" + data[i].user_name + "</span> ";
 				str += "<span class='cmt-date'>(" + data[i].comment_regdate + ")</span>";
 				str += "</div>";
-				
-				str += "</div>";
-				
-				str += "<div class='row'>";
-				str += "<div class='col-10' style='min-height:100px;'>";
-				str += "<span class='cmt-content'>" + data[i].comment_content + "</span>";
-				str += "</div>";
-				
-				str += "<div class='panel_cmt_buttons col-2'>";
+				str += "<div class='panel_cmt_buttons'>";
 				if(userUid == data[i].user_uid){
-				str +=	"<ul class='pagination justify-content-end'>"
-					str += "<li class='page-item'><span class='link-cmt-update'><a class='page-link' href='#'>수정</a></span></li>";
-					str += "<li class='page-item'><a class='link-cmt-delete page-link' href='commentDelete.ajax?comment_uid=" + data[i].comment_uid + "'>삭제</a></li>";
-				str +=	"</ul>"
+					str += "<span class='link-cmt-update'>수정</span>";
+					str += "<a class='link-cmt-delete' href='commentDelete.ajax?comment_uid=" + data[i].comment_uid + "'>삭제</a>";
 				}
 				str += "</div>";
-				str += "</div>";				
+				str += "</div>";
+				str += "<span class='cmt-content'>" + data[i].comment_content + "</span>";
+				str += "</div>";
 				str += "</div>";
 			} // end for
 		}
