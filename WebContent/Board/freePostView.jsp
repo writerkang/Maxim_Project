@@ -106,6 +106,8 @@
 		var starBtn = document.getElementById("starButton");
 		starBtn.addEventListener("click", function(){
 			
+			
+			
 			<c:if test="${empty sessionScope.userDto[0] || sessionScope.userDto[0] == null}">
 			alert("로그인이 필요합니다");
 			return;

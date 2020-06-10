@@ -57,7 +57,7 @@
 		
 			<tr>
 				<td id="text_uid" style="font-size:10px; float: left;">${dto.post_uid }</td>
-				<td id="text_title"><a href="freePostView.po?post_uid=${dto.post_uid }">${dto.post_subject }</a></td>
+				<td id="text_title"><a href="freePostView.po?post_uid=${dto.post_uid }">${dto.post_subject }[${dto.comments_count }]</a></td>
 		   	</tr>
 		   	<tr>
 		       	<td id="nick_name">${dto.user_name }</td>
