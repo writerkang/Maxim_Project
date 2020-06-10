@@ -58,24 +58,6 @@
 
 <script src="../JS/board.js" type="text/javascript"></script>
 
-<!-- 비로그인 상태로 글쓰기 아이콘 클릭시 글쓰기 링크로 이동하지 않고 안내메시지를 띄워줍니다. -->
-<script>
-	$(document).ready(function() {
-		var userUid = $("#user_uid").text();
-		console.log(userUid);
-
-		if (userUid == null || userUid == "") {
-			$("#pen").click(function(e) {
-				e.preventDefault();
-				console.log(userUid);
-
-				alert("로그인 후 이용 가능합니다!");
-			});
-		}
-	});
-</script>
-<!---------------------------------->
-
 <!-- 헤더 부분 입니다. -->
 <jsp:include page="../header.jsp" />
 <script src="../JS/header.js"></script>
@@ -138,8 +120,7 @@
 				<button class="form-control fas fa-search"></button>
 			</div>
 			<div class="col-1">
-				<button type="button" class="form-control fas fa-pencil-alt"
-					onclick="location.href='freePostWrite.po'"></button>
+				<button type="button" id="btn-write-pst" class="form-control fas fa-pencil-alt"></button>
 			</div>
 			<!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
 			<input type="hidden" name="page" value="1">

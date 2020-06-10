@@ -1,89 +1,14 @@
+// 비로그인 상태로 글쓰기 아이콘 클릭시 글쓰기 링크로 이동하지 않고 안내메시지를 띄워줍니다.
+$(document).ready(function() {
+	var userUid = $("#user_uid").text();
+	console.log(userUid);
 
-$(document).ready(function(){
-    
-    $("#tag1").click(function(){
-        $("#tag1").css({
-            color:'black',
-            'border-bottom':'2px solid black',
-        })
-        $("#tag2").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-        $("#tag3").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-        $("#tag4").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-    })
-
-
-    $("#tag2").click(function(){
-        $("#tag2").css({
-            color:'black',
-            'border-bottom':'2px solid black',
-        })
-        $("#tag1").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-        $("#tag3").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-        $("#tag4").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-    })
-
-
-    $("#tag3").click(function(){
-        $("#tag3").css({
-            color:'black',
-            'border-bottom':'2px solid black',
-        })
-        $("#tag2").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-        $("#tag1").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-        $("#tag4").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-    })
-
-
-    $("#tag4").click(function(){
-        $("#tag4").css({
-            color:'black',
-            'border-bottom':'2px solid black',
-        })
-        $("#tag2").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-        $("#tag3").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-        $("#tag1").css({
-            color:'gray',
-            'border-bottom':'2px solid gray',
-        })
-    })
-
-    
-
-
-
-
-
+	$("#btn-write-pst").click(function(e) {
+		if (userUid == null || userUid == "") {
+			alert("로그인 후 이용 가능합니다!");
+		} else {
+			location.href = "freePostWrite.po";
+		}
+	});
 });
+//------------------------------
