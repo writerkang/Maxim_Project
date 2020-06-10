@@ -130,7 +130,9 @@ public class UserController extends HttpServlet {
 //			command = new ViewCommand();
 //			command.execute(request, response);
 //			viewPage = "mypageUpdateOk.jsp";	
-			
+		case "/User/userRank.uo": // 포인트랭킹 페이지 진입 시 view 역할
+			viewPage = "userRank.jsp";
+			break;
 
 		} // end switch
 		
