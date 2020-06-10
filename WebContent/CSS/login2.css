@@ -13,11 +13,11 @@
     justify-content: center;
     min-height: 100vh;
   }
-  .section_02 {
+  .yet {
     position: absolute;
     margin-top: 300px;
   }
-  .section_02 h3{
+  .yet h3{
     margin-bottom: 10px;
   }
   .form {
@@ -35,7 +35,7 @@
   }
   
   .form:hover {
-    transform: scale(1.3);
+    transform: scale(1.5);
   }
   .form input {
     margin: 12px 20px;
@@ -97,12 +97,17 @@
   }
 
   
-  .btn-login:hover {
+  .btn-login:hover,
+  .btn-yet:hover {
     min-width: 180px;
     cursor: pointer;
   }
-  
-  .btn-join:hover {
-    min-width: 200px;
-    cursor: pointer;
+  .check_save{
+    margin-right: 70px;
+  }
+  #saveEmail{
+    margin: 12px 2px 12px 0;
+  }
+  a.saveEmail {
+    font-size: 0.7em;
   }
