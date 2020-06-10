@@ -258,6 +258,34 @@ public class PostDAO extends DefaultDAO {
 					return totalPages;
 				}
 				
+				//게시판에 맞게 페이지 수 가져오기
+				public int getTotalPages(int boardUid){
+					int totalPages = 1; //디폴트 총 1페이지
+					
+					try {
+						pstmt = conn.prepareStatement(PostQuery.SQL_POST_TOTALPOST_BY_BOARD);
+						pstmt.setInt(1, boardUid);
+						rs = pstmt.executeQuery();
+						
+						while(rs.next()) {
+							totalPages = rs.getInt("totals");
+						}
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+						System.out.println("쿼리문제");
+					} finally {
+						try {
+							close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					
+					return totalPages;
+				}
+				
 				//페이지 수 가져오기(조건 사용)
 				public int getTotalPagesByOption(String keyword, int option){
 					int totalPages = 1; //디폴트 총 1페이지
