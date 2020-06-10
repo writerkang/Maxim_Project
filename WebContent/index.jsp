@@ -21,15 +21,19 @@
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><div class="nav-article">
 		<nav>
 			<ul class="nav nav justify-content-end ">
-				<!-- <li class="nav-item ">
-				<a class="nav-link active" href="#">마이페이지</a>
-				</li> -->
-				<li>
-					<button type="button" class="btn btn-warning" onclick="location.href='User/login.uo'">로그인</button>
-				</li>
-				<!-- <li>
-					<button type="button" class="btn btn-warning">로그아웃</button>
-				</li> -->
+				
+					<!-- 로그인 전 (세션에 user_email 이 없으면 로그인 해야함.-->
+		<!-- 로그인 후 (세션저장됨)-->
+      <c:choose>
+		<c:when test="${sessionScope.userDto[0].user_email == null }">
+      		<li><button id="login" type="button" class="btn btn-warning" onclick="location.href='${pageContext.request.contextPath}/User/login.uo'" >로그인</button></li>
+		</c:when>
+		<c:when test="${userDto[0].user_email != null }">
+      		<li><button type="button" class="btn btn-warning" onclick="location.href='${pageContext.request.contextPath}/User/logout.uo'" id="logout">로그아웃</button></li>
+			<li class="nav-item "><a class="nav-link active" onclick="location.href='${pageContext.request.contextPath}/User/mypageView.uo'">마이페이지</a></li> 
+		</c:when>
+      </c:choose>
+				
 			</ul>
 		</nav>
 		<h1 class="logo">
