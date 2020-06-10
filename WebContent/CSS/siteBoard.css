@@ -24,6 +24,20 @@
 	background-color: white;
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
+	z-index: 1;
+	position: relative;
+}
+
+.card2{
+	padding: 10px 20px;
+	margin:10px 2%;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	background-color: red;
+	display: inline-block;
+	
 }
 
 .data{
