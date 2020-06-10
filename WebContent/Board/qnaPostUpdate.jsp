@@ -58,7 +58,7 @@
 				<br>
 
 				<form name="frm-update-pst" id="frm-update-pst"
-					action="freePostUpdateOk.po?post_uid=${list[0].post_uid }"
+					action="qnaPostUpdateOk.po?post_uid=${list[0].post_uid }"
 					method="post">
 
 					<!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->

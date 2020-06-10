@@ -13,7 +13,8 @@ import command.board.CommentDeleteCommand;
 import command.board.CommentListCommand;
 import command.board.CommentUpdateCommand;
 import command.board.CommentWriteCommand;
-import common.Command;
+import command.user.AjaxUserRankListCommand;
+import command.user.UserRankListCommand;
 
 @WebServlet("*.ajax")
 public class AjaxController extends HttpServlet {
@@ -70,6 +71,12 @@ public class AjaxController extends HttpServlet {
 			new CommentDeleteCommand().execute(request, response);
 			new CommentListCommand().execute(request, response);
 			new AjaxCommentListCommand().execute(request, response);
+			break;
+			
+		case "/User/userRankList.ajax": // 유저 랭킹 목록 보여주기
+			new UserRankListCommand().execute(request, response);
+			new AjaxUserRankListCommand().execute(request, response);
+			break;
 		} // end switch
 	}
 

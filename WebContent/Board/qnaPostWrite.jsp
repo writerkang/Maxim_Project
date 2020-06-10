@@ -44,10 +44,10 @@
 		<h4>글쓰기</h4>
 		<br>
 
-		<form name="frm-write-pst" id="frm-write-pst" action="freePostWriteOk.po" method="post">
+		<form name="frm-write-pst" id="frm-write-pst" action="qnaPostWriteOk.po" method="post">
 
 			<!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
-			<input type="hidden" name="board_uid" value="2"> <input
+			<input type="hidden" name="board_uid" value="4"> <input
 				type="hidden" name="user_uid" value="${userDto[0].user_uid }">
 			<!---------------------------------->
 
