@@ -17,7 +17,7 @@
 	<c:when test="${loginOk == 1 }">
 		<script>
 			alert("${userDto[0].user_name}님 안녕하세요!");
-			location.href = "../header.jsp";
+			location.href = "../index.jsp";
 		</script>
 	</c:when>
 	<c:when test="${loginOk == 0 }">

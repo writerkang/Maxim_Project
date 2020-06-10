@@ -16,6 +16,6 @@
 
 <script>
 	alert("정상적으로 로그아웃 되었습니다.");
-	location.href = "../header.jsp"
+	location.href = "../index.jsp"
 </script>
 

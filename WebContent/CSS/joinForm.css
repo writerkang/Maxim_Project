@@ -1,39 +1,75 @@
 @charset "utf-8";
 
-.form{
-    text-decoration: underline;
-    width: 40%;
-    background-color: #ffe082;
-    border: none;
-    border-bottom: 1px solid black;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
-#service{
-    float: right;
+body {
+	position: relative;
+	font-family: sans-serif;
+	background: #ffe082;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
 }
 
-#trem_content{
-    background-color: white;
-    color: black;
-    font-size: 8px;
-    overflow: scroll;
-    height: 50px;
-    overflow-x: hidden;
-    border-radius: 5px;
-    padding: 9px 7px;
+.join-btn {
+	position: absolute;
+	margin-top: 300px;
 }
 
-#sub_btn{
-    background-color: #808080;
-    color: black;
-    width: 100%;
-    font-size: 20px;
-    padding: 10px 10px;
+  .wholeform {
+    height: 400px;
+    width: 500px;
     border-radius: 10px;
+    background: #ffe082;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -10px -10px 25px 0 #ffe082be,
+      10px 10px 25px 0 rgba(0, 0, 0, 0.1);
+  }
+  .form input {
+    background: red;
+    margin: 12px 20px;
+  }
+
+/* .form {
+	text-decoration: underline;
+	width: 40%;
+	background-color: #ffe082;
+	border: none;
+	border-bottom: 1px solid black;
 }
 
+#service {
+	float: right;
+}
 
-input{
+#trem_content {
+	background-color: white;
+	color: black;
+	font-size: 8px;
+	overflow: scroll;
+	height: 50px;
+	overflow-x: hidden;
+	border-radius: 5px;
+	padding: 9px 7px;
+}
+
+#sub_btn {
+	background-color: #808080;
+	color: black;
+	width: 100%;
+	font-size: 20px;
+	padding: 10px 10px;
+	border-radius: 10px;
+}
+
+input {
 	border-style: none;
-}
-
+} */

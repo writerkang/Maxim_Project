@@ -1,58 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://use.fontawesome.com/afbd8941a0.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-    <link href="../CSS/joinForm.css" rel="stylesheet" type="text/css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://use.fontawesome.com/afbd8941a0.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+<link href="../CSS/joinForm.css" rel="stylesheet" type="text/css">
 
-    <title>회원정보입력</title>
+<title>회원정보입력</title>
 </head>
-<body style="background-color: #ffe082">
-    <h1 style="text-align: center;">회원정보입력</h1>
-    <%--  <%=request.getParameter("user_email") %> --%>
-        <form id="frm" action="joinFormOk.uo" method="post" onsubmit="return chkSubmit();">
-    <div style="background-color: #ffe082; width: 85%; margin: 10px auto; padding: 30px 0px; margin-bottom: 0px; text-align: center;" >
-        <div style="text-align: center;">
-            <i class="fas fa-user-edit fa-5x"></i>
-        </div> 
-            <span style="dis=play: inline-block; width: 110px; text-align: right;">아이디(이메일)</span> 
-            <input type="email" class="form" name="user_email" id="user_email" value="${param.user_email }"  ><br><br>
-            
-            <span style="display: inline-block; width: 110px; text-align: right;">*닉네임</span> 
-            <input type="text" class="form" name="user_name" id="user_name" required/>
-            <div class="check_font" id="name_check"></div> <%-- 경고문 들어갈 div --%>
-            <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ 한글,영문,숫자 4~10자리 사용할 수 있습니다.</span><br>
-            
-            <span style="display: inline-block; width: 110px; text-align: right;">*휴대폰</span> 
-            <input type="text" class="form" name="user_phone" id="user_phone" required>
-            <div class="check_font" id="phone_check"></div>
-            <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;"></span><br>
-            
-            <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호</span> 
-            <input type="password" class="form" name="user_pw" id="user_pw" required>
-            <div class="check_font" id="pw_check"></div>
-            <span style="display: inline-block; width: 110px; text-align: right;"></span> <span style="font-size: 8px;">※ 숫자, 문자 조합하여 10자~16자 이상 입력</span><br>
-            
-            <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호 확인</span> 
-            <input type="password" class="form" name="user_pw2" id="user_pw2">
-            <div class="check_font" id="pw2_check"></div><br><br>
-    </div>
-    
-    
-    <div style="background-color: #333333; color: white; width: 50%; margin: 0px auto; padding-top: 15px; border-radius: 10px">
-        <h2 style="margin: 0px; text-align: center;">서비스 이용약관</h2>
-        
-            <input type="checkbox" name="chkAll" id="chkAll"> 전체 약관동의<br><br>
-            서비스 이용약관(필수)
-            <input type="checkbox" name="chk" id="service_ck" class="terms"><br><br>
-            <pre id="trem_content">
+<body>
+	<%--  <%=request.getParameter("user_email") %> --%>
+	<form id="frm" action="joinFormOk.uo" method="post" class="wholeform"
+		onsubmit="return chkSubmit();">
+		<h1>Join</h1>
+			<!-- <span style="display: inline-block; width: 110px; text-align: right;">아이디(이메일)</span> -->
+			<input type="email" class="form" name="user_email" id="user_email"
+				value="${param.user_email }">
+
+			<!-- <span style="display: inline-block; width: 110px; text-align: right;">*닉네임</span> -->
+			<input type="text" class="form" name="user_name" id="user_name" required />
+			<div class="check_font" id="name_check"></div>
+			<%-- 경고문 들어갈 div --%>
+			<span>※ 한글,영문,숫자 4~10자리 사용할 수 있습니다.</span>
+
+			<!-- <span style="display: inline-block; width: 110px; text-align: right;">*휴대폰</span> -->
+			<input type="text" class="form" name="user_phone" id="user_phone"
+				required>
+			<div class="check_font" id="phone_check"></div>
+			<span ></span>
+
+			<!-- <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호</span>  -->
+			<input type="password" class="form" name="user_pw" id="user_pw"
+				required>
+			<div class="check_font" id="pw_check"></div>
+			<span>※ 숫자, 영문, 특수문자 조합하여 10자~16자 이상 입력</span>
+
+			<!--  <span style="display: inline-block; width: 110px; text-align: right;">*비밀번호 확인</span>  -->
+			<input type="password" class="form" name="user_pw2" id="user_pw2">
+			<div class="check_font" id="pw2_check"></div>
+
+		
+		<div>
+		
+			<!-- style="background-color: #333333; color: white; width: 50%; margin: 0px auto; padding-top: 15px; border-radius: 10px" -->
+			<h2>서비스 이용약관</h2>
+			<!-- style="margin: 0px; text-align: center;" -->
+			<input type="checkbox" name="chkAll" id="chkAll"> 전체 약관동의
+			서비스 이용약관(필수) <input type="checkbox" name="chk"
+				id="service_ck" class="terms">
+			<pre id="trem_content">
  제 1 장 총 칙
 
  
@@ -196,16 +200,18 @@
 
 서비스와 관련하여 사이트와 회원간에 분쟁이 발생할 경우 사이트의 본사 소재지를 관할하는 법원을 관할법원으로 합니다.
             </pre>
-            <br>
-            개인정보수집(필수)
-            <input type="checkbox" name="chk" id="privacy_ck" class="terms"><br><br>
-            <div id="trem_content">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&nbsp;tempor incididunt ut labore et dolo.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod&nbsp;tempor incididunt ut labore et dolo.ore et dol
-            </div>
-            <br>
-            <input type="submit" name="sub_btn" id="sub_btn" value="회원가입 하기">
-    </div>
-        </form>
-            <script src="../JS/join.js" type="text/javascript"></script>
+			개인정보수집(필수) <input type="checkbox" name="chk"
+				id="privacy_ck" class="terms">
+			<div id="trem_content">Lorem ipsum dolor sit amet, consectetur
+				adipisicing elit, sed do eiusmod&nbsp;tempor incididunt ut labore et
+				dolo.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+				do eiusmod&nbsp;tempor incididunt ut labore et dolo.ore et dol</div>
+		</div>
+		<div class="join-btn">
+			<input type="submit" name="sub_btn" id="sub_btn"
+			value="회원가입 하기">
+		</div>
+	</form>
+	<script src="../JS/join.js" type="text/javascript"></script>
 </body>
 </html>
