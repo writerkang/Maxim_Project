@@ -54,6 +54,7 @@ DELETE FROM tb_email;
 
 
 
+
 CREATE TABLE tb_user
 (
     user_uid        NUMBER          PRIMARY KEY, 

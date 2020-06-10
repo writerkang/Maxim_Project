@@ -27,10 +27,6 @@ public class UserQuery {
 				"(user_uid, user_email, user_name, user_phone, user_pw, mypage_subject, mypage_content) " +
 				"VALUES(user_seq.nextval, ?, ?, ?, ?, '제목', '내용')";	
 
-
-		// 이메일 테이블 삭제 
-
-		
 		
 		// 이메일 테이블 삭제 
 		public static final String SQL_DELETE_USEREMAIL = "DELETE FROM tb_email";		
