@@ -50,7 +50,7 @@
     <ul class="nav-links">
       <li><a onclick="location.href='#.po'">SITELINK</a></li>
       <li><a onclick="location.href='${pageContext.request.contextPath}/Board/freeBoardList.po'">FREEBOARD</a></li>
-      <li><a onclick="location.href='${pageContext.request.contextPath}/Board/tipBoardList.po'">TIPBOARD</a></li>
+      <li><a onclick="location.href='${pageContext.request.contextPath}/Board/qnaBoardList.po'">Q&amp;A</a></li>
       <li><a onclick="location.href='${pageContext.request.contextPath}/User/userRank.uo'">RANK</a></li>
       <li><a onclick="location.href='${pageContext.request.contextPath}/Board/noticeBoardList.po'">NOTICE</a></li>
     </ul>

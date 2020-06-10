@@ -11,7 +11,7 @@
 	</c:when>
 	<c:otherwise>
 		<script>
-			alert("추천 성공");
+			alert("추천으로 글쓴이에게 포인트가 부여되었습니다!");
 			location.href = "freePostView.po?post_uid=${param.post_uid}";
 		</script>
 	</c:otherwise>

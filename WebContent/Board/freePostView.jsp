@@ -64,7 +64,7 @@
 		<div class="row">
 			<div class="col">
 				<i class="far fa-thumbs-up"></i><span>${fn:length(starList) }</span>
-				<i class="fas fa-comment"></i><span>${list[0].comments_count}</span>
+				<i class="fas fa-comment"></i><span>${fn:length(commentList)}</span>
 				<i class="far fa-eye"></i><span>${list[0].post_viewcnt}</span>
 			</div>
 		</div>
@@ -108,6 +108,9 @@
 			<c:choose>
 			<c:when test="${empty userDto[0] || userDto[0] == null}">
 			alert("로그인이 필요합니다.");
+			</c:when>	
+			<c:when test="${userDto[0].user_uid eq list[0].user_uid}">
+			alert("본인이 쓴 게시물에는 추천할 수 없습니다.");
 			</c:when>	
 			<c:when test="${empty starList || starList == null}">
 			location.href='starFreePost.po?user_uid=${userDto[0].user_uid}&post_uid=${list[0].post_uid}';

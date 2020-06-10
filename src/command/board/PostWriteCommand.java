@@ -14,6 +14,7 @@ public class PostWriteCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 
 		int cnt = 0;
+		int cntPoint = 0;
 		PostDAO dao = new PostDAO();
 		
 		// request에서 매개변수 받아오기
@@ -28,6 +29,11 @@ public class PostWriteCommand implements Command {
 			
 			try {
 				cnt = dao.insert(post_subject, post_content, board_uid, category_uid, user_uid);
+				dao = new PostDAO();
+				
+				//글 작성하면 포인트 3점 부여
+				cntPoint = dao.incUserPoint(3, user_uid);
+				
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}
@@ -35,6 +41,7 @@ public class PostWriteCommand implements Command {
 		} // end if
 			
 		request.setAttribute("result", cnt);
+		request.setAttribute("resultPoint", cntPoint);
 	}
 
 }
