@@ -65,6 +65,12 @@ public class PostController extends HttpServlet {
 					viewPage = "starFreePostOk.jsp";
 					break;
 					
+				case "/Board/starQnaPost.po":
+					command = new StarPostCommand();
+					command.execute(request, response);	
+					viewPage = "starQnaPostOk.jsp";
+					break;
+					
 				case "/Board/freeBoardList.po":
 					command = new PostListCommand();
 					request.setAttribute("board_uid", 2); //자유게시판 uid 세팅

@@ -11,7 +11,7 @@
 	</c:when>
 	<c:otherwise>
 		<script>
-			alert("등록 성공, 리스트를 출력합니다");
+			alert("등록 성공, 3포인트 획득!");
 			location.href = "qnaBoardList.po"; // 등록 후에는 list 페이지로 이동
 		</script>
 	</c:otherwise>
