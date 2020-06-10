@@ -107,6 +107,12 @@ public class PostController extends HttpServlet {
 					viewPage = "qnaPostView.jsp";
 					break;
 					
+				case "/Board/noticePostView.po":
+					command = new PostViewCommand();
+					command.execute(request, response);
+					viewPage = "noticePostView.jsp";
+					break;
+					
 				case "/Board/tipPostView.po":
 					command = new PostViewCommand();
 					command.execute(request, response);
