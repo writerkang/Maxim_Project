@@ -58,31 +58,13 @@
 
 <script src="../JS/board.js" type="text/javascript"></script>
 
-<!-- 비로그인 상태로 글쓰기 아이콘 클릭시 글쓰기 링크로 이동하지 않고 안내메시지를 띄워줍니다. -->
-<script>
-	$(document).ready(function() {
-		var userUid = $("#user_uid").text();
-		console.log(userUid);
-
-		if (userUid == null || userUid == "") {
-			$("#pen").click(function(e) {
-				e.preventDefault();
-				console.log(userUid);
-
-				alert("로그인 후 이용 가능합니다!");
-			});
-		}
-	});
-</script>
-<!---------------------------------->
-
 <!-- 헤더 부분 입니다. -->
 <jsp:include page="../header.jsp" />
 <script src="../JS/header.js"></script>
 <!---------------------------------->
 <br>
 <div class="container">
-	<h4>질문게시판</h4>
+	<h4>자유게시판</h4>
 	<br>
 
 	
@@ -108,7 +90,7 @@
 					<tr>
 						<td id="text_uid">${dto.post_uid}</td>
 						<td id="text_title"><a class="nav-link font-weight-bold"
-							href="qnaPostView.po?post_uid=${dto.post_uid}&page=<%= curPage %>">${dto.post_subject}[${dto.comments_count }]</a></td>
+							href="freePostView.po?post_uid=${dto.post_uid}&page=<%= curPage %>">${dto.post_subject}[${dto.comments_count }]</a></td>
 						<td id="nick_name">${dto.user_name }</td>
 						<td>${dto.post_viewcnt}</td>
 						<td id="text_date">${dto.post_regdate }</td>
@@ -120,7 +102,7 @@
 
 	<br>
 
-	<form method="get" name="frm" action="./qnaPostFind.po?page=1">
+	<form method="get" name="frm" action="./freePostFind.po?page=1">
 		<div class="form-row">
 			<div class="col-3">
 				<select name="search" class="form-control" id="search_sele">
@@ -138,8 +120,7 @@
 				<button class="form-control fas fa-search"></button>
 			</div>
 			<div class="col-1">
-				<button type="button" class="form-control fas fa-pencil-alt"
-					onclick="location.href='qnaPostWrite.po'"></button>
+				<button type="button" id="btn-write-pst" class="form-control fas fa-pencil-alt"></button>
 			</div>
 			<!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
 			<input type="hidden" name="page" value="1">
