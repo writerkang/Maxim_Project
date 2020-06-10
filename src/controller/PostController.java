@@ -18,6 +18,7 @@ import command.board.PostSelectCommand;
 import command.board.PostUpdateCommand;
 import command.board.PostViewCommand;
 import command.board.PostWriteCommand;
+import command.board.StarPostCommand;
 import common.Command;
 
 
@@ -58,6 +59,11 @@ public class PostController extends HttpServlet {
 				// 결과를 내보낼 view 를 결정한다
 				switch(com) {
 				
+				case "/Board/starPost.po":
+					command = new StarPostCommand();
+					command.execute(request, response);					
+					break;
+					
 				case "/Board/freeBoardList.po":
 					command = new PostListCommand();
 					request.setAttribute("board_uid", 2); //자유게시판 uid 세팅

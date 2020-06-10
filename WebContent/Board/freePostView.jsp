@@ -92,13 +92,23 @@
 		</div>
 		<hr>
 
+<!---------------------------------->
+
+<script>
+	function chkStar() { // 추천 검증
+		
+		location.href='starPost.po?user_uid=${userDto[0].user_uid}&post_uid=${list[0].post_uid}';
+	}
+</script>
+
 		<div class="form-row">
 			<div class="col">
 				<button class="form-control" type="button"
 					onclick="location.href='freeBoardList.po?page=${page}'">목록으로</button>
 			</div>
 			<div class="col">
-				<button class="form-control far fa-thumbs-up" type="submit">추천</button>
+				<button class="form-control far fa-thumbs-up" type="button"
+					onclick="chkStar()">추천</button>
 			</div>
 		</div>
 
