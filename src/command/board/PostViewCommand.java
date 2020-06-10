@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.PostDAO;
 import beans.PostDTO;
+import beans.StarDAO;
+import beans.StarDTO;
 import common.Command;
 
 public class PostViewCommand implements Command {
@@ -16,6 +18,8 @@ public class PostViewCommand implements Command {
 
 		PostDAO dao = new PostDAO(); //DAO 객체 생성
 		PostDTO [] arr = null;
+		StarDAO sdao = new StarDAO();
+		StarDTO [] starArr = null;
 
 		int page = 1; //default
 		
@@ -30,6 +34,10 @@ public class PostViewCommand implements Command {
 		try {
 			arr = dao.readByUid(Integer.parseInt(request.getParameter("post_uid")));
 			request.setAttribute("list", arr);
+			
+			starArr = sdao.selectByPost(Integer.parseInt(request.getParameter("post_uid")));
+			request.setAttribute("starList", starArr);
+			System.out.println(starArr);
 			
 		} catch(SQLException e) {
 			e.printStackTrace();

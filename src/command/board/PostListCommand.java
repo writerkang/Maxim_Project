@@ -34,9 +34,8 @@ public class PostListCommand implements Command {
 			
 			arr = dao.selectWithOption(boardUid, writePages*(page - 1) + 1, writePages);
 			dao = new PostDAO();
+			totalPage = dao.getTotalPages(boardUid);			
 			
-			
-			totalPage = dao.getTotalPages(boardUid);
 			
 			if(totalPage % writePages == 0) {
 				totalPage = totalPage / writePages;
