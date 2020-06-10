@@ -27,6 +27,7 @@ html[lang='ko'] {
 
 		<!-- 로그인 Form -->
 		<form class="form" name="frm" action="loginOk.uo" method="post" onsubmit="return chkSubmit();">
+			<h1>Login</h1>
 			<!-- 입력 영역(이메일, 비번) -->
 			<input type="email" name="user_email" id="user_email" placeholder="UserEmail" class="input" /> 
 			<input type="password" name="user_pw" placeholder="Password" class="input" />
