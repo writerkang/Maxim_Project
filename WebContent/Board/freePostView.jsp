@@ -28,11 +28,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 </head>
 
-
-
-
 <script src="../JS/postView.js" type="text/javascript"></script>
-<script src="../JS/toggle-menu.js" type="text/javascript"></script>
 <script src="../JS/modal-deletePost.js" type="text/javascript"></script>
 <script src="../JS/modal-updateComment.js" type="text/javascript"></script>
 <script src="../JS/commentCRUD.js" type="text/javascript"></script>
@@ -67,17 +63,17 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<i class="far fa-thumbs-up"></i><span>2</span> <i
-					class="fas fa-comment"></i><span>${list[0].comments_count}</span> <i
-					class="far fa-eye"></i><span>${list[0].post_viewcnt}</span>
+				<i class="far fa-thumbs-up"></i><span>${fn:length(starList) }</span>
+				<i class="fas fa-comment"></i><span>${list[0].comments_count}</span>
+				<i class="far fa-eye"></i><span>${list[0].post_viewcnt}</span>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
 				<ul class="pagination justify-content-end">
-					<li class="page-item"><a class="page-link"
+					<li class="page-item"><a id="btn-update-pst" class="page-link"
 						href="freePostUpdate.po?post_uid=${list[0].post_uid}">수정</a></li>
-					<li class="page-item"><a class="page-link btn-delete" href="#">삭제</a></li>
+					<li class="page-item"><a id="btn-delete-pst" class="page-link" href="#">삭제</a></li>
 				</ul>
 			</div>
 		</div>
@@ -92,14 +88,8 @@
 		</div>
 		<hr>
 
-<!---------------------------------->
+		<!---------------------------------->
 
-<script>
-	function chkStar() { // 추천 검증
-		
-		location.href='starPost.po?user_uid=${userDto[0].user_uid}&post_uid=${list[0].post_uid}';
-	}
-</script>
 
 		<div class="form-row">
 			<div class="col">
@@ -107,10 +97,39 @@
 					onclick="location.href='freeBoardList.po?page=${page}'">목록으로</button>
 			</div>
 			<div class="col">
-				<button class="form-control far fa-thumbs-up" type="button"
-					onclick="chkStar()">추천</button>
+				<button id="starButton" class="form-control far fa-thumbs-up"
+					type="button">추천</button>
 			</div>
 		</div>
+
+		<script>
+		var starBtn = document.getElementById("starButton");
+		starBtn.addEventListener("click", function(){
+			
+			
+			
+			<c:if test="${empty sessionScope.userDto[0] || sessionScope.userDto[0] == null}">
+			alert("로그인이 필요합니다");
+			return;
+			</c:if>			
+
+			
+			<c:forEach items="${starList}" var="item">
+			
+			if(${item["user_uid"]} == ${userDto[0]["user_uid"]}){
+				alert("이미 추천한 게시물입니다.")
+				return;
+			}
+			</c:forEach>
+
+			location.href='starFreePost.po?user_uid=${userDto[0].user_uid}&post_uid=${list[0].post_uid}';
+			
+			
+			
+		}, false);
+		
+		
+</script>
 
 
 		<!-- 삭제하기 버튼 클릭시 나타나는 모달창입니다. -->

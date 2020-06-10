@@ -1,14 +1,19 @@
 @charset "utf-8";
 
+@font-face {
+    font-family: yun;
+    src: url(font/윤고딕310.ttf);
+  }
+
 *
-{font-family: 'Suisse Regular', sans-serif;}
+{font-family: yun;}
 
 #content{
-    background-color: #DEDEDE;
+    background-color: #fafafa;
     width: 84%;
     margin: 30px auto;
     padding: 20px 10px;
-    
+    border-top: 1px solid #DEDEDE;
 }
 
 #notice_title{
@@ -33,4 +38,8 @@
     font-size: 16px;
     border-radius: 7px;
     margin-bottom: 30px;
+}
+
+button:hover{
+    cursor: pointer;
 }

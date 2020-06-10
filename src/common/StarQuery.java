@@ -10,4 +10,12 @@ public class StarQuery {
 			"SELECT count(*) count FROM TB_star "
 			+ "WHERE POST_UID = ?";
 	
+	public static final String SQL_STAR_GET_BY_POSTUID =
+			"SELECT * FROM TB_star "
+			+ "WHERE POST_UID = ?";
+	
+	public static final String SQL_STAR_COUNT_BY_POST_AND_USER =
+			"SELECT count(*) count FROM TB_star "
+			+ "WHERE USER_UID = ? AND POST_UID = ?";
+	
 }

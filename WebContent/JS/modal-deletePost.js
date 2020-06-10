@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var $delete = $(".btn-delete")[0];
+    var $delete = $("#btn-delete-pst")[0];
     var $modal = $("#modal-delete-pst");
     var $back = $("#modal-delete-pst .back")[0];
     var $close = $("#modal-delete-pst .close")[0];

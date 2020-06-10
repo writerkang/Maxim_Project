@@ -57,7 +57,6 @@
     
   </nav>
 
-  <script src="JS/header.js"></script>
 
 </body>
 

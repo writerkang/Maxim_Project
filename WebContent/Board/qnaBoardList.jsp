@@ -89,11 +89,11 @@
 	<table class="table table-hover">
 		<thead class="thead-light">
 			<tr>
-				<th>글번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>조회수</th>
-				<th>작성일</th>
+				<th style="width:8.33%">글번호</th>
+				<th style="width:58.31%">제목</th>
+				<th style="width:8.33%">작성자</th>
+				<th style="width:8.33%">조회수</th>
+				<th style="width:16.66%">작성일</th>
 			</tr>
 		</thead>
 
@@ -108,7 +108,7 @@
 					<tr>
 						<td id="text_uid">${dto.post_uid}</td>
 						<td id="text_title"><a class="nav-link font-weight-bold"
-							href="qnaPostView.po?post_uid=${dto.post_uid}&page=<%= curPage %>">${dto.post_subject}</a></td>
+							href="qnaPostView.po?post_uid=${dto.post_uid}&page=<%= curPage %>">${dto.post_subject}[${dto.comments_count }]</a></td>
 						<td id="nick_name">${dto.user_name }</td>
 						<td>${dto.post_viewcnt}</td>
 						<td id="text_date">${dto.post_regdate }</td>
