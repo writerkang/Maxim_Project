@@ -82,8 +82,9 @@
     box-shadow: -6px -6px 25px 0 #ffe082be,
       6px 6px 25px 0 rgba(0, 0, 0, 0.1);
     transition: 0.4s;
+    margin-bottom: 0px;
   }
-  .btn-join {
+   .btn-join {
     border: none;
     padding: 15px;
     min-width: 150px;
@@ -94,15 +95,32 @@
     box-shadow: -6px -6px 25px 0 #ffe082be,
       6px 6px 25px 0 rgba(0, 0, 0, 0.1);
     transition: 0.4s;
-  }
-
-  
+  } 
   .btn-login:hover {
     min-width: 180px;
     cursor: pointer;
   }
-  
+  input#btn_login.btn-login{
+  margin-bottom: 0;
+  }
   .btn-join:hover {
     min-width: 200px;
     cursor: pointer;
+  }
+  .yet{
+  display:block;
+  font-size: 1.17em;
+  font-weight: bold;
+  }
+  #saveEmail{
+  margin:12px 2px 12px 0;
+  }
+  a.saveEmail{
+  font-size:0.7em;
+  }
+  #btn_login{
+  margin-bottom: 0
+  }
+  h3.yet {
+  font-size:0.7em;
   }

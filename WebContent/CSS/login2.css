@@ -83,7 +83,7 @@
       6px 6px 25px 0 rgba(0, 0, 0, 0.1);
     transition: 0.4s;
   }
-  .btn-join {
+ input.btn-join {
     border: none;
     padding: 15px;
     min-width: 150px;
@@ -95,8 +95,6 @@
       6px 6px 25px 0 rgba(0, 0, 0, 0.1);
     transition: 0.4s;
   }
-
-  
   .btn-login:hover,
   .btn-yet:hover {
     min-width: 180px;
@@ -110,4 +108,7 @@
   }
   a.saveEmail {
     font-size: 0.7em;
+  }
+  h3.yet {
+  font-size:0.9em;
   }
