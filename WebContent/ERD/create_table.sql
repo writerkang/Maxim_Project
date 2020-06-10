@@ -5,7 +5,6 @@ DROP TABLE tb_category CASCADE CONSTRAINT purge;
 DROP TABLE tb_attach CASCADE CONSTRAINT purge;
 DROP TABLE tb_post CASCADE CONSTRAINT purge;
 DROP TABLE tb_comment CASCADE CONSTRAINT purge;
-DROP TABLE tb_mypage CASCADE CONSTRAINT purge;
 DROP TABLE tb_scrap CASCADE CONSTRAINT purge;
 DROP TABLE tb_star CASCADE CONSTRAINT purge;
 DROP TABLE tb_board CASCADE CONSTRAINT purge;
@@ -25,7 +24,6 @@ CREATE SEQUENCE attach_seq;
 CREATE SEQUENCE user_seq;
 CREATE SEQUENCE post_seq;
 CREATE SEQUENCE comment_seq;
-CREATE SEQUENCE mypage_seq;
 CREATE SEQUENCE scrap_seq;
 CREATE SEQUENCE star_seq;
 CREATE SEQUENCE board_seq;
@@ -66,9 +64,8 @@ CREATE TABLE tb_user
     user_isvalid    CHAR(1)         DEFAULT 'F' NOT NULL, 
     user_auth       CHAR(1)         DEFAULT 'G' NOT NULL, 
     user_point      NUMBER          DEFAULT 10 NOT NULL, 
-    user_sns        VARCHAR2(20)    , 
-    user_snsid      VARCHAR2(20)    , 
-    user_email2     VARCHAR2(30)  	  
+    mypage_subject    VARCHAR2(60) , 
+    mypage_content    CLOB
     );
 SELECT * FROM TB_USER;
 DELETE FROM TB_USER;
@@ -108,17 +105,6 @@ CREATE TABLE tb_post
   	REFERENCES tb_category(category_uid)
 );
 
-CREATE TABLE tb_mypage
-(
-    mypage_uid        NUMBER          PRIMARY KEY, 
-    mypage_subject    VARCHAR2(60)    , 
-    mypage_content    CLOB            , 
-    user_uid          NUMBER          NOT NULL,
-    --외래키설정
-    CONSTRAINT FKM_user FOREIGN KEY(user_uid)  
-  	REFERENCES tb_user(user_uid)
-);
-SELECT * FROM TB_MYPAGE ;
 
 CREATE TABLE tb_scrap
 (
@@ -151,7 +137,7 @@ CREATE TABLE tb_attach
     attach_regdate       DATE             DEFAULT SYSDATE NOT NULL, 
     attach_size          NUMBER           NOT NULL, 
     post_uid             NUMBER           , 
-    mypage_uid           NUMBER            
+    user_uid           NUMBER            	            
 );
 SELECT * FROM TB_ATTACH;
 CREATE TABLE tb_site

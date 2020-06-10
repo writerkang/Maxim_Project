@@ -8,13 +8,15 @@ public class UserDTO {
 	String user_regdate;  // 가입 날짜
 	String user_phone;  // 휴대전화
 	int user_point;    // 랭킹 포인트 
+	String mypage_subject; // 마이페이지 제목
+	String mypage_content; // 마이페이지 내용
 	
 	public UserDTO() {
 		super();
 	}
 
-	public UserDTO(int user_uid, String user_email, String user_pw, String user_name, String user_phone,
-			int user_point) {
+	public UserDTO(int user_uid, String user_email, String user_pw, String user_name, String user_phone, int user_point,
+			String mypage_subject, String mypage_content) {
 		super();
 		this.user_uid = user_uid;
 		this.user_email = user_email;
@@ -22,7 +24,15 @@ public class UserDTO {
 		this.user_name = user_name;
 		this.user_phone = user_phone;
 		this.user_point = user_point;
+		this.mypage_subject = mypage_subject;
+		this.mypage_content = mypage_content;
 	}
+	public UserDTO(String mypage_subject, String mypage_content) {
+		super();
+		this.mypage_subject = mypage_subject;
+		this.mypage_content = mypage_content;
+	}
+
 
 	public int getUser_uid() {
 		return user_uid;
@@ -80,6 +90,17 @@ public class UserDTO {
 		this.user_point = user_point;
 	}
 	
-	
+	public String getMypage_subject() {
+		return mypage_subject;
+	}
+	public void setMypage_subject(String mypage_subject) {
+		this.mypage_subject = mypage_subject;
+	}
+	public String getMypage_content() {
+		return mypage_content;
+	}
+	public void setMypage_content(String mypage_content) {
+		this.mypage_content = mypage_content;
+	}
 	
 } // end UserDTo()

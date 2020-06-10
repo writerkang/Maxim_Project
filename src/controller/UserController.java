@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import command.user.FindPwCommand;
 import command.user.JoinCommand;
 import command.user.LoginCommand;
+import command.user.MypageViewCommand;
 import command.user.NameChkCommand;
 import command.user.UserDeleteCommand;
 import command.user.UserEmailCheckCommand;
@@ -111,8 +112,15 @@ public class UserController extends HttpServlet {
 //			viewPage = "joinForm.jsp"; --> 이렇게 하면 data 를 못 받아오는 구나...
 			break;
 
-		// request 를 위에서 결정된 view 에 forward 해줌.
-		//mypage 관련 case들
+		// Mypage
+		case "/User/mypageView.uo": // 마이페이지 진입 시 view 역할
+			new MypageViewCommand().execute(request, response);
+			break;
+
+		case "/User/mypageUpdateOk.uo": // 수정버튼 누를 시 ajax로 해당 url매핑 요청들어옴.
+			new MypageViewCommand().execute(request, response);
+			break;
+		
 //		case "/User/mypage.uo":
 //			command = new MypageCommand();
 //			command.execute(request, response);
