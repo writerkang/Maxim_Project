@@ -15,6 +15,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../JS/ranker-card.js"></script>
+<script src="../JS/userRankList.js"></script>
 
 <body>
 
@@ -33,12 +34,10 @@
                 </div>
                 <div class="card-text">
                     <span class="date">어쩌구 저쩌구</span>
-                    <h2 class="ranker-name">User1</h2>
+                    <h2 class="ranker-name"></h2>
                     <p>Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor</p>
                 </div>
-                <div class="card-stats">
-                    3000 point
-                </div>
+                <div class="card-stats"></div>
             </div>
         </div>
         <div class="ranker2 ranker-info">
@@ -48,12 +47,10 @@
                 </div>
                 <div class="card-text">
                     <span class="date">어쩌구 저쩌구</span>
-                    <h2 class="ranker-name">User2</h2>
+                    <h2 class="ranker-name"></h2>
                     <p>Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor</p>
                 </div>
-                <div class="card-stats">
-                    2000 point
-                </div>
+                <div class="card-stats"></div>
             </div>
         </div>
         <div class="ranker3 ranker-info">
@@ -63,12 +60,10 @@
                 </div>
                 <div class="card-text">
                     <span class="date">어쩌구 저쩌구</span>
-                    <h2 class="ranker-name">User3</h2>
+                    <h2 class="ranker-name"></h2>
                     <p>Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor</p>
                 </div>
-                <div class="card-stats">
-                    1000 point
-                </div>
+                <div class="card-stats"></div>
             </div>
         </div>
     </div>
@@ -82,23 +77,7 @@
                             <th>순위</th><th>닉네임</th><th>포인트</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td><td>user1</td><td>3000</td>
-                        </tr>
-                        <tr>
-                            <td>2</td><td>user2</td><td>2000</td>
-                        </tr>
-                        <tr>
-                            <td>3</td><td>user3</td><td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>4</td><td>user4</td><td>500</td>
-                        </tr>
-                        <tr>
-                            <td>5</td><td>user5</td><td>100</td>
-                        </tr>
-                    </tbody>
+                    <tbody class="userRank-list"></tbody>
                 </table>
             </div>
         </div>

@@ -29,45 +29,7 @@
 <title>글쓰기</title>
 </head>
 
-<!-- 비로그인 상태로 페이지 주소를 직접 입력하여 강제로 접근시도 시 돌려보냅니다. -->
-<script>
-	$(document).ready(function() {
-		var userUid = $("#user_uid").text();
-
-		if (userUid == null || userUid == "") {
-			alert("잘못된 접근입니다!");
-			history.back();
-		}
-	});
-</script>
-<!---------------------------------->
-
-<script>
-	function chkSubmit() { // 폼 검증
-		frm = document.forms["frm"];
-
-		var category_uid = frm["category_uid"].value.trim();
-		var post_subject = frm["post_subject"].value.trim();
-		var post_content = frm["post_content"].value.trim();
-
-		if (category_uid == "") {
-			alert("카테고리 유형을 선택해 주세요!");
-			frm["category_uid"].focus();
-			return false;
-		}
-		if (post_subject == "") {
-			alert("제목을 입력해 주세요!");
-			frm["post_subject"].focus();
-			return false;
-		}
-		if (post_content == "") {
-			alert("내용을 입력해 주세요!");
-			frm["post_content"].focus();
-			return false;
-		}
-		return true;
-	}
-</script>
+<script src="../JS/postWrite.js"></script>
 
 <body>
 
@@ -82,8 +44,7 @@
 		<h4>글쓰기</h4>
 		<br>
 
-		<form name="frm" action="qnaPostWriteOk.po" method="post"
-			onsubmit="return chkSubmit()">
+		<form name="frm-write-pst" id="frm-write-pst" action="qnaPostWriteOk.po" method="post">
 
 			<!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
 			<input type="hidden" name="board_uid" value="4"> <input

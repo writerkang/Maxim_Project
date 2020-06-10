@@ -8,7 +8,7 @@
     <title>회원이메일 인증</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../JS/userEmailRegister.js" type="text/javascript"></script>
-    <link href="../CSS/userEmailRegister2.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/userEmailRegister.css" rel="stylesheet" type="text/css">
     <script src="https://use.fontawesome.com/afbd8941a0.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 
