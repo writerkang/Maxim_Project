@@ -32,7 +32,7 @@
     </div>
 
     <ul class="login-links">
-      <li><a onclick="location.href='User/mypage.uo'" id="mypage">MyPage</a></li>
+      <li><a onclick="location.href='User/mypageView.uo'" id="mypage">MyPage</a></li>
       <div class="sline"></div>
       
       	<!-- 로그인 전 (세션에 user_email 이 없으면 로그인 해야함.-->

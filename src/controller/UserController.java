@@ -9,10 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import command.user.FindPwCommand;
 import command.user.JoinCommand;
 import command.user.LoginCommand;
-import command.user.MypageViewCommand;
+import command.user.MypageUpdateOkCommand;
 import command.user.NameChkCommand;
 import command.user.UserDeleteCommand;
 import command.user.UserEmailCheckCommand;
@@ -98,11 +97,6 @@ public class UserController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "userDeleteOk.jsp";
 			break;
-		case "/User/findPw.uo":
-			command = new FindPwCommand();
-			command.execute(request, response);
-			viewPage = "findPw.jsp";
-			break;
 		case "/index.uo":
 			viewPage = "index.jsp";
 			break;
@@ -113,12 +107,15 @@ public class UserController extends HttpServlet {
 			break;
 
 		// Mypage
+//		case "/User/mypageView.uo": // 마이페이지 진입 시 view 역할
+//			viewPage = "mypageView.jsp";
+//			break;
 		case "/User/mypageView.uo": // 마이페이지 진입 시 view 역할
-			new MypageViewCommand().execute(request, response);
+			viewPage = "mypageView.jsp";
 			break;
 
 		case "/User/mypageUpdateOk.uo": // 수정버튼 누를 시 ajax로 해당 url매핑 요청들어옴.
-			new MypageViewCommand().execute(request, response);
+			new MypageUpdateOkCommand().execute(request, response);
 			break;
 		
 //		case "/User/mypage.uo":
