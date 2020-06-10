@@ -13,7 +13,8 @@ import command.board.CommentDeleteCommand;
 import command.board.CommentListCommand;
 import command.board.CommentUpdateCommand;
 import command.board.CommentWriteCommand;
-import common.Command;
+import command.user.AjaxListCommand;
+import command.user.MypageViewCommand;
 
 @WebServlet("*.ajax")
 public class AjaxController extends HttpServlet {
@@ -70,6 +71,11 @@ public class AjaxController extends HttpServlet {
 			new CommentDeleteCommand().execute(request, response);
 			new CommentListCommand().execute(request, response);
 			new AjaxCommentListCommand().execute(request, response);
+			
+//		case "/User/mypageView.ajax": // 마이페이지 진입 시(제목과 내용 보여주기)
+//			new MypageViewCommand().execute(request, response); 
+//			new AjaxListCommand().execute(request, response);
+//			break;
 		} // end switch
 	}
 

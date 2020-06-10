@@ -188,6 +188,8 @@ public class UserDAO extends DefaultDAO {
 				int user_point = rs.getInt("user_point");
 				Date user_regdate = rs.getDate("user_regdate");
 				Time t = rs.getTime("user_regdate");
+				String mypage_subject = rs.getString("mypage_subject");
+				String mypage_content = rs.getString("mypage_content");
 
 				String regDate = "";
 				if (user_regdate != null) {
@@ -195,7 +197,7 @@ public class UserDAO extends DefaultDAO {
 							+ new SimpleDateFormat("hh:mm:ss").format(t);
 				}
 
-				UserDTO dto = new UserDTO(user_uid, user_email, user_pw, user_name, user_phone, user_point);
+				UserDTO dto = new UserDTO(user_uid, user_email, user_pw, user_name, user_phone, user_point, mypage_subject, mypage_content);
 				dto.setUser_regdate(regDate);
 				list.add(dto);
 
