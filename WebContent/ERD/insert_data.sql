@@ -43,7 +43,6 @@ VALUES (9, '기타')
 ;
 
 SELECT * FROM TB_CATEGORY;
-DELETE FROM TB_CATEGORY;
 
 --tb_board 값 입력 예시
 
