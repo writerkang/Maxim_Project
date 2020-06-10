@@ -57,7 +57,7 @@
 			서비스 이용약관(필수) <input type="checkbox" name="chk"
 				id="service_ck" class="terms">
 			<pre id="trem_content">
- 제 1 장 총 칙
+ <!-- 제 1 장 총 칙
 
  
 
@@ -198,7 +198,7 @@
 
  
 
-서비스와 관련하여 사이트와 회원간에 분쟁이 발생할 경우 사이트의 본사 소재지를 관할하는 법원을 관할법원으로 합니다.
+서비스와 관련하여 사이트와 회원간에 분쟁이 발생할 경우 사이트의 본사 소재지를 관할하는 법원을 관할법원으로 합니다. -->
             </pre>
 			개인정보수집(필수) <input type="checkbox" name="chk"
 				id="privacy_ck" class="terms">
