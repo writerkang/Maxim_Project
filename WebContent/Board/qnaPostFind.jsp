@@ -20,6 +20,10 @@
 			// page parameter 오류는 별도의 exception 처리 안함
 		}
 	} // end if
+	
+	request.setCharacterEncoding("UTF-8");
+	String search = request.getParameter("search");
+	String ser_content = request.getParameter("ser_content");
 %>
 
 <!DOCTYPE html>
@@ -27,7 +31,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>자유게시판</title>
+<title>검색결과</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -82,10 +86,10 @@
 <!---------------------------------->
 <br>
 <div class="container">
-	<h4>자유게시판</h4>
+	<h4>검색결과</h4>
 	<br>
 
-	
+
 	<table class="table table-hover">
 		<thead class="thead-light">
 			<tr>
@@ -120,7 +124,7 @@
 
 	<br>
 
-	<form method="get" name="frm" action="./freePostFind.po?page=1">
+	<form method="get" name="frm" action="./qnaPostFind.po?page=1">
 		<div class="form-row">
 			<div class="col-3">
 				<select name="search" class="form-control" id="search_sele">
@@ -154,11 +158,12 @@
 			<%-- 위 트랜잭션이 마무리 되면 페이지 보여주기 --%>
 
 			<%-- 페이징 --%>
-			<jsp:include page="pagination.jsp">
+			<jsp:include page="paginationFind.jsp">
 				<jsp:param value="${writePages }" name="writePages" />
 				<jsp:param value="${totalPage }" name="totalPage" />
 				<jsp:param value="<%=curPage%>" name="curPage" />
-
+				<jsp:param value="<%= search %>" name="search"/>
+				<jsp:param value="<%= ser_content %>" name="ser_content"/>
 			</jsp:include>
 		</div>
 	</div>
