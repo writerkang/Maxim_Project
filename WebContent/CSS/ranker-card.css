@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+*
+{font-family: 'Suisse Regular', sans-serif;}
+
+.panel-ranker-info
+{
+    margin: 40px 0;
+    text-align: center;
+}
+
+.ranker-info
+{
+    display: inline-block;
+    margin: auto;
+    width: 30%;
+    max-width: 280px;
+}
+
+.card 
+{
+    margin: 10px;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card:hover
+{
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
+
+.card-image
+{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 5px;
+    height: 150px;
+}
+.card-image img {
+    border: 1px solid #000000;
+    border-radius: 50%;
+    width: auto;
+    height: 100%;
+}
+.card-text
+{height: 150px;}
+.card-text > p {
+    width: 100%; /* 너비는 변경될수 있습니다. */
+    text-overflow: ellipsis; /* 위에 설정한 width 보다 길면 말줄임표처럼 표시합니다. */
+    overflow: hidden; /* 내용이 길면 감춤니다 */
+    display: inline-block; /* ie6이상 현재요소를 블럭처리합니다. */
+}
+.card-stats
+{
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 60px;
+}
+
+.card-text
+{padding: 5px;}
+.card-text .date
+{font-size: 12px;}
+.ranker1 .card-text .date
+{color: rgb(255, 7, 110);}
+.ranker2 .card-text .date
+{color: rgb(254, 76, 5);}
+.ranker3 .card-text .date
+{color: rgb(0, 189, 61);}
+
+.card-text p
+{
+    display: inline-block;
+    color: #808080;
+    font-size: 12px;
+    font-weight: 300;
+    width: 100%;
+    text-overflow: ellipsis; /* 위에 설정한 width 보다 길면 말줄임표처럼 표시합니다. */
+    overflow: hidden; /* 내용이 길면 감춤니다 */   
+}
+.card-text .ranker-name
+{
+    margin-top: 0px;
+    margin-bottom: 4px;
+    font-size: 18px;
+}
+
+.card-stats
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    padding: 5px;
+}
+.ranker1 .card-stats
+{background: rgb(255, 7, 110);}
+.ranker2 .card-stats
+{background: rgb(254, 76, 5);}
+.ranker3 .card-stats
+{background: rgb(0, 189, 61);}
