@@ -15,11 +15,10 @@ body {
 	justify-content: center;
 	min-height: 100vh;
 }
-
-.join-btn {
-	position: absolute;
-	margin-top: 300px;
-}
+  .join-btn {
+    position: absolute;
+    margin-top: 300px;
+  }
 
   .wholeform {
     height: 400px;
@@ -34,18 +33,22 @@ body {
       10px 10px 25px 0 rgba(0, 0, 0, 0.1);
   }
   .form input {
-    background: red;
     margin: 12px 20px;
   }
 
-/* .form {
-	text-decoration: underline;
-	width: 40%;
-	background-color: #ffe082;
-	border: none;
-	border-bottom: 1px solid black;
-}
-
+ .form {
+    height: 400px;
+    width: 500px;
+    border-radius: 10px;
+    background: #ffe082;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -10px -10px 25px 0 #ffe082be,
+      10px 10px 25px 0 rgba(0, 0, 0, 0.1);
+  }
+/*
 #service {
 	float: right;
 }
