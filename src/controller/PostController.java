@@ -59,9 +59,10 @@ public class PostController extends HttpServlet {
 				// 결과를 내보낼 view 를 결정한다
 				switch(com) {
 				
-				case "/Board/starPost.po":
+				case "/Board/starFreePost.po":
 					command = new StarPostCommand();
-					command.execute(request, response);					
+					command.execute(request, response);	
+					viewPage = "starFreePostOk.jsp";
 					break;
 					
 				case "/Board/freeBoardList.po":
