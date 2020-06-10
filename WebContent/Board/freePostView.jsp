@@ -28,11 +28,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 </head>
 
-
-
-
 <script src="../JS/postView.js" type="text/javascript"></script>
-<script src="../JS/toggle-menu.js" type="text/javascript"></script>
 <script src="../JS/modal-deletePost.js" type="text/javascript"></script>
 <script src="../JS/modal-updateComment.js" type="text/javascript"></script>
 <script src="../JS/commentCRUD.js" type="text/javascript"></script>
@@ -75,9 +71,9 @@
 		<div class="row">
 			<div class="col">
 				<ul class="pagination justify-content-end">
-					<li class="page-item"><a class="page-link"
+					<li class="page-item"><a id="btn-update-pst" class="page-link"
 						href="freePostUpdate.po?post_uid=${list[0].post_uid}">수정</a></li>
-					<li class="page-item"><a class="page-link btn-delete" href="#">삭제</a></li>
+					<li class="page-item"><a id="btn-delete-pst" class="page-link" href="#">삭제</a></li>
 				</ul>
 			</div>
 		</div>
