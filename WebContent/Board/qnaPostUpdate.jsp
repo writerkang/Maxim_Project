@@ -83,11 +83,11 @@
 				<br>
 
 				<form name="frm"
-					action="freePostUpdateOk.po?post_uid=${list[0].post_uid }"
+					action="qnaPostUpdateOk.po?post_uid=${list[0].post_uid }"
 					method="post" onsubmit="return chkSubmit()">
 
 					<!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
-					<input type="hidden" name="board_uid" value="2"> <input
+					<input type="hidden" name="board_uid" value="4"> <input
 						type="hidden" name="user_uid" value="${list[0].user_uid }">
 					<!---------------------------------->
 
