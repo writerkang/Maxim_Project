@@ -35,7 +35,7 @@
 <script src="../JS/toggle-menu.js" type="text/javascript"></script>
 <script src="../JS/modal-deletePost.js" type="text/javascript"></script>
 <script src="../JS/modal-updateComment.js" type="text/javascript"></script>
-<script src="../JS/commentCRUD.js" type="text/javascript"></script>
+<script src="../JS/QnA-commentCRUD.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../CSS/header.css" />
 
