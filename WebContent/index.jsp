@@ -63,7 +63,7 @@
 					<div class="face face2">
 						<div class="content">
 							<p>코딩하며 어려운데 질문하기 어려웠던 문제들을 나눠봐요.</p>
-								<a href="Board/tipBoardList.jsp">질문게시판이동하기</a>
+								<a href="Board/qnaBoardList.jsp">질문게시판이동하기</a>
 						</div>
 					</div>
 				</div>
