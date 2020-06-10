@@ -15,9 +15,9 @@
 </head>
 <body>
    <!--  <div id="top"> -->
-        <h1 style="text-align: left; font-weight: normal;">Join</h1>
-        <p class="text">회원가입을 위해 이메일 인증이 필요합니다.</p>
         <form id = "bini" action="userEmailRegisterOk.uo" style="text-align: left;" class="form">
+	        <h1>Join</h1>
+	        <p class="text">회원가입을 위해 이메일 인증이 필요합니다.</p>
             <input type="text" name="user_email" id="user_email" placeholder="UserEmail" class="input">
 <!--             <a style="font-size: 40px;" name="user_email">&#64;</a> -->
 <!--             <input type="text" name="user_email" id="email_adress"> -->
@@ -31,7 +31,7 @@
             <input type="submit" id="submit_btn" value="이메일 인증하기" class="btn-join" />
         </form>
         <div class="back">
-        	<input type="submit" value="뒤로가기" class="btn-back" onclick="" />
+        	<input type="submit" value="뒤로가기" class="btn-back" onclick="history.back()" />
     	</div>
    		 <script type="text/javascript">
    		 	$('#submit_btn').click(function(){
