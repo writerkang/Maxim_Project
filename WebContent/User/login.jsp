@@ -32,17 +32,17 @@ html[lang='ko'] {
 			<input type="email" name="user_email" id="user_email" placeholder="UserEmail" class="input" /> 
 			<input type="password" name="user_pw" placeholder="Password" class="input" />
 
-			<!-- button 로그인하기 -->
-			<div class="btn_submit">
-				<input type="submit" id="btn_login" value="Login" class="btn-login"/>
-			</div>
-			
 			<!-- Checkbox 이메일저장 -->
 			<div class="check_save">
 				<input type="checkbox" name="chkSave" id="saveEmail" />
 				<label for="saveEmail"><a class="saveEmail">이메일 저장</a></label>
 			</div>
+			<!-- button 로그인하기 -->
+			<div class="btn_submit">
+				<input type="submit" id="btn_login" value="Login" class="btn-login"/>
+			</div>
 		</form>
+			
 
 	
 	<div class="section_02">
