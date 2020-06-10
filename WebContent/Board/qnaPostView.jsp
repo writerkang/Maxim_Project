@@ -48,7 +48,7 @@
 
 	<div class="container">
 		<br>
-		<h4>자유게시판</h4>
+		<h4>질문게시판</h4>
 		<br>
 		<div class="row">
 			<div class="col-12">
@@ -76,7 +76,7 @@
 			<div class="col">
 				<ul class="pagination justify-content-end">
 					<li class="page-item"><a class="page-link"
-						href="freePostUpdate.po?post_uid=${list[0].post_uid}">수정</a></li>
+						href="qnaPostUpdate.po?post_uid=${list[0].post_uid}">수정</a></li>
 					<li class="page-item"><a class="page-link btn-delete" href="#">삭제</a></li>
 				</ul>
 			</div>
@@ -92,23 +92,13 @@
 		</div>
 		<hr>
 
-<!---------------------------------->
-
-<script>
-	function chkStar() { // 추천 검증
-		
-		location.href='starPost.po?user_uid=${userDto[0].user_uid}&post_uid=${list[0].post_uid}';
-	}
-</script>
-
 		<div class="form-row">
 			<div class="col">
 				<button class="form-control" type="button"
-					onclick="location.href='freeBoardList.po?page=${page}'">목록으로</button>
+					onclick="location.href='qnaBoardList.po?page=${page}'">목록으로</button>
 			</div>
 			<div class="col">
-				<button class="form-control far fa-thumbs-up" type="button"
-					onclick="chkStar()">추천</button>
+				<button class="form-control far fa-thumbs-up" type="submit">추천</button>
 			</div>
 		</div>
 
@@ -129,7 +119,7 @@
 				<div class="modal-delete-pst-buttons">
 					<button type="button" class="back left-pull">뒤로가기</button>
 					<button type="button" class="ok right-pull"
-						onclick="location.href='freePostDeleteOk.po?post_uid=${list[0].post_uid}'">확인</button>
+						onclick="location.href='qnaPostDeleteOk.po?post_uid=${list[0].post_uid}'">확인</button>
 				</div>
 			</div>
 		</div>

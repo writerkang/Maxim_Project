@@ -12,6 +12,7 @@ DROP TABLE tb_site CASCADE CONSTRAINT purge;
 
 DROP SEQUENCE user_seq;
 DROP SEQUENCE post_seq;
+DROP SEQUENCE star_seq;
 
 
 --생성된 테이블 확인
@@ -152,7 +153,11 @@ CREATE TABLE tb_site
 CREATE TABLE tb_star
 (
     star_uid    number    PRIMARY key, 
-    star_cnt    NUMBER    DEFAULT 0 NOT NULL, 
     user_uid    NUMBER    NOT NULL, 
-    post_uid    NUMBER    NOT NULL
+    post_uid    NUMBER    NOT NULL,
+    --외래키설정
+    CONSTRAINT FKS_user FOREIGN KEY(user_uid)  
+  	REFERENCES tb_user(user_uid),
+  	CONSTRAINT FKS_post FOREIGN KEY(post_uid)  
+  	REFERENCES tb_post(post_uid)
 );

@@ -27,7 +27,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>자유게시판</title>
+<title>질문게시판</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -82,7 +82,7 @@
 <!---------------------------------->
 <br>
 <div class="container">
-	<h4>자유게시판</h4>
+	<h4>질문게시판</h4>
 	<br>
 
 	
@@ -108,7 +108,7 @@
 					<tr>
 						<td id="text_uid">${dto.post_uid}</td>
 						<td id="text_title"><a class="nav-link font-weight-bold"
-							href="freePostView.po?post_uid=${dto.post_uid}&page=<%= curPage %>">${dto.post_subject}</a></td>
+							href="qnaPostView.po?post_uid=${dto.post_uid}&page=<%= curPage %>">${dto.post_subject}</a></td>
 						<td id="nick_name">${dto.user_name }</td>
 						<td>${dto.post_viewcnt}</td>
 						<td id="text_date">${dto.post_regdate }</td>
@@ -120,7 +120,7 @@
 
 	<br>
 
-	<form method="get" name="frm" action="./freePostFind.po?page=1">
+	<form method="get" name="frm" action="./qnaPostFind.po?page=1">
 		<div class="form-row">
 			<div class="col-3">
 				<select name="search" class="form-control" id="search_sele">
@@ -139,7 +139,7 @@
 			</div>
 			<div class="col-1">
 				<button type="button" class="form-control fas fa-pencil-alt"
-					onclick="location.href='freePostWrite.po'"></button>
+					onclick="location.href='qnaPostWrite.po'"></button>
 			</div>
 			<!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
 			<input type="hidden" name="page" value="1">
