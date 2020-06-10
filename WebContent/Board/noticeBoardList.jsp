@@ -5,6 +5,25 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%-- JSTL 버젼으로 바뀌니, import 번잡함도 사라진다. JAVA 변수 선언도 사라진다. --%>
 
+<%
+	int curPage = 1; // 현재 페이지 (디폴트 1 page)
+
+	// 현재 몇 페이지인지 parameter 받아오기 + 검증
+	String pageParam = request.getParameter("page");
+	if (pageParam != null && !pageParam.trim().equals("")) {
+		try {
+			// 1이상의 자연수 이어야 한다
+			int p = Integer.parseInt(pageParam);
+			if (p > 0)
+				curPage = p;
+		} catch (NumberFormatException e) {
+			// page parameter 오류는 별도의 exception 처리 안함
+		}
+	} // end if
+%>
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <script src="https://use.fontawesome.com/afbd8941a0.js"></script>
@@ -27,7 +46,7 @@
 
 	<table class="table table-hover text-center">
 		<thead>
-			<tr>
+			<tr style="background-color: #e9ecef;">
 				<th scope="col">NO</th>
 				<th scope="col">제목</th>
 				<th scope="col">등록일</th>
@@ -47,7 +66,7 @@
 
 						<tr>
 							<td scope="row">${dto.post_uid }</td>
-							<td><a href="noticePostView.po?post_uid=${dto.post_uid }">${dto.post_subject }</a></td>
+							<td><a href="noticePostView.po?post_uid=${dto.post_uid }" style="text-align: left;">${dto.post_subject }</a></td>
 							<td>${dto.post_regdate }</td>
 						</tr>
 
@@ -58,7 +77,12 @@
 	</table>
 
 
+			<jsp:include page="pagination.jsp">
+				<jsp:param value="${writePages }" name="writePages" />
+				<jsp:param value="${totalPage }" name="totalPage" />
+				<jsp:param value="<%=curPage%>" name="curPage" />
 
+			</jsp:include>
 
 
 
