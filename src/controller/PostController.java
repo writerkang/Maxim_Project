@@ -65,13 +65,6 @@ public class PostController extends HttpServlet {
 					viewPage = "freeBoardList.jsp";
 					break;
 					
-				case "/Board/qnaBoardList.po":
-					command = new PostListCommand();
-					request.setAttribute("board_uid", 4); //질문게시판 uid 세팅
-					command.execute(request, response);					
-					viewPage = "qnaBoardList.jsp";
-					break;
-					
 				case "/index.po":
 					command = new PostListCommand();
 					command.execute(request, response);
@@ -93,14 +86,6 @@ public class PostController extends HttpServlet {
 					viewPage = "freePostView.jsp";
 					break;
 				
-				case "/Board/qnaPostView.po":
-					command = new PostViewCommand();
-					command.execute(request, response);
-					command = new CommentListCommand();
-					command.execute(request, response);
-					viewPage = "qnaPostView.jsp";
-					break;
-					
 				case "/Board/tipPostView.po":
 					command = new PostViewCommand();
 					command.execute(request, response);
@@ -109,10 +94,6 @@ public class PostController extends HttpServlet {
 					
 				case "/Board/freePostWrite.po":
 					viewPage = "freePostWrite.jsp";
-					break;
-					
-				case "/Board/qnaPostWrite.po":
-					viewPage = "qnaPostWrite.jsp";
 					break;
 					
 				case "/Board/tipPostWrite.po":
@@ -125,24 +106,11 @@ public class PostController extends HttpServlet {
 					viewPage = "freePostWriteOk.jsp";
 					break;
 					
-				case "/Board/qnaPostWriteOk.po":
-					command = new PostWriteCommand();
-					command.execute(request, response);
-					viewPage = "qnaPostWriteOk.jsp";
-					break;
-					
 				case "/Board/freePostFind.po":
 					command = new PostFindCommand();
 					request.setAttribute("board_uid", 2); //자유게시판 uid 세팅
 					command.execute(request, response);
 					viewPage = "freePostFind.jsp";
-					break;
-					
-				case "/Board/qnaPostFind.po":
-					command = new PostFindCommand();
-					request.setAttribute("board_uid", 4); //질문게시판 uid 세팅
-					command.execute(request, response);
-					viewPage = "qnaPostFind.jsp";
 					break;
 					
 				case "/Board/tipPostWriteOk.po":
@@ -157,12 +125,6 @@ public class PostController extends HttpServlet {
 					viewPage = "freePostUpdate.jsp";
 					break;
 					
-				case "/Board/qnaPostUpdate.po":
-					command = new PostSelectCommand();
-					command.execute(request, response);
-					viewPage = "qnaPostUpdate.jsp";
-					break;
-					
 				case "/Board/tipPostUpdate.po":
 					command = new PostSelectCommand();
 					command.execute(request, response);
@@ -175,12 +137,6 @@ public class PostController extends HttpServlet {
 					viewPage = "freePostUpdateOk.jsp";
 					break;
 					
-				case "/Board/qnaPostUpdateOk.po":
-					command = new PostUpdateCommand();
-					command.execute(request, response);
-					viewPage = "qnaPostUpdateOk.jsp";
-					break;
-					
 				case "/Board/tipPostUpdateOk.po":
 					command = new PostUpdateCommand();
 					command.execute(request, response);
@@ -191,12 +147,6 @@ public class PostController extends HttpServlet {
 					command = new PostDeleteCommand();
 					command.execute(request, response);
 					viewPage = "freePostDeleteOk.jsp";
-					break;				
-					
-				case "/Board/qnaPostDeleteOk.po":
-					command = new PostDeleteCommand();
-					command.execute(request, response);
-					viewPage = "qnaPostDeleteOk.jsp";
 					break;				
 					
 				case "/Board/tipPostDeleteOk.po":

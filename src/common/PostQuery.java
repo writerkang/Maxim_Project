@@ -65,9 +65,6 @@ public class PostQuery {
 	public static final String SQL_POST_TOTALPOST =
 			"SELECT count(POST_UID) as totals FROM TB_POST";
 	
-	public static final String SQL_POST_TOTALPOST_BY_BOARD =
-			"SELECT count(POST_UID) as totals FROM TB_POST WHERE board_uid = ?";
-	
 	//모든 게시글 읽어오기
 			//Join 사용하여 user_name, 댓글수도 가져온다
 			public static final String SQL_POST_FIND_BY_SUBJECT =
