@@ -135,7 +135,7 @@
 					<tr>
 						<td id="text_uid">${dto.post_uid}</td>
 						<td id="text_title"><a class="nav-link font-weight-bold"
-							href="freePostView.po?post_uid=${dto.post_uid}&page=<%= curPage %>"><span class='font-weight-bold text-primary'>[<c:out value="${category }"/>]</span>${dto.post_subject}[${dto.comments_count }]
+							href="qnaPostView.po?post_uid=${dto.post_uid}&page=<%= curPage %>"><span class='font-weight-bold text-primary'>[<c:out value="${category }"/>]</span>${dto.post_subject}[${dto.comments_count }]
 							<span class='text-primary'><c:out value="${selected }"/></span></a></td>
 						<td id="nick_name">${dto.user_name }</td>
 						<td>${dto.post_viewcnt}</td>

@@ -46,6 +46,36 @@
 	<jsp:include page="../header.jsp" />
 	<script src="../JS/header.js"></script>
 	<!---------------------------------->
+	
+	<c:choose>
+					<c:when test="${list[0].category_uid == 1}">
+					<c:set var="category" value="FrontEnd"/>
+					</c:when>
+					<c:when test="${list[0].category_uid == 2}">
+					<c:set var="category" value="BackEnd"/>
+					</c:when>
+					<c:when test="${list[0].category_uid == 3}">
+					<c:set var="category" value="Java"/>
+					</c:when>
+					<c:when test="${list[0].category_uid == 4}">
+					<c:set var="category" value="Android"/>
+					</c:when>
+					<c:when test="${list[0].category_uid == 5}">
+					<c:set var="category" value="JavaScript"/>
+					</c:when>
+					<c:when test="${list[0].category_uid == 6}">
+					<c:set var="category" value="HTML5"/>
+					</c:when>
+					<c:when test="${list[0].category_uid == 7}">
+					<c:set var="category" value="CSS"/>
+					</c:when>
+					<c:when test="${list[0].category_uid == 8}">
+					<c:set var="category" value="잡담"/>
+					</c:when>
+					<c:when test="${list[0].category_uid == 9}">
+					<c:set var="category" value="기타"/>
+					</c:when>
+					</c:choose>
 
 	<div class="container">
 		<br>
@@ -53,7 +83,7 @@
 		<br>
 		<div class="row">
 			<div class="col-12">
-				<h5>[카테고리]</h5>
+				<h5>[<c:out value='${category }'/>]</h5>
 			</div>
 		</div>
 		<div class="row">
