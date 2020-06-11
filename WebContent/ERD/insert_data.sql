@@ -12,6 +12,7 @@ INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE 
 VALUES (user_seq.nextval, 'ccc@daum.com', 'tjfj', '이승환', sysdate, '01016165828', 'F', 'G', 10)
 ;
 
+--비밀번호 : apple 로 모두 리셋!
 UPDATE TB_USER SET USER_PW = '3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b'
 ;
 
