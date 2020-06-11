@@ -16,8 +16,9 @@ body {
     background-size: cover;
 }
 
-.nav-item a {
+a.nav-link.active {
     color: #808080;
+    cursor:pointer;
 }
 
 h1 {
