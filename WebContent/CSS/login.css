@@ -83,20 +83,8 @@
       6px 6px 25px 0 rgba(0, 0, 0, 0.1);
     transition: 0.4s;
   }
-  .btn-yet {
-    border: none;
-    padding: 15px;
-    min-width: 150px;
-    border-radius: 15px;
-    background: #333;
-    font-weight: bold;
-    color: #fff;
-    box-shadow: -6px -6px 25px 0 #ffe082be,
-      6px 6px 25px 0 rgba(0, 0, 0, 0.1);
-    transition: 0.4s;
-  }
-  .btn-login:hover,
-  .btn-yet:hover {
+
+  .btn-login:hover{
     min-width: 180px;
     cursor: pointer;
   }
@@ -109,6 +97,19 @@
   a.saveEmail {
     font-size: 0.7em;
   }
-  h3.yet {
-  font-size:0.9em;
+    .btn_yet {
+    border: none !important;
+    padding: 15px !important;
+    min-width: 150px !important;
+    border-radius: 15px !important;
+    background: #333 !important;
+    font-weight: bold !important;
+    color: #fff !important;
+    box-shadow: -6px -6px 25px 0 #ffe082be,
+      6px 6px 25px 0 rgba(0, 0, 0, 0.1) !important;
+    transition: 0.4s !important;
+  }
+    .btn_yet:hover {
+    min-width: 180px !important;
+    cursor: pointer !important;
   }

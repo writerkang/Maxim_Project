@@ -24,6 +24,7 @@
 
 <link rel="stylesheet" href="../CSS/modal-deletePost.css" />
 <link rel="stylesheet" href="../CSS/modal-updateComment.css" />
+<link rel="stylesheet" href="../CSS/comment.css" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 </head>

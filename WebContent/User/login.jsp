@@ -48,7 +48,7 @@ html[lang='ko'] {
 	<div class="section_02">
 		<h3>아직 회원이 아니신가요?</h3>
 		<div id="btnJoin">
-			<input class="btn_yet" onclick="location.href='userEmailRegister.uo'" type="submit" value="JoinUs"/>
+			<input class="btn_yet" onclick="location.href='userEmailRegister.uo'" type="button" value="JoinUs"/>
 		</div>
 	</div>
 

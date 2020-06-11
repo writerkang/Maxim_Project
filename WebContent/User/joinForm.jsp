@@ -61,7 +61,7 @@
          <label>PasswordCheck</label>
       </div>   
       <div class="text-warn" id="pw2_check"></div>
-      </form>
+     
       
 
 
@@ -233,7 +233,11 @@
          <input type="submit" name="sub_btn" id="sub_btn"
          value="회원가입 하기" class="join-btn-btn">
       </div>
+<<<<<<< HEAD
    </form>
+=======
+    </form>
+>>>>>>> branch 'master' of https://github.com/writerkang/Maxim_Project.git
    <script src="../JS/join.js" type="text/javascript"></script>
 </body>
 </html>
