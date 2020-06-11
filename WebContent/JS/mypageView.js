@@ -15,6 +15,7 @@ $(document).ready(function() {
     	   updateOk();
     	   $("#mypage_subject").attr('disabled', true);
     	   $('#mypage_content').attr('disabled', true);
+    	   alert('수정완료!')
        }
      });
 
@@ -24,8 +25,8 @@ $(document).ready(function() {
 function updateOk(){
 	
 	var formData = $('#frmView2').serialize();
-	var sub = $('#mypage_subject').val();
-	formData += "&mypage_subject=" + sub;
+//	var sub = $('#mypage_subject').val();
+//	formData += "&mypage_subject=" + sub;
 	$.ajax({
 		
 		url : "updateOk.ajax",
@@ -34,7 +35,6 @@ function updateOk(){
 		dataType : "json",
 		cache : false,
 		success : function(data, status){
-			alert(data);
 		}
 		
 	});

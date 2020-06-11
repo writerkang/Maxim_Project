@@ -41,6 +41,7 @@ public class MypageUpdateOkCommand implements Command {
 				cnt = dao.updateByUid(user_uid, mypage_subject, mypage_subject); // 성공하면 1
 				status = "OK";
 
+				dao = new MypageDAO();
 				arr = dao.viewByUid(user_uid);
 				
 				// status 는 일단 OK 로 갈게, 근데 메시지만 다르게 해줄게
