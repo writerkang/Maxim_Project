@@ -21,79 +21,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link href="../CSS/modal.css" rel="stylesheet" type="text/css">
+
+
+
+
     <title>Document</title>
-    <style>
-        .alert{
-			position:fixed; 
-			top:30%; 
-			left:50%; 
-			transform: translate(-50%,-50%);
-            width: 50%;
-            margin: 30px auto;
-            text-align: center;
-			border: 2px black;
-			visibility:hidden;
-			padding: 10px;
-			background-color: white;
-			opacity: 1;
-			border-radius: 7px;
-        }
-        .top{
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 10px 20px;
-        }
-        .content{
-            text-align: center;
-            padding: 30px 10px;
-        }
-        button{
-            border-radius: 5px;
-            background-color: black;
-            border: 1px solid #b3b3b3;
-            padding: 4px 6px;
-            color:white;
-        }
-        a{
-            color:blue;
-            border-bottom: 1px soild black;
-        }
-    </style>
 </head>
-<body style="background-color: #ffe082;">
-
-    <div class="alert" id="logino" style="border: 2px solid black;">
-        <div class="content">${userDto[0].user_name}님 안녕하세요!</div>
-        <div><a href="../index.jsp">홈</a>으로 가기!</div>
-    </div>
-    
-    <div class="alert" id="pwx" style="border: 2px solid black;">
-        <div class="content">비밀번호가 틀립니다.</div>
-        <div><a href="/Maxim_Project/User/login.uo">로그인</a>하러 가기!</div>
-    </div>
+<body>
 
 
-    <div class="alert" id="emailx" style="border: 2px solid black;">
-        <div class="content">이메일이 존재하지 않습니다.</div>
-        <button onclick= history.back() >뒤로 가기!</button>
+	<div id="myModal1" class="modal">
+ 
+      <!-- Modal content -->
+      <div class="modal-content">
+                <p style="text-align: center; line-height: 1.5;"><br/>${userDto[0].user_name}님 안녕하세요!</p>
+                <p style="text-align: center; line-height: 1.5;"><br/><a href="../index.jsp">홈</a>으로 가기!</p>
+                <p><br /></p>
+
+      </div>
+ 
     </div>
+
+	<div id="myModal2" class="modal">
+ 
+      <!-- Modal content -->
+      <div class="modal-content">
+                <p style="text-align: center; line-height: 1.5;"><br/>비밀번호가 틀립니다.</p>
+                <p style="text-align: center; line-height: 1.5;"><br/><a href="/Maxim_Project/User/login.uo">로그인</a>하러 가기!</p>
+                <p><br /></p>
+
+      </div>
+ 
+    </div>
+
+	<div id="myModal3" class="modal">
+ 
+      <!-- Modal content -->
+      <div class="modal-content">
+                <p style="text-align: center; line-height: 1.5;"><br/>이메일이 존재하지 않습니다.</p>
+                <p style="text-align: center; line-height: 1.5;"><br/><a href= "javascript:window.history.back()" >뒤로가기!</a></p>
+                <p><br /></p>
+
+      </div>
+ 
+    </div>
+
+
+
 
 <c:choose>
 	<c:when test="${loginOk == 1 }">
 		<script>
-			$('#logino').css('visibility', 'visible');
+		$('#myModal1').show();
 		</script>
 	</c:when>
 	<c:when test="${loginOk == 0 }">
 		<script>
-			$('#pwx').css('visibility', 'visible');
+		$('#myModal2').show();
 		</script>
 	</c:when>
 
 	<c:otherwise>
 		<script>
-			$('#emailx').css('visibility', 'visible');
+		$('#myModal3').show();
 		</script>
 	</c:otherwise>
 </c:choose>
