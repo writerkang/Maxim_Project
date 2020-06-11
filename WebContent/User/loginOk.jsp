@@ -50,9 +50,10 @@
         }
         button{
             border-radius: 5px;
-            background-color: #DEDEDE;
+            background-color: black;
             border: 1px solid #b3b3b3;
             padding: 4px 6px;
+            color:white;
         }
         a{
             color:blue;
