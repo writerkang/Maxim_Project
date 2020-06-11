@@ -9,15 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.board.CommentChooseCommand;
 import command.board.CommentDeleteCommand;
 import command.board.CommentListCommand;
 import command.board.CommentUpdateCommand;
 import command.board.CommentWriteCommand;
-import command.board.PostDeleteCommand;
-import command.board.PostListCommand;
-import command.board.PostUpdateCommand;
-import command.board.PostViewCommand;
-import command.board.PostWriteCommand;
 import common.Command;
 
 
@@ -89,6 +85,12 @@ public class CommentController extends HttpServlet {
 					command = new CommentDeleteCommand();
 					command.execute(request, response);
 					viewPage = "commentDeleteOk.jsp";
+					break;				
+					
+				case "/Comment/commentChooseOk.co":
+					command = new CommentChooseCommand();
+					command.execute(request, response);
+					viewPage = "commentChooseOk.jsp";
 					break;				
 					
 				} // end switch

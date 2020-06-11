@@ -69,6 +69,7 @@ public class CommentDAO extends DefaultDAO {
 				Date d = rs.getDate("comment_regdate");
 				Time t = rs.getTime("comment_regdate");
 				String user_name = rs.getString("user_name");
+				String comment_selected = rs.getString("comment_selected");
 				
 				String comment_regdate = "";
 				if(d != null){
@@ -80,6 +81,7 @@ public class CommentDAO extends DefaultDAO {
 						comment_regdate, post_uid, user_uid);
 				
 				dto.setUser_name(user_name);
+				dto.setComment_selected(comment_selected);
 				list.add(dto);
 				
 			} // end while
@@ -128,6 +130,45 @@ public class CommentDAO extends DefaultDAO {
 			
 			return cnt;
 		} //end update()
+		
+		//댓글 채택 기능
+		public int updateSelectedComment(int comment_uid) throws SQLException{
+			int cnt = 0;
+			
+			try {
+				pstmt = conn.prepareStatement(CommentQuery.SQL_COMMENT_SELETED_BY_UID);
+				pstmt.setInt(1, comment_uid);
+				
+				cnt = pstmt.executeUpdate();
+				
+			} finally {
+				close();
+			}
+			
+			return cnt;
+		} //end updateSelectedComment()
+		
+		//댓글 작성자 uid 찾기
+		public int findCommentWriter(int comment_uid) throws SQLException{
+			int user_uid = 0;
+			
+			try {
+				pstmt = conn.prepareStatement(CommentQuery.SQL_COMMENT_FIND_USERUID);
+				pstmt.setInt(1, comment_uid);
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					user_uid = rs.getInt(1);
+				}
+				
+			} finally {
+				close();
+			}
+			
+			return user_uid;
+		} //end findCommentWriter()
+		
 		
 
 } //end PostDAO
