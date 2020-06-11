@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="../CSS/modal.css" rel="stylesheet" type="text/css">
+    <script>
+    function moveClose() {
+        opener.location.href="/Maxim_Project/index.jsp";
+        self.close();
+      }
+    </script>  
+</head>
+<body>
+    <div class="popup">
+        <div class="content">${userDto[0].user_name}님 안녕하세요!</div>
+        <button onclick="moveClose();">홈으로 가기!</button>
+    </div>
+</body>
+</html>
