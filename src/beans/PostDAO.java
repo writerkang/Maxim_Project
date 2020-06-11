@@ -160,6 +160,7 @@ public class PostDAO extends DefaultDAO {
 			int user_uid = rs.getInt("user_uid");
 			String user_name = rs.getString("user_name");
 			int comments_count = rs.getInt("comments_count");
+			int sel_comments = rs.getInt("sel_comments");
 
 			Date d = rs.getDate("post_regdate");
 			Time t = rs.getTime("post_regdate");
@@ -175,6 +176,7 @@ public class PostDAO extends DefaultDAO {
 
 			dto.setUser_name(user_name);
 			dto.setComments_count(comments_count);
+			dto.setSel_comments(sel_comments);
 			list.add(dto);
 
 		} // end while

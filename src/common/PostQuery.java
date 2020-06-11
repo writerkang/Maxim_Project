@@ -40,17 +40,17 @@ public class PostQuery {
 	
 	
 	//모든 게시글 읽어오기
-	//Join 사용하여 user_name, 댓글수도 가져온다
+	//Join 사용하여 user_name, 댓글수, 채택댓글수도 가져온다
 	//
 		public static final String SQL_POST_SELECT_BY_BOARDUID =
 			"SELECT * FROM " + 
 			"(" + 
 			"SELECT rownum AS rnum, tb_page.* " + 
 			"FROM ( " + 
-			"SELECT tp.*, tu.USER_NAME, tc.comments_count " + 
+			"SELECT tp.*, tu.USER_NAME, tc.comments_count, tc.sel_comments " + 
 			"FROM TB_POST tp JOIN TB_USER tu " + 
 			"ON tp.USER_UID = tu.USER_UID " + 
-			"LEFT OUTER JOIN (SELECT tp.POST_UID, COUNT(tc.POST_UID) AS comments_count FROM TB_POST tp LEFT OUTER JOIN TB_COMMENT tc ON tp.POST_UID = tc.POST_UID GROUP BY tp.POST_UID) tc " + 
+			"LEFT OUTER JOIN (SELECT tp.POST_UID, COUNT(tc.POST_UID) AS comments_count, COUNT(CASE WHEN tc.COMMENT_SELECTED = 'T' THEN 1 END) AS sel_comments FROM TB_POST tp LEFT OUTER JOIN TB_COMMENT tc ON tp.POST_UID = tc.POST_UID GROUP BY tp.POST_UID) tc " + 
 			"ON tp.POST_UID = tc.POST_UID " +
 			"WHERE tp.BOARD_UID = ? " +
 			"ORDER BY tp.POST_UID DESC " + 
