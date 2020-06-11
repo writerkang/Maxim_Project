@@ -97,11 +97,41 @@
 					<c:set var="selected" value="-답변완료"/>
 					</c:otherwise>
 					</c:choose>
+					
+					<c:choose>
+					<c:when test="${dto.category_uid == 1}">
+					<c:set var="category" value="FrontEnd"/>
+					</c:when>
+					<c:when test="${dto.category_uid == 2}">
+					<c:set var="category" value="BackEnd"/>
+					</c:when>
+					<c:when test="${dto.category_uid == 3}">
+					<c:set var="category" value="Java"/>
+					</c:when>
+					<c:when test="${dto.category_uid == 4}">
+					<c:set var="category" value="Android"/>
+					</c:when>
+					<c:when test="${dto.category_uid == 5}">
+					<c:set var="category" value="JavaScript"/>
+					</c:when>
+					<c:when test="${dto.category_uid == 6}">
+					<c:set var="category" value="HTML5"/>
+					</c:when>
+					<c:when test="${dto.category_uid == 7}">
+					<c:set var="category" value="CSS"/>
+					</c:when>
+					<c:when test="${dto.category_uid == 8}">
+					<c:set var="category" value="잡담"/>
+					</c:when>
+					<c:when test="${dto.category_uid == 9}">
+					<c:set var="category" value="기타"/>
+					</c:when>
+					</c:choose>
 
 					<tr>
 						<td id="text_uid">${dto.post_uid}</td>
 						<td id="text_title"><a class="nav-link font-weight-bold"
-							href="qnaPostView.po?post_uid=${dto.post_uid}&page=<%= curPage %>">${dto.post_subject}[${dto.comments_count }]
+							href="qnaPostView.po?post_uid=${dto.post_uid}&page=<%= curPage %>"><span class='font-weight-bold text-primary'>[<c:out value="${category }"/>]</span>${dto.post_subject}[${dto.comments_count }]
 							<span class='text-primary'><c:out value="${selected }"/></span></a></td>
 						<td id="nick_name">${dto.user_name }</td>
 						<td>${dto.post_viewcnt}</td>
