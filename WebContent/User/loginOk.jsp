@@ -50,9 +50,10 @@
         }
         button{
             border-radius: 5px;
-            background-color: #DEDEDE;
+            background-color: black;
             border: 1px solid #b3b3b3;
             padding: 4px 6px;
+            color:white;
         }
         a{
             color:blue;
@@ -64,7 +65,7 @@
 
     <div class="alert" id="logino" style="border: 2px solid black;">
         <div class="content">${userDto[0].user_name}님 안녕하세요!</div>
-        <div><a href="/Maxim_Project/User/login.uo">로그인</a>하러 가기!</div>
+        <div><a href="../index.jsp">홈</a>으로 가기!</div>
     </div>
     
     <div class="alert" id="pwx" style="border: 2px solid black;">

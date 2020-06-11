@@ -51,7 +51,7 @@
 <body style="background-color: #ffe082;">
 
     <div class="alert" id="emailx" style="border: 2px solid black;">
-        <div class="content">이메일이 존재하지 않습니다.</div>
+        <div class="content">인증이 완료된 이메일입니다.</div>
         <button onclick= history.back() >뒤로 가기!</button>
     </div>
 
