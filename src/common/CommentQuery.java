@@ -16,5 +16,8 @@ public class CommentQuery {
 	
 	public static final String SQL_COMMENT_UPDATE = 
 			"UPDATE tb_comment SET comment_content = ? WHERE comment_uid = ?";
+	
+	public static final String SQL_COMMENT_SELETED_BY_UID = 
+			"UPDATE TB_COMMENT SET COMMENT_SELECTED = 'T' WHERE COMMENT_UID = ?";
 
 }
