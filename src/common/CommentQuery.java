@@ -20,4 +20,7 @@ public class CommentQuery {
 	public static final String SQL_COMMENT_SELETED_BY_UID = 
 			"UPDATE TB_COMMENT SET COMMENT_SELECTED = 'T' WHERE COMMENT_UID = ?";
 
+	public static final String SQL_COMMENT_FIND_USERUID = 
+			"SELECT user_uid FROM TB_COMMENT WHERE comment_uid = ?";
+	
 }

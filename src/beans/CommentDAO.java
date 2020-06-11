@@ -148,6 +148,27 @@ public class CommentDAO extends DefaultDAO {
 			return cnt;
 		} //end updateSelectedComment()
 		
+		//댓글 작성자 uid 찾기
+		public int findCommentWriter(int comment_uid) throws SQLException{
+			int user_uid = 0;
+			
+			try {
+				pstmt = conn.prepareStatement(CommentQuery.SQL_COMMENT_FIND_USERUID);
+				pstmt.setInt(1, comment_uid);
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					user_uid = rs.getInt(1);
+				}
+				
+			} finally {
+				close();
+			}
+			
+			return user_uid;
+		} //end findCommentWriter()
+		
 		
 
 } //end PostDAO
