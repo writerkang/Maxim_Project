@@ -14,21 +14,11 @@
 
 </head>
 <body>
-    <div id="top">
-        <span>
-        <i class="fas fa-chevron-left fa-2x"></i>
-        <span style="font-size: 30px; font-weight: bold;">뒤로</span>
-        </span>
-        <span style="font-size: 50px; margin: 3px 40px;">회원가입</span>
-    </div>
-    <div id="main" style="text-align: center; padding: 10px 20px;">
-        <i class="fas fa-image fa-9x"></i>
-        <br>
-        <h3>회원가입을 위해 이메일 인증이 필요합니다. </h3>
-        <br><hr>
-        <h1 style="text-align: left; font-weight: normal;">이메일</h1>
-        <form id = "bini" action="userEmailRegisterOk.uo" style="text-align: left;">
-            <input type="text" name="user_email" id="user_email">
+   <!--  <div id="top"> -->
+        <form id = "bini" action="userEmailRegisterOk.uo" style="text-align: left;" class="form">
+	        <h1>Join</h1>
+	        <p class="text">회원가입을 위해 이메일 인증이 필요합니다.</p>
+            <input type="text" name="user_email" id="user_email" placeholder="UserEmail" class="input">
 <!--             <a style="font-size: 40px;" name="user_email">&#64;</a> -->
 <!--             <input type="text" name="user_email" id="email_adress"> -->
 <!--             <select name="email_site" id="email_site"> -->
@@ -38,10 +28,11 @@
 <!--                 <option value="daum.net" class="email">&#64;daum.net</option> -->
 
 <!--             </select> -->
-            <input type="submit" id="submit_btn" value="이메일 인증하기" />
+            <input type="submit" id="submit_btn" value="이메일 인증하기" class="btn-join" />
         </form>
-        
-    </div>
+        <div class="back">
+        	<input type="submit" value="뒤로가기" class="btn-back" onclick="history.back()" />
+    	</div>
    		 <script type="text/javascript">
    		 	$('#submit_btn').click(function(){
    		 		$('#bini').submit(function(){

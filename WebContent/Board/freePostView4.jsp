@@ -64,7 +64,7 @@
 		<div class="row">
 			<div class="col">
 				<i class="far fa-thumbs-up"></i><span>${fn:length(starList) }</span>
-				<i class="fas fa-comment"></i><span>${fn:length(commentList)}</span>
+				<i class="fas fa-comment"></i><span>${list[0].comments_count}</span>
 				<i class="far fa-eye"></i><span>${list[0].post_viewcnt}</span>
 			</div>
 		</div>
@@ -73,8 +73,7 @@
 				<ul class="pagination justify-content-end">
 					<li class="page-item"><a id="btn-update-pst" class="page-link"
 						href="freePostUpdate.po?post_uid=${list[0].post_uid}">수정</a></li>
-					<li class="page-item"><a id="btn-delete-pst" class="page-link"
-						href="#">삭제</a></li>
+					<li class="page-item"><a id="btn-delete-pst" class="page-link" href="#">삭제</a></li>
 				</ul>
 			</div>
 		</div>
@@ -104,46 +103,33 @@
 		</div>
 
 		<script>
-		$('#starButton').click(function(){
-			<c:choose>
-			<c:when test="${empty userDto[0] || userDto[0] == null}">
-			alert("로그인이 필요합니다.");
-			</c:when>	
-			<c:when test="${userDto[0].user_uid eq list[0].user_uid}">
-			alert("본인이 쓴 게시물에는 추천할 수 없습니다.");
-			</c:when>	
-			<c:when test="${empty starList || starList == null}">
-			location.href='starFreePost.po?user_uid=${userDto[0].user_uid}&post_uid=${list[0].post_uid}';
-			</c:when>
+		var starBtn = document.getElementById("starButton");
+		starBtn.addEventListener("click", function(){
 			
-			<c:otherwise>
-			<c:set var="loop_flag" value="false" />
+			
+			
+			<c:if test="${empty sessionScope.userDto[0] || sessionScope.userDto[0] == null}">
+			alert("로그인이 필요합니다");
+			return;
+			</c:if>			
+
 			
 			<c:forEach items="${starList}" var="item">
-			<c:choose>
-			<c:when test="${item.user_uid eq userDto[0].user_uid}">
-			<c:set var="loop_flag" value="true" />
-			</c:when>
-			</c:choose>
+			
+			if(${item["user_uid"]} == ${userDto[0]["user_uid"]}){
+				alert("이미 추천한 게시물입니다.")
+				return;
+			}
 			</c:forEach>
-			
-			<c:if test="${loop_flag}">
-			alert("이미 추천한 게시물입니다.");
-			</c:if>
-			<c:if test="${not loop_flag}">
+
 			location.href='starFreePost.po?user_uid=${userDto[0].user_uid}&post_uid=${list[0].post_uid}';
-			</c:if>
-			
-			
-			</c:otherwise>
-			
-			</c:choose>
 			
 			
 			
-		});
-			
-		</script>
+		}, false);
+		
+		
+</script>
 
 
 		<!-- 삭제하기 버튼 클릭시 나타나는 모달창입니다. -->

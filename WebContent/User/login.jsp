@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../JS/login.js" type="text/javascript"></script>
-<link href="../CSS/login2.css" rel="stylesheet" type="text/css">
+<link href="../CSS/login.css" rel="stylesheet" type="text/css">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>로그인</title>
@@ -27,27 +27,28 @@ html[lang='ko'] {
 
 		<!-- 로그인 Form -->
 		<form class="form" name="frm" action="loginOk.uo" method="post" onsubmit="return chkSubmit();">
+			<h1>Login</h1>
 			<!-- 입력 영역(이메일, 비번) -->
 			<input type="email" name="user_email" id="user_email" placeholder="UserEmail" class="input" /> 
 			<input type="password" name="user_pw" placeholder="Password" class="input" />
 
-			<!-- button 로그인하기 -->
-			<div class="btn_submit">
-				<input type="submit" id="btn_login" value="Login" class="btn-login"/>
-			</div>
-			
 			<!-- Checkbox 이메일저장 -->
 			<div class="check_save">
 				<input type="checkbox" name="chkSave" id="saveEmail" />
 				<label for="saveEmail"><a class="saveEmail">이메일 저장</a></label>
 			</div>
+			<!-- button 로그인하기 -->
+			<div class="btn_submit">
+				<input type="submit" id="btn_login" value="Login" class="btn-login"/>
+			</div>
 		</form>
+			
 
 	
 	<div class="section_02">
-		<h3 class="yet">아직 회원이 아니신가요?</h3>
+		<h3>아직 회원이 아니신가요?</h3>
 		<div id="btnJoin">
-			<input class="btn_join" onclick="location.href='userEmailRegister.uo'" type="submit" value="JoinUs"/>
+			<input class="btn_yet" onclick="location.href='userEmailRegister.uo'" type="submit" value="JoinUs"/>
 		</div>
 	</div>
 

@@ -43,32 +43,7 @@
 
 	<c:otherwise>
 
-
-		<script>
-			function chkSubmit() { // 폼 검증
-				frm = document.forms["frm"];
-
-				var category_uid = frm["category_uid"].value.trim();
-				var post_subject = frm["post_subject"].value.trim();
-
-				if (category_uid == "") {
-					alert("카테고리 유형을 선택해 주세요!");
-					frm["category_uid"].focus();
-					return false;
-				}
-				if (post_subject == "") {
-					alert("제목을 입력해 주세요!");
-					frm["post_subject"].focus();
-					return false;
-				}
-				if (post_content == "") {
-					alert("내용을 입력해 주세요!");
-					frm["post_content"].focus();
-					return false;
-				}
-				return true;
-			}
-		</script>
+		<script src="../JS/postUpdate.js"></script>
 
 		<body>
 			<!-- 헤더 부분 입니다. -->
@@ -82,12 +57,12 @@
 				<h4>글수정</h4>
 				<br>
 
-				<form name="frm"
+				<form name="frm-update-pst" id="frm-update-pst"
 					action="qnaPostUpdateOk.po?post_uid=${list[0].post_uid }"
-					method="post" onsubmit="return chkSubmit()">
+					method="post">
 
 					<!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
-					<input type="hidden" name="board_uid" value="4"> <input
+					<input type="hidden" name="board_uid" value="2"> <input
 						type="hidden" name="user_uid" value="${list[0].user_uid }">
 					<!---------------------------------->
 

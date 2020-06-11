@@ -87,7 +87,7 @@
 
 
 
-  <footer class="ft_white">
+   <footer class="ft_white">
         <div class="ft_link">
             <ul class="ft_link-ul">
                 <li class="about">

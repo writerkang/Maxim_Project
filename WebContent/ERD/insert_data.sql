@@ -3,10 +3,13 @@
 --tb_user 값 입력 예시
 
 INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_ISVALID , USER_AUTH , USER_POINT ) 
-VALUES (user_seq.nextval, 'aaa@nasver.com', 'abcd', '사자d호랑이', sysdate, '0101545678', 'F', 'G', 10)
+VALUES (user_seq.nextval, 'kdash111@naver.com', 'abcd', '이강혁', sysdate, '0101545678', 'F', 'G', 10)
 ;
-INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_ISVALID , USER_AUTH , USER_POINT , USER_SNS , USER_SNSID )
-VALUES (user_seq.nextval, 'bbb@daum.com', 'tjfj', '이예지', sysdate, '01016165828', 'F', 'G', 10, 'facebook', 'lkh')
+INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_ISVALID , USER_AUTH , USER_POINT )
+VALUES (user_seq.nextval, 'bbb@daum.com', 'tjfj', '이예지', sysdate, '01016165828', 'F', 'G', 10)
+;
+INSERT INTO TB_USER (USER_UID , USER_EMAIL , USER_PW , USER_NAME , USER_REGDATE , USER_PHONE , USER_ISVALID , USER_AUTH , USER_POINT )
+VALUES (user_seq.nextval, 'ccc@daum.com', 'tjfj', '이승환', sysdate, '01016165828', 'F', 'G', 10)
 ;
 
 UPDATE TB_USER SET USER_PW = '3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b'

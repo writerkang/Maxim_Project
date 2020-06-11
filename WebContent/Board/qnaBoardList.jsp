@@ -58,24 +58,6 @@
 
 <script src="../JS/board.js" type="text/javascript"></script>
 
-<!-- 비로그인 상태로 글쓰기 아이콘 클릭시 글쓰기 링크로 이동하지 않고 안내메시지를 띄워줍니다. -->
-<script>
-	$(document).ready(function() {
-		var userUid = $("#user_uid").text();
-		console.log(userUid);
-
-		if (userUid == null || userUid == "") {
-			$("#pen").click(function(e) {
-				e.preventDefault();
-				console.log(userUid);
-
-				alert("로그인 후 이용 가능합니다!");
-			});
-		}
-	});
-</script>
-<!---------------------------------->
-
 <!-- 헤더 부분 입니다. -->
 <jsp:include page="../header.jsp" />
 <script src="../JS/header.js"></script>

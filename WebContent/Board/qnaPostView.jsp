@@ -35,7 +35,7 @@
 <script src="../JS/toggle-menu.js" type="text/javascript"></script>
 <script src="../JS/modal-deletePost.js" type="text/javascript"></script>
 <script src="../JS/modal-updateComment.js" type="text/javascript"></script>
-<script src="../JS/commentCRUD.js" type="text/javascript"></script>
+<script src="../JS/QnA-commentCRUD.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../CSS/header.css" />
 
@@ -67,8 +67,8 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<i class="far fa-thumbs-up"></i><span>2</span> <i
-					class="fas fa-comment"></i><span>${list[0].comments_count}</span> <i
+				<i class="far fa-thumbs-up"></i><span>${fn:length(starList) }</span> <i
+					class="fas fa-comment"></i><span>${fn:length(commentList)}</span> <i
 					class="far fa-eye"></i><span>${list[0].post_viewcnt}</span>
 			</div>
 		</div>
@@ -98,9 +98,52 @@
 					onclick="location.href='qnaBoardList.po?page=${page}'">목록으로</button>
 			</div>
 			<div class="col">
-				<button class="form-control far fa-thumbs-up" type="submit">추천</button>
+				<button id="starButton" class="form-control far fa-thumbs-up"
+					type="button">추천</button>
 			</div>
 		</div>
+		
+		<script>
+		$('#starButton').click(function(){
+			<c:choose>
+			<c:when test="${empty userDto[0] || userDto[0] == null}">
+			alert("로그인이 필요합니다.");
+			</c:when>	
+			<c:when test="${userDto[0].user_uid eq list[0].user_uid}">
+			alert("본인이 쓴 게시물에는 추천할 수 없습니다.");
+			</c:when>
+			<c:when test="${empty starList || starList == null}">
+			location.href='starQnaPost.po?user_uid=${userDto[0].user_uid}&post_uid=${list[0].post_uid}';
+			</c:when>
+			
+			<c:otherwise>
+			<c:set var="loop_flag" value="false" />
+			
+			<c:forEach items="${starList}" var="item">
+			<c:choose>
+			<c:when test="${item.user_uid eq userDto[0].user_uid}">
+			<c:set var="loop_flag" value="true" />
+			</c:when>
+			</c:choose>
+			</c:forEach>
+			
+			<c:if test="${loop_flag}">
+			alert("이미 추천한 게시물입니다.");
+			</c:if>
+			<c:if test="${not loop_flag}">
+			location.href='starQnaPost.po?user_uid=${userDto[0].user_uid}&post_uid=${list[0].post_uid}';
+			</c:if>
+			
+			
+			</c:otherwise>
+			
+			</c:choose>
+			
+			
+			
+		});
+			
+		</script>
 
 
 		<!-- 삭제하기 버튼 클릭시 나타나는 모달창입니다. -->
