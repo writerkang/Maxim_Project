@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="CSS/header.css" />
-  <title>Bubble Effect</title>
+  <title>SYSOUT</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="logotext">  
-      <h4>SYSOUT</h4>
+      <h4><a class="btn" onclick="location.href='${pageContext.request.contextPath}/index.jsp'">SYSOUT</a></h4>
     </div>
 
     <ul class="login-links">
