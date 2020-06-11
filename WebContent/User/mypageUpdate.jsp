@@ -29,6 +29,7 @@
 		frm = document.form['frm'];
 		var subject = frm['mypage_subject'].value.trim();
 		
+		
 		if(mypage_subject == ""){
 			alert("'MainTitle'은 반드시 작성해야 합니다.");
 			frm['subject'].focus();

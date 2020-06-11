@@ -1,11 +1,14 @@
 $(document).ready(function() {
-	
+	if(${userDto[0].user_uid!=param.user_uid}){
+		 $('#update_btn').shide();
+	}
 	$('form input[name=mypage_subject]').attr('disabled', true);
 	$('form textarea[name=mypage_content').attr('disabled', true);
 
 	// 버튼 : 수정이면 -> 저장으로, 저장 이면 -> 수정으로 
     $('#update_btn').click(function() {
         var self = this;
+       
        if(this.value == "수정"){
     	   this.value = "저장"; // 버튼text -> '저장'으로 바꾼다.
     	   $("#mypage_subject").attr('disabled', false);

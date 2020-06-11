@@ -31,7 +31,8 @@
     <button type="button" id="back_btn" onclick = "location.href = 'noticeBoardList.po' ">목록으로</button>
     <br>
     <hr style="clear: both;">
-        <footer class="ft_white">
+
+<footer class="ft_white">
         <div class="ft_link">
             <ul class="ft_link-ul">
                 <li class="about">

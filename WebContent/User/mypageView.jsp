@@ -48,9 +48,12 @@
 					<textarea name='mypage_content' id='mypage_content' rows='10'> ${mypage[0].mypage_content }</textarea>
 				</div>
 			</div>
+			
+			
+			<a href="#" class="btn" id="update_btn"><i class="fas fa-cog"></i></a>
 		</form>
 		
-		<a href="#" class="btn" id="update_btn"><i class="fas fa-cog"></i></a>
+		
 			
 		<ul class="social-media">
 			<li><a href="#"><i class="fab fa-facebook-square"></i></a></li>

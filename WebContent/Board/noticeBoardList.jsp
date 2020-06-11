@@ -38,7 +38,7 @@
 <link rel="stylesheet" href="../CSS/bootstrap.css">
 <link rel="stylesheet" href="../CSS/notice.css">
 
-<title>Notice</title>
+<title>공지사항목록</title>
 </head>
 <body>
 	<h1 class="header">공지사항</h1>
@@ -46,7 +46,7 @@
 
 	<table class="table table-hover text-center">
 		<thead>
-			<tr style="background-color: #e9ecef;">
+			<tr style="background-color: rgba(192,190,190,0.2); border:none">
 				<th scope="col">NO</th>
 				<th scope="col">제목</th>
 				<th scope="col">등록일</th>
@@ -66,7 +66,7 @@
 
 						<tr>
 							<td scope="row">${dto.post_uid }</td>
-							<td><a href="noticePostView.po?post_uid=${dto.post_uid }" style="text-align: left;">${dto.post_subject }</a></td>
+							<td><a href="noticePostView.po?post_uid=${dto.post_uid }" style="text-align: left; color:#333;">${dto.post_subject }</a></td>
 							<td>${dto.post_regdate }</td>
 						</tr>
 

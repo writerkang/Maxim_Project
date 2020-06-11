@@ -2,20 +2,28 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
 }
 body {
-    margin: 0 100px;
+    margin: 0 20%;
 }
+table{
+	font-size: 13px;
+	color: #333;
+}
+
 .table {
     margin : 50px 0 50px 0;
 }
+h1.header{
+	font-size: 27px;
+}
 h1 {
-    margin: 100px 0 5px 50px;
+    margin: 100px 0 30px 0;
 }
 
 hr {
-    width: 95%;
+    width: 100%;
 }
 
 nav.nav{
@@ -105,3 +113,16 @@ ul.pagination {
     display: flex;
     justify-content: space-around;
 }
+
+footer.ft_white {
+	/*
+	width: 100%;
+   height:auto;
+   position:absolute;
+   padding-left:0;
+   */
+   
+   bottom:0;
+   margin-top : 200px; 
+} 
+

@@ -1,16 +1,14 @@
-@charset "utf-8";
-
-@font-face {
-    font-family: yun;
-    src: url(font/윤고딕310.ttf);
-  }
-
-*
-{font-family: yun;}
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+}
+body {
+    margin: 0 20%;
+}
 #content{
     background-color: #fafafa;
-    width: 84%;
     margin: 30px auto;
     padding: 20px 10px;
     border-top: 1px solid #DEDEDE;
@@ -35,7 +33,7 @@
     color: white;
     float: right;
     margin-right: 8%;
-    font-size: 16px;
+    font-size: 0.1rem;
     border-radius: 7px;
     margin-bottom: 30px;
 }
