@@ -120,6 +120,7 @@ CREATE TABLE tb_comment
     comment_uid        NUMBER    PRIMARY KEY, 
     comment_content    CLOB      NOT NULL, 
     comment_regdate    DATE      DEFAULT SYSDATE NOT NULL, 
+    comment_selected   CHAR(1)   DEFAULT 'F' NOT NULL,
     post_uid           NUMBER    NOT NULL, 
     user_uid           NUMBER    NOT NULL,
     --외래키설정

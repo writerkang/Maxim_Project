@@ -7,8 +7,11 @@ public class CommentDTO {
 	int post_uid; 
 	int user_uid;
 	String user_name;
-	
-	public CommentDTO(int comment_uid, String comment_content, String comment_regdate, int post_uid, int user_uid) {
+	String comment_selected;	
+
+	public CommentDTO(int comment_uid, String comment_content, 
+			String comment_regdate, int post_uid, int user_uid
+			) {
 		super();
 		this.comment_uid = comment_uid;
 		this.comment_content = comment_content;
@@ -67,8 +70,15 @@ public class CommentDTO {
 
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
-	} 
-	
-	
+	}
+
+	public String getComment_selected() {
+		return comment_selected;
+	}
+
+	public void setComment_selected(String comment_selected) {
+		this.comment_selected = comment_selected;
+	}
+
 
 }
