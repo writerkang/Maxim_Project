@@ -13,24 +13,26 @@
     <title>공지사항</title>
 </head>
 <body>
-    <h2 style="width: 85%; margin: 10px auto;">공지사항</h2>
-
+    <h1 class="header">공지사항</h1>
+	
     <div id="content">
-        <span id="notice_title">
+        <span id="notice_title" class="title">
             ${list[0].post_subject}
         </span>
-        <span id="notice_date">
+        <span id="notice_date" class="title">
             ${list[0].post_regdate }
         </span>
+        
         <hr>
+        
         <div id="notice_content">
 			${list[0].post_content}
         </div>
     </div>
 
-    <button type="button" id="back_btn" onclick = "location.href = 'noticeBoardList.po' ">목록으로</button>
-    <br>
-    <hr style="clear: both;">
+    <button type="button" id="back_btn" onclick = "location.href = 'noticeBoardList.po' ">목록</button>
+    <br><br>
+    <hr style="clear: both; display:none">
 
 <footer class="ft_white">
         <div class="ft_link">
