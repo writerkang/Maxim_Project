@@ -63,7 +63,11 @@
       </div>   
       <div class="text-warn" id="pw2_check"></div>
      
+<<<<<<< HEAD
+      
+=======
       </div>
+>>>>>>> branch 'master' of https://github.com/writerkang/Maxim_Project.git
 
 
       <div class="wholeform">
@@ -233,9 +237,14 @@
       <div class="join-btn" id="join-btn">
          <input type="submit" name="sub_btn" id="sub_btn"
          value="회원가입 하기" class="join-btn-btn">
+<<<<<<< HEAD
+      </div>
+    </form>
+=======
       </div>
    </form>
 </div>
+>>>>>>> branch 'master' of https://github.com/writerkang/Maxim_Project.git
    <script src="../JS/join.js" type="text/javascript"></script>
 </body>
 </html>

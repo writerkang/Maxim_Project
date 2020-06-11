@@ -53,7 +53,7 @@
 					<div class="face face2">
 						<div class="content">
 							<p>매번 필요한 기능 구글링 하기 귀찮으셨죠? 저희가 다 모아놨어요 :)</p>
-								<a href="#">사이트추천게시판이동</a>
+								<a href="Board/siteBoardList.jsp">사이트추천게시판이동</a>
 						</div>
 					</div>
 				</div>
@@ -95,7 +95,7 @@
 					<div class="face face2">
 						<div class="content">
 							<p>누적포인트 순위를 알 수 있습니다.</p>
-								<a href="User/userRank.po">포인트랭킹페이지이동</a>
+								<a href="User/userRank.uo">포인트랭킹페이지이동</a>
 						</div>
 					</div>
 				</div>
