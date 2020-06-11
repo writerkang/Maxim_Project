@@ -23,8 +23,8 @@ body {
 
   .wholeform {
    margin: 0 10px ;
-    height: 550px;
-    width: 600px;
+    height: 400px;
+    width: 500px;
     border-radius: 10px;
     background: #ffe082;
     display: flex;

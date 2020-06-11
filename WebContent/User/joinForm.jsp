@@ -18,7 +18,7 @@
 </head>
 <body>
 
-   <!--  <%=request.getParameter("user_email") %> -->
+     <%-- <%=request.getParameter("user_email") %> --%> 
    <form id="frm" action="joinFormOk.uo" method="post" class="wholeform"onsubmit="return chkSubmit();">
       <h1 class="join-title">Join</h1>
 
