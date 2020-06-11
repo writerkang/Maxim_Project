@@ -50,7 +50,7 @@
 			<label for="title">제목</label>
 			<div>
 				<input type='text' name='mypage_subject' id='mypage_subject'
-					value='${userDto[0].mypage_subject }'  required="required">
+					value='${mypage[0].mypage_subject }'  required="required">
 			</div>
 		</div>
 
@@ -58,7 +58,7 @@
 			<label for="content">내용</label>
 			<div>
 				<textarea name='mypage_content' id='mypage_content' rows='10' 
-				> ${userDto[0].mypage_content }</textarea>
+				> ${mypage[0].mypage_content }</textarea>
 			</div>
 		</div>
 	</form>

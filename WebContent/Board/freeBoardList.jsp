@@ -56,18 +56,20 @@
 
 </head>
 
-<script src="../JS/board.js" type="text/javascript"></script>
+<script src="../JS/freeBoard.js" type="text/javascript"></script>
+
+<body>
 
 <!-- 헤더 부분 입니다. -->
 <jsp:include page="../header.jsp" />
 <script src="../JS/header.js"></script>
 <!---------------------------------->
 <br>
+
 <div class="container">
 	<h4>자유게시판</h4>
 	<br>
 
-	
 	<table class="table table-hover">
 		<thead class="thead-light">
 			<tr>

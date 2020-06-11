@@ -35,7 +35,7 @@
 	
 </head>
 
-<script src="../JS/board.js" type="text/javascript"></script>
+<script src="../JS/freeBoard.js" type="text/javascript"></script>
 
 <body style="background-color: #e6e6e6;">
     <h2 style="text-align: left;">자유게시판</h2>
