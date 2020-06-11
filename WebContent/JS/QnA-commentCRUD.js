@@ -44,7 +44,7 @@ $(document).ready(function(){
 				str += "<span class='cmt-regdate'>(" + data[i].comment_regdate + ")</span>";
 				str += "</div>";
 				str += "<div class='panel_cmt_buttons'>";
-				if(userUid == data[i].user_uid){
+				if(userUid == data[i].user_uid && data[i].comment_selected == 'F'){
 					str += "<span class='link-cmt-update'>수정</span>";
 					str += "<a class='link-cmt-delete' href='commentDelete.ajax?comment_uid=" + data[i].comment_uid + "'>삭제</a>";
 				}

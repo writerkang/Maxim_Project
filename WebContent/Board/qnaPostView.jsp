@@ -76,9 +76,10 @@
 		<div class="row">
 			<div class="col">
 				<ul class="pagination justify-content-end">
-					<li class="page-item"><a class="page-link"
+					<li class="page-item"><a id="btn-update-pst" class="page-link"
 						href="qnaPostUpdate.po?post_uid=${list[0].post_uid}">수정</a></li>
-					<li class="page-item"><a class="page-link btn-delete" href="#">삭제</a></li>
+					<li class="page-item"><a id="btn-delete-pst" class="page-link"
+						href="#">삭제</a></li>
 				</ul>
 			</div>
 		</div>
