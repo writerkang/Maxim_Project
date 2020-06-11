@@ -1,25 +1,26 @@
 $(document).ready(function() {
 	
-	$('form input[type')
+	$('form input[name=mypage_subject]').attr('disabled', true);
+	$('form textarea[name=mypage_content').attr('disabled', true);
 
 	// 버튼 : 수정이면 -> 저장으로, 저장 이면 -> 수정으로 
     $('#update_btn').click(function() {
         var self = this;
        if(this.value == "수정"){
     	   this.value = "저장"; // 버튼text -> '저장'으로 바꾼다.
-    	   $("#mypage_subject").attr('disabled', true);
+    	   $("#mypage_subject").attr('disabled', false);
+    	   $('#mypage_content').attr('disabled', false);
        } else{
     	   this.value = "수정";
     	   updateOk();
-    	   $("#mypage_subject").attr('disabled', false);
+    	   $("#mypage_subject").attr('disabled', true);
+    	   $('#mypage_content').attr('disabled', true);
        }
      });
 
-});
 
 
 // ajax 사용하여 post방식으로  수정 요청 
-// request 성공은 됨.
 function updateOk(){
 	
 	var formData = $('#frmView2').serialize();
@@ -41,36 +42,5 @@ function updateOk(){
 }
 
 
-//function change( el ) {
-//    if ( el.value === "수정" )
-//    el.value = "저장";
-//    else
-//    el.value = "수정";
-//   }
-////
-//function update_form(b_no) {
-//	
-//	$.ajax({
-//		url : "updateOk.ajax",
-//		type : "POST",
-//		cache : false,
-//		dataType : "json",
-//		data : 
-//		success : function(data) {
-//			$('#b_title').val(data.b_title);
-//			$('#b_content').val(data.b_content);
-//
-//			$('#update_btn').html('저장');
-//			$('#update_btn').off('click');
-//			$('#update_btn').on('click', update_proc);
-//		},
-//
-//		error : function(request, status, error) {
-//			var msg = "ERROR : " + request.status + "<br>"
-//			msg += +"내용 : " + request.responseText + "<br>" + error;
-//			console.log(msg);
-//		}
-//	});
-//}
 
-
+});
