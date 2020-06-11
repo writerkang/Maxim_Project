@@ -56,18 +56,20 @@
 
 </head>
 
-<script src="../JS/board.js" type="text/javascript"></script>
+<script src="../JS/QnABoard.js" type="text/javascript"></script>
+
+<body>
 
 <!-- 헤더 부분 입니다. -->
 <jsp:include page="../header.jsp" />
 <script src="../JS/header.js"></script>
 <!---------------------------------->
 <br>
+
 <div class="container">
 	<h4>질문게시판</h4>
 	<br>
 
-	
 	<table class="table table-hover">
 		<thead class="thead-light">
 			<tr>
@@ -120,8 +122,7 @@
 				<button class="form-control fas fa-search"></button>
 			</div>
 			<div class="col-1">
-				<button type="button" class="form-control fas fa-pencil-alt"
-					onclick="location.href='qnaPostWrite.po'"></button>
+				<button type="button" id="btn-write-pst" class="form-control fas fa-pencil-alt"></button>
 			</div>
 			<!-- 보이지 않지만 form을 submit 할 때 같이 전달되는 값입니다 -->
 			<input type="hidden" name="page" value="1">

@@ -25,16 +25,8 @@ $(document).ready(function(){
 		var data = jsonObj.data;
 		var i;
 		var str="";
-		var isSelected = false;
 		
 		if(data != null){
-			for (i = 0; i < data.length; i++){
-				if(data[i].comment_selected == 'T'){
-					isSelected = true;
-					break;
-				}
-			}
-			
 			for (i = 0; i < data.length; i++){ 			
 				str += "<div class='comment-box'>";
 				str += "<div class='cmt-header'>";
@@ -44,16 +36,12 @@ $(document).ready(function(){
 				str += "<span class='cmt-regdate'>(" + data[i].comment_regdate + ")</span>";
 				str += "</div>";
 				str += "<div class='panel_cmt_buttons'>";
-				if(userUid == data[i].user_uid && data[i].comment_selected == 'F'){
+				if(userUid == data[i].user_uid){
 					str += "<span class='link-cmt-update'>수정</span>";
 					str += "<a class='link-cmt-delete' href='commentDelete.ajax?comment_uid=" + data[i].comment_uid + "'>삭제</a>";
 				}
-				
-				if((userUid == postWriterUid) && (userUid != data[i].user_uid) && !isSelected){
+				if((userUid == postWriterUid) && (userUid != data[i].user_uid)){
 					str += "<button class='btn-adopt'>채택</button>"				
-				} 
-				else if(data[i].comment_selected == 'T'){
-					str += "<span class='selected'>질문자가 채택한 답변입니다</span>"
 				}
 				str += "</div>";
 				str += "</div>";
@@ -63,9 +51,6 @@ $(document).ready(function(){
 			} // end for
 		}
 		$(".comment-list").html(str);
-		$(".selected").css('color', 'red');
-		var $comment_box = $(".selected").closest('.comment-box');
-		$comment_box.closest('.comment-list').find('.comment-box:first').before($comment_box);
 	}
 	//------------------------------
 	

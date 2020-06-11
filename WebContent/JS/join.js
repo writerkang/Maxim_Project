@@ -96,33 +96,33 @@ $("#user_name").blur(function() {
 			if (data == 1) {
 				// 1 : 닉네임이 중복되는 문구
 				$("#name_check").text("사용중인 닉네임입니다 :(");
-				$("#name_check").css("color", "red");
+				$("#name_check").css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 			} else if(data == 0){ // 중복없는 네임 중에서~
 				
 				if(nameJ.test($("#user_name").val())){ // 정규식 통과한
 					console.log("확인: " + true);
 					$("#name_check").text('사용 가능합니다~~!');
-					$('#name_check').css('color', 'blue');
+					$('#name_check').css({"color":"blue", "font":"sans-serif", "font-size":"10px"});
 				
 				}else if ($("#user_name").val() == ""){
 					$('#name_check').text('닉네임을 입력해주세요 :)');
-					$('#name_check').css('color', 'green');
+					$('#name_check').css({"color":"green", "font":"sans-serif", "font-size":"10px"});
 				
 				} else if(empJ.test($("#user_name").val())){
 					$('#name_check').text('공백없이 입력해주세요 :)');
-					$('#name_check').css('color', 'red');
+					$('#name_check').css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 				
 				} else if(regExp.test($("#user_name").val())){
 					$('#name_check').text('특수문자는 입력할 수 없습니다 :(');
-					$('#name_check').css('color', 'red');
+					$('#name_check').css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 				
 				} else if(numJ.test($('#user_name').val())){
 					$('#name_check').text('숫자만 입력할 수 없습니다 :(');
-					$('#name_check').css('color', 'red');
+					$('#name_check').css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 					
 				} else {
 					$('#name_check').text('닉네임은 한글,숫자 포함하여 5~10자리입니다. :)');
-					$('#name_check').css('color', 'red');
+					$('#name_check').css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 				}
 	
 			}
@@ -149,15 +149,15 @@ $('#user_phone').blur(function(){
 	if(phoneJ.test(user_phone)){
 		$('#user_phone').val(user_phone);
 		$("#phone_check").text('통과');
-		$('#phone_check').css('color', 'blue');
+		$('#phone_check').css({"color":"blue", "font":"sans-serif", "font-size":"10px"});
 		
 	} else if(user_phone.length <= 11 || user_phone.length > 12){
 		$('#phone_check').text('자릿수가 맞지 않습니다');
-		$('#phone_check').css('color', 'red');
+		$('#phone_check').css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 		
 	} else{
 		$('#phone_check').text('휴대전화를 다시 확인해주세요.');
-		$('#phone_check').css('color', 'red');
+		$('#phone_check').css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 	}
 });
 
@@ -170,11 +170,11 @@ $('#user_pw').blur(function(){
 	
 	if(pwJ.test($('#user_pw').val())){
 		$("#pw_check").text('통과');
-		$('#pw_check').css('color', 'blue');
+		$('#pw_check').css({"color":"blue", "font":"sans-serif", "font-size":"10px"});
 		
 	} else{
 		$('#pw_check').text('6-16자리 영문, 숫자, 특수문자 조합하여 입력해주세요.');
-		$('#pw_check').css('color', 'red');
+		$('#pw_check').css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 	}
 });
 
@@ -182,12 +182,12 @@ $('#user_pw').blur(function(){
 $('#user_pw2').blur(function(){
 	
 	if($('#user_pw').val() != $('#user_pw2').val()){
-		$('#pw2_check').text('비밀번호가 일치하지 않습니다:(');
-		$('#pw2_check').css('color', 'red');
+		$('#pw2_check').text('비밀번호가 일치하지 않아요 :(');
+		$('#pw2_check').css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 		
 	} else{
-		$('#pw2_check').text('일치합니당');
-		$('#pw2_check').css('color', 'blue');
+		$('#pw2_check').text('비밀번호가 일치합니당');
+		$('#pw2_check').css({"color":"blue", "font":"sans-serif", "font-size":"10px"});
 	}
 });
 

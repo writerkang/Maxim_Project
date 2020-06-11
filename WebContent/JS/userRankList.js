@@ -33,7 +33,7 @@ $(document).ready(function(){
 			for (i = 0; i < data.length; i++){ 			
 				list += "<tr>";
 				list += "<td>" + data[i].user_rank + "</td>";
-				list += "<td>" + data[i].user_name + "</td>";
+				list += "<td><a href='mypageView.uo?user_uid=" + data[i].user_uid + "'>" + data[i].user_name + "</a></td>";
 				list += "<td>" + data[i].user_point + "</td>";
 				list += "</tr>";
 			} // end for

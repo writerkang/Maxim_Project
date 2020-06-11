@@ -18,8 +18,9 @@
 </head>
 <body>
 
-   <!--  <%=request.getParameter("user_email") %> -->
-   <form id="frm" action="joinFormOk.uo" method="post" class="wholeform"onsubmit="return chkSubmit();">
+     <%-- <%=request.getParameter("user_email") %> --%> 
+     <div class="wholeform">
+   <form id="frm" action="joinFormOk.uo" method="post" onsubmit="return chkSubmit();">
       <h1 class="join-title">Join</h1>
 
       <div class="group"> 
@@ -228,12 +229,14 @@
 
 서비스와 관련하여 사이트와 회원간에 분쟁이 발생할 경우 사이트의 본사 소재지를 
 관할하는 법원을 관할법원으로 합니다.</pre>
-	</div>
+	
       <div class="join-btn" id="join-btn">
          <input type="submit" name="sub_btn" id="sub_btn"
          value="회원가입 하기" class="join-btn-btn">
       </div>
+      </div>
     </form>
+    </div>
    <script src="../JS/join.js" type="text/javascript"></script>
 </body>
 </html>

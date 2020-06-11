@@ -1,17 +1,30 @@
+<%@page import="org.ietf.jgss.Oid"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%-- JSTL 버젼으로 바뀌니, import 번잡함도 사라진다. JAVA 변수 선언도 사라진다. --%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link href="../CSS/siteBoard.css" rel="stylesheet" type="text/css">
+<title>사이트 게시판</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href="../CSS/siteBoard.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../CSS/header.css" />
 </head>
-<body style="background-color: blanchedalmond;">
-  <h2 style="margin: 30px;">사이트공유게시판</h2>
+<body>
+	<jsp:include page="../header.jsp" />
+	<script src="../JS/header.js"></script>
+	
+	<div style="padding: 0 5%;">
+	  <h2 style="margin: 30px;">사이트공유게시판</h2>
   
 
-  	<span class="card" style="border: 1px solid #DEDEDE;">
+  	<span class="card">
+  	
       <img class="card_img" alt="can i use" src="../image/can_i_use.PNG">
       <span class="card_text">드림코딩 CSS레이아웃정리편</span><br>
       <button class="site_btn" onclick="location.href='https://caniuse.com/'">Can i use</button>
@@ -87,8 +100,6 @@
       <span class="card_text">modal을 연습할 수 있는 사이트</span><br>
       <button class="site_btn" onclick="location.href='https://sweetalert2.github.io/#examples'">sweetalert2</button>
     </span>
-
-  
-  
+	</div>
 </body>
 </html>
