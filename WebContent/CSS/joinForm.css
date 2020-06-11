@@ -23,7 +23,7 @@ body {
 
   .wholeform {
    margin: 0 10px ;
-    height: 400px;
+    height: 500px;
     width: 500px;
     border-radius: 10px;
     background: #ffe082;
@@ -92,7 +92,7 @@ body {
    color: #333;
    font-size: 0.3em;
     overflow: scroll;
-    width: 500px;
+    width: 400px;
     height: 130px;
     overflow-x: hidden;
     border-radius: 5px;
