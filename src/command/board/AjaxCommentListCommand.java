@@ -42,6 +42,7 @@ public class AjaxCommentListCommand implements Command {
 				dataObj.put("post_uid", dtoArr[i].getPost_uid());		
 				dataObj.put("user_uid", dtoArr[i].getUser_uid());		
 				dataObj.put("user_name", dtoArr[i].getUser_name());
+				dataObj.put("comment_selected", dtoArr[i].getComment_selected());
 				
 				// array 에 추가
 				dataArr.put(dataObj);
