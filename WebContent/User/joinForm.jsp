@@ -19,7 +19,8 @@
 <body>
 
      <%-- <%=request.getParameter("user_email") %> --%> 
-   <form id="frm" action="joinFormOk.uo" method="post" class="wholeform"onsubmit="return chkSubmit();">
+     <div class="wholeform">
+   <form id="frm" action="joinFormOk.uo" method="post" onsubmit="return chkSubmit();">
       <h1 class="join-title">Join</h1>
 
       <div class="group"> 
@@ -62,10 +63,10 @@
       </div>   
       <div class="text-warn" id="pw2_check"></div>
      
-      
+      </div>
 
 
-      <form class="wholeform" id="form2">
+      <div class="wholeform">
 
          <h2 class="join-title">서비스 이용약관</h2>
          <div class="agree">
@@ -234,7 +235,7 @@
          value="회원가입 하기" class="join-btn-btn">
       </div>
    </form>
-
+</div>
    <script src="../JS/join.js" type="text/javascript"></script>
 </body>
 </html>
