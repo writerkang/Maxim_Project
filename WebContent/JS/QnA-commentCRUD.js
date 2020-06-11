@@ -40,7 +40,7 @@ $(document).ready(function(){
 				str += "<div class='cmt-header'>";
 				str += "<div class='panel_cmt_info'>";
 				str += "<span class='cmt-uid' style='display: none'>" + data[i].comment_uid + "</span>";
-				str += "<span class='cmt-writer-name'>" + data[i].user_name + "</span> ";
+				str += "<span class='cmt-writer-name'><a href='../User/mypageView.uo?user_uid=" + data[i].user_uid  + "'>" + data[i].user_name + "</a></span> ";
 				str += "<span class='cmt-regdate'>(" + data[i].comment_regdate + ")</span>";
 				str += "</div>";
 				str += "<div class='panel_cmt_buttons'>";
