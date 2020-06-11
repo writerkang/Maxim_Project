@@ -228,7 +228,7 @@
 
 서비스와 관련하여 사이트와 회원간에 분쟁이 발생할 경우 사이트의 본사 소재지를 
 관할하는 법원을 관할법원으로 합니다.</pre>
-
+	</div>
       <div class="join-btn" id="join-btn">
          <input type="submit" name="sub_btn" id="sub_btn"
          value="회원가입 하기" class="join-btn-btn">
