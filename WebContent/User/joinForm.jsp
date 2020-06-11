@@ -233,8 +233,8 @@
          <input type="submit" name="sub_btn" id="sub_btn"
          value="회원가입 하기" class="join-btn-btn">
       </div>
-
    </form>
+
    <script src="../JS/join.js" type="text/javascript"></script>
 </body>
 </html>
