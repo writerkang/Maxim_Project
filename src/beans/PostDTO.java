@@ -12,6 +12,7 @@ public class PostDTO {
 	int category_uid;
 	String user_name;
 	int comments_count =0;
+	int sel_comments = 0;
 	
 	public PostDTO(int post_uid, String post_subject, String post_content, String post_regdate, int post_viewcnt,
 			int board_uid, int user_uid, int category_uid) {
@@ -108,6 +109,14 @@ public class PostDTO {
 
 	public void setComments_count(int comments_count) {
 		this.comments_count = comments_count;
+	}
+
+	public int getSel_comments() {
+		return sel_comments;
+	}
+
+	public void setSel_comments(int sel_comments) {
+		this.sel_comments = sel_comments;
 	}
 	
 	
