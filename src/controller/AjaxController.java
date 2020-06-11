@@ -14,8 +14,9 @@ import command.board.CommentListCommand;
 import command.board.CommentUpdateCommand;
 import command.board.CommentWriteCommand;
 import command.user.AjaxResultCommand;
-import command.user.MypageUpdateOkCommand;
 import command.user.AjaxUserRankListCommand;
+import command.user.FileUploadOkCommand;
+import command.user.MypageUpdateOkCommand;
 import command.user.UserRankListCommand;
 
 @WebServlet("*.ajax")
@@ -80,8 +81,13 @@ public class AjaxController extends HttpServlet {
 			new AjaxUserRankListCommand().execute(request, response);
 			break;
 			
-		case "/User/updateOk.ajax": // D 글 수정 
+		case "/User/updateOk.ajax": // 마이페이지 글수정
 			new MypageUpdateOkCommand().execute(request, response);
+			new AjaxResultCommand().execute(request, response);
+			break;
+
+		case "/User/fileUploadOk.ajax": // 
+			new FileUploadOkCommand().execute(request, response);
 			new AjaxResultCommand().execute(request, response);
 			break;
 			

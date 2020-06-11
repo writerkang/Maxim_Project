@@ -107,32 +107,10 @@ public class UserController extends HttpServlet {
 //			viewPage = "joinForm.jsp"; --> 이렇게 하면 data 를 못 받아오는 구나...
 			break;
 
-		// Mypage
-//		case "/User/mypageView.uo": // 마이페이지 진입 시 view 역할
-//			viewPage = "mypageView.jsp";
-//			break;
 		case "/User/mypageView.uo": // 마이페이지 진입 시 view 역할
 			viewPage = "mypageView.jsp";
 			break;
 
-		case "/User/mypageUpdateOk.uo": // 수정버튼 누를 시 ajax로 해당 url매핑 요청들어옴.
-			new MypageUpdateOkCommand().execute(request, response);
-			new MypageViewCommand().execute(request, response);  // 여기서 DB 값 arr 에 담아서 세션에 저장
-			break;
-			
-		
-//		case "/User/mypage.uo":
-//			command = new MypageCommand();
-//			command.execute(request, response);
-//			viewPage = "mypage.jsp";
-//		case "/User/mypageUpdate.uo":
-//			command = new ViewCommand();
-//			command.execute(request, response);
-//			viewPage = "mypageUpdate.jsp";
-//		case "/User/mypageUpdateOk.uo":
-//			command = new ViewCommand();
-//			command.execute(request, response);
-//			viewPage = "mypageUpdateOk.jsp";	
 		case "/User/userRank.uo": // 포인트랭킹 페이지 진입 시 view 역할
 			viewPage = "userRank.jsp";
 			break;
