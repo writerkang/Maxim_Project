@@ -2,8 +2,9 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
 }
-
 @media screen and (max-width: 480px){
 article{
     background: #0a2a43; 

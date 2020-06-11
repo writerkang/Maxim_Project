@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link href="../CSS/siteBoard.css" rel="stylesheet" type="text/css">
+<link href="../CSS/notice_content.css" rel="stylesheet" type="text/css">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -28,9 +28,6 @@
     
     <title>공지사항</title>
     
-</head>
-<body>
-
 
 </head>
 
@@ -43,7 +40,7 @@
 
 
 
-
+	<div class="body">
     <h1 class="header">공지사항</h1>
 	
     <div id="content">
@@ -64,7 +61,7 @@
     <button type="button" id="back_btn" onclick = "location.href = 'noticeBoardList.po' ">목록</button>
     <br><br>
     <hr style="clear: both; display:none">
-
+</div>
 <footer class="ft_white">
         <div class="ft_link">
             <ul class="ft_link-ul">

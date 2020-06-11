@@ -32,7 +32,7 @@
 			
 
     <div>
-    <ul class="nav-links" style="width:140%; margin-left:10%; color:#333;">
+    <ul class="nav-links" style="width:140%; margin-left:10%; color:#333;margin:10%; font-weight:30;">
       <li><a onclick="location.href='${pageContext.request.contextPath}/Board/siteBoardList.jsp'" style="color:#333;">추천사이트</a></li>
       <li><a onclick="location.href='${pageContext.request.contextPath}/Board/freeBoardList.po'"style="color:#333;">자유게시판</a></li>
       <li><a onclick="location.href='${pageContext.request.contextPath}/Board/qnaBoardList.po'"style="color:#333;">질문게시판</a></li>
