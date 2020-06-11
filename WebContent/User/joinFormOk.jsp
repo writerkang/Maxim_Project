@@ -19,7 +19,7 @@
       <!-- Modal content -->
       <div class="modal-content">
                 <p style="text-align: center; line-height: 1.5;"><br/>이미 존재하는 이메일입니다.</p>
-                <p style="text-align: center; line-height: 1.5;"><br/><a href= "javascript:window.history.back()" >뒤로가기!</a></p>
+                <p style="text-align: center; line-height: 1.5;"><br/><button onclick=history.back()>뒤로가기!</button></p>
                 <p><br /></p>
 
       </div>
@@ -31,7 +31,7 @@
       <!-- Modal content -->
       <div class="modal-content">
                 <p style="text-align: center; line-height: 1.5;"><br/>반갑습니다! 시스아웃 회원이 되신 걸 축하드립니다. 로그인해주세요!</p>
-                <p style="text-align: center; line-height: 1.5;"><br/><a href="/Maxim_Project/User/login.uo">로그인</a>하러 가기!</p>
+				<p style="text-align: center; line-height: 1.5;"><br/><button onclick="location.href='/Maxim_Project/User/login.uo'">로그인하러 가기!</button></p>
                 <p><br /></p>
 
       </div>

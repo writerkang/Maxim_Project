@@ -80,10 +80,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <link href="../CSS/modal.css" rel="stylesheet" type="text/css">
 <title>이메일 전송</title>
 </head>
 <body>
-	<h1>이메일 주소 인증 메일이 전송되었습니다. 이메일에 들어가셔서 인증해주세요.</h1>
+
+		<div id="myModal1" class="modal">
+ 
+      <!-- Modal content -->
+      <div class="modal-content">
+                <p style="text-align: center; line-height: 1.5;"><br/>이메일 주소 인증 메일이 전송되었습니다.</p>
+                <p style="text-align: center; line-height: 1.5;"><br/>이메일에 들어가셔서 인증해주세요.</p>
+				<p style="text-align: center; line-height: 1.5;"><br/><button onclick="location.href='/Maxim_Project/User/login.uo'">로그인하러 가기!</button></p>                <p><br /></p>
+	
+      </div>
+ 
+    </div>
+	<script>
+			$('#myModal1').show();	
+	</script>
 	
 	</c:when>
 </c:choose>

@@ -59,7 +59,7 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<a href="#">${list[0].user_name }</a> <span class="">${list[0].post_regdate }</span>
+				<a href="${pageContext.request.contextPath}/User/mypageView.uo?user_uid=${list[0].user_uid }">${list[0].user_name }</a> <span class="">${list[0].post_regdate }</span>
 			</div>
 		</div>
 		<div class="row">

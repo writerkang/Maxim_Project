@@ -62,16 +62,23 @@
 </div>
 </section>
 
+	<form method="post" enctype="multipart/form-data">
+		프로필 사진
+		<div>
+			<input type="file" name="file"><br>
+		</div>
+	</form>
 
 
-	<%-- 	<%-- 이미지인 경우 보여주기  --%>
-	<%-- 	<c:forEach var="element" items="${file }"> --%>
-	<%-- 		<c:if test="${element.image == true }"> --%>
-	<!-- 			<div style="width: 300px;"> -->
-	<%-- 				<img style="width: 100%; height: auto" src="upload/${element.file }" /> --%>
-	<!-- 			</div> -->
-	<%-- 		</c:if> --%>
-	<%-- 	</c:forEach> --%>
+	<!-- 		이미지인 경우 보여주기  -->
+	<c:forEach var="element" items="${file }">
+		<c:if test="${element.image == true }">
+			<div style="width: 300px;">
+				<img style="width: 100%; height: auto" src="upload/${element.file }" />
+			</div>
+		</c:if>
+	</c:forEach>
+
 
 
 </body>

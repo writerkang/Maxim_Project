@@ -133,12 +133,12 @@ CREATE TABLE tb_comment
 CREATE TABLE tb_attach
 (
     attach_uid           NUMBER           PRIMARY KEY, 
-    attach_oriname       VARCHAR2(60)     NOT NULL, 
-    attach_servername    VARCHAR2(60)     NOT NULL, 
-    attach_type          VARCHAR2(50)     NOT NULL, 
+    attach_oriname       VARCHAR2(100)     NOT NULL, 
+    attach_servername    VARCHAR2(100)     NOT NULL, 
+    attach_type          VARCHAR2(50)     , 
     attach_url           VARCHAR2(100)    NOT NULL, 
     attach_regdate       DATE             DEFAULT SYSDATE NOT NULL, 
-    attach_size          NUMBER           NOT NULL, 
+    attach_size          NUMBER           , 
     post_uid             NUMBER           , 
     user_uid           NUMBER            	            
 );
