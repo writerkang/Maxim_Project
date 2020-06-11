@@ -1,3 +1,4 @@
+  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -63,7 +64,7 @@
       </div>   
       <div class="text-warn" id="pw2_check"></div>
      
-      
+      </div>
 
 
       <div class="wholeform">
@@ -234,9 +235,8 @@
          <input type="submit" name="sub_btn" id="sub_btn"
          value="회원가입 하기" class="join-btn-btn">
       </div>
-      </div>
-    </form>
-    </div>
+   </form>
+</div>
    <script src="../JS/join.js" type="text/javascript"></script>
 </body>
 </html>
