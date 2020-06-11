@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import command.user.JoinCommand;
 import command.user.LoginCommand;
 import command.user.MypageUpdateOkCommand;
+import command.user.MypageViewCommand;
 import command.user.NameChkCommand;
 import command.user.UserDeleteCommand;
 import command.user.UserEmailCheckCommand;
@@ -116,7 +117,9 @@ public class UserController extends HttpServlet {
 
 		case "/User/mypageUpdateOk.uo": // 수정버튼 누를 시 ajax로 해당 url매핑 요청들어옴.
 			new MypageUpdateOkCommand().execute(request, response);
+			new MypageViewCommand().execute(request, response);  // 여기서 DB 값 arr 에 담아서 세션에 저장
 			break;
+			
 		
 //		case "/User/mypage.uo":
 //			command = new MypageCommand();
