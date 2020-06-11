@@ -17,31 +17,10 @@
 	<header></header>
 	<h2>나를 소개하세용~!</h2>
 
-	<form name="frmView1" id="frmView1" method="post">
-
-
-
-		<!--  확인용   -->
-		<br> user_uid : ${userDto[0].user_uid }
-
-		<!-- 보이지 않으나, form submit 할 떄 보내짐. -->
-		
-
-		<table>
-			<thead>
-				<th>sub : ${userDto[0].mypage_subject }</th>
-				<th>content : ${userDto[0].mypage_content }</th>
-			</thead>
-
-			<tbody>
-			</tbody>
-		</table>
-	</form>
-
-	<hr>
-
 	<form method="post" name="frmView2" id="frmView2">
-	<input type="hidden" name="user_uid" value="${userDto[0].user_uid }">
+
+		<!-- 보이진 않지만 submit 했을 때 파라미터 uid 넘어감  -->
+		<input type="hidden" name="user_uid" value="${userDto[0].user_uid }">
 		<div style="float: left">
 			<input type="button" id="update_btn" value="수정">
 		</div>
@@ -50,33 +29,36 @@
 			<label for="title">제목</label>
 			<div>
 				<input type='text' name='mypage_subject' id='mypage_subject'
-					value='${mypage[0].mypage_subject }'  required="required">
+					value='${mypage[0].mypage_subject }' required="required">
 			</div>
 		</div>
-
 		<div>
 			<label for="content">내용</label>
 			<div>
-				<textarea name='mypage_content' id='mypage_content' rows='10' 
-				> ${mypage[0].mypage_content }</textarea>
+				<textarea name='mypage_content' id='mypage_content' rows='10'> ${mypage[0].mypage_content }</textarea>
 			</div>
 		</div>
+
 	</form>
 
 
 
+	<form method="post" enctype="multipart/form-data">
+		프로필 사진
+		<div>
+			<input type="file" name="file"><br>
+		</div>
+	</form>
 
 
-
-
-	<%-- 	<%-- 이미지인 경우 보여주기  --%>
-	<%-- 	<c:forEach var="element" items="${file }"> --%>
-	<%-- 		<c:if test="${element.image == true }"> --%>
-	<!-- 			<div style="width: 300px;"> -->
-	<%-- 				<img style="width: 100%; height: auto" src="upload/${element.file }" /> --%>
-	<!-- 			</div> -->
-	<%-- 		</c:if> --%>
-	<%-- 	</c:forEach> --%>
+	<!-- 		이미지인 경우 보여주기  -->
+	<c:forEach var="element" items="${file }">
+		<c:if test="${element.image == true }">
+			<div style="width: 300px;">
+				<img style="width: 100%; height: auto" src="upload/${element.file }" />
+			</div>
+		</c:if>
+	</c:forEach>
 
 	<footer></footer>
 </body>
