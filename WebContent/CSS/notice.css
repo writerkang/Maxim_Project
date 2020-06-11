@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
 }
-body {
+.body {
     margin: 0 20%;
 }
 table{
@@ -116,13 +116,11 @@ ul.pagination {
 
 footer.ft_white {
 	/*
-	width: 100%;
    height:auto;
+   padding-left:0;*/
    position:absolute;
-   padding-left:0;
-   */
-   
    bottom:0;
-   margin-top : 200px; 
+   margin-top : 200px;
+	width: 100%;
 } 
 

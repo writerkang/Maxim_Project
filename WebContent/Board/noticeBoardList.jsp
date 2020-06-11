@@ -38,10 +38,29 @@
 <link rel="stylesheet" href="../CSS/bootstrap.css">
 <link rel="stylesheet" href="../CSS/notice.css">
 
+<link href="../CSS/siteBoard.css" rel="stylesheet" type="text/css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="../CSS/header.css">
 <title>공지사항목록</title>
 </head>
 <body>
-	<h1 class="header">공지사항</h1>
+
+	<!-- 헤더 부분 입니다. -->
+	<jsp:include page="../header.jsp" />
+	<script src="../JS/header.js"></script>
+
+	<div class="body">
+	<h1 class="header" style="margin-top:100px;">공지사항</h1>
 	<hr>
 
 	<table class="table table-hover text-center">
@@ -86,7 +105,7 @@
 
 
 
-
+</div>
    <footer class="ft_white">
         <div class="ft_link">
             <ul class="ft_link-ul">
