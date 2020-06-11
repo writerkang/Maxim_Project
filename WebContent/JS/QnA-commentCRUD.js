@@ -63,8 +63,9 @@ $(document).ready(function(){
 			} // end for
 		}
 		$(".comment-list").html(str);
-		$(".selected").css('color', 'red');
+		$(".selected").css('font-weight', 'bold');
 		var $comment_box = $(".selected").closest('.comment-box');
+		$comment_box.addClass("jumbotron");
 		$comment_box.closest('.comment-list').find('.comment-box:first').before($comment_box);
 	}
 	//------------------------------
