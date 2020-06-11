@@ -53,6 +53,15 @@ $(document).ready(function(){
 		$(".comment-list").html(str);
 	}
 	//------------------------------
+	
+	//채택 버튼 눌렀을때 동작하는 온클릭함수
+	$(document).on("click", ".btn-adopt", chooseComment);
+	
+	function chooseComment(e){
+		var item = $(this).closest(".comment-box");
+		var comment_uid = item.find(".cmt-uid").text();
+		location.href='../Comment/commentChooseOk.co?comment_uid=' + comment_uid;
+	}
 		
 	// 댓글 작성 시 새로운 댓글 데이터를 반영하여 댓글 목록 보여주는 함수
 	$("#frm-write-cmt button[type=submit]").click(writeComment);

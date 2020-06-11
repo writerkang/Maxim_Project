@@ -27,26 +27,26 @@
 <div class="container">
     <h4 style="margin-top: 24px">포인트랭킹</h4>
     <div class="panel-ranker-info">
-        <div class="ranker1 ranker-info">
-            <div class="card">
-                <div class="card-image">
-                    <img src="../user.png">
-                </div>
-                <div class="card-text">
-                    <span class="date">어쩌구 저쩌구</span>
-                    <h2 class="ranker-name"></h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor</p>
-                </div>
-                <div class="card-stats"></div>
-            </div>
-        </div>
         <div class="ranker2 ranker-info">
             <div class="card">
                 <div class="card-image">
                     <img src="../user.png">
                 </div>
                 <div class="card-text">
-                    <span class="date">어쩌구 저쩌구</span>
+                    <span class="date">Rank2</span>
+                    <h2 class="ranker-name"></h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor</p>
+                </div>
+                <div class="card-stats"></div>
+            </div>
+        </div>
+        <div class="ranker1 ranker-info">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../user.png">
+                </div>
+                <div class="card-text">
+                    <span class="date">Rank1</span>
                     <h2 class="ranker-name"></h2>
                     <p>Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor</p>
                 </div>
@@ -59,7 +59,7 @@
                     <img src="../user.png">
                 </div>
                 <div class="card-text">
-                    <span class="date">어쩌구 저쩌구</span>
+                    <span class="date">Rank3</span>
                     <h2 class="ranker-name"></h2>
                     <p>Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor</p>
                 </div>
