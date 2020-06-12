@@ -54,7 +54,7 @@
 		<c:when test="${userDto[0].user_email != null }">
       		<li><button type="button" class="btn btn-warning" onclick="location.href='${pageContext.request.contextPath}/User/logout.uo'" 
       		id="logout" style="margin:15% 0 0 10px; " >로그아웃</button></li>
-			<li class="nav-item "><a class="nav-link active" onclick="location.href='${pageContext.request.contextPath}/User/mypageView.uo'"
+			<li class="nav-item "><a class="nav-link active" onclick="location.href='${pageContext.request.contextPath}/User/mypageView.uo?user_uid=${sessionScope.userDto[0].user_uid}'"
 			style="margin:12% 0 ; color:#333;" id="mypage">마이페이지</a></li> 
 		</c:when>
       </c:choose>			

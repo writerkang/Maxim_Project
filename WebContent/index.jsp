@@ -30,7 +30,7 @@
 		</c:when>
 		<c:when test="${userDto[0].user_email != null }">
       		<li><button type="button" class="btn btn-warning" onclick="location.href='${pageContext.request.contextPath}/User/logout.uo'" id="logout">로그아웃</button></li>
-			<li class="nav-item "><a class="nav-link active" onclick="location.href='${pageContext.request.contextPath}/User/mypageView.uo'">마이페이지</a></li> 
+			<li class="nav-item "><a class="nav-link active" onclick="location.href='${pageContext.request.contextPath}/User/mypageView.uo?user_uid=${sessionScope.userDto[0].user_uid}'">마이페이지</a></li> 
 		</c:when>
       </c:choose>
 				
