@@ -92,7 +92,7 @@
       <div class="modal-content">
                 <p style="text-align: center; line-height: 1.5;"><br/>이메일 주소 인증 메일이 전송되었습니다.</p>
                 <p style="text-align: center; line-height: 1.5;"><br/>이메일에 들어가셔서 인증해주세요.</p>
-				<p style="text-align: center; line-height: 1.5;"><br/><button onclick="location.href='/Maxim_Project/User/login.uo'">로그인하러 가기!</button></p>                <p><br /></p>
+				
 	
       </div>
  
