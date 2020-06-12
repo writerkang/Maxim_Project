@@ -20,7 +20,7 @@
       <!-- Modal content -->
       <div class="modal-content">
                 <p style="text-align: center; line-height: 1.5;"><br/>인증이 완료된 이메일입니다.</p>
-                <p style="text-align: center; line-height: 1.5;"><br/><a href= "javascript:window.history.back()" >뒤로가기!</a></p>
+                <p style="text-align: center; line-height: 1.5;"><br/><button onclick=history.back()>뒤로가기!</button></p>
                 <p><br /></p>
 
       </div>

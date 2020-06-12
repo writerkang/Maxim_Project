@@ -1,45 +1,69 @@
-@charset "utf-8";
-
-@font-face {
-    font-family: yun;
-    src: url(font/윤고딕310.ttf);
-  }
-
-*
-{font-family: yun;}
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+}
+.body {
+    margin: 0 20%;
+}
+h1.header{
+	font-size: 27px;
+	font-weight: 0;
+}
+h1 {
+    margin: 100px 0 30px 0;
+}
+/* search icon css */
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
 #content{
     background-color: #fafafa;
-    width: 84%;
     margin: 30px auto;
     padding: 20px 10px;
     border-top: 1px solid #DEDEDE;
+    
+    height: 300px;
 }
 
 #notice_title{
     display: inline;
-    font-size: 20px;
+    font-size: 13px;
+    margin-bottom : 20px !important;
 }
 
 #notice_date{
+	display: inline;
     float: right;
-    font-size: 13px;
+    font-size: 10px;
 }
 
 #notice_content{
+	font-size: 10px;
     padding: 30px 10px;
 }
 
 #back_btn{
-    background-color: #333333;
-    color: white;
+	background-color:white;
+    color: #333;
     float: right;
-    margin-right: 8%;
-    font-size: 16px;
-    border-radius: 7px;
-    margin-bottom: 30px;
+    font-size: 10px;
+    border-radius: 1px;
+    padding: 2px 10px 2px 10px;
+    border: 1px solid #333;
+    transition: 0.5s
 }
+#back_btn:hover{
+	background:#333;
+	color:#fff;
+}
+
 
 button:hover{
     cursor: pointer;
 }
+footer.ft_white {
+   bottom:0;
+   margin-top : 50px; 
+} 
+

@@ -72,7 +72,6 @@ CREATE TABLE tb_user
 SELECT * FROM TB_USER;
 DELETE FROM TB_USER;
 
-
 SELECT * FROM tb_post;
 
 
@@ -91,7 +90,7 @@ CREATE TABLE tb_board
 CREATE TABLE tb_post
 (
     post_uid        NUMBER          PRIMARY KEY, 
-    post_subject    VARCHAR2(60)    NOT NULL, 
+    post_subject    VARCHAR2(200)    NOT NULL, 
     post_content    CLOB            NOT NULL, 
     post_regdate    DATE            DEFAULT SYSDATE NOT NULL, 
     post_viewcnt    NUMBER          DEFAULT 0 NOT NULL, 

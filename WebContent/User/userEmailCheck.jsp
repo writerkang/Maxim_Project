@@ -26,7 +26,7 @@
       <!-- Modal content -->
       <div class="modal-content">
                 <p style="text-align: center; line-height: 1.5;"><br/>인증 성공!</p>
-                <p style="text-align: center; line-height: 1.5;"><br/><a href="joinForm.uo?user_email=<%=(String) request.getAttribute("checkEmail")%>">회원가입페이지</a>로 이동합니다.</p>
+                <p style="text-align: center; line-height: 1.5;"><br/><button onclick="location.href='joinForm.uo?user_email=<%=(String) request.getAttribute("checkEmail")%>'">회원가입 페이지로!</button></p>
                 <p><br /></p>
 
       </div>
@@ -38,7 +38,7 @@
       <!-- Modal content -->
       <div class="modal-content">
                 <p style="text-align: center; line-height: 1.5;"><br/>유효하지 않은 인증코드 입니다.</p>
-                <p style="text-align: center; line-height: 1.5;"><br/><a href= "javascript:window.history.back()" >뒤로가기!</a></p>
+                <p style="text-align: center; line-height: 1.5;"><br/><button onclick=history.back()>뒤로가기!</button></p>
                 <p><br /></p>
 
       </div>

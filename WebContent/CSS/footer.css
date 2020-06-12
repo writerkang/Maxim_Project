@@ -1,6 +1,5 @@
-@charset 
-
-* {
+@charset "UTF-8";
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -71,3 +70,10 @@ p.callnumber {
 .about p {
     margin-top: 16px;
 }
+footer.ft_white{
+	position:absolute;
+	bottom:0;
+	margin-top:200px;
+	width: 100%;
+}
+
