@@ -132,6 +132,7 @@ DELETE FROM TB_BOARD;
 
 
 --tb_post 값 입력 예시
+
 INSERT INTO TB_POST (POST_UID , POST_SUBJECT , POST_CONTENT , POST_REGDATE , POST_VIEWCNT , BOARD_UID ,  USER_UID , CATEGORY_UID )
 VALUES (post_seq.nextval, '공지글입니다', 'b;labfb', sysdate, 0, 1, 1, 2)
 ;
@@ -148,6 +149,8 @@ SELECT POST_SUBJECT , POST_CONTENT , POST_REGDATE , POST_VIEWCNT , BOARD_UID , U
 ;
 
 SELECT * FROM TB_POST ORDER BY post_uid desc;
+DELETE FROM TB_POST; 
+
 
 
 --tb_comment 값 입력 예시
@@ -161,6 +164,7 @@ SELECT tp.*, tu.USER_NAME FROM TB_POST tp , TB_USER tu
 WHERE tp.USER_UID = tu.USER_UID AND tp.POST_SUBJECT LIKE '%자바%' ORDER BY tp.post_uid DESC
 
 SELECT * FROM tb_page;
+
 
 
 
