@@ -74,7 +74,7 @@ SELECT * FROM TB_USER;
 DELETE FROM TB_USER;
 
 SELECT * FROM tb_post;
-
+DELETE FROM tb_post;
 
 CREATE TABLE tb_category
 (
