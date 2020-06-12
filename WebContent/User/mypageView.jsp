@@ -30,9 +30,9 @@
 
 
 		<form method="post" name="frmView2" id="frmView2">
-			<input type="hidden" name="user_uid"value="${userDto[0].user_uid }">
-			<h1 class="name">${sessionScope.userDto[0].user_name}Michille Gomes</h1>
-			<p class="job-title">${sessionScope.userDto[0].user_email}jjuccee@gmail.com</p><br><br>
+			<input type="hidden" name="user_uid"value="${list[0].user_uid }">
+			<h1 class="name">${list[0].user_name}</h1>
+			<p class="job-title">${list[0].user_email}</p><br><br>
 			<div class="clear" style="clear: both;"></div>
 			
 			<div>

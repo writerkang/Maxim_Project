@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.user.JoinCommand;
 import command.user.LoginCommand;
-import command.user.MypageUpdateOkCommand;
-import command.user.MypageViewCommand;
+import command.user.MyPageCommand;
 import command.user.NameChkCommand;
 import command.user.UserDeleteCommand;
 import command.user.UserEmailCheckCommand;
@@ -108,6 +107,8 @@ public class UserController extends HttpServlet {
 			break;
 
 		case "/User/mypageView.uo": // 마이페이지 진입 시 view 역할
+			command = new MyPageCommand();
+			command.execute(request, response);
 			viewPage = "mypageView.jsp";
 			break;
 
