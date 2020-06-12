@@ -50,7 +50,7 @@ $(document).ready(function(){
 				}
 				
 				if((userUid == postWriterUid) && (userUid != data[i].user_uid) && !isSelected){
-					str += "<button class='btn-adopt'>채택</button>"				
+					str += "<button class='btn-adopt btn btn-primary active'>채택</button>"				
 				} 
 				else if(data[i].comment_selected == 'T'){
 					str += "<span class='selected'>질문자가 채택한 답변입니다</span>"
