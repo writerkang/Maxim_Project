@@ -25,7 +25,13 @@ public class MypageQuery {
 	
 	// 특정 user_uid 에  mypage  첨부파일 (attach_uid) 하나를 SELECT
 	public static final String SQL_ATTACH_FILE_SELECT = 
-			"SELECT attach_oriname, attach_servername "
+			"SELECT attach_uid, attach_oriname, attach_servername "
 			+ "FROM tb_attach WHERE user_uid = ?";
+	
+	// 특정 회원 (user_uid) 의 첨부파일(들)을 DELETE
+	public static final String SQL_ATTACH_FILE_DELETE_BY_UID = 
+			"DELETE FROM tb_attach WHERE user_uid = ?"
+			;
+	
 	
 }
