@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import beans.AttachDAO;
 import beans.AttachDTO;
+import beans.MypageDAO;
 import common.Command;
 
 public class FileUploadOkCommand implements Command {
@@ -30,44 +31,38 @@ public class FileUploadOkCommand implements Command {
 		String mypage_content = request.getParameter("mypage_content");
 
 		// 유효성 체크
-//		if(param == null) {
-//			message.append("유효하지 않은 parameter 0 or null");
-//		} else if(mypage_subject == null || mypage_subject.trim().length() == 0) {
-//			message.append("유효하지 않은 parameter : 글제목 필수 !");
-//		} else {
-//			
-//			try {
-//				int user_uid = Integer.parseInt(param);
-//				
-////				cnt = dao.updateByUid(user_uid, mypage_subject, mypage_subject); // 성공하면 1
-//				status = "OK";
-//
-////				dao = new MypageDAO();
-////				arr = dao.viewByUid(user_uid);
-//				
-//				// status 는 일단 OK 로 갈게, 근데 메시지만 다르게 해줄게
-//				if(cnt == 0) {
-//					message.append("[0 update]");
-//				} 
-//
-//				if(arr != null) {
-//					HttpSession session = request.getSession(true);
-//					session.setAttribute("mypage", arr); // 그 정보를 session 에 저장하고 보내줌.
-//				}
-//			} catch (SQLException e) {
-//				//e.printStackTrace();
-//				message.append("트랜잭션 에러: " + e.getMessage());
-//			} catch (Exception e) {
-//				message.append("유효하지 않은 parameter : " + param);
-//			}
-//
-//		} // end if
-//
-//		// 얘네들의 결과가 AjaxListCommand 로 넘어감
-//		request.setAttribute("result", cnt);  // 1 넘어갈 것 
-//		request.setAttribute("status", status);
-//		request.setAttribute("message", message.toString());
-//		
+		if(param == null) {
+			message.append("유효하지 않은 parameter 0 or null");
+		} else if(mypage_subject == null || mypage_subject.trim().length() == 0) {
+			message.append("유효하지 않은 parameter : 글제목 필수 !");
+		} else {
+			
+			try {
+				int user_uid = Integer.parseInt(param);
+				
+				cnt = dao.deleteByUid(user_uid, request); // 성공하면 1
+				status = "OK";
+
+				
+//				 status 는 일단 OK 로 갈게, 근데 메시지만 다르게 해줄게
+				if(cnt == 0) {
+					message.append("[0 update]");
+				} 
+
+			} catch (SQLException e) {
+				//e.printStackTrace();
+				message.append("트랜잭션 에러: " + e.getMessage());
+			} catch (Exception e) {
+				message.append("유효하지 않은 parameter : " + param);
+			}
+
+		} // end if
+
+		// 얘네들의 결과가 AjaxListCommand 로 넘어감
+		request.setAttribute("result", cnt);  // 1 넘어갈 것 
+		request.setAttribute("status", status);
+		request.setAttribute("message", message.toString());
+		
 	}
 
 
