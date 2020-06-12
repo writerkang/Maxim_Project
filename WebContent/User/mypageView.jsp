@@ -50,7 +50,7 @@
 			</div>
 			
 			
-			<a href="#" class="btn" id="update_btn"><i class="fas fa-cog"></i></a>
+			<input type="button" class="btn" id="update_btn" value="수정"><i class="fas fa-cog"></i>
 		</form>
 		
 		
@@ -64,7 +64,7 @@
 	</div>
 </div>
 </section>
-
+<%-- 
 	<form method="post" enctype="multipart/form-data">
 		프로필 사진
 		<div>
@@ -80,7 +80,7 @@
 				<img style="width: 100%; height: auto" src="upload/${element.file }" />
 			</div>
 		</c:if>
-	</c:forEach>
+	</c:forEach> --%>
 
 
 

@@ -1,7 +1,7 @@
 $(document).ready(function() {
-	if(${userDto[0].user_uid!=param.user_uid}){
-		 $('#update_btn').shide();
-	}
+//	if(${userDto[0].user_uid!=param.user_uid}){
+//		 $('#update_btn').shide();
+//	}
 	$('form input[name=mypage_subject]').attr('disabled', true);
 	$('form textarea[name=mypage_content').attr('disabled', true);
 
