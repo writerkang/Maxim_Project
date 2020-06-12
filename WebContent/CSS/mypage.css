@@ -101,23 +101,20 @@ section{
     color: #333;
 }
 .card .btn{
-    padding: 1rem 2.5rem;
+    padding: 0.5rem 1rem;
     background-color: #333;
-    border-radius: 2rem;
+    border-radius: 1rem;
     margin: 1rem 0;
     text-transform: uppercase;
     color: #eee;
-    font-size: 1.4rem;
-    transition: all .5s;
+    font-size: 1rem;
+    transition: 0.5s;
 }
 .card .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, .2);
+    background-color: #ffd669;
+    color: #333;
 }
-.card .btn:active{
-    transform: translateY(0);
-    box-shadow: none;
-}
+
 .social-media{
     width: 100%;
     list-style: none;
@@ -143,8 +140,16 @@ section{
 .fa-facebook-square:hover,
 .fa-google-plus-square:hover ,
 .fa-instagram:hover {
-    color: #ffd669;
+	transform: translateY(-2px);
+    box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, .2);
 }
+.fa-facebook-square:active,
+.fa-google-plus-square:active,
+.fa-instagram:active{
+    transform: translateY(0);
+    box-shadow: none;
+}
+
 input#mypage_subject {
 	width: 450px;
 	height: 50px;

@@ -11,22 +11,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
 <link rel="stylesheet" href="../CSS/bootstrap.css">
 <link rel="stylesheet" href="../CSS/mypage.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../CSS/header.css"/> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../JS/mypageView.js" type="text/javascript"></script>
-<title>${sessionScope.userDto[0].user_name }님의MyPage</title>
+<title>${sessionScope.userDto[0].user_name}님의MyPage</title>
 </head>
 <body>
+
+<!-- 헤더 부분 입니다. -->
+<jsp:include page="../header.jsp" />
+<script src="../JS/header.js"></script>
+<!---------------------------------->
+
 <section>
 <div class="container">
 	<h1 class="heading">MY PAGE</h1>
 	<hr>
 	<div class="card-wrapper">
 	<div class="card">
-		<img src="" alt="card background" class="card-img">
-		<img src="" alt="profile img" class="profile-img">
+		<div alt="card background" class="card-img"></div>
+		<img src="../image/user.png" alt="profile img" class="profile-img">
 
 
 		<form method="post" name="frmView2" id="frmView2">
@@ -50,7 +58,7 @@
 			</div>
 			
 			
-			<input type="button" class="btn" id="update_btn" value="수정"><i class="fas fa-cog"></i>
+			<input type="button" class="btn" id="update_btn" value="수정">
 		</form>
 		
 		

@@ -30,7 +30,7 @@
         <div class="ranker2 ranker-info">
             <div class="card">
                 <div class="card-image">
-                    <img src="../user.png">
+                    <img src="../image/user.png">
                 </div>
                 <div class="card-text">
                     <span class="date">Rank2</span>
@@ -43,7 +43,7 @@
         <div class="ranker1 ranker-info">
             <div class="card">
                 <div class="card-image">
-                    <img src="../user.png">
+                    <img src="../image/user.png">
                 </div>
                 <div class="card-text">
                     <span class="date">Rank1</span>
@@ -56,7 +56,7 @@
         <div class="ranker3 ranker-info">
             <div class="card">
                 <div class="card-image">
-                    <img src="../user.png">
+                    <img src="../image/user.png">
                 </div>
                 <div class="card-text">
                     <span class="date">Rank3</span>
