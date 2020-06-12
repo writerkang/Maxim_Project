@@ -163,3 +163,17 @@ CREATE TABLE tb_star
   	CONSTRAINT FKS_post FOREIGN KEY(post_uid)  
   	REFERENCES tb_post(post_uid)
 );
+
+--tb_board 값 입력 예시
+INSERT INTO TB_BOARD (BOARD_UID , BAORD_NAME )
+VALUES (1, '공지사항')
+;
+INSERT INTO TB_BOARD (BOARD_UID , BAORD_NAME )
+VALUES (2, '자유게시판')
+;
+INSERT INTO TB_BOARD (BOARD_UID , BAORD_NAME )
+VALUES (3, '팁게시판')
+;
+INSERT INTO TB_BOARD (BOARD_UID , BAORD_NAME )
+VALUES (4, '질문게시판')
+;
