@@ -71,7 +71,7 @@ CREATE TABLE tb_user
     mypage_content    CLOB
     );
 SELECT * FROM TB_USER;
-DELETE FROM TB_USER;
+DELETE FROM TB_USER ;
 
 SELECT * FROM tb_post;
 DELETE FROM tb_post;
@@ -132,17 +132,19 @@ CREATE TABLE tb_comment
 
 CREATE TABLE tb_attach
 (
-    attach_uid           NUMBER           PRIMARY KEY, 
+--    attach_uid           NUMBER           PRIMARY KEY, 
     attach_oriname       VARCHAR2(100)     NOT NULL, 
-    attach_servername    VARCHAR2(100)     NOT NULL, 
-    attach_type          VARCHAR2(50)     , 
-    attach_url           VARCHAR2(100)    NOT NULL, 
-    attach_regdate       DATE             DEFAULT SYSDATE NOT NULL, 
-    attach_size          NUMBER           , 
-    post_uid             NUMBER           , 
+    attach_servername    VARCHAR2(100)     NOT NULL,   /*  긁어올 떄 필요한 이름 */
+--    attach_type          VARCHAR2(50)     , 
+    attach_uri           VARCHAR2(100)    NOT NULL, 
+--    attach_regdate       DATE             DEFAULT SYSDATE NOT NULL, 
+--    attach_size          NUMBER           , 
+--    post_uid             NUMBER           , 
     user_uid           NUMBER            	            
 );
 SELECT * FROM TB_ATTACH;
+DELETE FROM TB_ATTACH;
+
 CREATE TABLE tb_site
 (
     site_uid        NUMBER           PRIMARY KEY, 

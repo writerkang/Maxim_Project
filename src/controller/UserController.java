@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.user.FileUpdateCommand;
+import command.user.FileUploadCommand;
+import command.user.FileUploadViewCommand;
 import command.user.JoinCommand;
 import command.user.LoginCommand;
 import command.user.MyPageCommand;
@@ -103,7 +106,6 @@ public class UserController extends HttpServlet {
 		case "/User/nameChk.uo":
 			command = new NameChkCommand();
 			command.execute(request, response);
-//			viewPage = "joinForm.jsp"; --> 이렇게 하면 data 를 못 받아오는 구나...
 			break;
 
 		case "/User/mypageView.uo": // 마이페이지 진입 시 view 역할
@@ -111,7 +113,19 @@ public class UserController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "mypageView.jsp";
 			break;
+			
 
+		case "/User/mypageFileUpload.uo":
+			new FileUploadCommand().execute(request, response);
+			new FileUploadViewCommand().execute(request, response);
+			viewPage = "mypageView.jsp";
+			break;
+		case "/User/fileUpdate.uo":
+			new FileUpdateCommand().execute(request, response);
+			viewPage = "mypageView.jsp";
+			break;
+			
+			
 		case "/User/userRank.uo": // 포인트랭킹 페이지 진입 시 view 역할
 			viewPage = "userRank.jsp";
 			break;

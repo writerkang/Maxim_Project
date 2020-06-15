@@ -13,9 +13,10 @@ import command.board.CommentDeleteCommand;
 import command.board.CommentListCommand;
 import command.board.CommentUpdateCommand;
 import command.board.CommentWriteCommand;
+import command.user.AjaxMypageListCommand;
 import command.user.AjaxResultCommand;
 import command.user.AjaxUserRankListCommand;
-import command.user.FileUploadOkCommand;
+import command.user.FileUploadViewCommand;
 import command.user.MypageUpdateOkCommand;
 import command.user.UserRankListCommand;
 
@@ -83,11 +84,11 @@ public class AjaxController extends HttpServlet {
 			
 		case "/User/updateOk.ajax": // 마이페이지 글수정
 			new MypageUpdateOkCommand().execute(request, response);
-			new AjaxResultCommand().execute(request, response);
+			new AjaxMypageListCommand().execute(request, response);
 			break;
 
 		case "/User/fileUploadOk.ajax": // 
-			new FileUploadOkCommand().execute(request, response);
+			new FileUploadViewCommand().execute(request, response);
 			new AjaxResultCommand().execute(request, response);
 			break;
 			
