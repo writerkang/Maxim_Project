@@ -101,7 +101,7 @@ $("#user_name").blur(function() {
 				
 				if(nameJ.test($("#user_name").val())){ // 정규식 통과한
 					console.log("확인: " + true);
-					$("#name_check").text('사용 가능합니다~~!');
+					$("#name_check").text('사용 가능한 닉네임입니다.');
 					$('#name_check').css({"color":"blue", "font":"sans-serif", "font-size":"10px"});
 				
 				}else if ($("#user_name").val() == ""){
@@ -121,7 +121,7 @@ $("#user_name").blur(function() {
 					$('#name_check').css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 					
 				} else {
-					$('#name_check').text('닉네임은 한글,숫자 포함하여 5~10자리입니다. :)');
+					$('#name_check').text('닉네임은 한글,숫자로만 3~10자리입니다. :)');
 					$('#name_check').css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 				}
 	
@@ -148,10 +148,10 @@ $('#user_phone').blur(function(){
 	
 	if(phoneJ.test(user_phone)){
 		$('#user_phone').val(user_phone);
-		$("#phone_check").text('통과');
+		$("#phone_check").text('사용 가능한 번호입니다.');
 		$('#phone_check').css({"color":"blue", "font":"sans-serif", "font-size":"10px"});
 		
-	} else if(user_phone.length <= 11 || user_phone.length > 12){
+	} else if(user_phone.length < 11 || user_phone.length > 12){
 		$('#phone_check').text('자릿수가 맞지 않습니다');
 		$('#phone_check').css({"color":"red", "font":"sans-serif", "font-size":"10px"});
 		
@@ -169,7 +169,7 @@ var pwJ = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,16}/;
 $('#user_pw').blur(function(){
 	
 	if(pwJ.test($('#user_pw').val())){
-		$("#pw_check").text('통과');
+		$("#pw_check").text('사용 가능합니다.');
 		$('#pw_check').css({"color":"blue", "font":"sans-serif", "font-size":"10px"});
 		
 	} else{

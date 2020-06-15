@@ -71,7 +71,7 @@ CREATE TABLE tb_user
     mypage_content    CLOB
     );
 SELECT * FROM TB_USER;
-DELETE FROM TB_USER ;
+DELETE FROM TB_USER;
 
 SELECT * FROM tb_post;
 DELETE FROM tb_post;

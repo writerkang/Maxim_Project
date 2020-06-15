@@ -36,7 +36,7 @@
          <span class="bar"></span>
          <label>Name</label>
       </div>
-      <span class="text">※ 한글,영문,숫자 4~10자리 사용할 수 있습니다.</span>
+      <span class="text">※ 한글,숫자로만 3~10자리 사용할 수 있습니다.</span>
       <div class="text-warn" id="name_check"></div>
       
       <div class="group">
@@ -172,7 +172,7 @@
 ③ 회원은 내용별로 사이트가 서비스 공지사항에 게시하거나 별도로 
 공지한 이용 제한 사항을 준수하여야 합니다. </pre>
          <div class="agree">
-            개인정보수집(필수)<input type="checkbox" name="chk"id="service_ck" class="terms">
+            개인정보수집(필수)<input type="checkbox" name="chk"id="privacy_ck" class="terms">
             </div>
          <pre id="trem_content">
 제 4 장 서비스 제공 및 이용
