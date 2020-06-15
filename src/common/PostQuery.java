@@ -98,10 +98,9 @@ public class PostQuery {
 							;
 			//사용자 이름으로 검색시 총 게시물 수
 			public static final String SQL_TOTAL_FIND_BY_USERNAME =
-					"SELECT * FROM TB_POST tp, TB_USER tu " + 
-					"WHERE tp.USER_UID = tu.USER_UID " + 
-					"AND tu.USER_NAME LIKE ?" 
-					;
+					"SELECT count(*) FROM TB_USER tu " + 
+							"WHERE tu.user_name LIKE ?"
+							;
 			
 			public static final String SQL_POST_FIND_BY_USERNAME =
 					"SELECT * FROM " + 
