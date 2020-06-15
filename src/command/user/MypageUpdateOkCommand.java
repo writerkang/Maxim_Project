@@ -38,21 +38,23 @@ public class MypageUpdateOkCommand implements Command {
 			try {
 				int user_uid = Integer.parseInt(param);
 				
-				cnt = dao.updateByUid(user_uid, mypage_subject, mypage_subject); // 성공하면 1
+				cnt = dao.updateByUid(user_uid, mypage_subject, mypage_content); // 성공하면 1
 				status = "OK";
+				System.out.println("update:" + cnt);
 
-				dao = new MypageDAO();
-				arr = dao.viewByUid(user_uid);
-				
-				// status 는 일단 OK 로 갈게, 근데 메시지만 다르게 해줄게
+//				dao = new MypageDAO();
+//				arr = dao.viewByUid(user_uid);
+//				System.out.println("arr : " + arr[0]);
+//				
+//				// status 는 일단 OK 로 갈게, 근데 메시지만 다르게 해줄게
 				if(cnt == 0) {
 					message.append("[0 update]");
 				} 
-
-				if(arr != null) {
-					HttpSession session = request.getSession(true);
-					session.setAttribute("mypage", arr); // 그 정보를 session 에 저장하고 보내줌.
-				}
+//
+//				if(arr != null) {
+//					request.setAttribute("mypage", arr);
+//				}
+				
 			} catch (SQLException e) {
 				//e.printStackTrace();
 				message.append("트랜잭션 에러: " + e.getMessage());

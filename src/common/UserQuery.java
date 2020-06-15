@@ -25,7 +25,7 @@ public class UserQuery {
 		// 인증 된 이메일 -> 회원정보 tb_user 테이블에 insert 하기
 		public static final String SQL_USER_INFO_INSERT = "INSERT INTO tb_user " +
 				"(user_uid, user_email, user_name, user_phone, user_pw, mypage_subject, mypage_content) " +
-				"VALUES(user_seq.nextval, ?, ?, ?, ?, '제목', '내용')";	
+				"VALUES(user_seq.nextval, ?, ?, ?, ?, '자기소개해주세요', '자신의 관심사를 적어주세요.')";	
 
 		
 		// 이메일 테이블 삭제 

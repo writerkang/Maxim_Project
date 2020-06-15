@@ -14,35 +14,8 @@ import common.MypageQuery;
 
 public class AttachDAO extends DefaultDAO {
 
-	// 특정 회원(user_uid) DB 에 첨부파일 하나 INSERT
-//	public int fileUpload(String attach_oriname, String attach_servername, String attach_url, int user_uid) {
-//
-//		try {
-//			pstmt = conn.prepareStatement(MypageQuery.SQL_ATTACH_FILE_INSERT);
-//			pstmt.setString(1, attach_oriname);
-//			pstmt.setString(2, attach_servername);
-//			pstmt.setString(3, attach_url);
-//			pstmt.setInt(4, user_uid);
-//
-//			return pstmt.executeUpdate(); // 정상 처리 되는 경우 1 리턴
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				close();
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//
-//		return -1;
-//
-//	} // end fileUpload()
-
-	// 특정 회원(user_uid) 프로필 첨부파일 처음 insert & 수정 --> 아니야... 이건 추가야.. 변경되거나 삭제가 아니야...
-	// 아.. 첨부파일 수정은 .. -> 삭제하고 추가하는 걸로 가야하는 구나...
-	public int insert(int user_uid, List<String> originalFileNames, List<String> fileSystemNames, String attach_url)
+	// 특정 회원(user_uid) 프로필 첨부파일 처음 insert
+	public int insert(int user_uid, String originalFileName, String servername, String attach_uri)
 			throws SQLException {
 		int cnt = 0;
 
@@ -50,16 +23,12 @@ public class AttachDAO extends DefaultDAO {
 			// 첨부파일 정보 추가 (저장) 하기
 			pstmt = conn.prepareStatement(MypageQuery.SQL_ATTACH_FILE_INSERT);
 
-			for (int i = 0; i < originalFileNames.size(); i++) {
-
-				pstmt.setString(1, originalFileNames.get(i));
-				pstmt.setString(2, fileSystemNames.get(i));
-				pstmt.setString(3, attach_url);
+				pstmt.setString(1, originalFileName);
+				pstmt.setString(2, servername);
+				pstmt.setString(3, attach_uri);
 				pstmt.setInt(4, user_uid);
 
 				return pstmt.executeUpdate(); // 정상 처리 되는 경우 1 리턴
-			} // end for
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -72,19 +41,19 @@ public class AttachDAO extends DefaultDAO {
 		return -1; // 오류가 생기면 -1 을 리턴
 	}
 
-	// 이미지 보여줄 때 사용
 
+	// 이미지 보여줄 때 사용
 	// ResultSet -> DTO 배열로 return
 	public AttachDTO[] createArray(ResultSet rs) throws SQLException {
 		AttachDTO[] arr = null;
 		List<AttachDTO> list = new ArrayList<AttachDTO>();
 
 		while (rs.next()) {
-			int attach_uid = rs.getInt("attach_uid");
 			String attach_oriname = rs.getString("attach_oriname");
-			String attach_servername = rs.getString("ori_servername");
+			String attach_servername = rs.getString("attach_servername");
+			String attach_uri = rs.getString("attach_uri");
 
-			AttachDTO dto = new AttachDTO(attach_oriname, attach_servername);
+			AttachDTO dto = new AttachDTO(attach_oriname, attach_servername, attach_uri);
 			list.add(dto);
 		} // end while
 
@@ -95,7 +64,7 @@ public class AttachDAO extends DefaultDAO {
 
 	
 	// 특정 회원(user_uid) 의 첨부파일 하나 SELECT
-	public AttachDTO[] selecByUid(int user_uid) throws SQLException {
+	public AttachDTO[] selectFileByUid(int user_uid) throws SQLException {
 		AttachDTO[] arr = null;
 
 		try {
@@ -150,7 +119,7 @@ public class AttachDAO extends DefaultDAO {
 			pstmt.close();
 			rs.close();
 
-			pstmt = conn.prepareStatement(MypageQuery.SQL_ATTACH_FILE_DELETE_BY_UID); // 특절 글에 담겨 있는 모든 첨부파일들을 삭제
+			pstmt = conn.prepareStatement(MypageQuery.SQL_ATTACH_FILE_DELETE_BY_UID); // 특절 uid에 담겨 있는 모든 첨부파일들을 삭제
 			pstmt.setInt(1, user_uid);
 			cnt = pstmt.executeUpdate();
 			System.out.println("첨부파일" + cnt + "개 삭제");

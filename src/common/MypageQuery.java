@@ -18,15 +18,18 @@ public class MypageQuery {
 	// 첨부파일 관련 쿼리
 	// 특정 user_uid 에 mypage 첨부파일 1개 insert
 	public static final String SQL_ATTACH_FILE_INSERT = 
-			"INSERT INTO tb_attach(attach_uid, attach_oriname, attach_servername, attach_url, user_uid) "
+			"INSERT INTO tb_attach(attach_oriname, attach_servername, attach_uri, user_uid) "
 			+ "VALUES"
-			+ "(attach_seq.nextval, ?, ?, ?, ?)"
+			+ "(?, ?, ?, ?)"
 			;
 	
-	// 특정 user_uid 에  mypage  첨부파일 (attach_uid) 하나를 SELECT
+	// 특정 user_uid 에  mypage  첨부파일  '하나' 를 SELECT
 	public static final String SQL_ATTACH_FILE_SELECT = 
-			"SELECT attach_uid, attach_oriname, attach_servername "
+			"SELECT attach_oriname, attach_servername, attach_uri "
 			+ "FROM tb_attach WHERE user_uid = ?";
+	
+	
+	
 	
 	// 특정 회원 (user_uid) 의 첨부파일(들)을 DELETE
 	public static final String SQL_ATTACH_FILE_DELETE_BY_UID = 
