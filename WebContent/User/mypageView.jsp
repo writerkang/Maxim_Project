@@ -59,8 +59,8 @@
 								</div>
 							</c:if>
 						</c:forEach>
-						프로필 사진: <input type="file" name="file" id='fileAttach'><br> 
-						<input type="submit" value="등록" id='btn_write'> <!-- insert 하고 select 해서 view 해주는 것 까지 -->
+						<input type="file" name="file" class="btn" id='fileAttach'><br> 
+						<input type="submit" class="btn" value="등록" id='btn_write'> <!-- insert 하고 select 해서 view 해주는 것 까지 -->
 						
 <!-- 						<input type="button" value="수정" id='btn_update'> insert 하고 select 해서 view 해주는 것 까지 -->
 					

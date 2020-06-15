@@ -87,7 +87,7 @@ section {
 	z-index: 999;
 	border: 1rem solid #ebeef8;
 	position: relative;
-	top: -70px;
+/* 	top: -70px; */
 }
 
 .card h1 {
