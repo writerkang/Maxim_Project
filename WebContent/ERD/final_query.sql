@@ -6,6 +6,7 @@ DROP TABLE tb_post CASCADE CONSTRAINT purge;
 DROP TABLE tb_comment CASCADE CONSTRAINT purge;
 DROP TABLE tb_star CASCADE CONSTRAINT purge;
 DROP TABLE tb_board CASCADE CONSTRAINT purge;
+DROP TABLE tb_attach CASCADE CONSTRAINT purge;
 --시퀀스 삭제
 DROP SEQUENCE user_seq;
 DROP SEQUENCE post_seq;
@@ -99,6 +100,18 @@ CREATE TABLE tb_star
   	REFERENCES tb_post(post_uid)
 );
 
+CREATE TABLE tb_attach
+(
+--    attach_uid           NUMBER           PRIMARY KEY, 
+    attach_oriname       VARCHAR2(100)     NOT NULL, 
+    attach_servername    VARCHAR2(100)     NOT NULL,   /*  긁어올 떄 필요한 이름 */
+--    attach_type          VARCHAR2(50)     , 
+    attach_uri           VARCHAR2(100)    NOT NULL, 
+--    attach_regdate       DATE             DEFAULT SYSDATE NOT NULL, 
+--    attach_size          NUMBER           , 
+--    post_uid             NUMBER           , 
+    user_uid           NUMBER            	            
+);
 --게시판 값 입력
 INSERT INTO TB_BOARD (BOARD_UID , BAORD_NAME )
 VALUES (1, '공지사항')

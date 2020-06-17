@@ -25,7 +25,8 @@
  	<c:when test="${emailChkNum eq '0' }">
 	<%
 		// 사용자에게 보낼 메시지를 기입합니다.
-	String host = "http://localhost:8109/Maxim_Project";
+	//String host = "http://localhost:8109/Maxim_Project";
+	String host = request.getRequestURL().toString().replace(request.getRequestURI(),"") + "/Maxim_Project";
 	String from = "leeyji375";
 	String to = new UserDAO().GetUserEmail();  /* 사용자 이메일 */
 	String subject = "SysOut 이메일 인증 메일입니다.";

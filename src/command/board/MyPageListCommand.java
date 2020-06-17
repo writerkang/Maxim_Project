@@ -18,7 +18,7 @@ public class MyPageListCommand implements Command {
 		PostDTO [] arr = null;
 		
 		try {
-			arr = dao.selectByUid2(1);
+			arr = dao.selectByUid(1);
 			
 			request.setAttribute("list", arr);
 		} catch (SQLException e) {
